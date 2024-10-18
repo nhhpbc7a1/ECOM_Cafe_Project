@@ -1,0 +1,2430 @@
+.acy {
+    color: #fce700;
+}
+.delicacy-txt {
+    line-break: anywhere;
+    width: 100%;
+}
+.delicacy {
+    position: absolute;
+    top: -20px;
+    left: 1px;
+    line-height: 20px;
+    display: flex;
+    font-weight: 900;
+    align-items: center;
+    width: 266px;
+    height: 119px;
+}
+.logo-icon {
+    position: absolute;
+    top: 8px;
+    left: 1px;
+    width: 51px;
+    height: 57px;
+    object-fit: cover;
+}
+.fullsvg1 {
+    width: 255px;
+    position: relative;
+    height: 79px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.fullsvg-fill {
+    width: 255px;
+    height: 79px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.fullsvg {
+    align-self: stretch;
+    height: 87px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.divdesktop-navigation-logo {
+    width: 233px;
+    height: 83px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 4px 0px 0px;
+    box-sizing: border-box;
+    font-size: 40px;
+    color: #000;
+}
+.link {
+    align-self: stretch;
+    width: 200px;
+}
+.gii-php {
+    position: relative;
+    line-height: 20px;
+    font-weight: 600;
+}
+.spanh-button-content {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 0px 0.5px;
+}
+.spantext-align {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.svg-icon {
+    width: 16px;
+    position: relative;
+    height: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.spansvg-icon {
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2px 0px 0px 4px;
+    box-sizing: border-box;
+}
+.button {
+    border-radius: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.divmenu-navigation-main-item {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2px 0px;
+}
+.divmenu-navigation-main-item4 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2px 0px;
+    text-align: left;
+}
+.divmenu-navigation-container {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+}
+.nav1 {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 72px 8px 0px;
+    box-sizing: border-box;
+    min-width: 600px;
+}
+.divdesktop-navigation-main-me {
+    width: 1170px;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 74px;
+}
+.link2 {
+    border-radius: 32px;
+    border: 2px solid #0d0e0e;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 10px 34px;
+}
+.divdesktop-navigation-primary {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.button5 {
+    border-radius: 32px;
+    background-color: #36f2ff;
+    border: 2px solid #36f2ff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 10px 34px;
+}
+.divdesktop-navigation-seconda {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+    color: #000;
+}
+.divdesktop-navigation-ctas {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+    text-align: left;
+}
+.divdesktop-navigation-contain {
+    width: 1341px;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav {
+    position: absolute;
+    top: calc(50% - 2931.5px);
+    left: calc(50% - 719px);
+    background-color: #c3f4ff;
+    width: 1440px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 17px 26.7px 18px 72px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #171214;
+    font-family: Roboto;
+}
+.youre-on-our {
+    position: relative;
+    line-height: 24px;
+}
+.divpr-4 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 16px 0.5px 0px;
+}
+.change-region {
+    position: relative;
+    line-height: 19px;
+}
+.div {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1px 29.6px 1px 0px;
+}
+.options {
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 16px 0px 4px;
+}
+.divcountry-selector-topbar-se {
+    align-self: stretch;
+    height: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1px 0px 2px;
+    box-sizing: border-box;
+}
+.divpx-1 {
+    align-self: stretch;
+    border-radius: 6px;
+    border: 1px solid #44aaff;
+    box-sizing: border-box;
+    height: 41px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 9px 5px;
+}
+.divmx-4 {
+    position: absolute;
+    top: -3.5px;
+    left: 12px;
+    width: 187px;
+    height: 41px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.divmx-4margin {
+    width: 194px;
+    position: relative;
+    height: 34px;
+}
+.divflex1 {
+    width: 440px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.divflexmargin {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 269.6px;
+    box-sizing: border-box;
+    min-width: 440.83px;
+}
+.divclosebtnmargin {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 30px 8.5px 10px;
+    box-sizing: border-box;
+    min-width: 42px;
+    font-size: 36px;
+    color: #171314;
+}
+.divflex {
+    width: 1088px;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    box-sizing: border-box;
+    max-width: 1088px;
+}
+.section {
+    width: 1440px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 176px;
+    box-sizing: border-box;
+}
+.divcountry-selector-topbar {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: rgba(83, 224, 255, 0.35);
+    height: 69px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    font-size: 16px;
+    font-family: Roboto;
+}
+.nhgt-1-icon {
+    width: 509px;
+    position: relative;
+    border-radius: 85px;
+    height: 485px;
+    object-fit: cover;
+    z-index: 0;
+}
+.vector-icon {
+    position: absolute;
+    height: 98.87%;
+    width: 99.79%;
+    top: 0%;
+    right: 0.21%;
+    bottom: 1.13%;
+    left: 0%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.vector-icon1 {
+    position: absolute;
+    height: 17.12%;
+    width: 1.9%;
+    top: 42.5%;
+    right: 68.3%;
+    bottom: 40.39%;
+    left: 29.79%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.tng-tri-nghim {
+    position: absolute;
+    top: 27.48%;
+    left: 16.14%;
+    line-height: 20px;
+}
+.vector-icon2 {
+    position: absolute;
+    height: 4.28%;
+    width: 2.4%;
+    top: 42.21%;
+    right: 65%;
+    bottom: 53.51%;
+    left: 32.6%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.mask-group-icon {
+    position: absolute;
+    height: 47.3%;
+    width: 8.69%;
+    top: 23.7%;
+    right: 5.45%;
+    bottom: 29%;
+    left: 85.87%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.ai-featuressvg1 {
+    width: 241.7px;
+    position: relative;
+    height: 44.4px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.ai-featuressvg-fill {
+    width: 241.7px;
+    height: 44.4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ai-featuressvg {
+    margin: 0 !important;
+    position: absolute;
+    height: 9.08%;
+    width: 45.38%;
+    top: 60.49%;
+    right: 66.3%;
+    bottom: 30.43%;
+    left: -11.68%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 1;
+}
+.mask-group-icon1 {
+    position: absolute;
+    height: 47.3%;
+    width: 8.69%;
+    top: 25.68%;
+    right: 5.04%;
+    bottom: 27.02%;
+    left: 86.27%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.ti-u-quy {
+    position: absolute;
+    top: 25.33%;
+    left: 12.83%;
+    line-height: 20px;
+}
+.video-introductionsvg {
+    width: 45.38%;
+    margin: 0 !important;
+    position: absolute;
+    height: 9.08%;
+    top: 73.57%;
+    right: 59.35%;
+    bottom: 17.35%;
+    left: -4.74%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 2;
+}
+.vector-icon4 {
+    position: absolute;
+    height: 98.87%;
+    width: 99.79%;
+    top: 1.02%;
+    right: 0.21%;
+    bottom: 0.11%;
+    left: 0%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.mask-group-icon2 {
+    position: absolute;
+    height: 47.3%;
+    width: 8.69%;
+    top: 26.7%;
+    right: 5.04%;
+    bottom: 26%;
+    left: 86.27%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.tng-doanh-thu {
+    position: absolute;
+    top: 27.69%;
+    left: 7.86%;
+    line-height: 20px;
+}
+.profile-analyticssvg {
+    margin: 0 !important;
+    position: absolute;
+    height: 9.08%;
+    width: 45.38%;
+    top: 86.65%;
+    right: 40.95%;
+    bottom: 4.27%;
+    left: 13.67%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 3;
+}
+.divsc-27840401-2 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 69.3px 4px 93.3px;
+    position: relative;
+}
+.divstyledcol-sc-1g0wedk-0 {
+    width: 548.6px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.divstyledcol-sc-1g0wedk-0mar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 0px 16px;
+}
+.hy-lm-vic {
+    margin: 0;
+    font-weight: 600;
+}
+.cng-vi {
+    font-weight: 600;
+}
+.delicacy1 {
+    font-weight: 600;
+    font-family: 'Be Vietnam Pro';
+}
+.cng-vi-delicacy {
+    margin: 0;
+}
+.hy-lm-vic-container {
+    position: relative;
+    line-height: 68px;
+}
+.divsc-27840401-0 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 28.6px 0px 0px;
+}
+.pstyledtext-styledparagraphb {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 2.7px 0px 0px;
+    font-size: 16px;
+}
+.start-now {
+    position: relative;
+    line-height: 18px;
+    display: inline-block;
+    max-height: 32px;
+}
+.button6 {
+    position: absolute;
+    top: 5px;
+    left: 357.22px;
+    border-radius: 24px;
+    background-color: #001f23;
+    width: 161px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 16px;
+    box-sizing: border-box;
+    min-width: 100px;
+}
+.dng-th-min {
+    position: absolute;
+    top: 25px;
+    left: -26.78px;
+    font-size: 36px;
+    line-height: 18px;
+    display: flex;
+    font-family: 'Be Vietnam Pro';
+    color: #000;
+    align-items: center;
+    justify-content: center;
+    width: 374px;
+    height: 12px;
+}
+.button-parent {
+    width: 599px;
+    position: relative;
+    height: 65px;
+    overflow: hidden;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    font-family: Arial;
+}
+.divstyledbox-sc-1kdlbi4-0 {
+    width: 696px;
+    height: 473px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 32px;
+    box-sizing: border-box;
+    gap: 16px;
+}
+.divstyledcol-sc-1g0wedk-01 {
+    width: 783px;
+    height: 489px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 60px;
+    font-family: 'Be Vietnam Pro';
+}
+.divstyledrow-sc-5qocqx-0 {
+    position: absolute;
+    width: 100%;
+    top: 52px;
+    right: 0px;
+    left: 0px;
+    height: 513px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 0px;
+}
+.divstyledrow-sc-5qocqx-0-wrapper {
+    position: absolute;
+    top: 151px;
+    left: 0px;
+    width: 1440px;
+    height: 600px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 12px;
+    font-family: Roboto;
+}
+.delicacy-fnb {
+    position: absolute;
+    top: 11px;
+    left: 221px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 374px;
+    height: 61px;
+}
+.icon-food-silverware {
+    position: absolute;
+    height: 85.71%;
+    width: 12.14%;
+    top: 0%;
+    right: 72.89%;
+    bottom: 14.29%;
+    left: 14.97%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.delicacy-fnb-parent {
+    position: absolute;
+    top: 17px;
+    left: 316px;
+    width: 775px;
+    height: 84px;
+    overflow: hidden;
+    font-size: 40px;
+    font-family: 'Be Vietnam Pro';
+}
+.fnb-1-icon {
+    width: 570px;
+    position: relative;
+    border-radius: 75px;
+    height: 512px;
+    object-fit: cover;
+    z-index: 0;
+}
+.vector-icon5 {
+    position: absolute;
+    height: 99.73%;
+    width: 99.95%;
+    top: 0%;
+    right: 0.05%;
+    bottom: 0.27%;
+    left: 0%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.vector-icon6 {
+    position: absolute;
+    height: 16.67%;
+    width: 21.95%;
+    top: 9.78%;
+    right: 72.79%;
+    bottom: 73.55%;
+    left: 5.26%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.plus {
+    position: absolute;
+    top: 9.91%;
+    left: 7.27%;
+    line-height: 18px;
+}
+.vector-icon7 {
+    position: absolute;
+    height: 7.57%;
+    width: 28.25%;
+    top: 79.72%;
+    right: 66.28%;
+    bottom: 12.72%;
+    left: 5.47%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.ph-hp-vi-container {
+    position: absolute;
+    top: 33.33%;
+    left: 9.69%;
+    line-height: 18px;
+    color: #000;
+}
+.work-habits-headlinesvg1 {
+    width: 206.4px;
+    position: relative;
+    height: 111px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.work-habits-headlinesvg-fill {
+    width: 206.4px;
+    height: 111px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.work-habits-headlinesvg {
+    width: 22.98%;
+    margin: 0 !important;
+    position: absolute;
+    height: 20.79%;
+    top: 70.35%;
+    right: 27.02%;
+    bottom: 8.86%;
+    left: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 1;
+}
+.divsc-b5fd6603-2 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 69px 4px 93px;
+    position: relative;
+}
+.divstyledcol-sc-1g0wedk-02 {
+    width: 914px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.divstyledcol-sc-1g0wedk-0mar1 {
+    width: 874px;
+    height: 524px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 0px 32px;
+    box-sizing: border-box;
+}
+.gii-php-qun-container {
+    position: relative;
+    line-height: 68px;
+    font-weight: 600;
+}
+.divsc-b5fd6603-0 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 101.5px 0px 0px;
+}
+.phn-mm-qun {
+    margin: 0;
+    white-space: pre-wrap;
+}
+.pstyledtext-styledparagraphb1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 39.2px 0px 0px;
+    font-size: 16px;
+}
+.button7 {
+    border-radius: 24px;
+    background-color: #001f23;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 16px;
+    box-sizing: border-box;
+    min-width: 100px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    font-family: Arial;
+}
+.divstyledbox-sc-1kdlbi4-01 {
+    width: 648px;
+    height: 473px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 32px;
+    box-sizing: border-box;
+    gap: 16px;
+}
+.divstyledcol-sc-1g0wedk-03 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+    text-align: left;
+    font-size: 60px;
+    color: #000;
+    font-family: 'Be Vietnam Pro';
+}
+.divstyledrow-sc-5qocqx-01 {
+    position: absolute;
+    top: 114px;
+    left: calc(50% - 806px);
+    background-color: rgba(149, 228, 255, 0.63);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 0px;
+    color: #fff;
+}
+.qun-l-cht-container {
+    position: absolute;
+    top: 33.33%;
+    left: 7.27%;
+    line-height: 18px;
+}
+.vector-icon9 {
+    position: absolute;
+    height: 16.67%;
+    width: 24.47%;
+    top: 9.78%;
+    right: 70.27%;
+    bottom: 73.55%;
+    left: 5.26%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.vector-icon10 {
+    position: absolute;
+    height: 5.77%;
+    width: 15.89%;
+    top: 15.28%;
+    right: 74.62%;
+    bottom: 78.96%;
+    left: 9.49%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.vector-icon11 {
+    position: absolute;
+    height: 16.67%;
+    width: 18.46%;
+    top: 9.91%;
+    right: 50.05%;
+    bottom: 73.42%;
+    left: 31.49%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.vector-icon12 {
+    position: absolute;
+    height: 5.68%;
+    width: 10.17%;
+    top: 15.32%;
+    right: 53.97%;
+    bottom: 79.01%;
+    left: 35.85%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.vector-icon13 {
+    position: absolute;
+    height: 7.57%;
+    width: 28.15%;
+    top: 79.72%;
+    right: 66.38%;
+    bottom: 12.72%;
+    left: 5.47%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.interview-tips-headlinesvg {
+    position: absolute;
+    top: calc(50% + 206px);
+    left: calc(50% - 220px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.frame-parent {
+    position: absolute;
+    top: 751px;
+    left: 0px;
+    background: linear-gradient(180deg, #fefefe, #d5f1ff 16.8%);
+    width: 1440px;
+    height: 732px;
+    overflow: hidden;
+    font-size: 18px;
+    font-family: Arial;
+}
+.acy1 {
+    color: #f3f608;
+}
+.gii-php1 {
+    white-space: pre-wrap;
+}
+.delicacy-gii-container1 {
+    width: 100%;
+}
+.delicacy-gii-container {
+    position: absolute;
+    top: 11px;
+    left: -24px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    width: 994px;
+    height: 60px;
+}
+.delicacy-gii-php-kinh-doan-wrapper {
+    position: absolute;
+    top: 21px;
+    left: 259px;
+    width: 1024px;
+    height: 84px;
+    overflow: hidden;
+}
+.software {
+    margin: 0;
+    font-family: Alegreya;
+}
+.delicacy-software {
+    position: absolute;
+    top: 18px;
+    left: 13px;
+    font-size: 40px;
+    line-height: 18px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 315px;
+    height: 95px;
+    font-family: 'Be Vietnam Pro';
+}
+.phn-mm-qun1 {
+    position: absolute;
+    top: 113px;
+    left: 28px;
+    font-size: 24px;
+    line-height: 32px;
+    display: flex;
+    font-family: 'Be Vietnam Pro';
+    white-space: pre-wrap;
+    align-items: center;
+    width: 319px;
+    height: 107px;
+}
+.icon-tick-circle {
+    position: absolute;
+    height: 42.55%;
+    width: 7.63%;
+    top: 12.77%;
+    right: 91.15%;
+    bottom: 44.68%;
+    left: 1.22%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.n-gin-ha-container {
+    position: absolute;
+    top: 8px;
+    left: 52px;
+    line-height: 18px;
+}
+.icon-tick-circle-parent {
+    position: absolute;
+    top: 220px;
+    left: 28px;
+    width: 329px;
+    height: 47px;
+    overflow: hidden;
+}
+.d-truy-cp-container {
+    position: absolute;
+    top: 6px;
+    left: 52px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    width: 258px;
+}
+.icon-tick-circle-group {
+    position: absolute;
+    top: 267px;
+    left: 28px;
+    width: 329px;
+    height: 47px;
+    overflow: hidden;
+}
+.ti-u-qun {
+    position: absolute;
+    top: 6px;
+    left: 53px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    width: 258px;
+}
+.icon-tick-circle-container {
+    position: absolute;
+    top: 314px;
+    left: 28px;
+    width: 329px;
+    height: 47px;
+    overflow: hidden;
+}
+.nng-cao-cht {
+    position: absolute;
+    top: 6px;
+    left: 55px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    width: 258px;
+}
+.icon-tick-circle-parent1 {
+    position: absolute;
+    top: 361px;
+    left: 28px;
+    width: 329px;
+    height: 47px;
+    overflow: hidden;
+}
+.delicacy-software-parent {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 30px;
+    background-color: #fff;
+    width: 376px;
+    height: 440px;
+    overflow: hidden;
+}
+.button8 {
+    position: absolute;
+    top: 451px;
+    left: 126px;
+    border-radius: 24px;
+    background-color: #001f23;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 16px;
+    box-sizing: border-box;
+    min-width: 100px;
+    text-align: center;
+    color: #fff;
+}
+.frame-div {
+    position: absolute;
+    top: 49px;
+    left: 11px;
+    width: 376px;
+    height: 515px;
+    overflow: hidden;
+}
+.sn-kt-ni {
+    position: absolute;
+    top: 113px;
+    left: 28px;
+    font-size: 24px;
+    line-height: 32px;
+    display: flex;
+    font-family: 'Be Vietnam Pro';
+    align-items: center;
+    width: 319px;
+    height: 107px;
+}
+.a-dng-sn {
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    line-height: 18px;
+}
+.icon-tick-circle6 {
+    position: absolute;
+    height: 32.26%;
+    width: 8.09%;
+    top: 0%;
+    right: 91.91%;
+    bottom: 67.74%;
+    left: 0%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.c-ngay-khch {
+    position: absolute;
+    top: -5px;
+    left: 48px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    width: 262px;
+    height: 62px;
+}
+.icon-tick-circle-parent4 {
+    position: absolute;
+    top: 321px;
+    left: 32px;
+    width: 330px;
+    height: 62px;
+    overflow: hidden;
+}
+.frame-parent1 {
+    position: absolute;
+    top: 49px;
+    left: 515px;
+    width: 376px;
+    height: 515px;
+    overflow: hidden;
+}
+.delicacy-finance {
+    position: absolute;
+    top: 18px;
+    left: 13px;
+    font-size: 40px;
+    line-height: 18px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 315px;
+    height: 95px;
+}
+.gii-php-thanh {
+    position: absolute;
+    top: 118px;
+    left: 28px;
+    font-size: 24px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    width: 319px;
+}
+.tch-hp-thanh {
+    position: absolute;
+    top: 6px;
+    left: 50px;
+    line-height: 18px;
+}
+.icon-tick-circle-parent5 {
+    position: absolute;
+    top: 220px;
+    left: 28px;
+    width: 329px;
+    height: 47px;
+    overflow: hidden;
+    font-family: Arial;
+}
+.h-tr-vay {
+    position: absolute;
+    top: 9px;
+    left: 52px;
+    line-height: 18px;
+    white-space: pre-wrap;
+    display: flex;
+    align-items: center;
+    width: 258px;
+}
+.group-icon {
+    position: absolute;
+    height: 29.41%;
+    width: 7.63%;
+    top: 13.24%;
+    right: 90.85%;
+    bottom: 57.35%;
+    left: 1.52%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.h-tr-vay-vn-t-cc-nh-ti-parent {
+    position: absolute;
+    top: 267px;
+    left: 28px;
+    width: 329px;
+    height: 68px;
+    overflow: hidden;
+    font-family: Arial;
+}
+.button10 {
+    position: absolute;
+    top: 451px;
+    left: 126px;
+    border-radius: 24px;
+    background-color: #001f23;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 16px;
+    box-sizing: border-box;
+    min-width: 100px;
+    text-align: center;
+    color: #fff;
+    font-family: Arial;
+}
+.frame-parent2 {
+    position: absolute;
+    top: 49px;
+    left: 1019px;
+    width: 376px;
+    height: 515px;
+    overflow: hidden;
+    font-family: 'Be Vietnam Pro';
+}
+.frame-container {
+    position: absolute;
+    top: 125px;
+    left: 6px;
+    background: linear-gradient(180deg, #e6f7ff 42%, #d5e3e9);
+    width: 1415px;
+    height: 588px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 18px;
+    font-family: Arial;
+}
+.frame-group {
+    position: absolute;
+    top: 2363px;
+    left: 1px;
+    background-color: #e6f7ff;
+    width: 1440px;
+    height: 713px;
+    overflow: hidden;
+}
+.m-hnh-khch {
+    position: absolute;
+    top: -12px;
+    left: 53px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1326px;
+    height: 73px;
+}
+.m-hnh-khch-t-order-bng-m-wrapper {
+    position: absolute;
+    top: 40px;
+    left: 16px;
+    width: 1431px;
+    height: 78px;
+    overflow: hidden;
+    font-size: 40px;
+    color: #000;
+}
+.frame-child {
+    position: absolute;
+    top: 16px;
+    left: 21px;
+    box-shadow: 0px 15px 11px rgba(24, 235, 214, 0.74);
+    border-radius: 15px;
+    background-color: #47cbff;
+    width: 187px;
+    height: 61px;
+}
+.khch-hng1 {
+    position: absolute;
+    top: 41px;
+    left: 4px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 221px;
+    height: 11px;
+}
+.rectangle-parent {
+    position: absolute;
+    top: 81px;
+    left: 14px;
+    background-color: #e6f7ff;
+    width: 235px;
+    height: 95px;
+    overflow: hidden;
+}
+.frame-item {
+    position: absolute;
+    top: 128px;
+    left: 220px;
+    width: 96px;
+    height: 1px;
+    object-fit: contain;
+}
+.frame-inner {
+    position: absolute;
+    top: 16px;
+    left: 21px;
+    box-shadow: 0px 15px 11px rgba(24, 235, 214, 0.74);
+    border-radius: 15px;
+    background-color: #47cbff;
+    width: 162px;
+    height: 60px;
+}
+.bn-n {
+    position: absolute;
+    top: 40px;
+    left: -9px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 221px;
+    height: 11px;
+}
+.rectangle-group {
+    position: absolute;
+    top: 95px;
+    left: 322px;
+    background-color: #e6f7ff;
+    width: 235px;
+    height: 95px;
+    overflow: hidden;
+}
+.bn-n-1 {
+    position: absolute;
+    top: 24px;
+    left: 343px;
+    width: 154px;
+    height: 81px;
+    object-fit: cover;
+}
+.ecommerce-management-1-icon {
+    position: absolute;
+    top: 13px;
+    left: 651px;
+    width: 129px;
+    height: 92px;
+    object-fit: cover;
+}
+.arrow-icon {
+    position: absolute;
+    top: 148px;
+    left: 839px;
+    width: 71px;
+    height: 1px;
+    object-fit: contain;
+}
+.frame-parent4 {
+    position: absolute;
+    top: 176px;
+    left: 16px;
+    width: 1078px;
+    height: 210px;
+    overflow: hidden;
+}
+.customer-1-icon {
+    position: absolute;
+    top: 13px;
+    left: 23px;
+    width: 187px;
+    height: 108px;
+    object-fit: cover;
+}
+.frame-child1 {
+    position: absolute;
+    top: 216px;
+    left: 402px;
+    max-width: 100%;
+    overflow: hidden;
+    height: 61px;
+    object-fit: contain;
+}
+.frame-child2 {
+    position: absolute;
+    top: 218px;
+    left: 1100px;
+    max-width: 100%;
+    overflow: hidden;
+    height: 98px;
+    object-fit: contain;
+}
+.frame-child3 {
+    position: absolute;
+    top: 316px;
+    left: 967.5px;
+    max-height: 100%;
+    width: 131.5px;
+    object-fit: contain;
+}
+.rectangle-div {
+    position: absolute;
+    top: 16px;
+    left: 21px;
+    box-shadow: 0px 15px 11px rgba(24, 235, 214, 0.74);
+    border-radius: 15px;
+    background-color: #47cbff;
+    width: 214px;
+    height: 79px;
+}
+.qut-qr-code {
+    position: absolute;
+    top: 44px;
+    left: 34px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 188px;
+    height: 24px;
+}
+.rectangle-container {
+    position: absolute;
+    top: 382px;
+    left: 284px;
+    background-color: #e6f7ff;
+    width: 256px;
+    height: 119px;
+    overflow: hidden;
+}
+.scanqrr-1-icon {
+    position: absolute;
+    top: 279px;
+    left: 321px;
+    width: 163px;
+    height: 117px;
+    object-fit: cover;
+}
+.frame-child4 {
+    position: absolute;
+    top: 501px;
+    left: 403px;
+    max-width: 100%;
+    overflow: hidden;
+    height: 33.5px;
+    object-fit: contain;
+}
+.frame-child5 {
+    position: absolute;
+    top: 534.99px;
+    left: 403px;
+    width: 181px;
+    height: 0.1px;
+    object-fit: contain;
+}
+.gi-mn-nhn {
+    position: absolute;
+    top: 44px;
+    left: 34px;
+    line-height: 18px;
+    display: flex;
+    white-space: pre-wrap;
+    align-items: center;
+    justify-content: center;
+    width: 188px;
+    height: 24px;
+}
+.rectangle-parent1 {
+    position: absolute;
+    top: 461px;
+    left: 584px;
+    background-color: #e6f7ff;
+    width: 256px;
+    height: 119px;
+    overflow: hidden;
+}
+.e-menu-1-icon {
+    position: absolute;
+    top: 338px;
+    left: 627px;
+    width: 179px;
+    height: 139px;
+    object-fit: cover;
+}
+.frame-child7 {
+    position: absolute;
+    top: 247px;
+    left: 712.01px;
+    width: 0.1px;
+    height: 85px;
+    object-fit: contain;
+}
+.rectangle-parent2 {
+    position: absolute;
+    top: 119px;
+    left: 589px;
+    background-color: #e6f7ff;
+    width: 256px;
+    height: 119px;
+    overflow: hidden;
+}
+.rectangle-parent3 {
+    position: absolute;
+    top: 113px;
+    left: 905px;
+    background-color: #e6f7ff;
+    width: 256px;
+    height: 119px;
+    overflow: hidden;
+}
+.illustration-order-confirmed {
+    position: absolute;
+    height: 17.23%;
+    width: 7.23%;
+    top: 1.14%;
+    right: 21.69%;
+    bottom: 81.63%;
+    left: 71.08%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.rectangle-parent4 {
+    position: absolute;
+    top: 450px;
+    left: 844px;
+    background-color: #e6f7ff;
+    width: 256px;
+    height: 119px;
+    overflow: hidden;
+}
+.rectangle-parent5 {
+    position: absolute;
+    top: 450px;
+    left: 1111px;
+    background-color: #e6f7ff;
+    width: 256px;
+    height: 119px;
+    overflow: hidden;
+}
+.group-icon1 {
+    position: absolute;
+    height: 11.55%;
+    width: 4.56%;
+    top: 62.38%;
+    right: 27.62%;
+    bottom: 26.07%;
+    left: 67.82%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.illustration-chef-icon {
+    position: absolute;
+    height: 15.47%;
+    width: 5.86%;
+    top: 59.61%;
+    right: 8.32%;
+    bottom: 24.92%;
+    left: 85.83%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.frame-child12 {
+    position: absolute;
+    top: 316px;
+    left: 1101px;
+    width: 116px;
+    height: 0px;
+}
+.frame-child13 {
+    position: absolute;
+    top: 316px;
+    left: 1217px;
+    width: 0px;
+    height: 50px;
+    object-fit: contain;
+}
+.frame-child14 {
+    position: absolute;
+    top: 316px;
+    left: 968px;
+    width: 0px;
+    height: 50px;
+    object-fit: contain;
+}
+.customer-1-parent {
+    position: absolute;
+    top: 152px;
+    left: 28px;
+    width: 1383px;
+    height: 614px;
+    overflow: hidden;
+}
+.frame-parent3 {
+    position: absolute;
+    top: 3076px;
+    left: 0px;
+    background-color: #fff;
+    width: 1441px;
+    height: 880px;
+    overflow: hidden;
+    font-size: 20px;
+    color: #fff;
+}
+.lin-h-vi-chng-ti-wrapper {
+    position: absolute;
+    top: 29px;
+    left: 16px;
+    width: 1431px;
+    height: 78px;
+    overflow: hidden;
+    font-size: 40px;
+    color: #050505;
+    font-family: 'Be Vietnam Pro';
+}
+.hi-vng-qu {
+    position: absolute;
+    top: 90px;
+    left: 57px;
+    font-size: 40px;
+    line-height: 18px;
+    font-weight: 300;
+    font-family: Dongle;
+    color: #050505;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1326px;
+    height: 73px;
+}
+.d70266d162abd461f3a1dcb1507d3-icon {
+    position: absolute;
+    top: 0px;
+    left: 91px;
+    width: 123px;
+    height: 92px;
+    object-fit: cover;
+}
+.button11 {
+    position: absolute;
+    top: 258px;
+    left: 61px;
+    border-radius: 24px;
+    background-color: #001f23;
+    width: 184px;
+    height: 69px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 16px;
+    box-sizing: border-box;
+    min-width: 100px;
+}
+.lin-h-qua-container {
+    position: absolute;
+    top: 24px;
+    left: 0px;
+    line-height: 18px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    width: 416px;
+    height: 75px;
+}
+.lin-h-qua1 {
+    position: absolute;
+    top: -18px;
+    left: 11px;
+    font-size: 32px;
+    line-height: 18px;
+    display: flex;
+    font-family: 'Be Vietnam Pro';
+    align-items: center;
+    justify-content: center;
+    width: 393px;
+    height: 59px;
+}
+.frame-lin-h-zalo {
+    position: absolute;
+    top: 124px;
+    left: -36px;
+    width: 378px;
+    height: 116px;
+    overflow: hidden;
+    font-size: 40px;
+    color: #050505;
+    font-family: Dongle;
+}
+.d70266d162abd461f3a1dcb1507d3-parent {
+    position: absolute;
+    top: 202px;
+    left: 57px;
+    width: 362px;
+    height: 336px;
+    overflow: hidden;
+}
+.button12 {
+    position: absolute;
+    top: 266px;
+    left: 96px;
+    border-radius: 24px;
+    background-color: #001f23;
+    width: 184px;
+    height: 69px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 16px;
+    box-sizing: border-box;
+    min-width: 100px;
+}
+.frame-lin-h-zalo1 {
+    position: absolute;
+    top: 114px;
+    left: -20px;
+    width: 395px;
+    height: 142px;
+    overflow: hidden;
+    font-size: 40px;
+    color: #050505;
+    font-family: Dongle;
+}
+.ad4a67a25bc3732713de694a782d44-icon {
+    position: absolute;
+    top: 10px;
+    left: 112px;
+    width: 152px;
+    height: 76px;
+    object-fit: contain;
+}
+.button-group {
+    position: absolute;
+    top: 202px;
+    left: 538px;
+    width: 375px;
+    height: 364px;
+    overflow: hidden;
+}
+.button13 {
+    position: absolute;
+    top: 266px;
+    left: 97px;
+    border-radius: 24px;
+    background-color: #001f23;
+    width: 184px;
+    height: 69px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 16px;
+    box-sizing: border-box;
+    min-width: 100px;
+}
+.tng-i-t {
+    position: absolute;
+    top: 23px;
+    left: 11px;
+    line-height: 18px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 411px;
+    height: 118px;
+}
+.hotline-1900-0983 {
+    position: absolute;
+    top: -18px;
+    left: 15px;
+    font-size: 32px;
+    line-height: 18px;
+    display: flex;
+    font-family: 'Be Vietnam Pro';
+    align-items: center;
+    justify-content: center;
+    width: 393px;
+    height: 59px;
+}
+.frame-lin-h-zalo2 {
+    position: absolute;
+    top: 114px;
+    left: -20px;
+    width: 424px;
+    height: 141px;
+    overflow: hidden;
+    font-size: 40px;
+    color: #050505;
+    font-family: Dongle;
+}
+.f62f0215abbfb37c2b28a208f02467-icon {
+    position: absolute;
+    top: 0px;
+    left: 83px;
+    width: 211px;
+    height: 96px;
+    object-fit: contain;
+}
+.button-container {
+    position: absolute;
+    top: 202px;
+    left: 964px;
+    width: 419px;
+    height: 364px;
+    overflow: hidden;
+}
+.frame-parent5 {
+    position: absolute;
+    top: 3956px;
+    left: 0px;
+    background: linear-gradient(180deg, rgba(179, 231, 255, 0.33) 53.3%, rgba(114, 169, 191, 0.59) 84.8%, #0b4659 99.99%, rgba(85, 140, 162, 0.71));
+    width: 1440px;
+    height: 740px;
+    overflow: hidden;
+    font-size: 18px;
+    color: #fff;
+    font-family: Arial;
+}
+.ng-k-dng {
+    position: absolute;
+    top: 0px;
+    left: 53px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1326px;
+    height: 73px;
+}
+.ng-k-dng-ngy-1-thng-vi-wrapper {
+    position: absolute;
+    top: 29px;
+    left: 16px;
+    width: 1431px;
+    height: 78px;
+    overflow: hidden;
+}
+.rectangle-icon {
+    position: absolute;
+    top: 131px;
+    left: 27px;
+    border-radius: 20px;
+    width: 1381px;
+    height: 518.5px;
+}
+.qu-khch-vui {
+    position: absolute;
+    top: 141px;
+    left: 55px;
+    line-height: 18px;
+    font-weight: 300;
+    font-family: Dongle;
+    white-space: pre-wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1326px;
+    height: 73px;
+}
+.button14 {
+    position: absolute;
+    top: 451px;
+    left: 639px;
+    border-radius: 10px;
+    background-color: #001f23;
+    width: 185px;
+    height: 69px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 16px;
+    box-sizing: border-box;
+    min-width: 100px;
+    font-size: 18px;
+    color: #fff;
+    font-family: Arial;
+}
+.frame-child15 {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    border-radius: 10px;
+    background-color: #fbfbfb;
+    width: 154px;
+    height: 72px;
+}
+.div2 {
+    position: absolute;
+    top: 32px;
+    left: 34px;
+    line-height: 18px;
+    font-weight: 100;
+}
+.svg-icon6 {
+    position: absolute;
+    top: 29px;
+    left: 137px;
+    width: 28px;
+    height: 27px;
+    overflow: hidden;
+}
+.rectangle-parent6 {
+    position: absolute;
+    top: 6px;
+    left: -5px;
+    width: 174px;
+    height: 76px;
+    overflow: hidden;
+    font-size: 40px;
+}
+.frame-child16 {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 10px;
+    background-color: #fbfbfb;
+    width: 341px;
+    height: 72px;
+}
+.s-in-thoi-container {
+    position: absolute;
+    top: 31px;
+    left: 106px;
+    line-height: 18px;
+    font-weight: 100;
+}
+.rectangle-parent7 {
+    position: absolute;
+    top: 6px;
+    left: 194px;
+    width: 350px;
+    height: 80px;
+    overflow: hidden;
+}
+.email {
+    position: absolute;
+    top: 31px;
+    left: 142px;
+    line-height: 18px;
+    font-weight: 100;
+}
+.rectangle-parent8 {
+    position: absolute;
+    top: 6px;
+    left: 569px;
+    width: 350px;
+    height: 80px;
+    overflow: hidden;
+}
+.mt-khu-container {
+    position: absolute;
+    top: 31px;
+    left: 125px;
+    line-height: 18px;
+    font-weight: 100;
+}
+.rectangle-parent9 {
+    position: absolute;
+    top: 6px;
+    left: 944px;
+    width: 350px;
+    height: 80px;
+    overflow: hidden;
+}
+.frame-parent7 {
+    position: absolute;
+    top: 238px;
+    left: 104px;
+    width: 1313px;
+    height: 92px;
+    overflow: hidden;
+    font-size: 20px;
+    color: #000;
+}
+.b01ea6c6a28e60fee83166ab9e7ec6-icon {
+    position: absolute;
+    top: 311px;
+    left: 828px;
+    width: 719px;
+    height: 418px;
+    object-fit: cover;
+}
+.frame-parent6 {
+    position: absolute;
+    top: 4696px;
+    left: 0px;
+    background: linear-gradient(180deg, rgba(179, 231, 255, 0.33) 53.3%, #0b4659 89.8%);
+    width: 1440px;
+    height: 737px;
+    overflow: hidden;
+    color: #050505;
+}
+.ti-sao-nn-container {
+    position: absolute;
+    top: 17px;
+    left: 204px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    width: 902px;
+    height: 94px;
+}
+.ti-sao-nn-s-dng-gii-php-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 22px;
+    width: 1389px;
+    height: 143px;
+    overflow: hidden;
+}
+.tng-doanh-thu1 {
+    position: absolute;
+    top: 12px;
+    left: 105px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 525px;
+    height: 57px;
+}
+.khi-c-nhiu {
+    position: absolute;
+    top: 69px;
+    left: 112px;
+    line-height: 18px;
+    font-weight: 300;
+    font-family: Dongle;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    width: 551px;
+    height: 45px;
+}
+.emoji-money-bag {
+    position: absolute;
+    height: 72.09%;
+    width: 13.42%;
+    top: 6.2%;
+    right: 84.16%;
+    bottom: 21.71%;
+    left: 2.41%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.tng-doanh-thu-n-hng-parent {
+    position: absolute;
+    top: 32px;
+    left: 29px;
+    width: 663px;
+    height: 129px;
+    overflow: hidden;
+    text-align: center;
+}
+.gia-tng-tri {
+    margin-block-start: 0;
+    margin-block-end: 10px;
+}
+.gia-tng-tri-container {
+    position: absolute;
+    top: 69px;
+    left: 112px;
+    line-height: 18px;
+    font-weight: 300;
+    font-family: Dongle;
+    display: flex;
+    align-items: center;
+    width: 551px;
+    height: 60px;
+}
+.illustration-startup-icon {
+    position: absolute;
+    height: 85.12%;
+    width: 16.26%;
+    top: 7.75%;
+    right: 83.14%;
+    bottom: 7.13%;
+    left: 0.6%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.ti-u-quy-trnh-parent {
+    position: absolute;
+    top: 219px;
+    left: 29px;
+    width: 663px;
+    height: 129px;
+    overflow: hidden;
+}
+.thu-ht-nhiu {
+    position: absolute;
+    top: 10px;
+    left: 125px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    width: 525px;
+    height: 57px;
+}
+.cun-ht-khch {
+    margin-block-start: 0;
+    margin-block-end: 10px;
+    white-space: pre-wrap;
+}
+.cun-ht-khch-container {
+    position: absolute;
+    top: 71px;
+    left: 125px;
+    line-height: 18px;
+    font-weight: 300;
+    font-family: Dongle;
+    display: flex;
+    align-items: center;
+    width: 551px;
+    height: 60px;
+}
+.customer-review-1-icon {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+}
+.thu-ht-nhiu-khch-hng-parent {
+    position: absolute;
+    top: 406px;
+    left: 29px;
+    width: 663px;
+    height: 129px;
+    overflow: hidden;
+}
+.frame-parent9 {
+    position: absolute;
+    top: 161px;
+    left: 702px;
+    box-shadow: 0px 4px 4px rgba(33, 56, 150, 0.78) inset;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #f8f8f8 35.5%, #093f68);
+    width: 731px;
+    height: 635px;
+    overflow: hidden;
+    text-align: left;
+}
+.f53f75196815c652843f204a64c3c3-icon {
+    position: absolute;
+    top: 10px;
+    left: -3.77px;
+    border-radius: 20px;
+    width: 682.5px;
+    height: 603px;
+    object-fit: contain;
+}
+.f53f75196815c652843f204a64c3c3-wrapper {
+    position: absolute;
+    top: 167px;
+    left: 12px;
+    width: 690px;
+    height: 613px;
+    overflow: hidden;
+}
+.frame-parent8 {
+    position: absolute;
+    top: 1483px;
+    left: 0px;
+    background: linear-gradient(180deg, #d5f2ff 38.8%, #d5f2ff 55.3%, #809199 74.3%, #d5f2ff 99.96%, #97abb5 99.97%, #c1dae6 99.98%, #a9bfc9 99.99%);
+    width: 1440px;
+    height: 880px;
+    overflow: hidden;
+}
+.company-21c-7th-container {
+    width: 134px;
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Inter;
+    color: #fff;
+    text-align: left;
+    display: inline-block;
+    height: 90px;
+    flex-shrink: 0;
+}
+.vector-icon14 {
+    width: 11px;
+    position: relative;
+    height: 20px;
+}
+.vector-icon15 {
+    width: 22px;
+    position: relative;
+    height: 17.9px;
+}
+.frame-child19 {
+    width: 20px;
+    position: relative;
+    height: 20px;
+}
+.frame-child20 {
+    width: 22px;
+    position: relative;
+    height: 15.5px;
+}
+.vector-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+}
+.fullsvg-parent {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 53px;
+}
+.logo-da-thong-bao-bo-cong-thuo-icon {
+    position: absolute;
+    top: 131px;
+    left: 267px;
+    width: 124px;
+    height: 45px;
+    object-fit: cover;
+}
+.frame-parent12 {
+    width: 414px;
+    position: relative;
+    height: 222px;
+    text-align: center;
+    font-size: 40px;
+    color: #000;
+    font-family: Roboto;
+}
+.product {
+    position: relative;
+    letter-spacing: 0.03em;
+    font-family: Rubik;
+}
+.login {
+    position: relative;
+    font-weight: 500;
+}
+.product-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+}
+.frame-parent11 {
+    position: absolute;
+    top: 108px;
+    left: 112px;
+    width: 1216px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.dmca-1-icon {
+    position: absolute;
+    top: 296px;
+    left: 376px;
+    border-radius: 30px;
+    width: 150px;
+    height: 34px;
+    object-fit: cover;
+}
+.frame-parent10 {
+    width: 1440px;
+    position: relative;
+    height: 452px;
+}
+.company-all-rights-reserved-parent {
+    position: absolute;
+    top: calc(50% - 8.5px);
+    left: calc(50% - 192px);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+}
+.footeratlaswire-footer-02-inner {
+    width: 1440px;
+    position: relative;
+    height: 109px;
+    text-align: center;
+}
+.footeratlaswire-footer-02 {
+    position: absolute;
+    top: 5432px;
+    left: 0px;
+    background-color: #0b4559;
+    height: 568px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 14px;
+    color: #fff;
+    font-family: Inter;
+}
+.homepage-admin {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    height: 6000px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 40px;
+    color: #000;
+    font-family: 'Be Vietnam Pro';
+}
+
