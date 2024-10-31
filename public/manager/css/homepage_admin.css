@@ -1,0 +1,31 @@
+* {
+    --primary-color: #c3f4ff;
+}
+
+.a {
+    background-color: var(--primary-color);
+    border: 1px solid black;
+    padding: 10px;
+    height: 90px;
+    border-radius: 3px;
+}
+
+.b {
+    background-color: re;
+    border: 1px solid rgb(236, 160, 160);
+    padding: 10px;
+    height: 400px;
+    border-radius: 3px;
+}
+
+.flexbox-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexbox-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
