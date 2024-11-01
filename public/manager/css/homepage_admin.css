@@ -16,10 +16,16 @@
     --text-size-l: 48px;
     
 }
+
+:target {
+    scroll-margin-top: 150px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 
@@ -78,6 +84,12 @@ p {
 
 .can-hover:hover {
     opacity: 0.7;
+    cursor: pointer;
+}
+
+.can-hover > a:hover {
+    /* opacity: 0.7; */
+    cursor: pointer;
 }
 
 .container-fluid , .container {
@@ -187,7 +199,7 @@ p {
 }
 
 #content {
-    margin-top: 140px;
+    padding-top: 120px;
 }
 
 .content__part {
@@ -303,7 +315,7 @@ p {
 }
 
 .service-package-feature-detail thead {
-    background: linear-gradient(180deg, rgba(0,0,255,0.2) 50%, var(--white) 100%);
+    background: linear-gradient(180deg, rgb(140, 158, 216) 50%, var(--white) 100%);
 }
 
 .service-package-feature-detail tbody {
@@ -323,3 +335,19 @@ p {
     color: var(--blue);
 }
 
+.form-trial {
+}
+
+.form-trial input,
+.form-trial select{
+    font-size: 24px;
+    border: 1px solid black;
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+}
+
+#btnSubmitTrial {
+    padding: 6px 12px;
+    width: 200px;
+    margin: 20px 0;
+}

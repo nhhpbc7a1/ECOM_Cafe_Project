@@ -21,20 +21,20 @@
                 </div>
                 <div>
                     <ul class="header__navbar d-flex align-item-center">
-                        <li class="header__navbar-item">
-                            <a href="">Giới thiệu</a>
+                        <li class="header__navbar-item can-hover" >
+                            <a onclick="goto(1)">Giới thiệu</a>
                         </li>
-                        <li class="header__navbar-item">
-                            <a href="">Tính năng</a>
+                        <li class="header__navbar-item can-hover">
+                            <a onclick="goto(2)">Tính năng</a>
                         </li>
-                        <li class="header__navbar-item">
-                            <a href="">Mô hình</a>
+                        <li class="header__navbar-item can-hover">
+                            <a onclick="goto(3)">Mô hình</a>
                         </li>
-                        <li class="header__navbar-item">
-                            <a href="">Dịch vụ</a>
+                        <li class="header__navbar-item can-hover">
+                            <a onclick="goto(4)" >Dịch vụ</a>
                         </li>
-                        <li class="header__navbar-item">
-                            <a href="">Liên hệ</a>
+                        <li class="header__navbar-item can-hover">
+                            <a onclick="goto(5)" >Liên hệ</a>
                         </li>
                     </ul>
                 </div>
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div id="content">
-        <div class="container content__part">
+        <div id="part1" class="container content__part">
             <div class="row">
                 <div class="col" style="position: relative;">
                     <img src="../images/homepage_admin/content1.png" alt="">
@@ -109,7 +109,7 @@
                 </div>
             </div>
         </div>
-        <div class="container content__part">
+        <div  id="part2" class="container content__part">
             <div class="row">
                 <div class="col">
                     <img src="../images/homepage_admin/content3.png" alt="">
@@ -146,7 +146,7 @@
                 </ul>
             </div>
         </div>
-        <div class="container content__part">
+        <div id="part3" class="container content__part">
             <div class="row">
                 <div class="col">
                 <p class="text-size-l">Mô hình khách tự order bằng mã QR tại bàn - trả tiền sau </p>
@@ -158,7 +158,7 @@
                 </div>
             </div>
         </div>
-        <div class="container content__part">
+        <div  id="part4" class="container content__part">
             <div class="row my-center">
                 <p class="text-blue margin-auto">Hãy bắt đâu tối ưu hóa hình thức kinh doanh từ hôm nay</p>
             </div>
@@ -304,7 +304,7 @@
                 </div>
             </div>
         </div>
-        <div class="container content__part" style="background-image: url(../images/homepage_admin/contentx-background.png);padding-bottom: 200px;">
+        <div class="container content__part" style="background-image: url(../images/homepage_admin/contentx-background.png);background-size: contain;padding-bottom: 200px;">
             <div class="row my-center">
                 <p class="text-blue" >TÍNH NĂNG PHÙ HỢP VỚI MỌI LOẠI MÔ HÌNH KINH DOANH</p>
             </div>
@@ -508,7 +508,211 @@
                 </table>
             </div>
         </div>
-        <div class="container content__part">
+        <div  class="container content__part" style="background-image: url(../images/homepage_admin/contentx-background.png);background-size: contain;padding-bottom: 200px;">
+            <div class="row my-center">
+                <p class="text-blue" >Bao gồm toàn bộ tính năng của gói Hỗ trợ và nhiều tính năng nâng cao khác</p>
+            </div>
+            <div class="row my-center">
+                <p class="text-size-l">GÓI CHUYÊN NGHIỆP, CAO CẤP</p>
+            </div>
+            <div class="row">
+                <table class="service-package-feature-detail">
+                    <thead>
+                        <tr>
+                            <th>Bán hàng</th>
+                            <th>Quản lý hàng hóa & bar/bếp</th>
+                            <th>Quản lý thu/chi</th>
+                            <th>Quản lý kho</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"> 
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>                    
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="service-package-feature-detail">
+                    <thead>
+                        <tr>
+                            <th>Bán hàng</th>
+                            <th>Quản lý hàng hóa & bar/bếp</th>
+                            <th>Quản lý thu/chi</th>
+                            <th>Quản lý kho</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"> 
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>                    
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="part5" class="container content__part">
             <div class="row my-center text-size-l"> 
                 Liên hệ với chúng tôi
             </div>
@@ -548,7 +752,36 @@
                 </div>
             </div>
         </div>
+        
+        <div class="container content__part" style="background: none;">
+            <div class="row">
+                <p class="text-size-l">Đăng ký dùng ngày 1 tháng với đầy đủ tính năng</p>
+            </div>
+            <div class="row my-center form-trial">
+                <p class="text-size-m">Quý khách vui lòng  điền vào form dưới đây để tạo tài khoản</pc>
+            </div>
+            <form class="row my-center form-trial">
+                <div class="form-trial-item col">
+                    <select class="form-control" name="" id="" >
+                      <option>+84</option>
+                      <option>2</option>
+                      <option>3</option>
+                    </select>
+                </div>
+                <div class="form-trial-item col">
+                    <input type="text" placeholder="Số điện thoại">
+                </div>
+                <div class="form-trial-item col">
+                    <input type="text" placeholder="Email">
 
+                </div>
+                <div class="form-trial-item col">
+                    <input type="text" placeholder="Mật khẩu">
+                </div>
+
+                <a name="" id="btnSubmitTrial" class="btn btn-primary text-size-m" href="#" role="button">Confirm</a>
+            </form>
+        </div>
     </div>
     <div id="footer">
         <div class="container">
@@ -575,19 +808,19 @@
                 <div>
                     <ul class="footer__navbar d-flex align-item-center">
                         <li class="footer__navbar-item">
-                            <a href="">Giới thiệu</a>
+                            <a onclick="goto(1)">Giới thiệu</a>
                         </li>
                         <li class="footer__navbar-item">
-                            <a href="">Tính năng</a>
+                            <a onclick="goto(2)">Tính năng</a>
                         </li>
                         <li class="footer__navbar-item">
-                            <a href="">Mô hình</a>
+                            <a onclick="goto(3)">Mô hình</a>
                         </li>
                         <li class="footer__navbar-item">
-                            <a href="">Dịch vụ</a>
+                            <a onclick="goto(4)">Dịch vụ</a>
                         </li>
                         <li class="footer__navbar-item">
-                            <a href="">Liên hệ</a>
+                            <a onclick="goto(5)">Liên hệ</a>
                         </li>
                     </ul>
                 </div>
@@ -597,5 +830,10 @@
             </div>
         </div>
     </div>
+    <script>
+        function goto(e) {
+            window.location.href = '#part' + e;
+        }
+    </script>
 </body>
 </html>
