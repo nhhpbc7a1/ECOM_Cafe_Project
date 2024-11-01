@@ -4,17 +4,50 @@
     --primary-color--heavy: #0b4559;
     --border-radius: 16px;
     --header-item--padding: 8px 16px;
+    --padding: 8px 16px;
     --black: #000000;
     --white: #fff;
     --max-width: 1500px;
     --layout-padding: 40px;
-}
 
+    --text-size-s: 16px;
+    --text-size-m: 25px;
+    --text-size-l: 48px;
+    
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+p {
+    margin: 0;
+}
+
+.row {
+    padding-top: 20px;
+}
+
+.text-size-s {
+    font-size: 24px;
+}
+.text-size-m {
+    font-size: 32px;
+    font-weight: 500;
+}
+.text-size-l {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.btn {
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: var(--border-radius);
+}
+
 
 .can-hover:hover {
     opacity: 0.7;
@@ -28,6 +61,11 @@
     background-color: var(--primary-color);
     width: 100%;
     padding: var(--layout-padding);
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 100;
 }
 
 
@@ -122,5 +160,53 @@
 }
 
 #content {
-    height: 2000px;
+    margin-top: 140px;
+}
+
+.content__part {
+    padding: var(--layout-padding);
+}
+
+.content__part:nth-child(odd) {
+    background: linear-gradient(180deg, var(--white) 90%, var(--primary-color) 100%);
+}
+
+.content__part:nth-child(even) {
+    background: linear-gradient(180deg, var(--primary-color) 90%, var(--white) 100%);
+}
+
+
+.delicacy-proper-item {
+    background-color: #ffefe4;
+    color: var(--black);
+    font-weight: 500;
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: space-between;
+    width: 280px;
+}
+
+.delicacy-proper-item i {
+    color: #e46935;
+    margin-left: 5px;
+    font-size: 24px;
+}
+
+.content-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.content-3-item {
+    display: flex;
+}
+
+.content-3-item img{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
 }
