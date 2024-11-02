@@ -12,5 +12,154 @@
     />
     <link rel="stylesheet" href="/public/manager/css/dashboard.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="other">
+      <main class="main-content">
+        <div class="header-section">
+          <div class="header-title-section">
+            <p>You’re on our Vietnam website</p>
+          </div>
+          <select class="region-dropdown" onchange="changeRegion(this.value)">
+            <option value="Vietnam">Vietnam</option>
+            <option value="USA">USA</option>
+            <option value="France">France</option>
+            <option value="Japan">Japan</option>
+            <option value="UK">UK</option>
+          </select>
+        </div>
+        <div class="dashboard-section">
+          <div class="dashboard-title-section">
+            <h2 class="dashboar-title">Kết quả bán hôm nay:</h2>
+          </div>
+
+          <div class="dashboard-cards-section">
+            <div class="card">
+              <div class="money-logo">
+                <img
+                  src="/public/manager/images/trangtongquat/money.png"
+                  alt=""
+                />
+              </div>
+              <div class="card-content">
+                <p id="font">5 ĐƠN ĐÃ XONG</p>
+                <h3 id="Orange">10,000,000</h3>
+                <p id="font">HÔM QUA 12,000,000</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="list-logo">
+                <img
+                  src="/public/manager/images/trangtongquat/List.png"
+                  alt=""
+                />
+              </div>
+              <div class="card-content">
+                <p id="Orange">2 ĐƠN ĐANG PHỤC VỤ</p>
+                <h3 id="font">0</h3>
+              </div>
+            </div>
+            <div class="card">
+              <div class="consumer-logo">
+                <img
+                  src="/public/manager/images/trangtongquat/Consumer.png"
+                  alt=""
+                />
+              </div>
+              <div class="card-content">
+                <p id="font">KHÁCH HÀNG</p>
+                <h3 id="Orange">20</h3>
+                <p id="font">HÔM QUA 10</p>
+              </div>
+            </div>
+          </div>
+          <div class="chart-section">
+            <img
+              src="/public/manager/images/trangtongquat/chart.png"
+              alt="chart"
+              id="img"
+            />
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="container-fluid">
+      <div class="row no-gutters">
+        <div class="col-2 sidebar">
+          <aside class="sidebar"></aside>
+        </div>
+        <div class="col-10 main-content">
+          <!-- <main class="main-content">
+            <div class="header-section">
+              <div class="header-title-section">
+                <p>You’re on our Vietnam website</p>
+              </div>
+              <select
+                class="region-dropdown"
+                onchange="changeRegion(this.value)"
+              >
+                <option value="Vietnam">Vietnam</option>
+                <option value="USA">USA</option>
+                <option value="France">France</option>
+                <option value="Japan">Japan</option>
+                <option value="UK">UK</option>
+              </select>
+            </div>
+            <div class="dashboard-section">
+              <div class="dashboard-title-section">
+                <h2 class="dashboar-title">Kết quả bán hôm nay:</h2>
+              </div>
+
+              <div class="dashboard-cards-section">
+                <div class="card">
+                  <div class="money-logo">
+                    <img
+                      src="/public/manager/images/trangtongquat/money.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card-content">
+                    <p id="font">5 ĐƠN ĐÃ XONG</p>
+                    <h3 id="Orange">10,000,000</h3>
+                    <p id="font">HÔM QUA 12,000,000</p>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="list-logo">
+                    <img
+                      src="/public/manager/images/trangtongquat/List.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card-content">
+                    <p id="Orange">2 ĐƠN ĐANG PHỤC VỤ</p>
+                    <h3 id="font">0</h3>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="consumer-logo">
+                    <img
+                      src="/public/manager/images/trangtongquat/Consumer.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card-content">
+                    <p id="font">KHÁCH HÀNG</p>
+                    <h3 id="Orange">20</h3>
+                    <p id="font">HÔM QUA 10</p>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-section">
+                <img
+                  src="/public/manager/images/trangtongquat/chart.png"
+                  alt="chart"
+                  id="img"
+                />
+              </div>
+            </div>
+          </main> -->
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
