@@ -1,0 +1,363 @@
+body {
+    width: 300px;
+    height: 500px;
+
+}
+
+.frame {
+    display: inline-flex;
+    padding: 14px;
+    align-items: flex-start;
+    gap: 300px;
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid rgba(226, 225, 231, 0.60);
+    background: linear-gradient(180deg, #FFF 0%, #69E4FF 100%);
+    width: 250px;
+    height: 800px;
+}
+
+
+.frame .div {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-items: flex-start;
+    gap: 22px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    position: relative;
+    flex: 0 0 auto;
+    margin-right: -5.00px;
+}
+
+.frame .div-desktop {
+    display: flex;
+    flex-direction: column;
+    width: 233px;
+    height: 83px;
+    align-items: flex-start;
+    padding: 4px 0px 0px;
+    position: relative;
+}
+
+.frame .full-svg {
+    display: flex;
+    flex-direction: column;
+    height: 87px;
+    align-items: flex-start;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    margin-bottom: -8.00px;
+    overflow: hidden;
+}
+
+.frame .full-svg-fill {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0px 0.03px;
+    margin-right: -22.00px;
+    width: 255px;
+    height: 79px;
+    position: relative;
+}
+
+.frame .overlap-group-wrapper {
+    margin-left: -0.03px;
+    margin-right: -0.03px;
+    overflow: hidden;
+    width: 255px;
+    height: 79px;
+    position: relative;
+}
+
+.image-container {}
+
+.frame .overlap-group {
+    position: relative;
+    width: 266px;
+    height: 119px;
+    top: -21px;
+    left: 1px;
+}
+
+.frame .delicacy {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+.frame .text-wrapper {
+    font-family: Arial,
+        Helvetica,
+        sans-serif;
+    font-size: 15pt;
+    color: #000000;
+}
+
+.frame .span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color: #fce700;
+}
+
+.frame .logo {
+    width: 60px;
+    height: 60px;
+
+}
+
+.frame .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.frame .div-2 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .div-3 {
+    display: flex;
+    width: 228px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 0px 0px 12px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .div-4 {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .img {
+    position: relative;
+    width: 18px;
+    height: 18px;
+}
+
+.frame .text-wrapper-2 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #3272ca;
+    font-size: 14px;
+    letter-spacing: 0.14px;
+    line-height: 19.6px;
+    white-space: nowrap;
+}
+
+.frame .rectangle {
+    position: relative;
+    width: 4px;
+    height: 39px;
+    background-color: #3272ca;
+    border-radius: 6px 0px 0px 6px;
+}
+
+
+
+.frame button {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    padding: 5px 5px 5px 20px;
+    background-color: inherit;
+    color: rgb(0, 0, 0);
+    gap: 10px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.frame button:hover {
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+    color: white;
+    background-color: #285a8e;
+    border-radius: 5px;
+
+}
+
+.dropdown-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Định dạng menu ẩn */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+.frame .img-2 {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    object-fit: cover;
+}
+
+.frame .line {
+    position: relative;
+    width: 228px;
+    height: 1px;
+    object-fit: cover;
+}
+
+#signout {
+    background-image: url('../images/nav_component/signout.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#signout:hover {
+    background-color: inherit;
+}
+
+.frame .frame-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .div-7 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .line-2 {
+    margin-top: -1.00px;
+    position: relative;
+    width: 228px;
+    height: 1px;
+    object-fit: cover;
+}
+
+.frame .div-8 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: stretch;
+    width: 100%;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .div-9 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .z {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+}
+
+.frame .div-10 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.frame .text-wrapper-4 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-family: "Roboto-Medium", Helvetica;
+    font-weight: 500;
+    color: #000000;
+    font-size: 16px;
+    letter-spacing: 0.16px;
+    line-height: 22.4px;
+    white-space: nowrap;
+}
+
+.frame .text-wrapper-5 {
+    position: relative;
+    width: fit-content;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
