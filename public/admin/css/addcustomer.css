@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+   
+}
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    max-width: 10000px;
+}
+.content-addcustomer
+{
+    width: 100%;
+    max-width: 1200px; 
+    margin: auto; 
+    padding: 20px; 
+    justify-content: center;
+    background-color: #f8f9fa; 
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.dashboard-section
+{
+    padding: 0;
+}
+.sidebar
+{
+    background-color: #0471dd; 
+    height: 100vh; 
+    padding: 0;
+}
+.header-section {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #fff, #aaefff);
+
+}
+.header-section .header-title-section
+{
+    margin-top: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: bold;
+}
+.region-dropdown {
+    background-color: #d1f3ff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #44aaff;
+    margin-left: 10px;
+}
+.search-section
+{
+  
+}
+#search
+{
+    width: 100%;
+    padding: 10px; /* Tạo khoảng cách bên trong */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.table-controls
+{
+    display: flex;
+    justify-content: space-between;
+    padding:0;
+    margin: 10px;
+
+
+}
+.table-actions
+{
+    display: flex;
+    justify-content: right;
+    padding : 20px;
+}
+.customer-table
+{
+    
+}
+ .customer-table .col
+{
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-family: "Roboto-Regular", Helvetica;
+}
+.customer-table .row{
+    background-color: #fbfbfb;
+}
+.customer-table .row-head{
+    background: linear-gradient(90deg, #fff, #aaefff);
+    color: #000;
+    font-weight: bold;
+}
+
+#btn-addfilter
+{
+    font-size: 14px;
+    padding: 10px;
+    font-family: "Roboto-Regular", Helvetica;
+    background-color: #fff;
+    text-align: center;
+    margin-right: 30px;
+    border: 1px solid #ccc;
+}
+#btn-addfilter:hover
+{
+     background-color: #509cdb;
+}
+#btn-add-customer
+{
+    border: 1px solid #ccc;
+    background-color: #509cdb;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    font-family: "Roboto-Regular", Helvetica;
+    border-radius: 5px;
+}
+#btn-add-customer:hover
+{
+    background-color: #0a0aa8;
+}
+#btn-exportCSV:hover
+{
+    background-color: #509cdb;
+}
+#btn-exportCSV
+{
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14px;
+    color: #2671b1;
+    font-family: "Roboto-Regular", Helvetica;
+    border: 1px solid #ccc;
+}
+
+#img-search
+{
+    font-size: large;
+    height: 30px;
+    width:  30px;
+    margin-top: 15px;
+}
