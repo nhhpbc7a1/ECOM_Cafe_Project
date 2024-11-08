@@ -3,25 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-body
-{
-   
-}
-.container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    max-width: 10000px;
-}
 .dashboard-section
 {
     padding: 0 20px;
-}
-.sidebar
-{
-    background-color: #0471dd; 
-    height: 100vh; 
-    padding: 0;
 }
 .header-section {
     display: flex;
@@ -94,11 +78,11 @@ body
 #Orange
 {
     color: orangered;
-letter-spacing: 1px;
-font-weight: bold;
-font-family: "Shrikhand-Regular", Helvetica;
-text-align: center;
-display: inline-block;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-family: "Shrikhand-Regular", Helvetica;
+    text-align: center;
+    display: inline-block;
 }
 .chart-section
 {

@@ -3,18 +3,21 @@
 }
 
 :root {
-    --text-size-m: 20px;
+    --text-size-m: 1rem;
 }
 .container-fluid, .row, .col {
     margin: 0;
     padding: 0;
 }
 
-.container-fluid {
+.content {
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .sidebar {
     margin: 0;
+    width: 25%;
     max-width: 300px;
     height: 100vh; 
     background: linear-gradient(180deg, var(--white) 5%, #4feaed 100%);
@@ -28,7 +31,7 @@
 
 .sidebar__top {
     text-align: center;
-    padding: 40px 0;
+    padding: 40px 20px;
     border-bottom: 1px solid black;
     margin-bottom: 30px;
 }
@@ -101,4 +104,11 @@
 #btnLogout {
     color: red;
     font-size: 40px;
+}
+
+.sidebar__middle-item .dropdown-menu {
+    display: none;
+}
+#check_sidebar_branch_list:checked + .dropdown .dropdown-menu {
+    display: block;
 }

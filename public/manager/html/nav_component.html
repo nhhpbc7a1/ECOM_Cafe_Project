@@ -14,8 +14,8 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-3 sidebar">
+        <div class="row d-flex">
+            <div class="sidebar">
                 <div class="sidebar__top">
                     <img src="../images/nav_component/logo.jpg" alt="" id="manager-logo">
                     <div class="" id="brand__name">Tobey Nguyen CF</div>
@@ -64,10 +64,11 @@
                                 <p>Cài đặt</p>
                             </a>
                         </li>
-                        <li class="sidebar__middle-item ">
+                        <li class="sidebar__middle-item">
                             
+                            <input type="checkbox" name="" id="check_sidebar_branch_list" style="display: none;">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" onclick="document.getElementById('check_sidebar_branch_list').click()">
                                     <i class="bi bi-geo-alt"></i>
                                     <p>Chi nhánh</p>
                                 </button>
@@ -92,11 +93,11 @@
                     <i id="btnLogout" class="bi bi-box-arrow-right can-hover"></i>
                 </div>
             </div>
-            <div class="col-9 content">
-                <div class="container">
+            <div class="content" style="flex:1;">
+                <div class="container-fluid">
             
                     
-                    <div class="row d-flex align-items-center">
+                    <div class="row d-flex align-items-center m-3">
                         <div class="col-6">
                             <img src="../images/homepage_admin/ecom_logo.png" alt="" style="width: 50px;">
                         </div>

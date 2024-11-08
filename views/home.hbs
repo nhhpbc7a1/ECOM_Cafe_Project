@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/manager/css/global.css">
+    <link rel="stylesheet" href="/manager/css/homepage_admin.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-between">
+                <div class="logo__container can-hover d-flex align-item-center">
+                    <a href="" class="d-flex">
+                        <img class="logo_img" src="/manager/images/homepage_admin/ecom_logo.png" alt="">
+                        <p class="logo_text_1">:Delic</p>
+                        <p class="logo_text_2">acy</p>    
+                    </a>
+                </div>
+                <div>
+                    <ul class="header__navbar d-flex align-item-center">
+                        <li class="header__navbar-item can-hover" >
+                            <a onclick="goto(1)">Giới thiệu</a>
+                        </li>
+                        <li class="header__navbar-item can-hover">
+                            <a onclick="goto(2)">Tính năng</a>
+                        </li>
+                        <li class="header__navbar-item can-hover">
+                            <a onclick="goto(3)">Mô hình</a>
+                        </li>
+                        <li class="header__navbar-item can-hover">
+                            <a onclick="goto(4)" >Dịch vụ</a>
+                        </li>
+                        <li class="header__navbar-item can-hover">
+                            <a onclick="goto(5)" >Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header__login d-flex align-item-center">
+                    <a name="" id="btnLogIn" class="btn btn-primary can-hover" href="/manager/login" role="button">Đăng nhập</a>
+                    <a name="" id="btnSignUp" class="btn btn-primary can-hover" href="/manager/signup" role="button">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div id="part1" class="container content__part">
+            <div class="row">
+                <div class="col" style="position: relative;">
+                    <img src="/manager/images/homepage_admin/content1.png" alt="">
+                    <div class="delicacy-proper-item" style="left: 20px; bottom: 110px;">
+                        <p>Tăng trải nghiệm khác hàng</p>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="delicacy-proper-item" style="left: 40px; bottom: 60px;">
+                        <p>Tối ưu quy trình bán hàng</p>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="delicacy-proper-item" style="left: 60px; bottom: 10px;">
+                        <p>Tăng doanh thu bán hàng</p>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="text-size-l">
+                        Hãy làm việc bán hàng của bạn trở nên đơn giản cùng với 
+                        <i>:Delicacy</i>
+                    </p>
+                    <p class="text-size-s">
+                        Áp dụng các mô hình thương mại điện tử cho của hàng của bạn.
+                        Thuận tiện dễ dàng quản lý và kiểm soát các quá trình của cửa hàng
+                        Là một phương pháp tối ưu để giúp cửa hàng tiếp cận với mô hình thương mại điện tử 
+                        Click and Mortal.
+                    </p>
+                    <p class="text-size-m">
+                        Dùng thử miễn phí 
+                        <a name="" id="" class="btn btn-primary text-size-s" href="#" role="button">Start now</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container content__part" >
+            <div class="row text-size-l d-flex justify-content-center">
+                <img src="/manager/images/homepage_admin/content2-1.png" alt="">
+                :Delicacy FNB
+            </div>
+            <div class="row">
+                <div class="col" style="position: relative;">
+                    <img src="/manager/images/homepage_admin/content2.png" alt="">
+                </div>
+                <div class="col">
+                    <p class="text-size-l">
+                        Giải pháp quản lý
+                        chuyên nghiệp 
+                        order bằng QR 
+                        tại bàn 
+                    </p>
+                    <p class="text-size-s">
+                        Phần mềm quản lý nhà hàng , quán ăn là giải pháp toàn diện  
+                        cho ngành F&B, giúp quản lý hiệu quả các hoạt động từ đặt bàn,
+                        tính tiền,  menu, đến báo cáo doanh thu.Với các tính năng
+                        như tích hợp quản lý kho, và báo cáo chi tiết, phần mềm giúp tối ưu  
+                        hóa quy trình, giảm thiểu sai sót và tăng năng suất.                    </p>
+                    <p class="text-size-l">
+                        <a name="" id="" class="btn btn-primary text-size-s" href="#" role="button">Take a look</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div  id="part2" class="container content__part">
+            <div class="row">
+                <div class="col">
+                    <img src="/manager/images/homepage_admin/content3.png" alt="">
+
+                </div>
+                <ul class="col content-3">
+                    <li class="content-3-item">
+                        <img src="/manager/images/homepage_admin/content3-1.png" alt="">
+                        <div>
+                            <p class="text-size-m">Tăng doanh thu đơn hàng</p>
+                            <p class="text-size-s">Khi có nhiều thời gian để order và xem chi tiết menu</p>
+                        </div>
+                    </li>
+                    <li class="content-3-item">
+                        <img src="/manager/images/homepage_admin/content3-2.png" alt="">
+                        <div>
+                            <p class="text-size-m">Tối ưu quy trình</p>
+                            <p class="text-size-s">
+                                Gia tăng trãi nghiệm của khách hàng tại quán
+                                , cắt giảm chi phí nhân sự.Thu thập phản hồi tại chỗ và gia tăng sự hài lòng của khách.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="content-3-item">
+                        <img src="/manager/images/homepage_admin/content3-3.png" alt="">
+                        <div>
+                            <p class="text-size-m">Thu hút nhiều khách hàng</p>
+                            <p class="text-size-s"> 
+                                Cuốn hút khách hàng theo dõi và gửi các    
+                                voucher khuyến mãi về sau.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="part3" class="container content__part">
+            <div class="row">
+                <div class="col">
+                <p class="text-size-l">Mô hình khách tự order bằng mã QR tại bàn - trả tiền sau </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="/manager/images/homepage_admin/content4.png" alt="" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div  id="part4" class="container content__part">
+            <div class="row my-center">
+                <p class="text-blue margin-auto">Hãy bắt đâu tối ưu hóa hình thức kinh doanh từ hôm nay</p>
+            </div>
+            <div class="row my-center">
+                <p class="text-size-l">Một phần mềm giúp việc kinh doanh đồ uống tối ưu hơn</p>
+            </div>
+            <div class="row my-center">
+                <a name="" id="" class="btn btn-primary mr-3" href="#" role="button">Đăng ký tài khoản demo</a>
+                <a name="" id="" class="btn btn-primary btn--blue" href="#" role="button">Dùng thử miễn phí</a>
+            </div>
+        </div>
+        <div class="container content__part">
+            <div class="row my-center">
+                <p class="text-blue margin-auto">Bảng phí dịch phụ ngành cà phê , trà sửa</p>
+            </div>
+            <div class="row my-center">
+                <p class="text-size-l">Hãy chọn gói dịch vụ mà bạn ưa thích</p>
+            </div>
+            <div class="row" id="service-package-list">
+                <div class="col service-package-item">
+                    <p class="service-package-item__name my-center" name="name">Hỗ trợ</p>
+                    <p class="service-package-item__price my-center" name="price">200.000 VNĐ</p>
+                    <p class="service-package-item__main-feature my-center" name="main-feature">1 cửa hàng/tháng</p>
+                    <p class="text-size-s my-center">Dùng mô hình kinh doanh nhỏ & vận hành đơn giản</p>
+                    <div class="my-separate"></div>
+                    <ul>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            3 tài khoản truy cập
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Không giới hạn tính năng cơ bản 
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Không phí khởi tạo
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Hỗ trợ qua tổng đài
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Giải pháp thanh toán Momo / VN QR / VN pay
+                        </li>
+                    </ul>
+                    <a name="" id="" class="btn btn-primary my-center" href="#" role="button">Dùng thử miễn phí</a>
+                </div>
+                <div class="col service-package-item">
+                    <p class="service-package-item__name my-center" name="name">Chuyên nghiệp</p>
+                    <p class="service-package-item__price my-center" name="price">290.000 VNĐ</p>
+                    <p class="service-package-item__main-feature my-center" name="main-feature">
+                        Quản lý nhiều chi nhánh: 200k/+1 chi nhánh</p>
+                    <p class="text-size-s my-center">Dành cho mô hình kinh doanh chuyên nghiệp, chuyên môn hóa quá trình</p>
+                    <div class="my-separate"></div>
+                    <ul>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Không giới hạn tài khoản truy cập
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Không giới hạn tính năng cơ bản 
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Không phí khởi tạo
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Hỗ trợ qua tổng đài
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Giải pháp thanh toán Momo / VN QR / VN pay
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Tạo website gọi món / thực đơn
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Chấm công / tính lương 15 NV/ cửa hàng
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Phân tích kinh doanh thông minh
+                        </li>
+                    </ul>
+                    <a name="" id="" class="btn btn-primary my-center" href="#" role="button">Dùng thử miễn phí</a>
+                </div>
+                <div class="col service-package-item">
+                    <p class="service-package-item__name my-center" name="name">Cao cấp</p>
+                    <p class="service-package-item__price my-center" name="price">420.000 VNĐ</p>
+                    <p class="service-package-item__main-feature my-center" name="main-feature">420.000VNĐ
+                        Quản lý nhiều chi nhánh:375k/+1 chi nhánh</p>
+                    <p class="text-size-s my-center">Dành cho mô hình kinh doanh lớn, phức tạp % cần dịch vu cao cấp .</p>
+                    <div class="my-separate"></div>
+                    <ul>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Không giới hạn tài khoản truy cập
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Không giới hạn tính năng cơ bản 
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Không phí khởi tạo
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Hỗ trợ qua tổng đài
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Giải pháp thanh toán Momo / VN QR / VN pay
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Tạo website gọi món / thực đơn
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Chấm công / tính lương 15 NV/ cửa hàng
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Phân tích kinh doanh thông minh
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Hạ tầng máy chủ & dữ liệu riệng biệt
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            Hỗ trợ kết nối API
+                        </li>
+                    </ul>
+                    <a name="" id="" class="btn btn-primary my-center" href="#" role="button">Dùng thử miễn phí</a>
+                </div>
+            </div>
+        </div>
+        <div class="container content__part" style="background-image: url(/manager/images/homepage_admin/contentx-background.png);background-size: contain;padding-bottom: 200px;">
+            <div class="row my-center">
+                <p class="text-blue" >TÍNH NĂNG PHÙ HỢP VỚI MỌI LOẠI MÔ HÌNH KINH DOANH</p>
+            </div>
+            <div class="row my-center">
+                <p class="text-size-l">Gói hỗ trợ</p>
+            </div>
+            <div class="row">
+                <table class="service-package-feature-detail">
+                    <thead>
+                        <tr>
+                            <th>Bán hàng</th>
+                            <th>Quản lý hàng hóa & bar/bếp</th>
+                            <th>Quản lý thu/chi</th>
+                            <th>Quản lý kho</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"> 
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>                    
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="service-package-feature-detail">
+                    <thead>
+                        <tr>
+                            <th>Bán hàng</th>
+                            <th>Quản lý hàng hóa & bar/bếp</th>
+                            <th>Quản lý thu/chi</th>
+                            <th>Quản lý kho</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"> 
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>                    
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div  class="container content__part" style="background-image: url(/manager/images/homepage_admin/contentx-background.png);background-size: contain;padding-bottom: 200px;">
+            <div class="row my-center">
+                <p class="text-blue" >Bao gồm toàn bộ tính năng của gói Hỗ trợ và nhiều tính năng nâng cao khác</p>
+            </div>
+            <div class="row my-center">
+                <p class="text-size-l">GÓI CHUYÊN NGHIỆP, CAO CẤP</p>
+            </div>
+            <div class="row">
+                <table class="service-package-feature-detail">
+                    <thead>
+                        <tr>
+                            <th>Bán hàng</th>
+                            <th>Quản lý hàng hóa & bar/bếp</th>
+                            <th>Quản lý thu/chi</th>
+                            <th>Quản lý kho</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"> 
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>                    
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="service-package-feature-detail">
+                    <thead>
+                        <tr>
+                            <th>Bán hàng</th>
+                            <th>Quản lý hàng hóa & bar/bếp</th>
+                            <th>Quản lý thu/chi</th>
+                            <th>Quản lý kho</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"> 
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>                    
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tài khoản truy cập
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không giới hạn tính năng cơ bản 
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Không phí khởi tạo
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"></i>
+                                        Hỗ trợ qua tổng đài
+                                    </li>
+                                </ul>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="part5" class="container content__part">
+            <div class="row my-center text-size-l"> 
+                Liên hệ với chúng tôi
+            </div>
+            <div class="row my-center text-size-s">Hi vọng quí khách sẽ nhận được câu trả lời tốt nhất từ chúng tôi</div>
+        
+            <div class="row contact">
+                <div class="col contact-item">
+                    <img src="/manager/images/homepage_admin/zalo.png" alt="">
+                    <p class="text-size-m">Liên hệ qua zalo </p>
+                    <p class="text-size-s">
+                        Liên hệ qua với nhân viên của
+                        chúng tôi ở Zalo
+                    </p>
+                    <a name="" id="" class="btn btn-primary" href="#" role="button">Message</a>
+                </div>
+                <div class="col contact-item">
+                    <img src="/manager/images/homepage_admin/fb.png" alt="">
+                    <p class="text-size-m">Liên hệ qua Fanpage </p>
+                    <p class="text-size-s">
+
+
+                        Liên hệ qua với tư vấn viên của
+
+                        chúng tôi || 
+                       
+                       FANPAGE:Delicacy.vn
+                    </p>
+                    <a name="" id="" class="btn btn-primary" href="#" role="button">Message</a>
+                </div>
+                <div class="col contact-item">
+                    <img src="/manager/images/homepage_admin/call.png" alt="">
+                    <p class="text-size-m">Hotline: 1900-0983 </p>
+                    <p class="text-size-s">
+                        Tổng đài tư vấn hỗ trợ từ 8h-22h ( nghỉ trưa từ 11h30 - 13h00) tất cả ngày trong năm kể cả lễ .
+                    </p>
+                    <a name="" id="" class="btn btn-primary" href="#" role="button">Call</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container content__part" style="background: none;">
+            <div class="row">
+                <p class="text-size-l">Đăng ký dùng ngày 1 tháng với đầy đủ tính năng</p>
+            </div>
+            <div class="row my-center form-trial">
+                <p class="text-size-m">Quý khách vui lòng  điền vào form dưới đây để tạo tài khoản</pc>
+            </div>
+            <form class="row my-center form-trial">
+                <div class="form-trial-item col">
+                    <select class="form-control" name="" id="" >
+                      <option>+84</option>
+                      <option>2</option>
+                      <option>3</option>
+                    </select>
+                </div>
+                <div class="form-trial-item col">
+                    <input type="text" placeholder="Số điện thoại">
+                </div>
+                <div class="form-trial-item col">
+                    <input type="text" placeholder="Email">
+
+                </div>
+                <div class="form-trial-item col">
+                    <input type="text" placeholder="Mật khẩu">
+                </div>
+
+                <a name="" id="btnSubmitTrial" class="btn btn-primary text-size-m" href="#" role="button">Confirm</a>
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <div class="">
+                    <div class="logo__container can-hover d-flex align-item-center">
+                        <a href="" class="d-flex">
+                            <img class="logo_img" src="/manager/images/homepage_admin/ecom_logo.png" alt="">
+                            <p class="logo_text_1">:Delic</p>
+                            <p class="logo_text_2">acy</p>    
+                        </a>
+                    </div>
+                </div>  
+                <div>
+                    <div class="d-flex">
+                        Address:
+                        <p id="txtAddress" style="text-wrap:wrap; margin-left: 5px">21c 7th Street, Hoang Dieu 2, Thu Duc city, Ho Chi Minh</p>    
+                    </div>
+                    <div class="d-flex">
+                        Hotline:
+                        <p id="txtHotline" style="text-wrap:wrap; margin-left: 5px">0123456789</p>
+                    </div>
+                </div>
+                <div>
+                    <ul class="footer__navbar d-flex align-item-center">
+                        <li class="footer__navbar-item">
+                            <a onclick="goto(1)">Giới thiệu</a>
+                        </li>
+                        <li class="footer__navbar-item">
+                            <a onclick="goto(2)">Tính năng</a>
+                        </li>
+                        <li class="footer__navbar-item">
+                            <a onclick="goto(3)">Mô hình</a>
+                        </li>
+                        <li class="footer__navbar-item">
+                            <a onclick="goto(4)">Dịch vụ</a>
+                        </li>
+                        <li class="footer__navbar-item">
+                            <a onclick="goto(5)">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center" style="margin-top: 40px">
+                © 2024 Delicacy. All rights reserved.
+            </div>
+        </div>
+    </div>
+    <script>
+        function goto(e) {
+            window.location.href = '#part' + e;
+        }
+    </script>
+</body>
+</html>
