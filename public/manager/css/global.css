@@ -3,6 +3,7 @@
     --primary-color--medium: rgb(54, 242, 255);
     --primary-color--heavy: #0b4559;
     --blue: #4678EE;
+    --btn-color--dark: #152259;
     --border-radius: 16px;
     --header-item--padding: 8px 16px;
     --padding: 8px 16px;
@@ -14,7 +15,8 @@
     --text-size-s: 16px;
     --text-size-m: 25px;
     --text-size-l: 48px;
-    
+    --box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --font-family: Arial, Helvetica, sans-serif;
 }
 
 :target {
@@ -92,7 +94,8 @@ p {
     cursor: pointer;
 }
 
-.container-fluid , .container {
+
+.container {
     max-width: var(--max-width);
 }
 

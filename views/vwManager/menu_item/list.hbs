@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row d-flex align-items-center">
+        <div class="col-6">
+            <img src="/manager/images/homepage_admin/ecom_logo.png" alt="" style="width: 50px;">
+        </div>
+        <div class="col-2">
+            <a name="" id="" class="btn btn-primary" href="#" role="button">Thêm món</a>
+        </div>
+        <div class="col-2">
+            <a name="" id="" class="btn btn-primary" href="#" role="button">import</a>
+        </div>
+        <div class="col-2">
+            <a name="" id="" class="btn btn-primary" href="#" role="button">Xuất file</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>             <!-- menu_item_id -->
+                <th scope="col">Tên</th>           <!-- name -->
+                <th scope="col">Mô tả</th>         <!-- description -->
+                <th scope="col">Hình ảnh</th>      <!-- image_href -->
+                <th scope="col">Giá gốc</th>       <!-- cost_price -->
+                <th scope="col">Giá bán</th>       <!-- sale_price -->
+                
+                <th scope="col">Trạng thái</th>    <!-- is_available -->
+                <th scope="col">Cay</th>           <!-- is_spicy -->
+                <th scope="col">Rau</th>           <!-- has_vegetables -->
+            </tr>
+        </thead>
+        <tbody>
+            {{#each menu_items}}
+            <tr>
+                <th scope="row">{{menu_item_id}}</th>
+                <td>{{name}}</td>
+                <td>{{description}}</td>
+                <td><img src="{{image_href}}" alt="Image" width="50" height="50"></td>
+                <td>{{cost_price}}</td>
+                <td>{{sale_price}}</td>
+                
+                <td>{{#if is_available}}Có sẵn{{else}}Hết hàng{{/if}}</td>
+                <td>{{#if is_spicy}}Có{{else}}Không{{/if}}</td>
+                <td>{{#if has_vegetables}}Có{{else}}Không{{/if}}</td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div class="row d-flex justify-content-end">
+        <a name="" id="" class="btn btn-primary" href="#" role="button">Search</a>
+    </div>
+</div>    
+
+
