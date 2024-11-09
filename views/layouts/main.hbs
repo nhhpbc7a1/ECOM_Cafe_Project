@@ -1,12 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Example App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng mẫu với Grid.js</title>
+  <!-- Import CSS từ Grid.js -->
+  <link rel="stylesheet" href="node_modules/gridjs/dist/theme/mermaid.min.css">
 </head>
 <body>
+  <div id="table-wrapper"></div>
 
-    {{{body}}}
-
+  <!-- Import Grid.js -->
+  <script src="node_modules/gridjs/dist/gridjs.umd.js"></script>
+  <script>
+    // Khởi tạo bảng Grid.js
+    new gridjs.Grid({
+      columns: ["Tên", "Tuổi", "Thành phố"],
+      data: [
+        ["Nguyễn Văn A", 28, "Hà Nội"],
+        ["Trần Thị B", 32, "Đà Nẵng"],
+        ["Lê Văn C", 25, "TP Hồ Chí Minh"]
+      ],
+      pagination: {
+        limit: 2
+      },
+      search: true,
+      sort: true,
+      language: {
+        search: {
+          placeholder: 'Tìm kiếm...'
+        },
+        pagination: {
+          previous: 'Trước',
+          next: 'Sau',
+          showing: 'Hiển thị',
+          results: () => 'kết quả'
+        }
+      }
+    }).render(document.getElementById("table-wrapper"));
+  </script>
 </body>
 </html>
