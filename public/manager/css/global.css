@@ -71,7 +71,7 @@ p {
     width: 100%;
 }
 
-.btn {
+.my_btn {
     background-color: var(--black);
     color: var(--white);
     border-radius: var(--border-radius);

@@ -18,4 +18,21 @@ export default {
                 'menu_items.has_vegetables'
             );
     },
+    findByID(id) {
+        return db('menu_items')
+           .where('menu_item_id', id)
+           .first();
+    },
+    add(entity) {
+        return db('menu_items')
+           .insert(entity);
+    },
+    patch(menu_item_id, entity) {
+        return db('menu_items')
+           .where('menu_item_id', menu_item_id)
+           .update(entity);
+    },
+    del(menu_item_id) {
+        return db('menu_items').where('menu_item_id', menu_item_id).del();
+    }
 }
