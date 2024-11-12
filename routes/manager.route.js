@@ -3,13 +3,14 @@ import menu_itemService from '../services/menu_item.service.js';
 
 const router = express.Router();
 
-router.get('/login', function(req, res) {
-    res.render('vwManager/login',)
-});
+import loginRouter from './manager/login.route.js';
+router.use('/login', loginRouter);
 
-router.get('/signup', function(req, res) {
-    res.render('vwManager/signup',)
-});
+import signupRouter from './manager/signup.route.js'
+router.use('/signup', signupRouter);
+
+import branch_infoRouter from './manager/branch_info.route.js'
+router.use('/branch_info', branch_infoRouter);
 
 
 // Middleware để đặt layout mặc định là 'manager'
