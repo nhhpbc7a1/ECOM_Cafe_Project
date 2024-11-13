@@ -1,6 +1,9 @@
+-- Chuyển sang cơ sở dữ liệu fnbservice_management
 USE fnbservice_management;
 
--- Drop tables in reverse order of dependencies
+-- Xóa các bảng con trước để tránh lỗi khóa ngoại
+SET FOREIGN_KEY_CHECKS = 0;  -- Tạm thời vô hiệu hóa kiểm tra khóa ngoại
+
 DROP TABLE IF EXISTS order_item_options;
 DROP TABLE IF EXISTS menu_item_options;
 DROP TABLE IF EXISTS faqs;
@@ -15,7 +18,10 @@ DROP TABLE IF EXISTS menu_items;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS menus;
 DROP TABLE IF EXISTS tables;
+DROP TABLE IF EXISTS areas;
 DROP TABLE IF EXISTS branches;
 DROP TABLE IF EXISTS managers;
 DROP TABLE IF EXISTS accounts;
 DROP TABLE IF EXISTS roles;
+
+SET FOREIGN_KEY_CHECKS = 1;  -- Kích hoạt lại kiểm tra khóa ngoại

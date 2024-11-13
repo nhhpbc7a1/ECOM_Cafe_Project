@@ -37,18 +37,6 @@ app.get('/', function(req, res) {
     res.render('home', {layout: false});
 });
 
-import menu_itemService from './services/menu_item.service.js';
-app.get('/grid',async function(req, res) {
-    // const branch_id = req.query.accountid || 0;
-    const branch_id = 1;
-    const list = await menu_itemService.findAll(branch_id);
-    // console.log(list);
-    res.render('gridview', {
-        layout: false,
-        menu_items: list,
-    });
-});
-
 
 import managerRouter from './routes/manager.route.js'
 app.use('/manager', managerRouter);

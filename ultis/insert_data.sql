@@ -1,92 +1,146 @@
 ﻿USE fnbservice_management;
+SET FOREIGN_KEY_CHECKS = 0; 
+-- Bảng roles
+INSERT INTO roles (role_name) 
+VALUES ('Admin'), ('Manager'), ('Employee'), ('Chef'), ('Waiter');
 
-INSERT INTO roles (role_name) VALUES 
-('Admin'),
-('Manager'),
-('Employee');
+-- Bảng accounts
+INSERT INTO accounts (username, password, role_id) 
+VALUES ('admin_user', 'password_hash', 1), 
+       ('manager_user1', 'password_hash', 2),
+       ('employee_user1', 'password_hash', 3),
+       ('chef_user', 'password_hash', 4),
+       ('waiter_user', 'password_hash', 5);
 
-INSERT INTO accounts (username, password, role_id) VALUES 
-('admin_user', 'password123', 1),
-('manager_user1', 'password123', 2),
-('manager_user2', 'password123', 2),
-('employee_user1', 'password123', 3),
-('employee_user2', 'password123', 3);
+-- Bảng managers
+INSERT INTO managers (name, phone, email, address, account_id)
+VALUES ('John Doe', '123456789', 'john1@example.com', '123 Main St', 2),
+       ('Jane Smith', '987654321', 'jane@example.com', '456 Oak St', 3),
+       ('Tom Johnson', '456123789', 'tom@example.com', '789 Pine St', 4),
+       ('Linda Brown', '321654987', 'linda@example.com', '101 Elm St', 5),
+       ('Jack Wilson', '654987321', 'jack@example.com', '202 Maple St', 6);
 
-INSERT INTO managers (name, phone, email, address, account_id) VALUES 
-('Nguyễn Văn A', '0123456789', 'nguyenvana@example.com', '123 Đường ABC, Quận 1', 2),
-('Trần Thị B', '0987654321', 'tranthib@example.com', '456 Đường DEF, Quận 2', 3);
+-- Bảng branches
+INSERT INTO branches (manager_id, name, contact_phone, address, coordinates, logo_href, fnb_date_counter)
+VALUES (1, 'Main Branch', '123456789', '123 Main St', '10.8231, 106.6297', 'logo1.png', 100),
+       (2, 'Second Branch', '987654321', '456 Oak St', '10.7321, 106.6807', 'logo2.png', 200),
+       (3, 'Third Branch', '456123789', '789 Pine St', '10.7501, 106.6300', 'logo3.png', 300),
+       (4, 'Fourth Branch', '321654987', '101 Elm St', '10.8001, 106.7000', 'logo4.png', 400),
+       (5, 'Fifth Branch', '654987321', '202 Maple St', '10.8101, 106.7200', 'logo5.png', 500);
 
-INSERT INTO branches (manager_id, name, contact_phone, address, coordinates, logo_href, fnb_date_counter) VALUES 
-(1, 'Chi nhánh 1', '0987654321', '456 Đường DEF, Quận 2', '10.8231,106.6297', 'logo1.png', 100),
-(2, 'Chi nhánh 2', '0976543210', '789 Đường GHI, Quận 3', '10.7754,106.7001', 'logo2.png', 150);
+-- Bảng areas
+INSERT INTO areas (branch_id, name) 
+VALUES (1, 'Tầng 1'), 
+       (1, 'Tầng 2'), 
+       (2, 'Tầng 3'), 
+       (3, 'Khu vực A'), 
+       (4, 'Khu vực B');
 
-INSERT INTO tables (branch_id, qr_code, is_available, position) VALUES 
-(1, 'QR123', 1, 'Khu A - Bàn 1'),
-(1, 'QR124', 1, 'Khu A - Bàn 2'),
-(2, 'QR223', 0, 'Khu B - Bàn 1'),
-(2, 'QR224', 1, 'Khu B - Bàn 2');
+-- Bảng tables
+INSERT INTO tables (branch_id, area_id, table_name, qr_code, is_available) 
+VALUES (1, 1, 'Table 1', 'QR_001', 1), 
+       (1, 2, 'Table 2', 'QR_002', 0), 
+       (2, 3, 'Table 3', 'QR_003', 1), 
+       (3, 4, 'Table 4', 'QR_004', 1), 
+       (4, 5, 'Table 5', 'QR_005', 0);
 
-INSERT INTO menus (branch_id, menu_color, background_image_href) VALUES 
-(1, 'Red', 'bg1.png'),
-(2, 'Blue', 'bg2.png');
+-- Bảng menus
+INSERT INTO menus (branch_id, menu_color, background_image_href)
+VALUES (1, 'Blue', 'menu_background1.png'),
+       (2, 'Green', 'menu_background2.png'),
+       (3, 'Red', 'menu_background3.png'),
+       (4, 'Yellow', 'menu_background4.png'),
+       (5, 'Purple', 'menu_background5.png');
 
-INSERT INTO categories (category_name) VALUES 
-('Khai vị'),
-('Món chính'),
-('Tráng miệng');
+-- Bảng categories
+INSERT INTO categories (category_name)
+VALUES ('Drinks'), ('Food'), ('Desserts'), ('Appetizers'), ('Specials');
 
-INSERT INTO menu_items (menu_id, category_id, name, description, image_href, cost_price, sale_price, is_available, is_spicy, has_vegetables) VALUES 
-(1, 1, 'Gỏi cuốn', 'Món gỏi cuốn tươi ngon', 'goi_cuon.png', 15000, 30000, 1, 0, 1),
-(1, 2, 'Bún bò Huế', 'Bún bò Huế thơm ngon', 'bun_bo_hue.png', 30000, 60000, 1, 1, 0),
-(1, 3, 'Chè ba màu', 'Món chè ba màu truyền thống', 'che_ba_mau.png', 10000, 25000, 1, 0, 0),
-(2, 1, 'Súp cua', 'Súp cua nóng hổi', 'sup_cua.png', 20000, 40000, 1, 0, 1),
-(2, 2, 'Phở bò', 'Phở bò tái chín', 'pho_bo.png', 35000, 70000, 1, 0, 0);
+-- Bảng menu_items
+INSERT INTO menu_items (menu_id, category_id, name, description, image_href, cost_price, sale_price, is_available, is_spicy, has_vegetables) 
+VALUES (1, 1, 'Coffee', 'Hot coffee', 'coffee.png', 10.00, 15.00, 1, 0, 0),
+       (2, 2, 'Burger', 'Beef burger', 'burger.png', 20.00, 30.00, 1, 1, 1),
+       (3, 3, 'Ice Cream', 'Vanilla ice cream', 'icecream.png', 5.00, 7.50, 1, 0, 0),
+       (4, 4, 'Spring Rolls', 'Vietnamese spring rolls', 'springrolls.png', 8.00, 12.00, 1, 0, 1),
+       (5, 5, 'Special Salad', 'Mixed greens with dressing', 'salad.png', 6.00, 10.00, 1, 0, 1);
 
-INSERT INTO orders (table_id, order_date, status, total_amount) VALUES 
-(1, '2024-11-08 12:30:00', 'completed', 90000),
-(2, '2024-11-08 13:00:00', 'pending', 60000),
-(3, '2024-11-09 10:15:00', 'completed', 50000);
+-- Bảng orders
+INSERT INTO orders (table_id, order_date, status, total_amount)
+VALUES (1, NOW(), 'Completed', 45.00),
+       (2, NOW(), 'Pending', 30.00),
+       (3, NOW(), 'In Progress', 60.00),
+       (4, NOW(), 'Completed', 50.00),
+       (5, NOW(), 'Cancelled', 0.00);
 
-INSERT INTO order_items (order_id, menu_item_id, quantity, note) VALUES 
-(1, 1, 2, 'Không hành'),
-(1, 2, 1, ''),
-(2, 3, 1, 'Thêm đá'),
-(3, 4, 1, 'Không tiêu');
+-- Bảng order_items
+INSERT INTO order_items (order_id, menu_item_id, quantity, note)
+VALUES (1, 1, 2, 'Less sugar'), 
+       (2, 2, 1, 'Extra cheese'), 
+       (3, 3, 3, 'No topping'), 
+       (4, 4, 1, 'Spicy'), 
+       (5, 5, 2, 'No dressing');
 
-INSERT INTO order_payments (order_id, payer_card_id, pay_date, pay_content, send_amount) VALUES 
-(1, 'CARD123456', '2024-11-08 12:45:00', 'Thanh toán qua thẻ', 90000),
-(3, 'CARD654321', '2024-11-09 10:30:00', 'Thanh toán tiền mặt', 50000);
+-- Bảng order_payments
+INSERT INTO order_payments (order_id, payer_card_id, pay_date, pay_content, send_amount)
+VALUES (1, 'CARD123', NOW(), 'Paid with card', 45.00),
+       (2, 'CARD456', NOW(), 'Paid with cash', 30.00),
+       (3, 'CARD789', NOW(), 'Paid with card', 60.00),
+       (4, 'CARD101', NOW(), 'Paid with cash', 50.00),
+       (5, 'CARD202', NOW(), 'Not paid', 0.00);
 
-INSERT INTO employees (employee_name, branch_id, account_id) VALUES 
-('Trần Văn B', 1, 4),
-('Lê Thị C', 2, 5);
+-- Bảng employees
+INSERT INTO employees (employee_name, branch_id, account_id)
+VALUES ('Alice', 1, 3),
+       ('Bob', 2, 4),
+       ('Charlie', 3, 5),
+       ('David', 4, 6),
+       ('Eve', 5, 7);
 
-INSERT INTO reviews (order_id, branch_id, rating, comment, review_date) VALUES 
-(1, 1, 5, 'Món ăn ngon, phục vụ tốt', '2024-11-08 14:00:00'),
-(2, 2, 4, 'Phục vụ nhanh, giá hợp lý', '2024-11-08 14:30:00'),
-(3, 1, 3, 'Chất lượng trung bình', '2024-11-09 11:00:00');
+-- Bảng reviews
+INSERT INTO reviews (order_id, branch_id, rating, comment, review_date)
+VALUES (1, 1, 5, 'Great service!', NOW()),
+       (2, 2, 4, 'Good food.', NOW()),
+       (3, 3, 3, 'Average experience.', NOW()),
+       (4, 4, 2, 'Not satisfied.', NOW()),
+       (5, 5, 1, 'Poor service.', NOW());
 
-INSERT INTO service_packages (day_amount, fee_amount) VALUES 
-(30, 500000),
-(90, 1200000),
-(180, 2000000);
+-- Bảng service_packages
+INSERT INTO service_packages (day_amount, fee_amount)
+VALUES (30, 99.99), 
+       (60, 189.99), 
+       (90, 279.99), 
+       (120, 369.99), 
+       (150, 459.99);
 
-INSERT INTO service_package_payment (branch_id, service_package_id, date_bought) VALUES 
-(1, 1, '2024-11-01'),
-(2, 2, '2024-11-01'),
-(1, 3, '2024-08-01');
+-- Bảng service_package_payment
+INSERT INTO service_package_payment (branch_id, service_package_id, date_bought)
+VALUES (1, 1, NOW()),
+       (2, 2, NOW()),
+       (3, 3, NOW()),
+       (4, 4, NOW()),
+       (5, 5, NOW());
 
-INSERT INTO faqs (question, answer, branch_id) VALUES 
-('Giờ mở cửa thế nào?', 'Từ 8:00 sáng đến 10:00 tối', 1),
-('Có giao hàng không?', 'Hiện tại có hỗ trợ giao hàng', 2),
-('Phí dịch vụ bao nhiêu?', 'Tùy theo gói dịch vụ', 1);
+-- Bảng faqs
+INSERT INTO faqs (question, answer, branch_id)
+VALUES ('What are the opening hours?', '9 AM to 10 PM', 1),
+       ('Is there parking available?', 'Yes, free parking.', 2),
+       ('Do you offer vegetarian options?', 'Yes, several options available.', 3),
+       ('Do you accept credit cards?', 'Yes, all major cards accepted.', 4),
+       ('Is Wi-Fi available?', 'Yes, free Wi-Fi for customers.', 5);
 
-INSERT INTO menu_item_options (option_name, cost_price, sale_price, menu_item_id, image_href) VALUES 
-('Thêm chả giò', 5000, 10000, 1, 'cha_gio.png'),
-('Thêm bò viên', 7000, 15000, 2, 'bo_vien.png'),
-('Thêm sụn gân', 6000, 12000, 4, 'sun_gan.png');
+-- Bảng menu_item_options
+INSERT INTO menu_item_options (option_name, cost_price, sale_price, menu_item_id, image_href)
+VALUES ('Extra Shot', 1.00, 1.50, 1, 'extra_shot.png'),
+       ('Large Size', 1.50, 2.00, 2, 'large_size.png'),
+       ('Extra Cheese', 0.50, 1.00, 3, 'extra_cheese.png'),
+       ('Add Avocado', 0.80, 1.20, 4, 'avocado.png'),
+       ('Double Topping', 1.20, 1.80, 5, 'double_topping.png');
 
-INSERT INTO order_item_options (quantity, order_item_id, menu_item_option_id) VALUES 
-(1, 1, 1),
-(2, 2, 2),
-(1, 3, 3);
+-- Bảng order_item_options
+INSERT INTO order_item_options (quantity, order_item_id, menu_item_option_id)
+VALUES (1, 1, 1),
+       (2, 2, 2),
+       (1, 3, 3),
+       (1, 4, 4),
+       (2, 5, 5);
+SET FOREIGN_KEY_CHECKS = 1;  -- Bật lại kiểm tra khóa ngoại
