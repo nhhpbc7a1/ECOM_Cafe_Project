@@ -1,7 +1,8 @@
 import express from 'express';
-import menu_itemService from '../services/menu_item.service.js';
 
 const router = express.Router();
+
+// route for /manager/...
 
 import loginRouter from './manager/login.route.js';
 router.use('/login', loginRouter);
@@ -25,5 +26,8 @@ router.get('/', function(req, res) {
 
 import menu_itemRouter from './manager/menu_item.route.js'
 router.use('/menu_item', menu_itemRouter);
+
+import tableRouter from './manager/table.route.js'
+router.use('/table', tableRouter);
 
 export default router;

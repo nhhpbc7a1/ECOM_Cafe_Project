@@ -39,14 +39,24 @@ CREATE TABLE branches (
     FOREIGN KEY (manager_id) REFERENCES managers(manager_id)
 );
 
+CREATE TABLE areas (
+    area_id INT AUTO_INCREMENT PRIMARY KEY,
+    branch_id INT,  -- Tham chiếu đến chi nhánh
+    name VARCHAR(255) NOT NULL,  -- Tên khu vực hoặc tầng
+    FOREIGN KEY (branch_id) REFERENCES branches(branch_id)
+);
+
 CREATE TABLE tables (
     table_id INT AUTO_INCREMENT PRIMARY KEY,
     branch_id INT,
-    qr_code VARCHAR(255),
+    area_id INT,  -- Tham chiếu đến khu vực
+    table_name VARCHAR(50),  -- Tên của bàn
+    qr_code VARCHAR(50) UNIQUE,
     is_available BIT,
-    position VARCHAR(255),
-    FOREIGN KEY (branch_id) REFERENCES branches(branch_id)
+    FOREIGN KEY (branch_id) REFERENCES branches(branch_id),
+    FOREIGN KEY (area_id) REFERENCES areas(area_id)
 );
+
 
 CREATE TABLE menus (
     menu_id INT AUTO_INCREMENT PRIMARY KEY,

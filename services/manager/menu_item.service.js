@@ -1,4 +1,4 @@
-import db from '../ultis/db.js';
+import db from '../../ultis/db.js';
 
 export default {
     findAll(branch_id) {
