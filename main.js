@@ -4,7 +4,6 @@ import { dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import cookieParser from 'cookie-parser';
-
 const app = express();
 
 app.use(express.urlencoded({ 
@@ -12,8 +11,8 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 
-import managerRouter from './routes/manager.route.js';  // Import 1 lần duy nhất
-app.use('/manager', managerRouter);
+// import managerRouter from './routes/manager.route.js';  // Import 1 lần duy nhất
+// app.use('/manager', managerRouter);
 
 app.engine('hbs', engine({
     extname: '.hbs',
@@ -42,6 +41,8 @@ app.get('/', function(req, res) {
 });
 
 
+import menuRoutes from './routes/customer/menu.route.js';
+app.use('/menu', menuRoutes);
 
 import managerRouter from './routes/manager.route.js'
 app.use('/manager', managerRouter);
