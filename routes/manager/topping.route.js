@@ -7,8 +7,8 @@ const router = express.Router();
 router.get('/', async function (req, res) {
     const menu_id = 1;
     const list = await toppingService.findAll(menu_id);
-    console.log(list);
-    return;
+    // console.log(list);
+    // return;
     res.render('vwManager/topping/list', {
         toppings: list
     });

@@ -32,7 +32,7 @@
                         <img id="qrcode_image" src="" class="img-thumbnail" alt="..."
                             style="width: 100px; height: 100px;">
                         <input id="qrcode_text" class="form-control ml-3" type="text"
-                            placeholder="Readonly input here..." readonly value="{{table.qr_code}}">
+                            placeholder="Readonly input here..." readonly value="{{table.qr_code}}" name="qr_code">
                     </div>
                     <div class="mt-3">
                         <a name="" id="generateQRCodeBtn" class="btn btn-primary" href="#" role="button">
@@ -77,6 +77,7 @@
         </div>
     </div>
     <script>
+        document.getElementById('qrcode_image').src = `https://api.qrserver.com/v1/create-qr-code/?data=${{table.qr_code}}&size=100x100`;     
 
         document.getElementById('generateQRCodeBtn').addEventListener('click', async function () {
             const response = await fetch('/manager/table/generate_qr_code');

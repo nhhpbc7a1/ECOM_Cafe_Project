@@ -40,7 +40,7 @@ router.get('/edit', async function (req, res) {
     entity.is_spicy = entity.is_spicy && entity.is_spicy[0] === 1;
     entity.has_vegetables = entity.has_vegetables && entity.has_vegetables[0] === 1;
 
-    // console.log(entity);
+    console.log(entity);
     res.render('vwManager/menu_item/edit', {
         categories: categoryList,
         menu_item: entity

@@ -113,3 +113,7 @@
     display: block;
 }
 
+.card-header {
+    background-color: #8ffeff;
+}
+
