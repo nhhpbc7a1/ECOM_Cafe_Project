@@ -162,7 +162,10 @@ CREATE TABLE toppings (
     topping_name VARCHAR(50),
     cost_price DECIMAL(10, 2),
     sale_price DECIMAL(10, 2),
-    image_href VARCHAR(100)
+    image_href VARCHAR(100),
+    is_available BIT,
+    menu_id INT,
+    FOREIGN KEY (menu_id) REFERENCES menus(menu_id)
 );
 
 CREATE TABLE order_item_toppings (

@@ -40,7 +40,11 @@ router.use('/branch_info', authenticateToken, branch_infoRouter);
 import menu_itemRouter from './manager/menu_item.route.js';
 router.use('/menu_item', authenticateToken, menu_itemRouter);
 
+import toppingRouter from './manager/topping.route.js';
+router.use('/topping', authenticateToken, toppingRouter);
+
 import tableRouter from './manager/table.route.js';
 router.use('/table', authenticateToken, tableRouter);
+
 
 export default router;
