@@ -5,21 +5,21 @@ INSERT INTO roles (role_name)
 VALUES ('Admin'), ('Manager'), ('Employee'), ('Chef'), ('Waiter');
 
 -- Bảng accounts
-INSERT INTO accounts (username, password, role_id) 
-VALUES ('admin_user', 'password_hash', 1), 
-       ('manager_user1', 'password_hash', 2),
-       ('employee_user1', 'password_hash', 3),
-       ('chef_user', 'password_hash', 4),
-       ('waiter_user', 'password_hash', 5);
+INSERT INTO accounts (email, password, role_id) 
+VALUES ('admin@example.com', 'password_hash', 1), 
+       ('manager1@example.com', 'password_hash', 2),
+       ('employee1@example.com', 'password_hash', 3),
+       ('chef@example.com', 'password_hash', 4),
+       ('waiter@example.com', 'password_hash', 5);
 
 -- Bảng managers
-INSERT INTO managers (name, phone, email, address, account_id)
-VALUES ('John Doe', '123456789', 'john1@example.com', '123 Main St', 2),
-       ('Jane Smith', '987654321', 'jane@example.com', '456 Oak St', 3),
-       ('Tom Johnson', '456123789', 'tom@example.com', '789 Pine St', 4),
-       ('Linda Brown', '321654987', 'linda@example.com', '101 Elm St', 5),
-       ('Jack Wilson', '654987321', 'jack@example.com', '202 Maple St', 6);
-
+INSERT INTO managers (name, phone, address, account_id)
+VALUES ('John Doe', '123456789', '123 Main St', 2),
+       ('Jane Smith', '987654321', '456 Oak St', 3),
+       ('Tom Johnson', '456123789', '789 Pine St', 4),
+       ('Linda Brown', '321654987', '101 Elm St', 5),
+       ('Jack Wilson', '654987321', '202 Maple St', 6);
+       
 -- Bảng branches
 INSERT INTO branches (manager_id, name, contact_phone, address, coordinates, logo_href, fnb_date_counter)
 VALUES (1, 'Main Branch', '123456789', '123 Main St', '10.8231, 106.6297', 'logo1.png', 100),
