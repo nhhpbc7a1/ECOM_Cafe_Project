@@ -22,7 +22,7 @@
         const tableData = {{{ json this.tables }}};
 
         // Chuyển đổi dữ liệu từ đối tượng thành mảng để sử dụng trong Grid.js
-        const data = tableData.map(item => [item.table_id, item.table_name, item.qr_code, item.is_available ? 'Có sẵn' : 'Không có sẵn', item.area_name,]);
+        const data = tableData.map(item => [item.table_id, item.table_name, item.qr_code, item.is_available.data[0] === 1 ? 'có sẳn' : 'không có sẵn', item.area_name,]);
 
         // Khởi tạo bảng Grid.js
         new gridjs.Grid({
