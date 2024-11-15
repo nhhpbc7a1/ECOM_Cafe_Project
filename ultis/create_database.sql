@@ -11,7 +11,7 @@ CREATE TABLE roles (
 
 CREATE TABLE accounts (
     account_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role_id INT,
     FOREIGN KEY (role_id) REFERENCES roles(role_id)
@@ -21,7 +21,6 @@ CREATE TABLE managers (
     manager_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
     phone VARCHAR(15),
-    email VARCHAR(100),
     address VARCHAR(255),
     account_id INT,
     FOREIGN KEY (account_id) REFERENCES accounts(account_id)

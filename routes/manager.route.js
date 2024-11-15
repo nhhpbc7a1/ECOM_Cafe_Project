@@ -21,10 +21,18 @@ router.use((req, res, next) => {
 // Áp dụng `authenticateToken` cho các route cần bảo vệ
 router.get('/dashboard', authenticateToken, function(req, res) {
     res.render('vwManager/dashboard', {
-        layout: false,
+        // layout: false,
         user: req.user // Truyền thông tin user từ token vào view nếu cần
     });
 });
+
+router.get('/', authenticateToken, function(req, res) {
+    res.render('vwManager/dashboard', {
+        // layout: false,
+        user: req.user // Truyền thông tin user từ token vào view nếu cần
+    });
+});
+
 
 import branch_infoRouter from './manager/branch_info.route.js';
 router.use('/branch_info', authenticateToken, branch_infoRouter);
