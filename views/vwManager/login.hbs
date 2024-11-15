@@ -20,29 +20,19 @@
             <div class="login-intro">
               <h1 class="title">Delicacy 👋</h1>
               <p class="subtitle">
-                Today is a new day. IT's your day. You shape it. Sign in to
+                Today is a new day. It's your day. You shape it. Sign in to
                 start managing your projects.
               </p>
             </div>
-            <form action="/manager/html/login.html" method="post">
-              <label for="txtstoreAddress" class="label-input"
-                >Store address</label
-              >
-              <div class="error-container">
-                <span class="require" id="storeAddressError">required</span>
-              </div>
-              <input
-                type="text"
-                class="user-input"
-                id="txtstoreAddress"
-                name="storeAddress"
-                placeholder="What’s your store address?"
-                required
-              />
-              <br />
+            <form action="/manager/login" method="POST" onsubmit="return validateForm()">
+              <!-- Hiển thị lỗi nếu có -->
+              {{#if error}}
+                <div class="alert alert-danger">
+                  {{error}}
+                </div>
+              {{/if}}
 
               <label for="txtEmail" class="label-input">Email</label>
-
               <div class="error-container">
                 <span class="require" id="emailError">required</span>
               </div>
@@ -53,6 +43,7 @@
                 name="email"
                 placeholder="Example@email.com"
                 required
+                oninput="validateInput('txtEmail', 'emailError')"
               />
               <br />
 
@@ -67,6 +58,7 @@
                 name="password"
                 placeholder="At least 8 characters"
                 required
+                oninput="validateInput('txtPassword', 'passwordError')"
               />
               <br />
               <div class="link-forgot-password">
@@ -110,5 +102,26 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function validateInput(inputId, errorId) {
+        const input = document.getElementById(inputId);
+        const error = document.getElementById(errorId);
+        
+        if (input.value.trim() === "") {
+          error.style.display = "inline";
+        } else {
+          error.style.display = "none";
+        }
+      }
+
+      function validateForm() {
+        validateInput('txtEmail', 'emailError');
+        validateInput('txtPassword', 'passwordError');
+        const emailErrorVisible = document.getElementById('emailError').style.display !== "none";
+        const passwordErrorVisible = document.getElementById('passwordError').style.display !== "none";
+        return !(emailErrorVisible || passwordErrorVisible);
+      }
+    </script>
   </body>
 </html>
