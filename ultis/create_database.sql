@@ -157,21 +157,29 @@ CREATE TABLE faqs (
     FOREIGN KEY (branch_id) REFERENCES branches(branch_id)
 );
 
-CREATE TABLE menu_item_options (
-    menu_item_option_id INT AUTO_INCREMENT PRIMARY KEY,
-    option_name VARCHAR(50),
+CREATE TABLE toppings (
+    topping_id INT AUTO_INCREMENT PRIMARY KEY,
+    topping_name VARCHAR(50),
     cost_price DECIMAL(10, 2),
     sale_price DECIMAL(10, 2),
-    menu_item_id INT,
-    image_href VARCHAR(100),
-    FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id)
+    image_href VARCHAR(100)
 );
 
-CREATE TABLE order_item_options (
-    order_item_option_id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE order_item_toppings (
+    order_item_topping_id INT AUTO_INCREMENT PRIMARY KEY,
     quantity INT,
     order_item_id INT,
-    menu_item_option_id INT,
+    topping_id INT,
     FOREIGN KEY (order_item_id) REFERENCES order_items(order_item_id),
-    FOREIGN KEY (menu_item_option_id) REFERENCES menu_item_options(menu_item_option_id)
+    FOREIGN KEY (topping_id) REFERENCES toppings(topping_id)
 );
+
+CREATE TABLE menu_item_toppings (
+    menu_item_topping_id INT AUTO_INCREMENT PRIMARY KEY,
+    quantity INT,
+    menu_item_id INT,
+    topping_id INT,
+    FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id),
+    FOREIGN KEY (topping_id) REFERENCES toppings(topping_id)
+);
+

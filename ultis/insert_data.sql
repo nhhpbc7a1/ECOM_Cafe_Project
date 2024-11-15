@@ -6,7 +6,7 @@ VALUES ('Admin'), ('Manager'), ('Employee'), ('Chef'), ('Waiter');
 
 -- Bảng accounts
 INSERT INTO accounts (email, password, role_id) 
-VALUES ('admin@example.com', 'password_hash', 1), 
+VALUES ('admin@gmail.com', '$2a$12$a5Bg0mRPHXYNVusEILsd7ugXAm0UwBO2BE/49OfB/v3NE4B3FihB.', 1), 
        ('manager1@example.com', 'password_hash', 2),
        ('employee1@example.com', 'password_hash', 3),
        ('chef@example.com', 'password_hash', 4),
@@ -128,19 +128,27 @@ VALUES ('What are the opening hours?', '9 AM to 10 PM', 1),
        ('Do you accept credit cards?', 'Yes, all major cards accepted.', 4),
        ('Is Wi-Fi available?', 'Yes, free Wi-Fi for customers.', 5);
 
--- Bảng menu_item_options
-INSERT INTO menu_item_options (option_name, cost_price, sale_price, menu_item_id, image_href)
-VALUES ('Extra Shot', 1.00, 1.50, 1, 'extra_shot.png'),
-       ('Large Size', 1.50, 2.00, 2, 'large_size.png'),
-       ('Extra Cheese', 0.50, 1.00, 3, 'extra_cheese.png'),
-       ('Add Avocado', 0.80, 1.20, 4, 'avocado.png'),
-       ('Double Topping', 1.20, 1.80, 5, 'double_topping.png');
+-- Bảng toppings
+INSERT INTO toppings (topping_name, cost_price, sale_price, image_href)
+VALUES ('Extra Shot', 1.00, 1.50, 'extra_shot.png'),
+       ('Large Size', 1.50, 2.00, 'large_size.png'),
+       ('Extra Cheese', 0.50, 1.00, 'extra_cheese.png'),
+       ('Add Avocado', 0.80, 1.20, 'avocado.png'),
+       ('Double Topping', 1.20, 1.80, 'double_topping.png');
 
--- Bảng order_item_options
-INSERT INTO order_item_options (quantity, order_item_id, menu_item_option_id)
+-- Bảng order_item_toppings
+INSERT INTO order_item_toppings (quantity, order_item_id, topping_id)
 VALUES (1, 1, 1),
        (2, 2, 2),
        (1, 3, 3),
        (1, 4, 4),
        (2, 5, 5);
+
+INSERT INTO menu_item_toppings (quantity, menu_item_id, topping_id)
+VALUES (1, 1, 1),
+       (2, 2, 2),
+       (1, 3, 3),
+       (1, 4, 4),
+       (2, 5, 5);
+
 SET FOREIGN_KEY_CHECKS = 1;  -- Bật lại kiểm tra khóa ngoại

@@ -51,4 +51,17 @@ export default {
     generateQRCode() { 
         return createUniqueQRCode(); 
     },
+    findByID(id) {
+        return db('tables')
+           .where('table_id', id)
+           .first();
+    },
+    patch(table_id, entity) {
+        return db('tables')
+           .where('table_id', table_id)
+           .update(entity);
+    },
+    del(table_id) {
+        return db('tables').where('table_id', table_id).del();
+    }
 }
