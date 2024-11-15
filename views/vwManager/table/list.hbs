@@ -1,10 +1,10 @@
 <div class="container-fluid" style="padding: 40px;">
-    <div class="row d-flex align-items-center" >
+    <div class="row d-flex align-items-center">
         <div class="col-6">
             <img src="/manager/images/homepage_admin/ecom_logo.png" alt="" style="width: 50px;">
         </div>
         <div class="col-2">
-            <a name="" id="" class="btn btn-primary" href="/manager/table/add" role="button">Thêm món</a>
+            <a name="" id="" class="btn btn-primary" href="/manager/table/add" role="button">Thêm bàn</a>
         </div>
         <div class="col-2">
             <a name="" id="" class="btn btn-primary" href="#" role="button">import</a>
@@ -14,24 +14,24 @@
         </div>
     </div>
     <hr>
-    <div id="table-wrapper"></div>
+    <div id="table_manager_wrapper"></div>
 
     <script src="/node_modules/gridjs/dist/gridjs.umd.js"></script>
     <script>
         // Lấy dữ liệu từ this.menu_item đã chuyển sang JSON
-        const menuData = {{{ json this.tables }}};
+        const tableData = {{{ json this.tables }}};
 
         // Chuyển đổi dữ liệu từ đối tượng thành mảng để sử dụng trong Grid.js
-        const data = menuData.map(item => [item.table_id, item.table_name, item.qr_code, item.is_available, item.area_name,]);
+        const data = tableData.map(item => [item.table_id, item.table_name, item.qr_code, item.is_available ? 'Có sẵn' : 'Không có sẵn', item.area_name,]);
 
         // Khởi tạo bảng Grid.js
         new gridjs.Grid({
-            columns: ["ID", "Tên", "Giá gốc", "Giá bán", "Mô tả",
+            columns: ["ID", "Tên", "QR CODE", "Trạng thái", "Khu vực",
                 {
                     name: "Hành động",
                     formatter: (cell, row) => {
                         return gridjs.html(`                        
-                        <a class="btn btn-sm btn-primary" href="/manager/menu_item/edit?id=${row.cells[0].data}" role="button">
+                        <a class="btn btn-sm btn-primary" href="/manager/table/edit?id=${row.cells[0].data}" role="button">
                             <i class="bi bi-pencil-square"></i>
                         </a>`);
                     }
@@ -59,7 +59,7 @@
                     background: 'linear-gradient(180deg, rgb(195, 244, 255) 50%, rgb(54, 242, 255) 100%'
                 },
             }
-        }).render(document.getElementById("table-wrapper"));
+        }).render(document.getElementById("table_manager_wrapper"));
 
     </script>
 

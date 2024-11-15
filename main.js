@@ -26,6 +26,9 @@ app.engine('hbs', engine({
         },
         json(context) {
             return JSON.stringify(context);
+        },
+        ifEquals(arg1, arg2, options) {
+            return arg1 == arg2 ? options.fn(this) : options.inverse(this);
         }
     }
 }));
