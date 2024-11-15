@@ -24,10 +24,10 @@ router.post('/', async (req, res) => { // Đổi từ /login thành /
 
                 if (user.role_id === 1) {
                     // Nếu role_id = 1, chuyển đến dashboard của quản lý
-                    redirectUrl = '/Admin/dashboard';
+                    redirectUrl = '/admin/';
                 } else if (user.role_id === 2) {
                     // Nếu role_id = 2, chuyển đến dashboard của nhân viên
-                    redirectUrl = '/manager/dashboard';
+                    redirectUrl = '/manager/';
                 } else {
                     // Thêm các điều kiện khác nếu có các loại role khác
                     return res.status(403).json({ message: 'Quyền hạn không hợp lệ' });

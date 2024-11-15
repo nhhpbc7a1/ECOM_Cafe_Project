@@ -1,10 +1,10 @@
 <div class="container-fluid" style="padding: 40px;">
-    <div class="row d-flex align-items-center" >
+    <div class="row d-flex align-items-center">
         <div class="col-6">
             <img src="/manager/images/homepage_admin/ecom_logo.png" alt="" style="width: 50px;">
         </div>
         <div class="col-2">
-            <a name="" id="" class="btn btn-primary" href="/manager/menu_item/add" role="button">Thêm món</a>
+            <a name="" id="" class="btn btn-primary" href="/manager/topping/add" role="button">Thêm topping</a>
         </div>
         <div class="col-2">
             <a name="" id="" class="btn btn-primary" href="#" role="button">import</a>
@@ -18,20 +18,31 @@
 
     <script src="/node_modules/gridjs/dist/gridjs.umd.js"></script>
     <script>
-        // Lấy dữ liệu từ this.menu_item đã chuyển sang JSON
-        const menuData = {{{ json this.menu_items }}};
+        // Lấy dữ liệu từ this.toppings đã chuyển sang JSON
+        const toppingData = {{{ json this.toppings }}};
 
+        console.log(toppingData);
         // Chuyển đổi dữ liệu từ đối tượng thành mảng để sử dụng trong Grid.js
-        const data = menuData.map(item => [item.menu_item_id, item.name, item.cost_price, item.sale_price, item.description,]);
+        const data = toppingData.map(item => [item.topping_id, item.topping_name, item.image_href, item.sale_price, item.is_available.data[0] === 1 ? 'Có sẵn' : 'Không có sẵn',]);
 
         // Khởi tạo bảng Grid.js
         new gridjs.Grid({
-            columns: ["ID", "Tên", "Giá gốc", "Giá bán", "Mô tả",
+            columns: ["ID", "Tên",
+                {
+                    name: "Hình ảnh",
+                    formatter: (cell, row) => {
+                        return gridjs.html(`                        
+                        <img src="/images/menu_items/${row.cells[0].data}/main.jpg" class="img-thumbnail" alt="..." style="width: 100px; height: 100px;">
+                        `);
+                    }
+                },
+                "Giá bán",
+                "Trạng thái",
                 {
                     name: "Hành động",
                     formatter: (cell, row) => {
                         return gridjs.html(`                        
-                        <a class="btn btn-sm btn-primary" href="/manager/menu_item/edit?id=${row.cells[0].data}" role="button">
+                        <a class="btn btn-sm btn-primary" href="/manager/topping/edit?id=${row.cells[0].data}" role="button">
                             <i class="bi bi-pencil-square"></i>
                         </a>`);
                     }
