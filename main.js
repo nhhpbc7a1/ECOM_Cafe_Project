@@ -41,6 +41,20 @@ app.get('/', function(req, res) {
     res.render('home', { layout: false });
 });
 
+
+
+import managerRouter from './routes/manager.route.js'
+app.use('/manager', managerRouter);
+
+import casherRouter from './routes/casher.route.js'
+app.use('/casher', casherRouter);
+
+import customerRouter from './routes/customer.route.js'
+app.use('/customer', customerRouter);
+
+
 app.listen(3000, function() {
-    console.log('app is running at http://localhost:3000');
+    console.log('app is running at http://localhost:3000');    
 });
+
+

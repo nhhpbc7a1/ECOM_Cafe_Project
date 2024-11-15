@@ -8,7 +8,6 @@ const router = express.Router();
 router.get('/',async function(req, res) {
     const branch_id = 1;
     const list = await tableService.findTable_ByBranchID(branch_id);
-    console.log(list);
     res.render('vwManager/table/list', {
         tables: list,
     });
@@ -17,7 +16,6 @@ router.get('/',async function(req, res) {
 router.get('/add', async function (req, res) {
     const branch_id = 1;
     const areaList = await tableService.find_branch_areas(branch_id);
-    console.log(areaList);
     res.render('vwManager/table/add', {
         areas: areaList
     });
