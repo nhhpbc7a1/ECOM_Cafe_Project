@@ -129,12 +129,12 @@ VALUES ('What are the opening hours?', '9 AM to 10 PM', 1),
        ('Is Wi-Fi available?', 'Yes, free Wi-Fi for customers.', 5);
 
 -- Bảng toppings
-INSERT INTO toppings (topping_name, cost_price, sale_price, image_href)
-VALUES ('Extra Shot', 1.00, 1.50, 'extra_shot.png'),
-       ('Large Size', 1.50, 2.00, 'large_size.png'),
-       ('Extra Cheese', 0.50, 1.00, 'extra_cheese.png'),
-       ('Add Avocado', 0.80, 1.20, 'avocado.png'),
-       ('Double Topping', 1.20, 1.80, 'double_topping.png');
+INSERT INTO toppings (topping_name, cost_price, sale_price, image_href, is_available, menu_id)
+VALUES ('Extra Shot', 1.00, 1.50, 'extra_shot.png',1,1),
+       ('Large Size', 1.50, 2.00, 'large_size.png',1,1),
+       ('Extra Cheese', 0.50, 1.00, 'extra_cheese.png',1,1),
+       ('Add Avocado', 0.80, 1.20, 'avocado.png',1,1),
+       ('Double Topping', 1.20, 1.80, 'double_topping.png',1,1);
 
 -- Bảng order_item_toppings
 INSERT INTO order_item_toppings (quantity, order_item_id, topping_id)
