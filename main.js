@@ -4,6 +4,8 @@ import { dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import cookieParser from 'cookie-parser';
+import casherRouter from './routes/casher.route.js'
+import customerRouter from './routes/customer.route.js'
 
 const app = express();
 
@@ -42,14 +44,10 @@ app.get('/', function(req, res) {
 });
 
 
-
-import managerRouter from './routes/manager.route.js'
 app.use('/manager', managerRouter);
 
-import casherRouter from './routes/casher.route.js'
 app.use('/casher', casherRouter);
 
-import customerRouter from './routes/customer.route.js'
 app.use('/customer', customerRouter);
 
 
