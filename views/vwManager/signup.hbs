@@ -19,72 +19,52 @@
             <h1 class="title">Delicacy 👋</h1>
             <p class="subtitle">Get started now</p>
           </div>
-          <form action="" method="post" onsubmit="return checkTerms()">
-            <label for="txtstoreAddress" class="label-input">Store address</label>
-            <div class="error-container">
-              <span class="require" id="storeAddressError">required</span>
-            </div>
-            <input type="text" class="user-input" id="txtstoreAddress" name="storeAddress"
-              placeholder="What’s your store address?" required />
-            <br />
-            <label for="txtName" class="label-input">Name</label>
-            <div class="error-container">
-              <span class="require" id="nameError">required</span>
-            </div>
-            <input type="text" class="user-input" id="txtName" name="Name" placeholder="What’s your store Name ?"
-              required />
-            <br />
+          <form action="/manager/signup" method="post" onsubmit="return checkTerms()">
             <label for="txtEmail" class="label-input">Email</label>
-
             <div class="error-container">
               <span class="require" id="emailError">required</span>
             </div>
-            <input type="email" class="user-input" id="txtEmail" name="email" placeholder="Example@email.com"
-              required />
+            <input type="email" class="user-input" id="txtEmail" name="email" placeholder="Example@email.com" required />
             <br />
+            
             <label for="txtPassword" class="label-input">Password</label>
             <div class="error-container">
               <span class="require" id="passwordError">required</span>
             </div>
-            <input type="password" class="user-input" id="txtPassword" name="password"
-              placeholder="At least 8 characters" required />
+            <input type="password" class="user-input" id="txtPassword" name="password" placeholder="At least 8 characters" required />
             <br />
+            
             <label for="txtVerifyPassword" class="label-input">Verify Password</label>
             <div class="error-container">
-              <span class="require" id="VerifyPassword">required</span>
+              <span class="require" id="verifyPasswordError">required</span>
             </div>
-            <input type="password" class="user-input" id="txtVerifyPassword" name="VerifyPassword"
-              placeholder="Please write exactly your password?" required />
+            <input type="password" class="user-input" id="txtVerifyPassword" name="VerifyPassword" placeholder="Please write exactly your password?" required />
             <br />
-
+            
             <div class="click-terms-policy">
               <p>
                 <input type="checkbox" id="agreeTerms" name="agreeTerms" value="Yes" />
-                I agree to the
-                <a href="/terms-policy" class="terms-policy" target="_blank">terms & policy</a>
+                I agree to the <a href="/terms-policy" class="terms-policy" target="_blank">terms & policy</a>
               </p>
             </div>
-
             <br />
             <input type="submit" value="Sign up" class="submit-button" />
             <div class="have-an-account">
               <p>
-                Have an account?
-                <a href="/manager/login" class="Go-to-sign-in">Sign in</a>
+                Have an account? <a href="/manager/login" class="Go-to-sign-in">Sign in</a>
               </p>
             </div>
           </form>
+
           <script>
+            // Hàm kiểm tra điều khoản và mật khẩu
             function checkTerms() {
               const checkbox = document.getElementById("agreeTerms");
               const password = document.getElementById("txtPassword").value;
-              const verifyPassword =
-                document.getElementById("txtVerifyPassword").value;
+              const verifyPassword = document.getElementById("txtVerifyPassword").value;
 
               if (!checkbox.checked) {
-                alert(
-                  "Please agree to the terms & policy before continuing."
-                );
+                alert("Please agree to the terms & policy before continuing.");
                 return false;
               }
 
@@ -95,7 +75,30 @@
 
               return true;
             }
+
+            // Lắng nghe sự thay đổi của các input để ẩn lỗi khi người dùng nhập
+            document.getElementById("txtEmail").addEventListener("input", function() {
+              toggleError("emailError", this.value);
+            });
+
+            document.getElementById("txtPassword").addEventListener("input", function() {
+              toggleError("passwordError", this.value);
+            });
+
+            document.getElementById("txtVerifyPassword").addEventListener("input", function() {
+              toggleError("verifyPasswordError", this.value);
+            });
+
+            function toggleError(errorId, value) {
+              const errorElement = document.getElementById(errorId);
+              if (value) {
+                errorElement.style.display = "none";
+              } else {
+                errorElement.style.display = "inline";
+              }
+            }
           </script>
+
           <div class="or">Or</div>
 
           <div class="social-login">
@@ -104,8 +107,7 @@
               Sign in with Google
             </button>
             <button class="social-button">
-              <img class="facebook-icon" alt="logo facebook-icon" src="/manager/images/login/Facebook.png" />Sign in
-              with Facebook
+              <img class="facebook-icon" alt="logo facebook-icon" src="/manager/images/login/Facebook.png" />Sign in with Facebook
             </button>
           </div>
         </div>
