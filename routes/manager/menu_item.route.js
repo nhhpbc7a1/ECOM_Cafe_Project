@@ -4,6 +4,12 @@ import categoryService from '../../services/category.service.js';
 
 const router = express.Router();
 
+// route for /manager/menu_item/...
+
+router.use((req, res, next) => {
+    res.locals.active = 'menu_item'; // Đặt giá trị 'active' mặc định
+    next(); // Chuyển sang middleware/route handler tiếp theo
+});
 
 router.get('/', async function (req, res) {
     // const branch_id = req.query.accountid || 0;
