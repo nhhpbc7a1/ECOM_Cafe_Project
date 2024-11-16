@@ -1,0 +1,65 @@
+
+body{
+    background: #2564B4;
+}
+.image {
+    width: 30px;
+    height: 30px;
+}
+
+.image .bn {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.table-list{
+    display: flex;
+    justify-content: space-around;
+}
+.table-choose{
+    background: #f4acad;
+}
+.table-status{
+    font-size: 9pt;
+    color: black;
+}
+
+.btn-format{
+    width: 100%;
+    height: 40px;
+}
+
+.icon-format{
+    font-size: 18pt;
+}
+
+.search-box {
+    width: 400px; /* Chiều rộng cụ thể */
+    max-width: 100%; /* Đảm bảo không vượt quá vùng chứa */
+}
+#card-content-btn{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.btn-blue, .btn-green{
+
+    margin: 5px;
+    width: 100%;
+    color: white;
+    border: none;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.btn-blue{
+    background: #ACD1FF;
+}
+
+.btn-green{
+    background: #62C78F;
+
+}
