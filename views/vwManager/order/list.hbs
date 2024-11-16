@@ -23,21 +23,13 @@
 
         console.log(orderData);
         // Chuyển đổi dữ liệu từ đối tượng thành mảng để sử dụng trong Grid.js
-        const data = orderData.map(item => [item.order_id, item.table_id, item.order_date, item.status, item.total_amount]);
+        const data = orderData.map(item => [item.order_id, item.table_name, item.order_date, item.status, item.total_amount]);
 
         // Khởi tạo bảng Grid.js
         new gridjs.Grid({
-            columns: ["ID", "Tên",
+            columns: ["Mã đơn", "Tên bàn", "Thời gian" , "Trạng thái",
                 {
-                    name: "Hình ảnh",
-                    formatter: (cell, row) => {
-                        return gridjs.html(`                        
-                        <img src="/images/order/${row.cells[0].data}/main.jpg" class="img-thumbnail" alt="..." style="width: 100px; height: 100px;">
-                        `);
-                    }
-                },
-                {
-                    name: "Giá bán",
+                    name: "Tổng tiền",
                     formatter: (cell) => `${cell.toLocaleString()} VNĐ`, // Định dạng giá
                     sort: {
                         compare: (a, b) => {
@@ -51,13 +43,13 @@
                         },
                     },
                 },
-                "Trạng thái",
                 {
-                    name: "Hành động",
+                    name: "",
                     formatter: (cell, row) => {
                         return gridjs.html(`                        
-                        <a class="btn btn-sm btn-primary" href="/manager/order/edit?id=${row.cells[0].data}" role="button">
-                            <i class="bi bi-pencil-square"></i>
+                        <a class="btn btn-sm btn-primary" href="/manager/order/detail?id=${row.cells[0].data}" role="button">
+                            <i class="bi bi-eye"></i>
+                            View Details
                         </a>`);
                     }
                 }

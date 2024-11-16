@@ -145,14 +145,6 @@ CREATE TABLE order_payments (
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE SET NULL
 );
 
-CREATE TABLE order_status_history (
-    history_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,
-    status VARCHAR(50),
-    change_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (order_id) REFERENCES orders(order_id)
-);
-
 CREATE TABLE employees (
     employee_id INT AUTO_INCREMENT PRIMARY KEY,
     employee_name VARCHAR(50),
@@ -161,6 +153,16 @@ CREATE TABLE employees (
     FOREIGN KEY (branch_id) REFERENCES branches(branch_id) ON DELETE SET NULL,
     FOREIGN KEY (account_id) REFERENCES accounts(account_id) ON DELETE SET NULL
 );
+
+
+CREATE TABLE order_status_history (
+    history_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    status VARCHAR(50),
+    change_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+);
+
 
 CREATE TABLE employee_activities (
     activity_id INT AUTO_INCREMENT PRIMARY KEY,
