@@ -32,11 +32,25 @@
                     name: "Hình ảnh",
                     formatter: (cell, row) => {
                         return gridjs.html(`                        
-                        <img src="/images/menu_items/${row.cells[0].data}/main.jpg" class="img-thumbnail" alt="..." style="width: 100px; height: 100px;">
+                        <img src="/images/topping/${row.cells[0].data}/main.jpg" class="img-thumbnail" alt="..." style="width: 100px; height: 100px;">
                         `);
                     }
                 },
-                "Giá bán",
+                {
+                    name: "Giá bán",
+                    formatter: (cell) => `${cell.toLocaleString()} VNĐ`, // Định dạng giá
+                    sort: {
+                        compare: (a, b) => {
+                            if (parseFloat(a) > parseFloat(b)) {
+                                return 1;
+                            } else if (parseFloat(b) > parseFloat(a)) {
+                                return -1;
+                            } else {
+                                return 0;
+                            }
+                        },
+                    },
+                },
                 "Trạng thái",
                 {
                     name: "Hành động",

@@ -3,6 +3,12 @@ import toppingService from '../../services/manager/topping.service.js';
 
 const router = express.Router();
 
+// route for /manager/topping/...
+
+router.use((req, res, next) => {
+    res.locals.active = 'topping'; // Đặt giá trị 'active' mặc định
+    next(); // Chuyển sang middleware/route handler tiếp theo
+});
 
 router.get('/', async function (req, res) {
     const menu_id = 1;
