@@ -78,8 +78,11 @@ router.post('/add', async function (req, res) {
 });
 
 router.get('/generate_qr_code',async function(req, res) {
+    const ipserver = '10.0.41.45:3000';
+    const url = 'http://' + ipserver + '/customer/menu?qr_code=';
+
     const qrcode = await tableService.generateQRCode();
-    res.json({qrcode: 'http://localhost:3000/qr_code/'+qrcode});
+    res.json({qrcode: url+qrcode});
 });
 
 

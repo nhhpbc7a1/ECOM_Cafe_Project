@@ -53,8 +53,18 @@ VALUES (1, 'Blue', 'menu_background1.png'),
        (5, 'Purple', 'menu_background5.png');
 
 -- Bảng categories
-INSERT INTO categories (category_name)
-VALUES ('Drinks'), ('Food'), ('Desserts'), ('Appetizers'), ('Specials');
+INSERT INTO categories (category_name, menu_id, image_href)
+VALUES 
+    ('Drinks', 1, 'images/drinks1.jpg'),
+    ('Food', 1, 'images/food1.jpg'),
+    ('Desserts', 1, 'images/desserts1.jpg'),
+    ('Appetizers', 1, 'images/appetizers1.jpg'),
+    ('Specials', 1, 'images/specials1.jpg'),
+    ('Drinks', 2, 'images/drinks2.jpg'),
+    ('Food', 2, 'images/food2.jpg'),
+    ('Desserts', 2, 'images/desserts2.jpg'),
+    ('Appetizers', 2, 'images/appetizers2.jpg'),
+    ('Specials', 2, 'images/specials2.jpg');
 
 -- Bảng menu_items
 INSERT INTO menu_items (menu_id, category_id, name, description, image_href, cost_price, sale_price, is_available, is_spicy, has_vegetables)
@@ -99,7 +109,7 @@ VALUES
 INSERT INTO orders (table_id, order_date, status, total_amount)
 VALUES (1, NOW(), 'Completed', 45.00),
        (2, NOW(), 'Pending', 30.00),
-       (3, NOW(), 'In Progress', 60.00),
+       (3, NOW(), 'Pending', 60.00),
        (4, NOW(), 'Completed', 50.00),
        (5, NOW(), 'Cancelled', 0.00);
 
@@ -181,5 +191,27 @@ VALUES (1, 1, 1),
        (1, 3, 3),
        (1, 4, 4),
        (2, 5, 5);
+
+INSERT INTO order_status_history (order_id, status, change_date)
+VALUES
+    (1, 'Pending', '2024-11-01 10:00:00'),
+    (1, 'Verified', '2024-11-01 11:00:00'),
+    (1, 'Completed', '2024-11-01 12:00:00'),
+    (2, 'Pending', '2024-11-02 09:00:00'),
+    (2, 'Cancelled', '2024-11-02 10:30:00'),
+    (3, 'Pending', '2024-11-03 14:00:00'),
+    (3, 'Pending', '2024-11-03 15:00:00'),
+    (3, 'Completed', '2024-11-03 16:00:00');
+
+INSERT INTO employee_activities (employee_id, activity_description, activity_time)
+VALUES
+    (1, 'Prepared drinks for Table 1', '2024-11-01 10:30:00'),
+    (1, 'Delivered food to Table 3', '2024-11-01 11:00:00'),
+    (2, 'Cooked Beef Steak for Table 4', '2024-11-02 12:00:00'),
+    (3, 'Cleaned dining area', '2024-11-03 14:00:00'),
+    (4, 'Managed inventory for kitchen', '2024-11-04 15:00:00'),
+    (5, 'Processed customer payment for Table 5', '2024-11-05 16:00:00');
+
+
 
 SET FOREIGN_KEY_CHECKS = 1;  -- Bật lại kiểm tra khóa ngoại
