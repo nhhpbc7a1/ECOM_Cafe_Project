@@ -67,43 +67,43 @@ VALUES
     ('Specials', 2, 'images/specials2.jpg');
 
 -- Bảng menu_items
-INSERT INTO menu_items (menu_id, category_id, name, description, image_href, cost_price, sale_price, is_available, is_spicy, has_vegetables)
+INSERT INTO menu_items (menu_id, category_id, name, description, image_href, cost_price, sale_price, is_available)
 VALUES
     -- 10 Drinks (category_id = 1)
-    (1, 1, 'Iced Tea', 'Refreshing iced tea', 'menu_items/1/main.jpg', 8.00, 12.00, 1, 0, 0),
-    (1, 1, 'Lemonade', 'Fresh lemonade', 'menu_items/2/main.jpg', 7.00, 10.00, 1, 0, 0),
-    (1, 1, 'Mango Smoothie', 'Mango smoothie', 'menu_items/3/main.jpg', 12.00, 18.00, 1, 0, 1),
-    (1, 1, 'Coconut Water', 'Chilled coconut water', 'menu_items/4/main.jpg', 6.00, 9.00, 1, 0, 0),
-    (1, 1, 'Espresso', 'Rich espresso shot', 'menu_items/5/main.jpg', 10.00, 15.00, 1, 0, 0),
-    (2, 1, 'Latte', 'Creamy latte', 'menu_items/6/main.jpg', 12.00, 18.00, 1, 0, 0),
-    (2, 1, 'Green Tea', 'Organic green tea', 'menu_items/7/main.jpg', 9.00, 13.00, 1, 0, 0),
-    (2, 1, 'Milkshake', 'Classic milkshake', 'menu_items/8/main.jpg', 10.00, 14.00, 1, 0, 0),
-    (2, 1, 'Hot Chocolate', 'Warm hot chocolate', 'menu_items/9/main.jpg', 8.00, 11.00, 1, 0, 0),
-    (2, 1, 'Mango Juice', 'Fresh mango juice', 'menu_items/10/main.jpg', 11.00, 16.00, 1, 0, 1),
+    (1, 1, 'Iced Tea', 'Refreshing iced tea', 'menu_items/1/main.jpg', 8.00, 12.00, 1),
+    (1, 1, 'Lemonade', 'Fresh lemonade', 'menu_items/2/main.jpg', 7.00, 10.00, 1),
+    (1, 1, 'Mango Smoothie', 'Mango smoothie', 'menu_items/3/main.jpg', 12.00, 18.00, 1),
+    (1, 1, 'Coconut Water', 'Chilled coconut water', 'menu_items/4/main.jpg', 6.00, 9.00, 1),
+    (1, 1, 'Espresso', 'Rich espresso shot', 'menu_items/5/main.jpg', 10.00, 15.00, 1),
+    (2, 1, 'Latte', 'Creamy latte', 'menu_items/6/main.jpg', 12.00, 18.00, 1),
+    (2, 1, 'Green Tea', 'Organic green tea', 'menu_items/7/main.jpg', 9.00, 13.00, 1),
+    (2, 1, 'Milkshake', 'Classic milkshake', 'menu_items/8/main.jpg', 10.00, 14.00, 1),
+    (2, 1, 'Hot Chocolate', 'Warm hot chocolate', 'menu_items/9/main.jpg', 8.00, 11.00, 1),
+    (2, 1, 'Mango Juice', 'Fresh mango juice', 'menu_items/10/main.jpg', 11.00, 16.00, 1),
 
     -- 10 Main Dishes (Food) (category_id = 2)
-    (1, 2, 'Beef Steak', 'Grilled beef steak', 'menu_items/11/main.jpg', 25.00, 40.00, 1, 1, 0),
-    (1, 2, 'Baked Chicken Rice', 'American baked chicken and fried rice', 'menu_items/12/main.jpg', 15.00, 22.00, 1, 0, 1),
-    (1, 2, 'Pasta Carbonara', 'Italian pasta with creamy sauce', 'menu_items/13/main.jpg', 18.00, 28.00, 1, 0, 0),
-    (1, 2, 'Vegetarian Pizza', ' Wheat pizza with mixed vegetables', 'menu_items/14/main.jpg', 20.00, 30.00, 1, 0, 1),
-    (1, 2, 'Pho', 'Vietnamese noodle soup', 'menu_items/15/main.jpg', 10.00, 15.00, 1, 0, 1),
-    (2, 2, 'Sushi', 'Assorted sushi', 'menu_items/16/main.jpg', 22.00, 35.00, 1, 0, 1),
-    (2, 2, 'Fried Rice', 'Special fried rice', 'menu_items/17/main.jpg', 12.00, 18.00, 1, 0, 1),
-    (2, 2, 'Pad Thai', 'Stir-fried noodles', 'menu_items/18/main.jpg', 14.00, 20.00, 1, 1, 1),
-    (2, 2, 'Fish Tacos', 'Crispy fish tacos', 'menu_items/19/main.jpg', 15.00, 22.00, 1, 0, 1),
-    (2, 2, 'Grilled Salmon', 'Salmon with herbs', 'menu_items/20/main.jpg', 28.00, 45.00, 1, 0, 1),
+    (1, 2, 'Beef Steak', 'Grilled beef steak', 'menu_items/11/main.jpg', 25.00, 40.00, 1),
+    (1, 2, 'Baked Chicken Rice', 'American baked chicken and fried rice', 'menu_items/12/main.jpg', 15.00, 22.00, 1),
+    (1, 2, 'Pasta Carbonara', 'Italian pasta with creamy sauce', 'menu_items/13/main.jpg', 18.00, 28.00, 1),
+    (1, 2, 'Vegetarian Pizza', ' Wheat pizza with mixed vegetables', 'menu_items/14/main.jpg', 20.00, 30.00, 1),
+    (1, 2, 'Pho', 'Vietnamese noodle soup', 'menu_items/15/main.jpg', 10.00, 15.00, 1),
+    (2, 2, 'Sushi', 'Assorted sushi', 'menu_items/16/main.jpg', 22.00, 35.00, 1),
+    (2, 2, 'Fried Rice', 'Special fried rice', 'menu_items/17/main.jpg', 12.00, 18.00, 1),
+    (2, 2, 'Pad Thai', 'Stir-fried noodles', 'menu_items/18/main.jpg', 14.00, 20.00, 1),
+    (2, 2, 'Fish Tacos', 'Crispy fish tacos', 'menu_items/19/main.jpg', 15.00, 22.00, 1),
+    (2, 2, 'Grilled Salmon', 'Salmon with herbs', 'menu_items/20/main.jpg', 28.00, 45.00, 1),
 
     -- 10 Appertizers (category_id = 3)
-    (1, 3, 'Chocolate Cake', 'Rich chocolate cake', 'menu_items/21/main.jpg', 8.00, 12.00, 1, 0, 0),
-    (1, 3, 'Fruit Tart', 'Fresh fruit tart', 'menu_items/22/main.jpg', 10.00, 15.00, 1, 0, 1),
-    (1, 3, 'Creme Brulee', 'Creamy Crème brûlée', 'menu_items/23/main.jpg', 9.00, 13.00, 1, 0, 0),
-    (1, 3, 'Cheesecake', 'Classic Bery Ricotta cheesecake', 'menu_items/24/main.jpg', 11.00, 16.00, 1, 0, 0),
-    (1, 3, 'Brownies', 'Chocolate brownies', 'menu_items/25/main.jpg', 7.00, 10.00, 1, 0, 0),
-    (2, 3, 'Panna Cotta', 'Italian berry panna cotta', 'menu_items/26/main.jpg', 10.00, 15.00, 1, 0, 0),
-    (2, 3, 'Apple Pie', 'Homemade apple pie', 'menu_items/27/main.jpg', 9.00, 14.00, 1, 0, 0),
-    (2, 3, 'Tiramisu', 'Italian tiramisu', 'menu_items/28/main.jpg', 12.00, 18.00, 1, 0, 0),
-    (2, 3, 'Pavlova', 'Fruit pavlova', 'menu_items/29/main.jpg', 11.00, 17.00, 1, 0, 1),
-    (2, 3, 'Mango Sticky Rice', 'Thai mango sticky rice', 'menu_items/30/main.jpg', 10.00, 14.00, 1, 0, 1);
+    (1, 3, 'Chocolate Cake', 'Rich chocolate cake', 'menu_items/21/main.jpg', 8.00, 12.00, 1),
+    (1, 3, 'Fruit Tart', 'Fresh fruit tart', 'menu_items/22/main.jpg', 10.00, 15.00, 1),
+    (1, 3, 'Creme Brulee', 'Creamy Crème brûlée', 'menu_items/23/main.jpg', 9.00, 13.00, 1),
+    (1, 3, 'Cheesecake', 'Classic Bery Ricotta cheesecake', 'menu_items/24/main.jpg', 11.00, 16.00, 1),
+    (1, 3, 'Brownies', 'Chocolate brownies', 'menu_items/25/main.jpg', 7.00, 10.00, 1),
+    (2, 3, 'Panna Cotta', 'Italian berry panna cotta', 'menu_items/26/main.jpg', 10.00, 15.00, 1),
+    (2, 3, 'Apple Pie', 'Homemade apple pie', 'menu_items/27/main.jpg', 9.00, 14.00, 1),
+    (2, 3, 'Tiramisu', 'Italian tiramisu', 'menu_items/28/main.jpg', 12.00, 18.00, 1),
+    (2, 3, 'Pavlova', 'Fruit pavlova', 'menu_items/29/main.jpg', 11.00, 17.00, 1),
+    (2, 3, 'Mango Sticky Rice', 'Thai mango sticky rice', 'menu_items/30/main.jpg', 10.00, 14.00, 1);
 
 -- Bảng orders
 INSERT INTO orders (table_id, order_date, status, total_amount)

@@ -28,3 +28,5 @@ DROP TABLE IF EXISTS accounts;
 DROP TABLE IF EXISTS roles;
 
 SET FOREIGN_KEY_CHECKS = 1;  -- Kích hoạt lại kiểm tra khóa ngoại
+
+DROP DATABASE IF EXISTS fnbservice_management;

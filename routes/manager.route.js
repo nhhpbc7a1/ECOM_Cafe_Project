@@ -44,5 +44,9 @@ router.use('/topping', authenticateToken, toppingRouter);
 import tableRouter from './manager/table.route.js';
 router.use('/table', authenticateToken, tableRouter);
 
+import orderRouter from './manager/order.route.js';
+router.use('/order', authenticateToken, orderRouter);
+
+
 
 export default router;
