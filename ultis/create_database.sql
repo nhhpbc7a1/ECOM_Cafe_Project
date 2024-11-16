@@ -83,8 +83,6 @@ CREATE TABLE menu_items (
     cost_price DECIMAL(10, 2),
     sale_price DECIMAL(10, 2),
     is_available BIT DEFAULT 1,
-    is_spicy BIT DEFAULT 1,
-    has_vegetables BIT DEFAULT 1,
     FOREIGN KEY (menu_id) REFERENCES menus(menu_id) ON DELETE SET NULL,
     FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE SET NULL
 );
@@ -206,9 +204,7 @@ CREATE TABLE faqs (
 );
 
 ALTER TABLE menu_items
-ADD CONSTRAINT chk_is_available CHECK (is_available IN (0, 1)),
-ADD CONSTRAINT chk_is_spicy CHECK (is_spicy IN (0, 1)),
-ADD CONSTRAINT chk_has_vegetables CHECK (has_vegetables IN (0, 1));
+ADD CONSTRAINT chk_is_available CHECK (is_available IN (0, 1));
 
 ALTER TABLE tables
 ADD CONSTRAINT chk_is_available CHECK (is_available IN (0, 1));

@@ -14,8 +14,6 @@ export default {
                 'menu_items.cost_price',
                 'menu_items.sale_price',
                 'menu_items.is_available',
-                'menu_items.is_spicy',
-                'menu_items.has_vegetables'
             );
     },
     findByID(id) {
