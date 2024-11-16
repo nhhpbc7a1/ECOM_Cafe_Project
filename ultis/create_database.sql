@@ -11,7 +11,7 @@ CREATE TABLE roles (
 
 CREATE TABLE accounts (
     account_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role_id INT,
     FOREIGN KEY (role_id) REFERENCES roles(role_id)
@@ -21,7 +21,6 @@ CREATE TABLE managers (
     manager_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
     phone VARCHAR(15),
-    email VARCHAR(100),
     address VARCHAR(255),
     account_id INT,
     FOREIGN KEY (account_id) REFERENCES accounts(account_id)
@@ -158,21 +157,32 @@ CREATE TABLE faqs (
     FOREIGN KEY (branch_id) REFERENCES branches(branch_id)
 );
 
-CREATE TABLE menu_item_options (
-    menu_item_option_id INT AUTO_INCREMENT PRIMARY KEY,
-    option_name VARCHAR(50),
+CREATE TABLE toppings (
+    topping_id INT AUTO_INCREMENT PRIMARY KEY,
+    topping_name VARCHAR(50),
     cost_price DECIMAL(10, 2),
     sale_price DECIMAL(10, 2),
-    menu_item_id INT,
     image_href VARCHAR(100),
-    FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id)
+    is_available BIT,
+    menu_id INT,
+    FOREIGN KEY (menu_id) REFERENCES menus(menu_id)
 );
 
-CREATE TABLE order_item_options (
-    order_item_option_id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE order_item_toppings (
+    order_item_topping_id INT AUTO_INCREMENT PRIMARY KEY,
     quantity INT,
     order_item_id INT,
-    menu_item_option_id INT,
+    topping_id INT,
     FOREIGN KEY (order_item_id) REFERENCES order_items(order_item_id),
-    FOREIGN KEY (menu_item_option_id) REFERENCES menu_item_options(menu_item_option_id)
+    FOREIGN KEY (topping_id) REFERENCES toppings(topping_id)
 );
+
+CREATE TABLE menu_item_toppings (
+    menu_item_topping_id INT AUTO_INCREMENT PRIMARY KEY,
+    quantity INT,
+    menu_item_id INT,
+    topping_id INT,
+    FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id),
+    FOREIGN KEY (topping_id) REFERENCES toppings(topping_id)
+);
+

@@ -4,6 +4,10 @@ import { dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import cookieParser from 'cookie-parser';
+
+import casherRouter from './routes/casher.route.js'
+import customerRouter from './routes/customer.route.js'
+
 const app = express();
 
 app.use(express.urlencoded({ 
@@ -23,6 +27,9 @@ app.engine('hbs', engine({
         },
         json(context) {
             return JSON.stringify(context);
+        },
+        ifEquals(arg1, arg2, options) {
+            return arg1 == arg2 ? options.fn(this) : options.inverse(this);
         }
     }
 }));
@@ -41,16 +48,16 @@ app.get('/', function(req, res) {
 });
 
 
+
 import menuRoutes from './routes/customer/menu.route.js';
 app.use('/menu', menuRoutes);
 
 import managerRouter from './routes/manager.route.js'
+
 app.use('/manager', managerRouter);
 
-import casherRouter from './routes/casher.route.js'
 app.use('/casher', casherRouter);
 
-import customerRouter from './routes/customer.route.js'
 app.use('/customer', customerRouter);
 
 

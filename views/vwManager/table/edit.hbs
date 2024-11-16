@@ -2,74 +2,73 @@
     <div class="container-fluid" style="padding: 40px;">
         <div class="card">
             <div class="card-header">
-                <h4>Cập nhật món</h4>
+                <h4>Thêm bàn</h4>
             </div>
             <div class="card-body">
                 <input class="form-control mb-3" type="text" placeholder="Readonly input here..." readonly
-                    value={{this.menu_item.menu_item_id}} name="menu_item_id">
-                <div class="d-flex align-items-center">
-                    <div class="form-group">
-                        <label for="exampleFormControlFile1">Hình ảnh sản phẩm</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                    </div>
-                    <img src="..." class="img-thumbnail" alt="..." style="width: 100px; height: 100px;">
-                </div>
+                    value="{{table.table_id}}" name="table_id">
                 <div class="form-group">
-                    <label for="txtName">Tên</label>
-                    <input type="text" name="name" id="txtName" class="form-control" placeholder=""
-                        aria-describedby="helpId" value="{{this.menu_item.name}}">
+                    <label for="txtName">Tên bàn</label>
+                    <input type="text" name="table_name" id="txtName" class="form-control" placeholder=""
+                        aria-describedby="helpId" value="{{table.table_name}}">
                     <small id="helpId" class="text-muted">Help text</small>
                 </div>
+                <hr>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Danh mục</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="category_id"
-                        value="{{this.menu_item.category_id}}">
-                        {{#each this.categories}}
-                        <option value={{category_id}}>{{category_name}}</option>
+                    <label for="exampleFormControlSelect1">Khu bàn</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="area_id"
+                        value="{{table.area_id}}">
+                        {{#each this.areas}}
+                        <option value={{this.area_id}} {{#ifEquals this.area_id ../table.area_id}}selected{{/ifEquals}}>
+                            {{this.name}}
+                        </option>
                         {{/each}}
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="txtCostPrice">Giá gốc</label>
-                    <input type="text" name="cost_price" id="txtCostPrice" class="form-control" placeholder=""
-                        aria-describedby="helpId" value="{{this.menu_item.cost_price}}">
-                    <small id="helpId" class="text-muted">Help text</small>
-                </div>
-                <div class="form-group">
-                    <label for="txtSalePrice">Giá bán</label>
-                    <input type="text" name="sale_price" id="txtSalePrice" class="form-control" placeholder=""
-                        aria-describedby="helpId" value="{{this.menu_item.sale_price}}">
-                    <small id="helpId" class="text-muted">Help text</small>
-                </div>
-
                 <hr>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Mô tả</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                        name="description">{{this.menu_item.description}}</textarea>
+                    <label for="exampleFormControlSelect1">QR Code</label>
+                    <div class="d-flex align-items-center">
+                        <img id="qrcode_image" src="" class="img-thumbnail" alt="..."
+                            style="width: 100px; height: 100px;">
+                        <input id="qrcode_text" class="form-control ml-3" type="text"
+                            placeholder="Readonly input here..." readonly value="{{table.qr_code}}" name="qr_code">
+                    </div>
+                    <div class="mt-3">
+                        <a name="" id="generateQRCodeBtn" class="btn btn-primary" href="#" role="button">
+                            <i class="bi bi-download"></i>
+                            Generate new QR code
+                        </a>
+                        <a name="" id="" class="btn btn-primary ml-3" href="#" role="button">
+                            <i class="bi bi-download"></i>
+                            Download QR Code
+                        </a>
+
+                    </div>
+
+
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="defaultCheck1" name="has_vegatable" {{#if this.menu_item.has_vegetables}}checked{{/if}}>
-                    <label class="form-check-label" for="defaultCheck1">
-                        Có rau mùi
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="defaultCheck2" name="is_spicy" {{#if this.menu_item.is_spicy}}checked{{/if}}>
-                    <label class="form-check-label" for="defaultCheck2">
-                        Cay
-                    </label>
+                <hr>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Trạng thái</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" {{#if table.is_available}}checked{{/if}}
+                            id="defaultCheck1" name="is_available">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Có sẵn
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="card-footer text-muted">
-                <a name="" id="" class="btn btn-outline-success" href="/manager/menu_item" role="button">
+                <a name="" id="" class="btn btn-outline-success" href="/manager/table" role="button">
                     <i class="bi bi-skip-backward-fill"></i>
                 </a>
-                <button type="submit" class="btn btn-danger" formaction="/manager/menu_item/del">
+                <button type="submit" class="btn btn-danger" formaction="/admin/categories/del">
                     <i class="bi bi-trash"></i>
                     delete
                 </button>
-                <button type="submit" class="btn btn-primary" formaction="/manager/menu_item/patch">
+                <button type="submit" class="btn btn-primary" formaction="/manager/table/patch">
                     <i class="bi bi-check2"></i>
                     save
                 </button>
@@ -77,4 +76,25 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('qrcode_image').src = `https://api.qrserver.com/v1/create-qr-code/?data=${{table.qr_code}}&size=100x100`;     
+
+        document.getElementById('generateQRCodeBtn').addEventListener('click', async function () {
+            const response = await fetch('/manager/table/generate_qr_code');
+            const qr_code = await response.json();
+            const qrCodeText = qr_code.qrcode;
+
+            if (qr_code) {
+                if (qrCodeText) {
+                    // Thêm timestamp vào URL để tránh bộ nhớ đệm
+                    const timestamp = new Date().getTime();
+                    document.getElementById('qrcode_image').src = `https://api.qrserver.com/v1/create-qr-code/?data=${qrCodeText}&size=100x100&timestamp=${timestamp}`;
+                    document.getElementById('qrcode_text').value = qrCodeText;
+                }
+            }
+            console.log(qr_code);
+
+        });
+
+    </script>
 </form>
