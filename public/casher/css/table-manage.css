@@ -2,7 +2,7 @@
 body{
     background: #2564B4;
     position: fixed;
-    padding-left: 30px;
+    padding-left: 20px;
 }
 .image {
     width: 30px;
@@ -72,9 +72,6 @@ body{
     box-shadow: 0 2px 0 0 #007bff;
 }
 
-.card-format{
-    height: 100%;
-}
 
 
 .ml-10{
@@ -150,6 +147,7 @@ body{
 }
 
 .table-list{
+    width:750px;
     height: 700px !important;
 }
 
@@ -163,3 +161,4 @@ body{
     margin: 15px;
     color: rgb(80, 80, 246);
 }
+
