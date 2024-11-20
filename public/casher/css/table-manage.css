@@ -44,6 +44,7 @@ body{
 #card-content-btn{
     margin-left: 10px;
     margin-right: 10px;
+    bottom: 0;
 }
 .btn-blue, .btn-green{
 
@@ -62,4 +63,28 @@ body{
 .btn-green{
     background: #62C78F;
 
+}
+
+
+.nav-item:hover{
+    box-shadow: 0 2px 0 0 #007bff;
+}
+
+.card-format{
+    height: 100%;
+}
+
+
+.ml-10{
+    margin-left: 25px;
+}
+
+
+.col-sm-6 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#body-order{
+    padding: 0px;
 }
