@@ -1,4 +1,4 @@
-import db from '../ultis/db.js';
+import db from '../../ultis/db.js';
 
 export default {
     findAll(branch_id) {
@@ -14,8 +14,23 @@ export default {
                 'menu_items.cost_price',
                 'menu_items.sale_price',
                 'menu_items.is_available',
-                'menu_items.is_spicy',
-                'menu_items.has_vegetables'
             );
     },
+    findByID(id) {
+        return db('menu_items')
+           .where('menu_item_id', id)
+           .first();
+    },
+    add(entity) {
+        return db('menu_items')
+           .insert(entity);
+    },
+    patch(menu_item_id, entity) {
+        return db('menu_items')
+           .where('menu_item_id', menu_item_id)
+           .update(entity);
+    },
+    del(menu_item_id) {
+        return db('menu_items').where('menu_item_id', menu_item_id).del();
+    }
 }
