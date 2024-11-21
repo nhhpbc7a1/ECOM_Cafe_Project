@@ -155,3 +155,25 @@ footer {
 .back-button:hover svg path {
     stroke: #1e88e5; /* Đổi màu mũi tên khi hover */
 }
+
+/* Giao diện tick icon */
+.tick-icon {
+    width: 1.5rem; /* Kích thước */
+    height: 1.5rem;
+    border-radius: 0.25rem; /* Bo góc */
+    background-color: #4CAF50; /* Màu nền xanh lá */
+    position: relative;
+}
+
+/* Dấu tick màu trắng */
+.tick-icon::after {
+    content: '';
+    position: absolute;
+    left: 25%; /* Căn chỉnh vị trí */
+    top: 15%;
+    width: 30%; /* Kích thước dấu tick */
+    height: 60%;
+    border: solid white;
+    border-width: 0 0.2rem 0.2rem 0; /* Độ dày đường */
+    transform: rotate(45deg);
+}
