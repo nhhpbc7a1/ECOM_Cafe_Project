@@ -76,5 +76,140 @@
 }
 .blueContainer
 {
-    background-color: #AFF4FFF0;
+    background-color: #b8e3f8f0;
 }
+.row {
+    display: flex;
+    overflow-x: auto; 
+    flex: 0 0 ;
+    scrollbar-width: thin; 
+    scrollbar-color: #ccc #f1f1f1; 
+}
+.card
+{
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff); /* Gradient sáng */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 254, 0.5); /* Hiệu ứng 3D */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    margin: 0 5px; /* Giảm khoảng cách ngang giữa các card */
+
+}
+.card .card-text {
+    max-width: 140px; /* Đặt giới hạn chiều rộng chữ */
+    white-space: nowrap; /* Không xuống dòng */
+    overflow: hidden; /* Ẩn nội dung thừa */
+    text-overflow: ellipsis; /* Hiển thị dấu "..." nếu chữ dài */
+}
+.card:hover {
+    transform: translateY(-5px); /* Nâng thẻ lên một chút */
+    transform: scale(1.05); /* Tăng kích thước khi hover */
+    transform: scale(1.05) rotate(5deg); /* Xoay nhẹ khi hover */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.7);
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.7); 
+    border-radius: inherit;
+    text-align: center;
+    z-index: 2;
+    transition: all 0.3s ease; 
+}
+.overflow-scroll-container {
+    width: 100%; /* Chiều rộng tối đa trong vùng cha */
+    max-width: 100%; /* Đảm bảo không vượt quá vùng cha */
+    overflow-x: auto; /* Kích hoạt scrollbar ngang */
+    white-space: nowrap; /* Các phần tử xếp ngang không xuống dòng */
+    display: flex; /* Sử dụng flex để giữ các phần tử trong hàng */
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+.img-container
+{
+    
+}
+.image-container:hover .overlay {
+    display: flex; 
+}
+.product-list
+{
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.product-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 1rem; /* Để tránh trùng với thanh cuộn */
+}
+
+.row.flex-nowrap {
+    flex-wrap: nowrap;
+}
+.btn-add {
+    position: absolute;
+    bottom: 10px; /* Cách đáy 10px */
+    right: 10px; /* Cách phải 10px */
+    width: 40px; /* Kích thước nút */
+    height: 40px;
+    background-color: #28a745; /* Màu xanh lá */
+    color: white; /* Màu dấu cộng */
+    border: none;
+    border-radius: 50%; /* Nút tròn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; /* Kích thước dấu cộng */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+}
+
+.btn-add:hover {
+    background-color: #218838; /* Màu xanh đậm hơn khi hover */
+}
+.search
+{
+    position: relative;
+    width: 100%; /* Đảm bảo chiếm đủ chiều rộng nếu cần */
+}
+.search i 
+{
+    position: absolute;
+    top: 50%;
+    left: 10px; 
+    transform: translateY(-50%); 
+    color: #aaa;
+    font-size: 16px; 
+    pointer-events: none; 
+}
+.search input
+{
+    width: 100%; 
+    padding-left: 35px; 
+    height: 40px; 
+    box-sizing: border-box; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+}
+@media (max-width: 768px) {
+    .card {
+        width: 120px; /* Kích thước nhỏ hơn cho thiết bị di động */
+        height: 200px;
+    }
+
+    .row {
+        gap: 10px;
+    }
+}
+
+
