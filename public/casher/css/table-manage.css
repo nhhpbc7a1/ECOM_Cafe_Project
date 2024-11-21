@@ -1,10 +1,15 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    justify-content: center;
+}
 
 body{
     background: #2564B4;
-    position: fixed;
-    padding-left: 20px;
+    /* position: fixed; */
+    /* padding-left: 20px; */
 }
-.image {
+/* .image {
     width: 30px;
     height: 30px;
 }
@@ -16,7 +21,7 @@ body{
     top: 0;
     left: 0;
     object-fit: cover;
-}
+} */
 
 .table-list{
     display: flex;
@@ -133,8 +138,9 @@ body{
 }
 
 .scrollable-content {
-    max-height: 330px; /* Giới hạn chiều cao vùng cuộn */
-    overflow-y: auto; /* Thêm thanh cuộn dọc */
+    /* Giới hạn chiều cao vùng cuộn */ 
+    max-height: 50vh; 
+    overflow-y: scroll; /* Thêm thanh cuộn dọc */
     padding-right: 10px; /* Để nội dung không bị che bởi thanh cuộn */
     scrollbar-width: thin; /* Tùy chọn: Thanh cuộn mỏng hơn */
 }
@@ -146,14 +152,6 @@ body{
     border-radius: 4px;
 }
 
-.table-list{
-    width:750px;
-    height: 700px !important;
-}
-
-#table-manage{
-    max-height: 600px;
-}
 
 .btn-checkbox{
     width: 20px;
@@ -162,3 +160,37 @@ body{
     color: rgb(80, 80, 246);
 }
 
+.scrollable-content-table  {
+    height: 80vh;
+    overflow-y: scroll;
+    scrollbar-width: thin; 
+}
+.scrollable-content-table::-webkit-scrollbar {
+    width: 8px; 
+}
+.scrollable-content-table::-webkit-scrollbar-thumb {
+    background: #ccc; 
+    border-radius: 4px;
+}
+
+.manage_block {
+    padding: 0 32px;
+}
+
+.table_image_block {
+    display: block;
+    justify-content: center;
+}
+
+.table_image_block img{
+    width: 100%;
+}
+
+.my_flex_block {
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.manage_block_item {
+    /* height: 100%; */
+}
