@@ -1,6 +1,8 @@
 
 body{
     background: #2564B4;
+    position: fixed;
+    padding-left: 20px;
 }
 .image {
     width: 30px;
@@ -44,6 +46,7 @@ body{
 #card-content-btn{
     margin-left: 10px;
     margin-right: 10px;
+    bottom: 0;
 }
 .btn-blue, .btn-green{
 
@@ -63,3 +66,99 @@ body{
     background: #62C78F;
 
 }
+
+
+.nav-item:hover{
+    box-shadow: 0 2px 0 0 #007bff;
+}
+
+
+
+.ml-10{
+    margin-left: 25px;
+    font-size: 10pt;
+}
+
+
+.col-sm-6 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#body-order{
+    padding: 0px;
+}
+
+.order-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 20px 20px;
+}
+
+#total-price{
+    display: flex;
+    justify-content: end;
+    margin: 20px 20px;
+    
+}
+#total-price h6{
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+    font-size: 15pt;
+}
+
+.text-price{
+    font-size: 13pt;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.order-list{
+    border: 1pt solid rgb(227, 223, 223);
+    border-radius: 10px;
+}
+
+.header-order{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-order h6{
+    font-size: 12pt;
+    color: #007bff;
+    margin: 20px 20px;
+    
+}
+
+.scrollable-content {
+    max-height: 330px; /* Giới hạn chiều cao vùng cuộn */
+    overflow-y: auto; /* Thêm thanh cuộn dọc */
+    padding-right: 10px; /* Để nội dung không bị che bởi thanh cuộn */
+    scrollbar-width: thin; /* Tùy chọn: Thanh cuộn mỏng hơn */
+}
+.scrollable-content::-webkit-scrollbar {
+    width: 8px; /* Độ rộng thanh cuộn */
+}
+.scrollable-content::-webkit-scrollbar-thumb {
+    background: #ccc; /* Màu của thanh cuộn */
+    border-radius: 4px;
+}
+
+.table-list{
+    width:750px;
+    height: 700px !important;
+}
+
+#table-manage{
+    max-height: 600px;
+}
+
+.btn-checkbox{
+    width: 20px;
+    height: 20px;
+    margin: 15px;
+    color: rgb(80, 80, 246);
+}
+
