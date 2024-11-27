@@ -4,6 +4,12 @@ import categoryService from '../../services/category.service.js';
 
 const router = express.Router();
 
+// route for /manager/menu_item/...
+
+router.use((req, res, next) => {
+    res.locals.active = 'menu_item'; // Đặt giá trị 'active' mặc định
+    next(); // Chuyển sang middleware/route handler tiếp theo
+});
 
 router.get('/', async function (req, res) {
     // const branch_id = req.query.accountid || 0;
@@ -37,8 +43,6 @@ router.get('/edit', async function (req, res) {
     }
 
     entity.is_available = entity.is_available && entity.is_available[0] === 1;
-    entity.is_spicy = entity.is_spicy && entity.is_spicy[0] === 1;
-    entity.has_vegetables = entity.has_vegetables && entity.has_vegetables[0] === 1;
 
     console.log(entity);
     res.render('vwManager/menu_item/edit', {
@@ -56,8 +60,6 @@ router.post('/patch', async function (req, res) {
         description: req.body.description,
         cost_price: req.body.cost_price,
         sale_price: req.body.sale_price,
-        is_spicy: req.body.is_spicy === 'on',
-        has_vegetables: req.body.has_vegetables === 'on',
         category_id: req.body.category_id,
         menu_id: 1,
         is_available: req.body.is_available === 'on',
@@ -75,8 +77,6 @@ router.post('/add', async function (req, res) {
         description: req.body.description,
         cost_price: req.body.cost_price,
         sale_price: req.body.sale_price,
-        is_spicy: req.body.is_spicy === 'on',
-        has_vegetables: req.body.has_vegetables === 'on',
         category_id: req.body.category_id,
         menu_id: menu_id,
         is_available: req.body.is_available === 'on',

@@ -35,8 +35,36 @@
                         `);
                     }
                 },
-                "Giá gốc", 
-                "Giá bán", 
+                {
+                    name: "Giá gốc",
+                    formatter: (cell) => `${cell.toLocaleString()} VNĐ`, // Định dạng giá
+                    sort: {
+                        compare: (a, b) => {
+                            if (parseFloat(a) > parseFloat(b)) {
+                                return 1;
+                            } else if (parseFloat(b) > parseFloat(a)) {
+                                return -1;
+                            } else {
+                                return 0;
+                            }
+                        },
+                    },
+                },
+                {
+                    name: "Giá bán",
+                    formatter: (cell) => `${cell.toLocaleString()} VNĐ`, // Định dạng giá
+                    sort: {
+                        compare: (a, b) => {
+                            if (parseFloat(a) > parseFloat(b)) {
+                                return 1;
+                            } else if (parseFloat(b) > parseFloat(a)) {
+                                return -1;
+                            } else {
+                                return 0;
+                            }
+                        },
+                    },
+                },
                 "Mô tả",
                 {
                     name: "Hành động",

@@ -43,7 +43,7 @@ router.post('/', async (req, res) => { // Đổi từ /login thành /
                 maxAge: 3600000 
             });
 
-            return res.redirect('/manager/dashboard');
+            return res.redirect('/manager/');
         } else {
             // Đăng nhập thất bại
             return res.status(401).render('vwManager/login', {

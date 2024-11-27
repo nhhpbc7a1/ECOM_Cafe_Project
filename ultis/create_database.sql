@@ -83,8 +83,6 @@ CREATE TABLE menu_items (
     cost_price DECIMAL(10, 2),
     sale_price DECIMAL(10, 2),
     is_available BIT DEFAULT 1,
-    is_spicy BIT DEFAULT 1,
-    has_vegetables BIT DEFAULT 1,
     FOREIGN KEY (menu_id) REFERENCES menus(menu_id) ON DELETE SET NULL,
     FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE SET NULL
 );
@@ -147,14 +145,6 @@ CREATE TABLE order_payments (
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE SET NULL
 );
 
-CREATE TABLE order_status_history (
-    history_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,
-    status VARCHAR(50),
-    change_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (order_id) REFERENCES orders(order_id)
-);
-
 CREATE TABLE employees (
     employee_id INT AUTO_INCREMENT PRIMARY KEY,
     employee_name VARCHAR(50),
@@ -163,6 +153,16 @@ CREATE TABLE employees (
     FOREIGN KEY (branch_id) REFERENCES branches(branch_id) ON DELETE SET NULL,
     FOREIGN KEY (account_id) REFERENCES accounts(account_id) ON DELETE SET NULL
 );
+
+
+CREATE TABLE order_status_history (
+    history_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    status VARCHAR(50),
+    change_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+);
+
 
 CREATE TABLE employee_activities (
     activity_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -206,9 +206,7 @@ CREATE TABLE faqs (
 );
 
 ALTER TABLE menu_items
-ADD CONSTRAINT chk_is_available CHECK (is_available IN (0, 1)),
-ADD CONSTRAINT chk_is_spicy CHECK (is_spicy IN (0, 1)),
-ADD CONSTRAINT chk_has_vegetables CHECK (has_vegetables IN (0, 1));
+ADD CONSTRAINT chk_is_available CHECK (is_available IN (0, 1));
 
 ALTER TABLE tables
 ADD CONSTRAINT chk_is_available CHECK (is_available IN (0, 1));

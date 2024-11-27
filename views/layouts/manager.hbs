@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="/node_modules/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
-    
+
+
     <link rel="stylesheet" href="/manager/css/global.css">
     <link rel="stylesheet" href="/manager/css/nav_component.css" />
     <link rel="stylesheet" href="/manager/css/quanlynhanvien.css">
     <link rel="stylesheet" href="/manager/css/dashboard.css" />
 
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row d-flex">
@@ -24,34 +28,46 @@
                 </div>
                 <div class="sidebar__middle">
                     <ul>
-                        <li class="sidebar__middle-item">
-                            <a name="" id="" class="" href="/manager" role="button">
+                        <li class="sidebar__middle-item ">
+                            <a name="" id="" class="{{#ifEquals active 'dashboard'}}is_active{{/ifEquals}}"
+                                href="/manager" role="button">
                                 <i class="bi bi-house"></i>
                                 <p>Tổng quát</p>
                             </a>
                         </li>
                         <li class="sidebar__middle-item">
-                            <a name="" id="" class="" href="/manager/menu_item" role="button">
+                            <a name="" id="" class="{{#ifEquals active 'category'}}is_active{{/ifEquals}}"
+                                href="/manager/category" role="button">
+                                <i class="bi bi-card-list"></i>
+                                <p>Danh mục</p>
+                            </a>
+                        </li>
+                        <li class="sidebar__middle-item">
+                            <a name="" id="" class="{{#ifEquals active 'menu_item'}}is_active{{/ifEquals}}"
+                                href="/manager/menu_item" role="button">
                                 <i class="bi bi-card-list"></i>
                                 <p>Menu</p>
                             </a>
                         </li>
                         <li class="sidebar__middle-item">
-                            <a name="" id="" class="" href="/manager/topping" role="button">
+                            <a name="" id="" class="{{#ifEquals active 'topping'}}is_active{{/ifEquals}}"
+                                href="/manager/topping" role="button">
                                 <i class="bi bi-card-list"></i>
                                 <p>Toppings</p>
                             </a>
                         </li>
                         <li class="sidebar__middle-item">
-                            <a name="" id="" class="" href="/manager/table" role="button">
+                            <a name="" id="" class="{{#ifEquals active 'table'}}is_active{{/ifEquals}}"
+                                href="/manager/table" role="button">
                                 <i class="bi bi-table"></i>
                                 <p>Quản lý bàn</p>
                             </a>
                         </li>
                         <li class="sidebar__middle-item">
-                            <a name="" id="" class="" href="#" role="button">
+                            <a name="" id="" class="{{#ifEquals active 'order'}}is_active{{/ifEquals}}"
+                                href="/manager/order" role="button">
                                 <i class="bi bi-send"></i>
-                                <p>Giao dịch</p>
+                                <p>Đơn hàng</p>
                             </a>
                         </li>
                         <li class="sidebar__middle-item">
@@ -73,19 +89,21 @@
                             </a>
                         </li>
                         <li class="sidebar__middle-item">
-                            
+
                             <input type="checkbox" name="" id="check_sidebar_branch_list" style="display: none;">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" onclick="document.getElementById('check_sidebar_branch_list').click()">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                                    aria-expanded="false"
+                                    onclick="document.getElementById('check_sidebar_branch_list').click()">
                                     <i class="bi bi-geo-alt"></i>
                                     <p>Chọn chi nhánh</p>
                                 </button>
                                 <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Action</a>
-                                  <a class="dropdown-item" href="#">Another action</a>
-                                  <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
-                            </div>    
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -102,5 +120,5 @@
         </div>
     </div>
 </body>
-</html>
 
+</html>

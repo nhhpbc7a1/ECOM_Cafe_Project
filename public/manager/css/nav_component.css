@@ -75,7 +75,8 @@
     margin: 0 16px;
 }
 
-.sidebar__middle-item a:hover{
+.sidebar__middle-item a:hover,
+.sidebar__middle-item a.is_active{
     background-color: #8ffeff;
     color: var(--black);
     text-decoration: none;
