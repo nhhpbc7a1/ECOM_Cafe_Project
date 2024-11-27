@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác Nhận Thanh Toán</title>
+    <link rel="stylesheet" href="/public/customer/css/confirm_payment.css">
+</head>
+<body>
+
+<div class="payment-container">
+    <header>
+        <button class="back-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 19L8 12L15 5" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>        
+        <h1>Thông tin thanh toán</h1>
+        <button class="notification-icon">🔔</button>
+    </header>
+
+    <div class="payment-details">
+        <div class="row">
+            <span>Tổng giá sản phẩm:</span>
+            <span>2</span>
+            <span>60,000 VND</span>
+        </div>
+        <div class="row">
+            <span>Giảm giá mặc định:</span>
+            <span>2</span>
+            <span class="discount">xx,000 VND</span>
+        </div>
+        <div class="row">
+            <span>Chọn khuyến mãi</span>
+        </div>
+        <div class="row">
+            <span>VAT</span>
+            <div class="vat">
+                <input type="checkbox" checked>
+                <span>10%</span>
+            </div>
+            <span class="vat-amount">xx,000 VND</span>
+        </div>
+        <div class="row total">
+            <span>Tổng thanh toán</span>
+            <span class="amount">60,000 VND</span>
+        </div>
+        <div class="row">
+            <span>Phương thức thanh toán</span>
+            <select>
+                <option selected disabled>Select an option</option>
+                <option>Chuyển khoản</option>
+                <option>Thẻ</option>
+            </select>
+        </div>
+        <div class="row">
+            <span>Tình trạng thanh toán</span>
+            <span>Chưa thanh toán</span>
+        </div>
+        <div class="links">
+            <a href="#">Xem hóa đơn</a>
+            <a href="#">Nhập thông tin xuất hóa đơn VAT</a>
+        </div>
+    </div>
+
+    <footer>
+        <button class="pay-button">Thanh Toán</button>
+    </footer>
+</div>
+
+</body>
+</html>
