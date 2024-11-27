@@ -5,10 +5,21 @@ const router = express.Router();
 
 router.get('/', async function(req, res) {
     try {
-        const groupedItems = await menuItemService.findall(); 
-        const categories = await menuItemService.findAllCategories(); 
+        const { category_id } = req.query; // Lấy category_id từ query parameters
+
+        let groupedItems;
+
+        // Nếu có category_id, lọc sản phẩm theo category
+        if (category_id) {
+            groupedItems = await menuItemService.findallByCategory(category_id); // Lọc theo category
+        } else {
+            groupedItems = await menuItemService.findall(); // Lấy tất cả sản phẩm nếu không có category_id
+        }
+
+        const categories = await menuItemService.findAllCategories();
         const totalItems = await menuItemService.countTotalItems();
-        console.log(groupedItems); // Kiểm tra dữ liệu
+
+        // Render trang menu với groupedItems, categories, và totalItems
         res.render('vwCustomer/menu', {
             layout: false,
             groupedItems,
@@ -22,16 +33,24 @@ router.get('/', async function(req, res) {
 });
 router.get('/search', async function(req, res) {
     try {
-        const { query } = req.query; // Lấy chuỗi cần tìm từ query parameter
+        const { query } = req.query; // Lấy chuỗi tìm kiếm từ query parameter
         if (!query) {
-            return res.status(400).send('Missing search query'); // Báo lỗi nếu không có query
+            return res.status(400).send('Missing search query');
         }
 
-        const searchResults = await menuItemService.search(query); // Gọi hàm search từ service
+        // Kết quả tìm kiếm
+        const searchResults = await menuItemService.search(query);
+
+        // Danh mục và tổng số sản phẩm (giữ layout thống nhất)
+        const categories = await menuItemService.findAllCategories();
+        const totalItems = await menuItemService.countTotalItems();
+
         res.render('vwCustomer/search', {
             layout: false,
-            searchResults, // Kết quả tìm kiếm
-            query // Để hiển thị lại chuỗi tìm kiếm trong giao diện
+            searchResults,
+            categories,
+            totalItems,
+            query, // Để hiển thị lại chuỗi tìm kiếm
         });
     } catch (err) {
         console.error(err);

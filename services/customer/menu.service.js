@@ -18,6 +18,29 @@ export default {
         }, {});
         return groupedItems;
     },
+    async findallByCategory(category_id) {
+        try {
+            const items = await db('menu_items')
+                .join('categories', 'menu_items.category_id', '=', 'categories.category_id')
+                .select('menu_items.*', 'categories.category_name')
+                .where('menu_items.category_id', category_id) // Lọc theo category_id
+                .andWhere('menu_items.is_available', 1)
+                .orderBy('categories.category_name');
+            
+            const groupedItems = items.reduce((acc, item) => {
+                if (!acc[item.category_name]) {
+                    acc[item.category_name] = [];
+                }
+                acc[item.category_name].push(item);
+                return acc;
+            }, {});
+            
+            return groupedItems;
+        } catch (err) {
+            console.error('Error fetching items by category:', err);
+            throw new Error('Unable to fetch items by category');
+        }
+    },
     async findAllCategories() {
         try {
             const categories = await db('categories')
@@ -38,13 +61,18 @@ export default {
         try {
             const items = await db('menu_items')
                 .join('categories', 'menu_items.category_id', '=', 'categories.category_id')
-                .select('menu_items.*', 'categories.category_name')
+                .select(
+                    'menu_items.name', 
+                    'menu_items.cost_price', 
+                    'menu_items.image_href',
+                    'categories.category_name'
+                )
                 .where(function() {
-                    // Tìm kiếm trong tên sản phẩm hoặc tên danh mục
                     this.where('menu_items.name', 'like', `%${query}%`)
                         .orWhere('categories.category_name', 'like', `%${query}%`);
                 })
                 .andWhere('menu_items.is_available', 1) // Chỉ lấy sản phẩm khả dụng
+                .limit(50) // Giới hạn số kết quả trả về để tăng hiệu năng
                 .orderBy('categories.category_name');
     
             return items;
@@ -53,4 +81,5 @@ export default {
             throw new Error('Unable to search items');
         }
     }
+    
 }
