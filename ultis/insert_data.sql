@@ -56,6 +56,16 @@ VALUES (1, 'Blue', 'menu_background1.png'),
 INSERT INTO categories (category_name)
 VALUES ('Drinks'), ('Food'), ('Desserts'), ('Appetizers'), ('Specials');
 
+-- Cập nhật hình ảnh cho bảng categories
+UPDATE categories 
+SET image_href = CASE category_name
+    WHEN 'Drinks' THEN 'categories/1/main.jpg'
+    WHEN 'Food' THEN 'categories/2/main.jpg'
+    WHEN 'Desserts' THEN 'categories/3/main.jpg'
+    WHEN 'Appetizers' THEN 'categories/4/main.jpg'
+    WHEN 'Specials' THEN 'categories/5/main.jpg'
+END;
+
 -- Bảng menu_items
 INSERT INTO menu_items (menu_id, category_id, name, description, image_href, cost_price, sale_price, is_available, is_spicy, has_vegetables)
 VALUES
@@ -94,6 +104,23 @@ VALUES
     (28, 3, 'Tiramisu', 'Italian tiramisu', 'menu_items/28/main.jpg', 12.00, 18.00, 1, 0, 0),
     (29, 3, 'Pavlova', 'Fruit pavlova', 'menu_items/29/main.jpg', 11.00, 17.00, 1, 0, 1),
     (30, 3, 'Mango Sticky Rice', 'Thai mango sticky rice', 'menu_items/30/main.jpg', 10.00, 14.00, 1, 0, 1);
+
+-- Bảng toppings
+INSERT INTO toppings (topping_name, description, image_href, cost_price, sale_price, is_available)
+VALUES 
+    -- Toppings for drinks
+    ('Coconut Jelly', 'Crispy and chewy coconut jelly, lightly sweet.', 'toppings/1/main.jpg', 0.50, 1.00, 1),
+    ('Black Pearl', 'Traditional black pearls, soft and chewy.', 'toppings/2/main.jpg', 0.60, 1.20, 1),
+    ('White Pearl', 'Chewy and sweet white pearls.', 'toppings/3/main.jpg', 0.70, 1.40, 1),
+    ('Cheese Jelly', 'Soft jelly with a rich cheese filling.', 'toppings/4/main.jpg', 0.80, 1.60, 1),
+    ('Coffee Jelly', 'Coffee-flavored jelly.', 'toppings/5/main.jpg', 0.50, 1.00, 1),
+
+    -- Toppings for main dishes
+    ('Fried Egg', 'Fried chicken egg.', 'toppings/6/main.jpg', 1.00, 2.00, 1),
+    ('Extra Rice', 'A side dish of rice.', 'toppings/7/main.jpg', 1.50, 3.00, 1),
+    ('Kimchi', 'Korean kimchi with a mild spice.', 'toppings/8/main.jpg', 0.80, 1.50, 1),
+    ('Mashed Potatoes', 'Smooth and creamy mashed potatoes.', 'toppings/9/main.jpg', 1.20, 2.50, 1),
+    ('Stir-Fried Mushrooms', 'Stir-fried mushrooms with special seasoning.', 'toppings/10/main.jpg', 1.50, 3.00, 1);
 
 -- Bảng orders
 INSERT INTO orders (table_id, order_date, status, total_amount)
