@@ -1,13 +1,12 @@
 import express from 'express';
 import numeral from 'numeral';
-import { dirname, extname } from 'path';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import cookieParser from 'cookie-parser';
-
 import casherRouter from './routes/casher.route.js'
 import customerRouter from './routes/customer.route.js'
-
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.use(express.urlencoded({ 
@@ -30,6 +29,9 @@ app.engine('hbs', engine({
         },
         ifEquals(arg1, arg2, options) {
             return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+        },
+        eq(arg1, arg2) {
+            return arg1 === arg2; // Trả về true nếu 2 giá trị bằng nhau
         }
     }
 }));
@@ -55,7 +57,8 @@ app.use('/menu', menuRoutes);
 import managerRouter from './routes/manager.route.js'
 
 app.use('/manager', managerRouter);
-
+app.use('/static', express.static(path.join(__dirname, 'static')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/casher', casherRouter);
 
 app.use('/customer', customerRouter);

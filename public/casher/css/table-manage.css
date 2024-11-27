@@ -27,7 +27,8 @@ body{
     display: flex;
     justify-content: space-around;
 }
-.table-choose{
+
+.table-choose.active{
     background: #f4acad;
 }
 .table-status{
