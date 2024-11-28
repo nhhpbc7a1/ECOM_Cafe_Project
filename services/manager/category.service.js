@@ -13,19 +13,27 @@ export default {
     },
     findByID(category_id) {
         return db('categories')
-           .where('category_id', category_id)
-           .first();
+            .where('category_id', category_id)
+            .first();
     },
     add(entity) {
         return db('categories')
-           .insert(entity);
+            .insert(entity)
+            .then(() => {
+                return db('categories')
+                    .max('category_id as id')
+                    .first();
+            })
+            .then(result => {
+                return result.id;  // Trả về menu_item_id của bản ghi mới
+            });
     },
     patch(category_id, entity) {
         return db('categories')
-           .where('category_id', category_id)
-           .update(entity);
+            .where('category_id', category_id)
+            .update(entity);
     },
     del(category_id) {
         return db('categories').where('category_id', category_id).del();
-    }
+    },
 };

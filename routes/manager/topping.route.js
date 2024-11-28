@@ -1,5 +1,8 @@
 import express from 'express';
 import toppingService from '../../services/manager/topping.service.js';
+import multer from 'multer';
+import handleFileUpload from '../../services/handleFileUpload.service.js';
+const upload = multer({ dest: 'public/images/uploads/' });
 
 const router = express.Router();
 
