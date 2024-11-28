@@ -1,11 +1,11 @@
 
 body {
-    background-image: url('/customer/images/cover.png'); /* Thay đường dẫn hình ảnh của bạn */
-    background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ phần thân */
-    background-position: center; /* Đặt hình ảnh vào giữa */
-    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
-    height: 100%; /* Chiều cao của phần body chiếm toàn bộ màn hình */
-    margin: 0; /* Loại bỏ margin mặc định */
+    background-image: url('/customer/images/cover.png'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%; 
+    margin: 0; 
 }
 .container{
 
@@ -13,19 +13,19 @@ body {
 }
 
 .btn-circle {
-    border-radius: 50%; /* Làm cho nút có hình tròn */
-    overflow: hidden; /* Đảm bảo ảnh không vượt ra ngoài nút */
-    border: none; /* Loại bỏ đường viền của nút */
-    padding: 0; /* Loại bỏ padding */
+    border-radius: 50%; 
+    overflow: hidden; 
+    border: none; 
+    padding: 0; 
 }
 .btn-circle img {
-    width: 100%; /* Đảm bảo ảnh vừa với nút */
-    height: 100%; /* Đảm bảo ảnh vừa với nút */
-    object-fit: cover; /* Đảm bảo ảnh không bị méo khi bị cắt */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
 }
 .btn-circle:hover {
-    transform: scale(1.1); /* Hiệu ứng khi hover (làm nút to lên một chút) */
-    transition: transform 0.3s ease; /* Thêm hiệu ứng mượt mà */
+    transform: scale(1.1); 
+    transition: transform 0.3s ease;
 }
 .logo-section {
     border-right: 2px solid #ffffff;
@@ -235,11 +235,13 @@ body {
 }
 @media (max-width: 768px) {
     .card {
-        width: 120px; /* Kích thước nhỏ hơn cho thiết bị di động */
+        width: 150px;
         height: 200px;
     }
 
     .row {
         gap: 10px;
     }
+    
 }
+
