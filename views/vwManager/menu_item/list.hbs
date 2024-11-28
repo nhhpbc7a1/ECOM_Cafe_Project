@@ -22,7 +22,7 @@
         const menuData = {{{ json this.menu_items }}};
 
         // Chuyển đổi dữ liệu từ đối tượng thành mảng để sử dụng trong Grid.js
-        const data = menuData.map(item => [ item.menu_item_id, item.name, item.image_href, item.cost_price, item.sale_price, item.description,]);
+        const data = menuData.map(item => [item.menu_item_id, item.name, item.image_href, item.cost_price, item.sale_price, item.description,]);
 
         // Khởi tạo bảng Grid.js
         new gridjs.Grid({
@@ -65,7 +65,14 @@
                         },
                     },
                 },
-                "Mô tả",
+                {
+                    name: "Mô tả",
+                    formatter: (cell) => {
+                        return gridjs.html(`
+                        <div class="ellipsis">${cell}</div>
+                        `);
+                    }
+                },
                 {
                     name: "Hành động",
                     formatter: (cell, row) => {
@@ -97,9 +104,18 @@
                 th: {
                     background: 'linear-gradient(180deg, rgb(195, 244, 255) 50%, rgb(54, 242, 255) 100%'
                 },
+
             }
         }).render(document.getElementById("table-wrapper"));
 
     </script>
-
+    <style>
+        .ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+            /* Giới hạn chiều rộng tối đa */
+        }
+    </style>
 </div>

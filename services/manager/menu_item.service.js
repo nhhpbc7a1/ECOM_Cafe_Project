@@ -18,17 +18,25 @@ export default {
     },
     findByID(id) {
         return db('menu_items')
-           .where('menu_item_id', id)
-           .first();
+            .where('menu_item_id', id)
+            .first();
     },
     add(entity) {
         return db('menu_items')
-           .insert(entity);
+            .insert(entity)
+            .then(() => {
+                return db('menu_items')
+                    .max('menu_item_id as id')
+                    .first();
+            })
+            .then(result => {
+                return result.id;  // Trả về menu_item_id của bản ghi mới
+            });
     },
     patch(menu_item_id, entity) {
         return db('menu_items')
-           .where('menu_item_id', menu_item_id)
-           .update(entity);
+            .where('menu_item_id', menu_item_id)
+            .update(entity);
     },
     del(menu_item_id) {
         return db('menu_items').where('menu_item_id', menu_item_id).del();

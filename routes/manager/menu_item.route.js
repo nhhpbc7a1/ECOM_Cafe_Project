@@ -1,6 +1,36 @@
 import express from 'express';
 import menu_itemService from '../../services/manager/menu_item.service.js';
 import categoryService from '../../services/category.service.js';
+import fs from 'fs';
+import path from 'path';
+import multer from 'multer';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+
+const upload = multer({ dest: 'public/images/uploads/' });
+
+const handleFileUpload = async (req, type, id) => {
+    const image = req.file;
+    if (!image) return null;
+
+    // Tạo thư mục lưu ảnh cho id
+    const uploadDir = path.normalize(path.join(__dirname, '..', '..', 'public', 'images', `${type}`, `${id}`));
+
+    // Kiểm tra xem thư mục đã tồn tại chưa, nếu chưa thì tạo thư mục
+    if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(path.join(uploadDir));
+    }
+
+    // Đường dẫn ảnh cần lưu
+    const imagePath = path.join(uploadDir, 'main.jpg');
+
+    // Di chuyển ảnh vào thư mục
+    fs.renameSync(image.path, imagePath);
+
+    return `/${type}/${id}/main.jpg`; // Trả về đường dẫn ảnh để lưu vào cơ sở dữ liệu
+};
 
 const router = express.Router();
 
@@ -44,7 +74,6 @@ router.get('/edit', async function (req, res) {
 
     entity.is_available = entity.is_available && entity.is_available[0] === 1;
 
-    console.log(entity);
     res.render('vwManager/menu_item/edit', {
         categories: categoryList,
         menu_item: entity
@@ -52,8 +81,7 @@ router.get('/edit', async function (req, res) {
 });
 
 
-router.post('/patch', async function (req, res) {
-    // console.log(req.body);
+router.post('/patch', upload.single('image'), async function (req, res) {
     const menu_item_id = req.body.menu_item_id;
     const changes = {
         name: req.body.name,
@@ -64,14 +92,23 @@ router.post('/patch', async function (req, res) {
         menu_id: 1,
         is_available: req.body.is_available === 'on',
     };
-    // console.log(changes);
     await menu_itemService.patch(menu_item_id, changes);
+
+    // Xử lý ảnh tải lên nếu có
+    const imagePath = await handleFileUpload(req, 'menu_items', menu_item_id);
+    const image = req.file;
+    if (image) {
+        changes.image_href = imagePath;
+        await menu_itemService.patch(menu_item_id, changes);
+    }
+
     res.redirect('/manager/menu_item');
 });
 
-router.post('/add', async function (req, res) {
-    // console.log(req.body);
+router.post('/add', upload.single('image'), async function (req, res) {
+
     const menu_id = 1;
+    const image = req.file; // Ảnh tải lên
     const newMenuItem = {
         name: req.body.name,
         description: req.body.description,
@@ -80,8 +117,17 @@ router.post('/add', async function (req, res) {
         category_id: req.body.category_id,
         menu_id: menu_id,
         is_available: req.body.is_available === 'on',
+    };
+    const new_menu_item_id = await menu_itemService.add(newMenuItem);
+
+    // Xử lý ảnh tải lên nếu có
+    const imagePath = await handleFileUpload(req, 'menu_items', new_menu_item_id);
+
+    if (image) {
+        newMenuItem.image_href = imagePath;
+        await menu_itemService.patch(new_menu_item_id, newMenuItem);
     }
-    await menu_itemService.add(newMenuItem);
+
     res.redirect('/manager/menu_item');
 });
 
