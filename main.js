@@ -3,6 +3,7 @@ import numeral from 'numeral';
 import { dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
+import hbs_sections from 'express-handlebars-sections';
 import cookieParser from 'cookie-parser';
 
 import casherRouter from './routes/casher.route.js'
@@ -20,7 +21,7 @@ app.use(cookieParser());
 
 app.engine('hbs', engine({
     extname: '.hbs',
-    defaultLayout: 'bs4',
+    defaultLayout: false,
     helpers: {
         format_price(value) {
             return numeral(value).format('0,0') + ' đ';
@@ -30,7 +31,8 @@ app.engine('hbs', engine({
         },
         ifEquals(arg1, arg2, options) {
             return arg1 == arg2 ? options.fn(this) : options.inverse(this);
-        }
+        },
+        section: hbs_sections(),
     }
 }));
 

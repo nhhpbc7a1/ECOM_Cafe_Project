@@ -47,6 +47,8 @@ router.use('/table', authenticateToken, tableRouter);
 import orderRouter from './manager/order.route.js';
 router.use('/order', authenticateToken, orderRouter);
 
+import employeeRouter from './manager/employee.route.js';
+router.use('/employee', authenticateToken, employeeRouter);
 
 
 export default router;
