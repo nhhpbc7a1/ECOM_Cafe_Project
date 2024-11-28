@@ -1,36 +1,10 @@
 import express from 'express';
 import menu_itemService from '../../services/manager/menu_item.service.js';
 import categoryService from '../../services/category.service.js';
-import fs from 'fs';
-import path from 'path';
+
 import multer from 'multer';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-
+import handleFileUpload from '../../services/handleFileUpload.service.js';
 const upload = multer({ dest: 'public/images/uploads/' });
-
-const handleFileUpload = async (req, type, id) => {
-    const image = req.file;
-    if (!image) return null;
-
-    // Tạo thư mục lưu ảnh cho id
-    const uploadDir = path.normalize(path.join(__dirname, '..', '..', 'public', 'images', `${type}`, `${id}`));
-
-    // Kiểm tra xem thư mục đã tồn tại chưa, nếu chưa thì tạo thư mục
-    if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(path.join(uploadDir));
-    }
-
-    // Đường dẫn ảnh cần lưu
-    const imagePath = path.join(uploadDir, 'main.jpg');
-
-    // Di chuyển ảnh vào thư mục
-    fs.renameSync(image.path, imagePath);
-
-    return `/${type}/${id}/main.jpg`; // Trả về đường dẫn ảnh để lưu vào cơ sở dữ liệu
-};
 
 const router = express.Router();
 
@@ -51,7 +25,8 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/add', async function (req, res) {
-    const categoryList = await categoryService.findAll();
+    const branch_id = 1;
+    const categoryList = await categoryService.findByBranchID(branch_id);
     res.render('vwManager/menu_item/add', {
         categories: categoryList
     });
@@ -66,7 +41,8 @@ router.post('/del', async function (req, res) {
 router.get('/edit', async function (req, res) {
     const id = +req.query.id || 0;
     const entity = await menu_itemService.findByID(id);
-    const categoryList = await categoryService.findAll();
+    const branch_id = 1;
+    const categoryList = await categoryService.findByBranchID(branch_id);
 
     if (!entity) {
         return res.redirect('/manager/menu_item');
@@ -120,6 +96,7 @@ router.post('/add', upload.single('image'), async function (req, res) {
     };
     const new_menu_item_id = await menu_itemService.add(newMenuItem);
 
+    console.log(new_menu_item_id);
     // Xử lý ảnh tải lên nếu có
     const imagePath = await handleFileUpload(req, 'menu_items', new_menu_item_id);
 
