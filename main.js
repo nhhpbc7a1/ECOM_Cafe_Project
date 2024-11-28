@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 app.engine('hbs', engine({
     extname: '.hbs',
-    defaultLayout: 'bs4',
+    defaultLayout: 'main',
     helpers: {
         format_price(value) {
             return numeral(value).format('0,0') + ' đ';
@@ -51,6 +51,8 @@ app.get('/', function(req, res) {
 
 import menuRoutes from './routes/customer/menu.route.js';
 app.use('/menu', menuRoutes);
+import cartRoutes from './routes/customer/cart.route.js';
+app.use('/cart', cartRoutes)
 
 import managerRouter from './routes/manager.route.js'
 

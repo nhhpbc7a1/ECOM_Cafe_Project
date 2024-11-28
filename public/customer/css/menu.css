@@ -1,3 +1,17 @@
+
+body {
+    background-image: url('/customer/images/cover.png'); /* Thay đường dẫn hình ảnh của bạn */
+    background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ phần thân */
+    background-position: center; /* Đặt hình ảnh vào giữa */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+    height: 100%; /* Chiều cao của phần body chiếm toàn bộ màn hình */
+    margin: 0; /* Loại bỏ margin mặc định */
+}
+.container{
+
+    border-radius: 20px;
+}
+
 .btn-circle {
     border-radius: 50%; /* Làm cho nút có hình tròn */
     overflow: hidden; /* Đảm bảo ảnh không vượt ra ngoài nút */
@@ -36,8 +50,7 @@
 .left {
     background-color: #FFFBE7;
 }
-.form-control
-{
+.form-control {
     background-color: #05519075;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #ffffff;
@@ -70,11 +83,163 @@
     z-index: 2; /* Để nội dung hiển thị lên trên lớp overlay */
     color: white; /* Màu chữ phù hợp với overlay */
 }
-.blue
-{
-    background: linear-gradient(to right, #F0F0F0, #00FFFB, #00FFFB);
+.blue {
+    background: linear-gradient(to right, #F0F0F0, #5282e1, #00FFFB);
 }
-.blueContainer
-{
-    background-color: #AFF4FFF0;
+.blueContainer {
+    background-color: #b8e3f8f0;
+}
+.row {
+    display: flex;
+    overflow-x: auto;
+    flex: 0 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f1f1f1;
+}
+.card {
+    width: 250px;
+    height: 300px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #aee0ec); /* Gradient sáng */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(0, 0, 0, 0.5); /* Hiệu ứng 3D */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    margin: 15px;
+}
+.card .card-text {
+    max-width: 200px; /* Đặt giới hạn chiều rộng chữ */
+    white-space: nowrap; /* Không xuống dòng */
+    overflow: hidden; /* Ẩn nội dung thừa */
+    text-overflow: ellipsis; /* Hiển thị dấu "..." nếu chữ dài */
+    text-align: center;
+    color: #0d3970;
+}
+.card:hover {
+    transform: translateY(-10px); /* Nâng thẻ lên một chút */
+    transform: scale(1.1); /* Tăng kích thước khi hover */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2), -5px -5px 20px rgba(255, 255, 255, 0.7); /* Bóng đổ mạnh hơn */
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: inherit;
+    text-align: center;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+.overflow-scroll-container {
+    width: 100%; /* Chiều rộng tối đa trong vùng cha */
+    max-width: 100%; /* Đảm bảo không vượt quá vùng cha */
+    overflow-x: auto; /* Kích hoạt scrollbar ngang */
+    white-space: nowrap; /* Các phần tử xếp ngang không xuống dòng */
+    display: flex; /* Sử dụng flex để giữ các phần tử trong hàng */
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+.img-container {
+    
+}
+.image-container:hover .overlay {
+    display: flex;
+}
+.product-list {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.product-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 1rem; /* Để tránh trùng với thanh cuộn */
+}
+
+.row.flex-nowrap {
+    flex-wrap: nowrap;
+}
+.btn-add {
+    position: absolute;
+    bottom: 10px; /* Cách đáy 10px */
+    right: 10px; /* Cách phải 10px */
+    width: 40px; /* Kích thước nút */
+    height: 40px;
+    background-color: #28a745; /* Màu xanh lá */
+    color: white; /* Màu dấu cộng */
+    border: none;
+    border-radius: 50%; /* Nút tròn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; /* Kích thước dấu cộng */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+}
+
+.btn-add:hover {
+    background-color: #218838; /* Màu xanh đậm hơn khi hover */
+}
+.search {
+    position: relative;
+    width: 100%; /* Đảm bảo chiếm đủ chiều rộng nếu cần */
+}
+.search i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 16px;
+    pointer-events: none;
+}
+.search input {
+    width: 100%;
+    padding-left: 35px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+#title-menu {
+    width: 200px;
+    position: relative;
+    font-size: 40px;
+    font-family: Molle;
+    color: #231f20;
+    text-align: left;
+    display: inline-block;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.acy {
+    color: #f87e57;
+}
+.delicacy-tile {
+    width: 200px;
+    position: relative;
+    font-size: 30px;
+    letter-spacing: 0.2em;
+    line-height: 50px;
+    font-family: 'Luckiest Guy';
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 89px;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.15));
+    color: #0d3970;
+}
+@media (max-width: 768px) {
+    .card {
+        width: 120px; /* Kích thước nhỏ hơn cho thiết bị di động */
+        height: 200px;
+    }
+
+    .row {
+        gap: 10px;
+    }
 }
