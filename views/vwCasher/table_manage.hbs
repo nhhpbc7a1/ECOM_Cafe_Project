@@ -41,39 +41,183 @@
                                             </a>
                                         </li>
                                     </ul>
-
-                                    <form class="d-flex" method="GET" action="/casher/table-manage?branchId={{branch_id}}">
-                                        <input id="txtArea" name="areaId" class="form-control me-2" type="search" placeholder="area" aria-label="Search">
-                                        <button type="submit" class="btn btn-outline-success">Search</button>
+                                    <form class="d-flex">
+                                        <input class="form-control me-2" type="search" placeholder="Search"
+                                            aria-label="Search">
+                                        <button class="btn btn-outline-success" type="submit">Search</button>
                                     </form>
                                 </div>
                             </div>
                         </nav>
                         <div id="table-manage" class="row scrollable-content-table" style="flex:1">
-                            {{#if this.empty}}
-                                <div class="card-body">
-                                    null
-                                </div>
-                            {{else}}
-                                {{#each this.tables}}
-                                    <div class="col-sm-3 mb-2" data-table-id="{{table_id}}">
-                                        <div class="card">
-                                            <div class="table_image_block card-body table-choose">
-                                                <img src="/static/images/bàn.png" class="bn" alt="">
-                                            </div>
-                                            <div class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
-                                                <h6 class="mb-0">{{table_name}}</h6>
-                                                
-                                                {{#if  is_available}}  <!-- Kiểm tra nếu is_available là 1 -->
-                                                    <div class="table-status">Đang chọn món...</div>
-                                                {{else}} <!-- Nếu is_available là 0 -->
-                                                    <div class="table-status">Trống</div>
-                                                {{/if}}
-                                            </div>
-                                        </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100 ">
+                                    <div class="table_image_block card-body table-choose">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
                                     </div>
-                                {{/each}}
-                            {{/if}}
+                                    <div
+                                        class=" card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 1</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 3</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang thanh toán...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="/casher/images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -119,38 +263,81 @@
                             </div>
                         </nav>
                         <div class="scrollable-content">
-
-                            {{#each orders}} <!-- Lặp qua mỗi đơn hàng -->
-                                <div class="order-list mb-3">
-                                    <div class="header-order">
-                                        <h6>#Mã đơn: {{order_id}}</h6>
-                                        <h6 class="time-order">
-                                            <i class="bi bi-clock-history"></i>&nbsp;&nbsp;{{order_date}}
-                                        </h6>
-                                        <div class="d-flex justify-content-end">
-                                            <input class="btn-checkbox" type="checkbox" id="active-order" class="form-check-input">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        {{#each orderItems}} <!-- Lặp qua các orderItems trong từng đơn hàng -->
-                                            <div class="order-item">
-                                                <div class="d-flex flex-column">
-                                                    <h5>{{menu_item_name}}</h5>
-                                                    <div class="ml-10">Size L<br>{{menu_item_description}}<br>{{order_item_note}}</div>
-                                                </div>
-                                                <h5>{{order_item_quantity}}</h5> <!-- Sửa lại cách hiển thị quantity -->
-                                                <div class="text-price">
-                                                    {{menu_item_sale_price}}
-                                                </div>
-                                            </div>
-                                        {{/each}}
+                            <div class="order-list mb-3">
+                                <div class="header-order">
+                                    <h6>#Mã đơn: 006</h6>
+                                    <h6 class="time-order">
+                                        <i class="bi bi-clock-history"></i>&nbsp;&nbsp;3:00 pm, 20th Nov
+                                    </h6>
+                                    <div class="d-flex justify-content-end">
+                                        <input class="btn-checkbox" type="checkbox" id="active-order"
+                                            class="form-check-input">
                                     </div>
                                 </div>
-                            {{/each}}
+                                <div>
+                                    <div class="order-item">
+                                        <div class="d-flex flex-column">
+                                            <h5>1. Oolong milktea (best seller)</h5>
+                                            <div class="ml-10">Size L<br>Share Iced<br>Trân châu đen</div>
+                                        </div>
+                                        <div class="text-price">
+                                            90.000
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="order-item">
+                                        <div class="d-flex flex-column">
+                                            <h5>1. Oolong milktea (best seller)</h5>
+                                            <div class="ml-10">Size L<br>Share Iced<br>Trân châu đen</div>
+                                        </div>
+                                        <div class="text-price">
+                                            90.000
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="order-list mb-3">
+                                <div class="header-order">
+                                    <h6>#Mã đơn: 006</h6>
+                                    <h6 class="time-order">
+                                        <i class="bi bi-clock-history"></i>&nbsp;&nbsp;3:00 pm, 20th Nov
+                                    </h6>
+                                    <div class="d-flex justify-content-end">
+                                        <input class="btn-checkbox" type="checkbox" id="active-order"
+                                            class="form-check-input">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="order-item">
+                                        <div class="d-flex flex-column">
+                                            <h5>1. Oolong milktea (best seller)</h5>
+                                            <div class="ml-10">Size L<br>Share Iced<br>Trân châu đen</div>
+                                        </div>
+                                        <div class="text-price">
+                                            90.000
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="order-item">
+                                        <div class="d-flex flex-column">
+                                            <h5>1. Oolong milktea (best seller)</h5>
+                                            <div class="ml-10">Size L<br>Share Iced<br>Trân châu đen</div>
+                                        </div>
+                                        <div class="text-price">
+                                            90.000
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                     <div id="total-price">
-                        <h6>Total: 500000</h6>
+                        <h6>Total: 500.000</h6>
                     </div>
                     <div id="card-content-btn">
                         <div class="d-flex justify-content-between">
