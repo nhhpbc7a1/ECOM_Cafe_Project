@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/customer/css/menu.css">
+</head>
+<body>
+    <div class="container my-4 blueContainer">
+        <!-- Search Bar -->
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-12 d-flex align-items-center">
+                <div class="search">
+                    <form action="/menu/search" method="get" class="d-flex">
+                        <input type="text" name="query" class="form-control" placeholder="Bạn đang cần tìm kiếm gì?" required>
+                        <button type="submit" class="btn btn-primary ml-2">
+                            <i class="bi bi-search"></i> Tìm kiếm
+                        </button>
+                    </form>
+                </div>
+                 <div class="ml-3">
+                    <a href="/cart" id="card-icon" class="btn btn-light">
+                        <img src="/customer/images/cart.png" alt="" style="width: 20px; height: 20px;">
+                    </a>
+                </div>
+                <!-- Order Icon -->
+                <div class="ml-3">
+                    <a href="/orders" class="btn btn-light">
+                        <img src="/customer/images/order-fulfillment 1.png" alt="Orders" style="width: 20px; height: 20px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+         <div class="row align-items-center mb-4 overlay-background">
+        <div class="col-4 text-center logo-section">
+            <div class="row">
+                <div class="col">
+                    <h4 class="mt-2 delicacy-tile" >DELIC <span class="acy">ACY</span></h4>
+                    <p class="m-0" style="color: #5A9AD0;">Where taste meets quality</p>
+                    <p class="m-0" style="color: #000000;">© delicacy.com | 0909336599</p>
+                </div>
+                <div class="col right">
+                    <img src="/customer/images/poster2 1.png" class="img-fluid rounded" alt="DELICACY Logo" style="width: 150px; height: 200px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-8 text-center info-section " >
+            <div class="row">
+                <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                    <h2 id="title-menu">   The<br> <br>
+                        Coffee<br><br>
+                        House
+                        </h2>
+                </div>
+                <div class="col">
+                    <p style="color: #245ed1;">
+                        100 năm cà phê hữu hạn, Không chỉ dừng lại ở cà phê, chúng tôi còn mang đến một thực đơn phong phú với các món bánh ngọt thủ công và những món ăn nhẹ, phù hợp cho những buổi họp mặt bạn bè, làm việc hay thư giãn một mình.
+                    </p>
+                    <p style="color: #000000;">
+                        📍 Linh Đông, Thủ Đức | 📞 0123456789 | ✉️ thecoffeehouse@gmail.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="text-center mb-4">
+            <div class="d-flex justify-content-between">
+            <p class="font-weight-bold"><strong>Tổng cộng: {{totalItems}}</strong></p>
+            <button class="btn btn-primary d-flex align-items-center">
+                <i class="bi bi-grid mr-2"></i> 
+                <span class="font-weight-bold">Danh mục</span> 
+            </button>
+            </div>
+            <div class="d-flex justify-content-center overflow-scroll-container">
+                  {{#each categories}}
+            <div class="text-center mx-2">
+                    <button class="btn btn-circle p-0">
+                        <img src="{{this.category_image}}" class="rounded-circle" alt="{{this.category_name}}" width="60" height="60">
+                    </button>
+                    <p class="mt-2 font-weight-bold">{{this.category_name}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        
+
+        <!-- Product Section -->
+        <div class="product-section mb-4">
+            <h3 class="text-uppercase font-weight-bold">Kết quả tìm kiếm cho: "{{query}}"</h3>
+            <div class="product-container overflow-x">
+                <div class="row flex-nowrap">
+                    {{#each searchResults}}
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <div class="card text-center h-100 shadow-sm">
+                            <img src="{{this.image_href}}" class="card-img-top rounded mx-auto mt-3" alt="{{this.name}}" style="width: 100px; height: 100px;">
+                            <div class="card-body">
+                                <p class="card-text font-weight-bold">{{this.name}}</p>
+                                <p class="card-text text-primary">{{format_price this.cost_price}}</p>
+                                 <button class="btn-add">
+                                            <i class="fa fa-plus">+</i>
+                                        </button>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

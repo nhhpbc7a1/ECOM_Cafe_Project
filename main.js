@@ -53,6 +53,8 @@ app.get('/', function(req, res) {
 
 import menuRoutes from './routes/customer/menu.route.js';
 app.use('/menu', menuRoutes);
+import cartRoutes from './routes/customer/cart.route.js';
+app.use('/cart', cartRoutes)
 
 import managerRouter from './routes/manager.route.js'
 
