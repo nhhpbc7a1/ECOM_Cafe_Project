@@ -9,6 +9,8 @@ import cookieParser from 'cookie-parser';
 import casherRouter from './routes/casher.route.js'
 import customerRouter from './routes/customer.route.js'
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 const app = express();
 
 app.use(express.urlencoded({ 
@@ -32,6 +34,9 @@ app.engine('hbs', engine({
         ifEquals(arg1, arg2, options) {
             return arg1 == arg2 ? options.fn(this) : options.inverse(this);
         },
+        eq(arg1, arg2) {
+            return arg1 === arg2; // Trả về true nếu 2 giá trị bằng nhau
+        },
         section: hbs_sections(),
     }
 }));
@@ -40,6 +45,8 @@ app.set('view engine', 'hbs');
 
 // Khai báo thư mục chứa các file tĩnh
 app.use(express.static('public'));
+app.use('/static', express.static('static'));
+
 app.use('/node_modules', express.static('node_modules'));
 
 // Khai báo thư mục chứa các file views

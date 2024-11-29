@@ -40,5 +40,15 @@ export default {
     },
     del(menu_item_id) {
         return db('menu_items').where('menu_item_id', menu_item_id).del();
+    },
+    findToppingByBranchId(branch_id) {
+        return db('toppings');
+        // cần phải thay đổi database
+        
+        db('toppings')
+           .join('menus','toppings.menu_id','menus.menu_id')
+           .join('branches','menus.branch_id','branches.branch_id')
+           .where('branches.branch_id', branch_id)
+           .select('toppings.*');
     }
 }

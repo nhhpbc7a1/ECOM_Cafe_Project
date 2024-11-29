@@ -27,8 +27,10 @@ router.get('/', async function (req, res) {
 router.get('/add', async function (req, res) {
     const branch_id = 1;
     const categoryList = await categoryService.findByBranchID(branch_id);
+    const toppingList = await menu_itemService.findToppingByBranchId(branch_id);
     res.render('vwManager/menu_item/add', {
-        categories: categoryList
+        categories: categoryList,
+        toppings: toppingList
     });
 });
 
