@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+.food-header {
+  position: relative;
+}
+.food-header img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.food-header .header-buttons {
+  position: absolute;
+  top: 1rem;
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.food-header .btn-circle {
+  background-color: white;
+  border: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+.food-content {
+  padding: 1rem;
+}
+.food-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.food-info .price-old {
+  text-decoration: line-through;
+  color: #aaa;
+}
+.food-info .price-new {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.addons {
+  margin-top: 1rem;
+}
+.addons h5 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.addons .form-check {
+  margin-bottom: 0.625rem;
+}
+.footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 0.0625rem solid #ddd;
+}
+.footer .btn {
+  width: 100%;
+  font-weight: bold;
+}
+
+@media (max-width: 48rem) {
+  .food-info {
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+
+  .food-info h4 {
+    font-size: 1.15rem;
+  }
+
+  .food-info .price-new {
+    font-size: 1rem;
+  }
+
+  .addons h5 {
+    font-size: 0.9rem;
+  }
+
+  .footer .btn {
+    font-size: 0.9rem;
+  }
+}
