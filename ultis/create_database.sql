@@ -68,7 +68,10 @@ CREATE TABLE menus (
 
 CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
-    category_name VARCHAR(100) NOT NULL
+    category_name VARCHAR(100) NOT NULL,
+    image_href TEXT DEFAULT NULL,
+    menu_id INT,    
+    FOREIGN KEY (menu_id) REFERENCES menus(menu_id) ON DELETE SET NULL
 );
 
 CREATE TABLE menu_items (
@@ -85,6 +88,26 @@ CREATE TABLE menu_items (
     has_vegetables BIT,
     FOREIGN KEY (menu_id) REFERENCES menus(menu_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+
+CREATE TABLE toppings (
+    topping_id INT AUTO_INCREMENT PRIMARY KEY,
+    topping_name VARCHAR(50),
+    cost_price DECIMAL(10, 2),
+    sale_price DECIMAL(10, 2),
+    image_href TEXT DEFAULT NULL,
+    is_available BIT DEFAULT 1,
+    menu_id INT,
+    FOREIGN KEY (menu_id) REFERENCES menus(menu_id) ON DELETE SET NULL
+);
+
+CREATE TABLE menu_item_toppings (
+    menu_item_topping_id INT AUTO_INCREMENT PRIMARY KEY,
+    quantity INT,
+    menu_item_id INT,
+    topping_id INT,
+    FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id) ON DELETE SET NULL,
+    FOREIGN KEY (topping_id) REFERENCES toppings(topping_id) ON DELETE SET NULL
 );
 
 CREATE TABLE orders (

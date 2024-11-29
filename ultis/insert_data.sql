@@ -52,20 +52,18 @@ VALUES (1, 'Blue', 'menu_background1.png'),
        (4, 'Yellow', 'menu_background4.png'),
        (5, 'Purple', 'menu_background5.png');
 
--- Bảng categories
-INSERT INTO categories (category_name)
-VALUES ('Drinks'), ('Food'), ('Desserts'), ('Appetizers'), ('Specials');
-
--- Cập nhật hình ảnh cho bảng categories
-UPDATE categories 
-SET image_href = CASE category_name
-    WHEN 'Drinks' THEN 'categories/1/main.jpg'
-    WHEN 'Food' THEN 'categories/2/main.jpg'
-    WHEN 'Desserts' THEN 'categories/3/main.jpg'
-    WHEN 'Appetizers' THEN 'categories/4/main.jpg'
-    WHEN 'Specials' THEN 'categories/5/main.jpg'
-END;
-
+INSERT INTO categories (category_name, menu_id, image_href)
+VALUES 
+    ('Drinks', 1, 'categories/1/main.jpg'),
+    ('Food', 1, 'categories/2/main.jpg'),
+    ('Desserts', 1, 'categories/3/main.jpg'),
+    ('Appetizers', 1, 'categories/4/main.jpg'),
+    ('Specials', 1, 'categories/5/main.jpg'),
+    ('Drinks', 2, 'categories/6/main.jpg'),
+    ('Food', 2, 'categories/7/main.jpg'),
+    ('Desserts', 2, 'categories/8/main.jpg'),
+    ('Appetizers', 2, 'categories/9/main.jpg'),
+    ('Specials', 2, 'categories/10/main.jpg');
 -- Bảng menu_items
 INSERT INTO menu_items (menu_id, category_id, name, description, image_href, cost_price, sale_price, is_available, is_spicy, has_vegetables)
 VALUES
