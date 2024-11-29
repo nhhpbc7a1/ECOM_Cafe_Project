@@ -1,11 +1,15 @@
 
 body {
-    background-image: url('/customer/images/cover.png'); /* Thay đường dẫn hình ảnh của bạn */
-    background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ phần thân */
-    background-position: center; /* Đặt hình ảnh vào giữa */
-    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
-    height: 100%; /* Chiều cao của phần body chiếm toàn bộ màn hình */
-    margin: 0; /* Loại bỏ margin mặc định */
+    background-image: url('/customer/images/cover.png'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%; 
+    width: 100%;
+    margin: 0; 
+}
+body, .container {
+    /* overflow-x: hidden; */
 }
 .container{
 
@@ -13,19 +17,19 @@ body {
 }
 
 .btn-circle {
-    border-radius: 50%; /* Làm cho nút có hình tròn */
-    overflow: hidden; /* Đảm bảo ảnh không vượt ra ngoài nút */
-    border: none; /* Loại bỏ đường viền của nút */
-    padding: 0; /* Loại bỏ padding */
+    border-radius: 50%; 
+    overflow: hidden; 
+    border: none; 
+    padding: 0; 
 }
 .btn-circle img {
-    width: 100%; /* Đảm bảo ảnh vừa với nút */
-    height: 100%; /* Đảm bảo ảnh vừa với nút */
-    object-fit: cover; /* Đảm bảo ảnh không bị méo khi bị cắt */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
 }
 .btn-circle:hover {
-    transform: scale(1.1); /* Hiệu ứng khi hover (làm nút to lên một chút) */
-    transition: transform 0.3s ease; /* Thêm hiệu ứng mượt mà */
+    transform: scale(1.1); 
+    transition: transform 0.3s ease;
 }
 .logo-section {
     border-right: 2px solid #ffffff;
@@ -63,7 +67,10 @@ body {
     background-position: center;
     padding: 20px;
     border-radius: 8px;
+    display: flex;
+    flex-wrap: nowrap; /* Giữ cột trên cùng một hàng */
 }
+
 
 .overlay-background::before {
     content: "";
@@ -84,10 +91,10 @@ body {
     color: white; /* Màu chữ phù hợp với overlay */
 }
 .blue {
-    background: linear-gradient(to right, #F0F0F0, #5282e1, #00FFFB);
+    background: linear-gradient(to right, rgba(240, 240, 240, 0.8), rgba(165, 198, 242, 0.8), rgba(208, 249, 248, 0.8));
 }
 .blueContainer {
-    background-color: #b8e3f8f0;
+    background: linear-gradient(to bottom, rgba(240, 240, 240, 0.8), rgba(255, 255, 255, 0.8), rgba(57, 216, 214, 0.8));
 }
 .row {
     display: flex;
@@ -98,9 +105,8 @@ body {
 }
 .card {
     width: 250px;
-    height: 300px;
     border-radius: 20px;
-    background: linear-gradient(145deg, #ffffff, #aee0ec); /* Gradient sáng */
+    background: linear-gradient(145deg, #ffffff, #ffffff); /* Gradient sáng */
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(0, 0, 0, 0.5); /* Hiệu ứng 3D */
     display: flex;
     flex-direction: column;
@@ -109,6 +115,7 @@ body {
     transition: all 0.3s ease-in-out;
     margin: 15px;
 }
+
 .card .card-text {
     max-width: 200px; /* Đặt giới hạn chiều rộng chữ */
     white-space: nowrap; /* Không xuống dòng */
@@ -117,11 +124,82 @@ body {
     text-align: center;
     color: #0d3970;
 }
+.price-text {
+    /* position: absolute; 
+    bottom: 10px; 
+    margin-top: 100px;
+    left: 10px;
+    font-weight: bold;
+    color: #0d3970;  */
+}
+.card-img-top {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover;
+}
 .card:hover {
     transform: translateY(-10px); /* Nâng thẻ lên một chút */
     transform: scale(1.1); /* Tăng kích thước khi hover */
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2), -5px -5px 20px rgba(255, 255, 255, 0.7); /* Bóng đổ mạnh hơn */
 }
+.category-wrapper {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #d6d6d6; 
+    border-radius: 8px; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+}
+.category-menu
+{
+    overflow-x: auto;
+    background-color: rgba(255, 255, 255, 0);
+    max-width: 500px; /* Chiều rộng tối đa của container (đủ cho 4 category) */
+    margin: 0 auto; /* Căn giữa toàn bộ container */
+    padding: 20px;
+    scroll-behavior: smooth;
+    
+}
+
+.category-image {
+    width: 80px; 
+    height: 80x; 
+}
+.custom-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px; /* Chiều rộng đồng nhất */
+    height: 50px; /* Chiều cao đồng nhất */
+    padding: 0; /* Xóa padding mặc định */
+    border-radius: 5px; 
+    transition: all 0.3s ease; /* Hiệu ứng hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    background-color: #0080ff; 
+    border: 3px solid #ddd; 
+}
+.custom-btn:hover {
+    background-color: #ffffff; /* Màu nền đổi khi hover */
+    color: #fff; /* Chữ đổi thành màu trắng */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng sâu hơn */
+    border-color: #007bff;
+}
+
+.custom-btn img {
+    width: 24px; /* Kích thước biểu tượng */
+    height: 24px;
+}
+
+.custom-btn i {
+    font-size: 24px; /* Kích thước biểu tượng Font Awesome hoặc Bootstrap Icons */
+}
+
+.btn.btn-circle {
+    padding: 20px; /* Tăng khoảng cách bên trong nút */
+    width: 100px;
+    border-radius:50%; 
+}
+
 .overlay {
     position: absolute;
     bottom: 0;
@@ -140,13 +218,13 @@ body {
 .overflow-scroll-container {
     width: 100%; /* Chiều rộng tối đa trong vùng cha */
     max-width: 100%; /* Đảm bảo không vượt quá vùng cha */
-    overflow-x: auto; /* Kích hoạt scrollbar ngang */
     white-space: nowrap; /* Các phần tử xếp ngang không xuống dòng */
     display: flex; /* Sử dụng flex để giữ các phần tử trong hàng */
-    gap: 10px; /* Khoảng cách giữa các nút */
+    -webkit-overflow-scrolling: touch;
+
 }
-.img-container {
-    
+.image-container {
+    width:100%;
 }
 .image-container:hover .overlay {
     display: flex;
@@ -155,8 +233,14 @@ body {
     overflow-x: auto;
     white-space: nowrap;
 }
+.product-container .card {
+    margin: 5px; 
+}
+
+.row.flex-nowrap {
+    gap: 5px; 
+}
 .product-container {
-    overflow-x: auto;
     white-space: nowrap;
     padding-bottom: 1rem; /* Để tránh trùng với thanh cuộn */
 }
@@ -191,7 +275,7 @@ body {
 }
 .search i {
     position: absolute;
-    top: 50%;
+    top: 39%;
     left: 10px;
     transform: translateY(-50%);
     color: #aaa;
@@ -207,9 +291,8 @@ body {
     border-radius: 5px;
 }
 #title-menu {
-    width: 200px;
     position: relative;
-    font-size: 40px;
+    font-size: 30px;
     font-family: Molle;
     color: #231f20;
     text-align: left;
@@ -233,13 +316,71 @@ body {
     filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.15));
     color: #0d3970;
 }
+.fixed-footer {
+    position: fixed; 
+    bottom: 0; 
+    left: 0;
+    width: 100%; 
+    padding: 10px 20px; 
+    background-color: #007bff; 
+    color: white;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
+}
+
+.fixed-footer .btn {
+    margin: 0 10px; 
+}
+
+.sticky-search {
+    position: sticky; /* Cố định khi cuộn */
+    top: 0; /* Đặt tại đầu trang */
+    z-index: 100; /* Hiển thị trên các phần tử khác */
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px 0; /* Khoảng cách trên/dưới */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius:10px;
+}
+.sticky-footer {
+    position: sticky; /* Cố định khi cuộn */
+    bottom: 0; /* Đặt tại đầu trang */
+    z-index: 100; /* Hiển thị trên các phần tử khác */
+    padding: 10px 0; /* Khoảng cách trên/dưới */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius:10px
+}
+
 @media (max-width: 768px) {
     .card {
-        width: 120px; /* Kích thước nhỏ hơn cho thiết bị di động */
-        height: 200px;
+        width: 180px;
+        height: 150px;
+        gap: 10px;
     }
 
     .row {
         gap: 10px;
     }
+    #title-menu {
+        position: relative;
+        font-size: 15px;
+        font-family: Molle;
+        color: #231f20;
+        text-align: left;
+        display: inline-block;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
 }
+@media (max-width: 576px) {
+    .logo-section img {
+        width: 80px; /* Giảm kích thước ảnh */
+        height: auto;
+    }
+    .info-section h2 {
+        font-size: 16px; /* Thu nhỏ tiêu đề */
+    }
+    .info-section p {
+        font-size: 12px; /* Thu nhỏ đoạn văn */
+    }
+}
+

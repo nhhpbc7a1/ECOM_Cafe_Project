@@ -4,9 +4,8 @@ import numeral from 'numeral';
 import { dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
-import hbs_sections from 'express-handlebars-sections';
 import cookieParser from 'cookie-parser';
-
+import hbs_sections from 'express-handlebars-sections';
 import casherRouter from './routes/casher.route.js'
 import customerRouter from './routes/customer.route.js'
 import { authManager } from './middlewares/auth.js';
@@ -18,6 +17,7 @@ const app = express();
 app.use(express.urlencoded({ 
     extended: true 
 }));
+
 app.use(cookieParser());
 
 // import managerRouter from './routes/manager.route.js';  // Import 1 lần duy nhất

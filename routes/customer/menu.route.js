@@ -13,9 +13,9 @@ router.get('/', async function(req, res) {
         if (category_id) {
             groupedItems = await menuItemService.findallByCategory(category_id); // Lọc theo category
         } else {
-            groupedItems = await menuItemService.findall(); // Lấy tất cả sản phẩm nếu không có category_id
+            groupedItems = await menuItemService.findall(); 
         }
-
+        console.log(groupedItems)
         const categories = await menuItemService.findAllCategories();
         const totalItems = await menuItemService.countTotalItems();
 
