@@ -12,13 +12,8 @@ router.use((req, res, next) => {
 });
 
 router.get('/', async function (req, res) {
-    // const branch_id = req.query.accountid || 0;
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const list = await employeeService.findAll(branch_id);
-
-    // console.log(list);
-    // return;
-
     res.render('vwManager/employee/list', {
         employees: list
     });
@@ -49,7 +44,7 @@ router.get('/edit', async function (req, res) {
 
 
 router.post('/patch', async function (req, res) {
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const encrypted_password = await bcrypt.hash(req.body.password, 8);
     const account_id = req.body.account_id;
     const newAccount = {
@@ -72,7 +67,7 @@ router.post('/patch', async function (req, res) {
 });
 
 router.post('/add', async function (req, res) {
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const encrypted_password = await bcrypt.hash(req.body.password, 8);
     
     const newAccount = {

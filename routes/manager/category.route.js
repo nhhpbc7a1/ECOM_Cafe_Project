@@ -15,10 +15,8 @@ router.use((req, res, next) => {
 
 
 router.get('/', async function (req, res) {
-    const menu_id = 1;
-    const list = await categoryService.findAll(menu_id);
-    // console.log(list);
-    // return;
+    const branch_id = req.session.branchInfo.branch_id;
+    const list = await categoryService.findByBranchID(branch_id);
     res.render('vwManager/category/list', {
         categories: list
     });
@@ -41,8 +39,7 @@ router.get('/edit', async function (req, res) {
     if (!entity) {
         return res.redirect('/manager/category');
     }
-    // console.log(entity);
-    // return;
+
     res.render('vwManager/category/edit', {
         category: entity
     });

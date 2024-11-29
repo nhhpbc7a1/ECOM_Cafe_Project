@@ -14,8 +14,8 @@ router.use((req, res, next) => {
 });
 
 router.get('/', async function (req, res) {
-    const menu_id = 1;
-    const list = await toppingService.findAll(menu_id);
+    const branch_id = req.session.branchInfo.branch_id;
+    const list = await toppingService.findByBranchId(branch_id);
     res.render('vwManager/topping/list', {
         toppings: list
     });
@@ -76,7 +76,7 @@ router.post('/patch', upload.single('image'), async function (req, res) {
 });
 
 router.post('/add', upload.single('image'), async function (req, res) {
-    const menu_id = 1;
+    const menu_id = req.session.branchInfo.menu_id;
     const newTopping = {
         topping_name: req.body.topping_name, // Tên topping
         image_href: req.body.image_href, // Đường dẫn hình ảnh
