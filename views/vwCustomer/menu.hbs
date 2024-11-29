@@ -12,25 +12,25 @@
 <body>
  <div class="container my-4 blueContainer">
         <!-- Search Bar -->
-           <div class="row justify-content-center mb-3">
+           <div class="sticky-search row justify-content-center mb-3">
             <div class="col-md-12 d-flex align-items-center">
                 <div class="search">
                      <form action="/menu/search" method="get" class="d-flex">
                         <input type="text" name="query" class="form-control" placeholder="Bạn đang cần tìm kiếm gì?" required>
-                        <button type="submit" class="btn btn-primary ml-2">
+                        <button type="submit" class="btn btn-primary ml-2 custom-btn ">
                             <i class="bi bi-search"></i> Tìm kiếm
                         </button>
                     </form>
                 </div>
                 <!-- Cart Icon -->
                 <div class="ml-3">
-                    <a href="/customer/cart" id="card-icon" class="btn btn-light">
+                    <a href="/customer/cart" id="card-icon" class="btn btn-light custom-btn">
                         <img src="/customer/images/cart.png" alt="" style="width: 20px; height: 20px;">
                     </a>
                 </div>
                 <!-- Order Icon -->
                 <div class="ml-3">
-                    <a href="/orders" class="btn btn-light">
+                    <a href="/orders" class="btn btn-light custom-btn ">
                         <img src="/customer/images/order-fulfillment 1.png" alt="Orders" style="width: 20px; height: 20px;">
                     </a>
                 </div>
@@ -76,7 +76,7 @@
 </script>
         <!-- Header -->
     <div class="row align-items-center mb-4 overlay-background">
-        <div class="col-5 text-center logo-section">
+        <div class="col-5 col-sm-6  text-center logo-section">
             <div class="row">
                 <div class="col">
                     <h4 class="mt-2 delicacy-tile" >DELIC <span class="acy">ACY</span></h4>
@@ -88,15 +88,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-6 text-center info-section " >
+        <div class="col-7 col-sm-6 text-center info-section " >
             <div class="row">
-                <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                <div class="col-5 col-sm-6" style="display: flex; justify-content: center; align-items: center;">
                     <h2 id="title-menu">   The<br> <br>
                         Coffee<br><br>
                         House
                         </h2>
                 </div>
-                <div class="col">
+                <div class="col-7 col-sm-6 ">
                     <p style="color: #245ed1;">
                         100 năm cà phê hữu hạn, Không chỉ dừng lại ở cà phê, chúng tôi còn mang đến một thực đơn phong phú với các món bánh ngọt thủ công và những món ăn nhẹ, phù hợp cho những buổi họp mặt bạn bè, làm việc hay thư giãn một mình.
                     </p>
@@ -117,18 +117,20 @@
             <span class="font-weight-bold">Danh mục</span> 
         </button>
     </div>
-    <div class="d-flex justify-content-center overflow-scroll-container">
-        {{#each categories}}
-        <div class="text-center mx-2">
-            <button class="btn btn-circle p-0 category-btn" data-category-id="{{this.category_id}}">
-                <img src="{{this.image_href}}" class="rounded-circle" alt="{{this.category_name}}" width="60" height="60">
-            </button>
-            <p class="mt-2 font-weight-bold">
-                <a href="/menu?category_id={{this.category_id}}">{{this.category_name}}</a>
-            </p>
+    <div class="category-menu mx-auto">
+        <div class="d-flex justify-content-center overflow-scroll-container">
+            {{#each categories}}
+            <div class="text-center mx-2">
+                <button class="btn btn-circle p-0 category-btn" data-category-id="{{this.category_id}}">
+                    <img src="{{this.image_href}}" class="rounded-circle" alt="{{this.category_name}}" width="60" height="60">
+                </button>
+                <p class="mt-2 font-weight-bold">
+                    <a href="/menu?category_id={{this.category_id}}">{{this.category_name}}</a>
+                </p>
+            </div>
+            {{/each}}
         </div>
-        {{/each}}
-    </div>
+        </div>
 </div>
 <script>
     // Lắng nghe sự kiện click vào nút category
@@ -182,24 +184,25 @@
 </script>
 
         <!-- Product Section -->
-        <div class="product-section mb-4">
+        <div class="product-section mb-5">
             {{#each groupedItems}}
-        <h3 class="text-uppercase font-weight-bold">{{@key}}</h3>
+        <div class="category-wrapper">
+        <h3 class=" font-weight-bold">{{@key}}</h3>
                     <div class="product-container overflow-x">
                         <div class="row flex-nowrap">
                             <!-- Product Card -->
                                   {{#each this}}
-                            <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="col-md-3 col-sm-6 mb-2">
                                 <div class="card text-center h-100 shadow-sm ">
                                     <div class="image-container">
-                                        <img src="/customer/images/Ellipse 19.png" class="card-img-top rounded-circle mx-auto mt-3" alt="Trà Đào Cam Sả" style="width: 100%; height: 100%;">
+                                       <img src="/images/menu_items/{{menu_item_id}}/main.jpg" alt="{{name}}" class="card-img-top mx-auto mt-3" style="width: 100%; height: 100%;">
                                         <div class="overlay">
                                             <button class="btn btn-light btn-sm">Xem chi tiết</button>
                                         </div>
                                     </div>
                                     <div class="card-body">
                                         <p class="card-text font-weight-bold">{{this.name}}</p>
-                                        <p class="card-text text-primary">{{format_price this.cost_price}}</p>
+                                        <p class="card-text text-primary price-text">{{format_price this.cost_price}}</p>
                                             <button class="btn-add" data-product-id="{{this.id}}" data-product-name="{{this.name}}" data-product-price="{{this.cost_price}}">
                                             <i class="fa fa-plus"></i>
                                         </button>
@@ -210,10 +213,11 @@
                             <!-- Thêm các sản phẩm khác tương tự như trên -->
                         </div>
                     </div>
+                    </div>
                      {{/each}}
 
         <!-- Footer with Action Buttons -->
-        <div class="d-flex justify-content-between blue">
+                <div class="sticky-footer d-flex justify-content-between blue">
             <button class="btn btn-success btn-lg">Đặt hàng</button>
             <button class="btn btn-danger btn-lg">Hủy chọn</button>
         </div>

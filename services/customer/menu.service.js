@@ -4,7 +4,16 @@ export default {
     async findall() {
         const items = await db('menu_items')
             .join('categories', 'menu_items.category_id', '=', 'categories.category_id')
-            .select('menu_items.*', 'categories.category_name')
+            .select(
+                'menu_items.menu_item_id',
+                'menu_items.name',
+                'menu_items.description',
+                'menu_items.image_href', 
+                'menu_items.cost_price',
+                'menu_items.sale_price',
+                'menu_items.is_available',
+                'categories.category_name'
+            )
             .where('menu_items.is_available', 1)
             .orderBy('categories.category_name');
         
