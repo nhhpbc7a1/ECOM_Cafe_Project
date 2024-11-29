@@ -1,4 +1,27 @@
-<form action="" method="post">
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('preview_image');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#my-multiselect').select2();
+    });
+</script>
+
+{{/section}}
+
+<form action="" method="post" enctype="multipart/form-data">
     <div class="container-fluid" style="padding: 40px;">
         <div class="card">
             <div class="card-header">
@@ -8,43 +31,51 @@
                 {{!-- <input class="form-control mb-3" type="text" placeholder="Readonly input here..." readonly> --}}
                 <div class="d-flex align-items-center">
                     <div class="form-group">
-                        <label for="exampleFormControlFile1">Hình ảnh sản phẩm</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <label for="productImg">Hình ảnh sản phẩm</label>
+                        <input name="image" type="file" class="form-control-file" id="productImg"
+                            onchange="previewImage(event)">
                     </div>
-                    <img src="..." class="img-thumbnail" alt="..." style="width: 100px; height: 100px;">
+                    <img id="preview_image" src="..." class="img-thumbnail" alt="..."
+                        style="width: 100px; height: 100px;">
                 </div>
                 <div class="form-group">
                     <label for="txtName">Tên</label>
-                    <input type="text" name="name" id="txtName" class="form-control" placeholder=""
-                        aria-describedby="helpId">
-                    <small id="helpId" class="text-muted">Help text</small>
+                    <input type="text" name="name" id="txtName" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Danh mục</label>
                     <select class="form-control" id="exampleFormControlSelect1" name="category_id">
                         {{#each this.categories}}
-                            <option value={{category_id}}>{{category_name}}</option>
+                        <option value={{category_id}}>{{category_name}}</option>
                         {{/each}}
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="txtCostPrice">Giá gốc</label>
-                    <input type="text" name="cost_price" id="txtCostPrice" class="form-control" placeholder=""
-                        aria-describedby="helpId">
-                    <small id="helpId" class="text-muted">Help text</small>
+                    <input type="text" name="cost_price" id="txtCostPrice" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="txtSalePrice">Giá bán</label>
-                    <input type="text" name="sale_price" id="txtSalePrice" class="form-control" placeholder=""
-                        aria-describedby="helpId">
-                    <small id="helpId" class="text-muted">Help text</small>
+                    <input type="text" name="sale_price" id="txtSalePrice" class="form-control">
                 </div>
 
                 <hr>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Mô tả</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        name="description"></textarea>
                 </div>
+                <hr>
+                <!-- Trong template handlebars -->
+                <div class="form-group">
+                    <label for="">Topping</label>
+                    <select id="my-multiselect" multiple="multiple" style="width:100%;">
+                        {{#each this.toppings}}
+                        <option value="{{topping_id}}">{{topping_name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
             </div>
             <div class="card-footer text-muted">
                 <a name="" id="" class="btn btn-outline-success" href="/manager/menu_item" role="button">

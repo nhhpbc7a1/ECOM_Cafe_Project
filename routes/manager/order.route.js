@@ -11,8 +11,8 @@ router.use((req, res, next) => {
 });
 
 router.get('/', async function (req, res) {
-    const menu_id = 1;
-    const list = await orderService.findAll(menu_id);
+    const branch_id = req.session.branchInfo.branch_id;
+    const list = await orderService.findAll(branch_id);
     console.log(list);
     // return;
     res.render('vwManager/order/list', {

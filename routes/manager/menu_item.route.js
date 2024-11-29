@@ -2,6 +2,10 @@ import express from 'express';
 import menu_itemService from '../../services/manager/menu_item.service.js';
 import categoryService from '../../services/category.service.js';
 
+import multer from 'multer';
+import handleFileUpload from '../../services/handleFileUpload.service.js';
+const upload = multer({ dest: 'public/images/uploads/' });
+
 const router = express.Router();
 
 // route for /manager/menu_item/...
@@ -21,9 +25,12 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/add', async function (req, res) {
-    const categoryList = await categoryService.findAll();
+    const branch_id = 1;
+    const categoryList = await categoryService.findByBranchID(branch_id);
+    const toppingList = await menu_itemService.findToppingByBranchId(branch_id);
     res.render('vwManager/menu_item/add', {
-        categories: categoryList
+        categories: categoryList,
+        toppings: toppingList
     });
 });
 
@@ -36,7 +43,8 @@ router.post('/del', async function (req, res) {
 router.get('/edit', async function (req, res) {
     const id = +req.query.id || 0;
     const entity = await menu_itemService.findByID(id);
-    const categoryList = await categoryService.findAll();
+    const branch_id = 1;
+    const categoryList = await categoryService.findByBranchID(branch_id);
 
     if (!entity) {
         return res.redirect('/manager/menu_item');
@@ -44,7 +52,6 @@ router.get('/edit', async function (req, res) {
 
     entity.is_available = entity.is_available && entity.is_available[0] === 1;
 
-    console.log(entity);
     res.render('vwManager/menu_item/edit', {
         categories: categoryList,
         menu_item: entity
@@ -52,8 +59,7 @@ router.get('/edit', async function (req, res) {
 });
 
 
-router.post('/patch', async function (req, res) {
-    // console.log(req.body);
+router.post('/patch', upload.single('image'), async function (req, res) {
     const menu_item_id = req.body.menu_item_id;
     const changes = {
         name: req.body.name,
@@ -64,14 +70,23 @@ router.post('/patch', async function (req, res) {
         menu_id: 1,
         is_available: req.body.is_available === 'on',
     };
-    // console.log(changes);
     await menu_itemService.patch(menu_item_id, changes);
+
+    // Xử lý ảnh tải lên nếu có
+    const imagePath = await handleFileUpload(req, 'menu_items', menu_item_id);
+    const image = req.file;
+    if (image) {
+        changes.image_href = imagePath;
+        await menu_itemService.patch(menu_item_id, changes);
+    }
+
     res.redirect('/manager/menu_item');
 });
 
-router.post('/add', async function (req, res) {
-    // console.log(req.body);
+router.post('/add', upload.single('image'), async function (req, res) {
+
     const menu_id = 1;
+    const image = req.file; // Ảnh tải lên
     const newMenuItem = {
         name: req.body.name,
         description: req.body.description,
@@ -80,8 +95,18 @@ router.post('/add', async function (req, res) {
         category_id: req.body.category_id,
         menu_id: menu_id,
         is_available: req.body.is_available === 'on',
+    };
+    const new_menu_item_id = await menu_itemService.add(newMenuItem);
+
+    console.log(new_menu_item_id);
+    // Xử lý ảnh tải lên nếu có
+    const imagePath = await handleFileUpload(req, 'menu_items', new_menu_item_id);
+
+    if (image) {
+        newMenuItem.image_href = imagePath;
+        await menu_itemService.patch(new_menu_item_id, newMenuItem);
     }
-    await menu_itemService.add(newMenuItem);
+
     res.redirect('/manager/menu_item');
 });
 

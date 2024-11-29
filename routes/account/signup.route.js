@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 const router = express.Router();
 
 router.get('/', function(req, res) {
-    res.render('vwManager/signup', {
+    res.render('vwAccount/signup', {
         layout: false,
     });
 });
@@ -12,14 +12,14 @@ router.post('/', async (req, res) => {
     const { email, password, VerifyPassword, agreeTerms } = req.body;
 
     if (!email || !password || !VerifyPassword || !agreeTerms) {
-        return res.status(400).render('vwManager/signup', {
+        return res.status(400).render('vwAccount/signup', {
             layout: false,
             error: 'Tất cả các trường là bắt buộc. Vui lòng điền đầy đủ thông tin.',
         });
     }
 
     if (password !== VerifyPassword) {
-        return res.status(400).render('vwManager/signup', {
+        return res.status(400).render('vwAccount/signup', {
             layout: false,
             error: 'Mật khẩu không khớp. Vui lòng kiểm tra lại.',
         });
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
 
     const existingUser = await managerSignupService.checkEmailExists(email);
     if (existingUser) {
-        return res.status(400).render('vwManager/signup', {
+        return res.status(400).render('vwAccount/signup', {
             layout: false,
             error: 'Email đã được đăng ký.',
         });
@@ -45,14 +45,14 @@ router.post('/', async (req, res) => {
         if (newUser) {
             return res.redirect('/manager/login');
         } else {
-            return res.status(500).render('vwManager/signup', {
+            return res.status(500).render('vwAccount/signup', {
                 layout: false,
                 error: 'Đã xảy ra lỗi khi tạo tài khoản. Vui lòng thử lại.',
             });
         }
     } catch (error) {
         console.error('Error during registration:', error);
-        return res.status(500).render('vwManager/signup', {
+        return res.status(500).render('vwAccount/signup', {
             layout: false,
             error: 'Đã xảy ra lỗi. Vui lòng thử lại sau.',
         });

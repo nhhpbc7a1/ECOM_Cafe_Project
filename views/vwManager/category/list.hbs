@@ -32,7 +32,7 @@
                     name: "Hình ảnh",
                     formatter: (cell, row) => {
                         return gridjs.html(`                        
-                        <img src="/images/category/${row.cells[0].data}/main.jpg" class="img-thumbnail" alt="..." style="width: 100px; height: 100px;">
+                        <img src="/images/${row.cells[2].data}" class="img-thumbnail" alt="..." style="width: 100px; height: 100px;">
                         `);
                     }
                 },

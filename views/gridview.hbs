@@ -14,64 +14,11 @@
 </head>
 
 <body>
-    <div id="table-wrapper"></div>
-    <!-- Import Grid.js -->
-    <script src="/node_modules/gridjs/dist/gridjs.umd.js"></script>
-    <script>
-        // Lấy dữ liệu từ this.menu_item đã chuyển sang JSON
-        const menuData = {{{ json this.menu_items }}};
-
-        // Chuyển đổi dữ liệu từ đối tượng thành mảng để sử dụng trong Grid.js
-        const data = menuData.map(item => [item.menu_item_id, item.name, item.cost_price, item.sale_price, item.description,]);
-
-        // Khởi tạo bảng Grid.js
-        new gridjs.Grid({
-            columns: [
-                "Tên",
-                "Tuổi",
-                "Thành phố",
-                {
-                    name: "Hành động",
-                    formatter: (cell, row) => {
-                        return gridjs.html(`<button class="update-btn">Cập nhật</button>`);
-                    }
-                }
-            ],
-            data: [
-                { id: 1, ten: "Nguyễn Văn A", tuoi: 28, thanh_pho: "Hà Nội" },
-                { id: 2, ten: "Trần Thị B", tuoi: 32, thanh_pho: "Đà Nẵng" },
-                { id: 3, ten: "Lê Văn C", tuoi: 25, thanh_pho: "TP Hồ Chí Minh" }
-            ],
-            pagination: {
-                limit: 10
-            },
-            search: true,
-            sort: true,
-            language: {
-                search: {
-                    placeholder: 'Tìm kiếm...'
-                },
-                pagination: {
-                    previous: 'Trước',
-                    next: 'Sau',
-                    showing: 'Hiển thị',
-                    results: () => 'kết quả'
-                }
-            }
-        }).render(document.getElementById("table-wrapper"));
-
-        // Lắng nghe sự kiện click trên các button
-        document.addEventListener('click', function (event) {
-            if (event.target.classList.contains('update-btn')) {
-                const rowIndex = event.target.closest('tr').getAttribute('data-row-index');
-                const rowData = gridjs.config.data[rowIndex];
-                const id = rowData.id; // Truy cập id trực tiếp từ đối tượng
-
-                // Điều hướng đến trang cập nhật thông tin với ID
-                window.location.href = `/update/${id}`;
-            }
-        });
-    </script>
+    <div class="container">
+        <div class="row">
+            <h1>Sai quyền truy cập.</h1>
+        </div>
+    </div>
 </body>
 
 </html>

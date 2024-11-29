@@ -18,19 +18,37 @@ export default {
     },
     findByID(id) {
         return db('menu_items')
-           .where('menu_item_id', id)
-           .first();
+            .where('menu_item_id', id)
+            .first();
     },
     add(entity) {
         return db('menu_items')
-           .insert(entity);
+            .insert(entity)
+            .then(() => {
+                return db('menu_items')
+                    .max('menu_item_id as id')
+                    .first();
+            })
+            .then(result => {
+                return result.id;  // Trả về menu_item_id của bản ghi mới
+            });
     },
     patch(menu_item_id, entity) {
         return db('menu_items')
-           .where('menu_item_id', menu_item_id)
-           .update(entity);
+            .where('menu_item_id', menu_item_id)
+            .update(entity);
     },
     del(menu_item_id) {
         return db('menu_items').where('menu_item_id', menu_item_id).del();
+    },
+    findToppingByBranchId(branch_id) {
+        return db('toppings');
+        // cần phải thay đổi database
+        
+        db('toppings')
+           .join('menus','toppings.menu_id','menus.menu_id')
+           .join('branches','menus.branch_id','branches.branch_id')
+           .where('branches.branch_id', branch_id)
+           .select('toppings.*');
     }
 }

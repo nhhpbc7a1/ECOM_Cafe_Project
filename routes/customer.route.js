@@ -2,14 +2,8 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/menu',async function(req, res) {
-    const qr_code = req.query.qr_code || 0;
-    
-    res.render('vwCustomer/menu.hbs', {
-        layout:false,
-        qr_code: qr_code
-    });
-});
+import menuRouter from './customer/menu.route.js';
+router.use('/menu', menuRouter);
 
 router.get('/cart',async function(req, res) {
     
