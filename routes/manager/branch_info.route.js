@@ -1,6 +1,11 @@
 import express from 'express';
 import branch_infoService from '../../services/manager/branch_info.service.js';
 
+import multer from 'multer';
+import handleFileUpload from '../../services/handleFileUpload.service.js';
+const upload = multer({ dest: 'public/images/uploads/' });
+
+
 const router = express.Router();
 
 // route for /manager/branch_info/...
@@ -19,19 +24,23 @@ router.get('/', async function(req, res) {
     });
 });
 
-router.post('/patch', async function(req, res) {
+router.post('/patch', upload.single('image'), async function(req, res) {
     const branch_id = req.session.branchInfo.branch_id;
     const branch_info = {
         name: req.body.name,
         contact_phone: req.body.contact_phone,
         address: req.body.address,
-    }
-    console.log(branch_info);
+    } 
     await branch_infoService.patch(branch_id, branch_info);
-    res.render('vwManager/branch_info/edit', {
-        layout: 'manager',
-        branch_info: branch_info,
-    });
+
+    const imagePath = await handleFileUpload(req, 'branches_logo', branch_id);
+    const image = req.file;
+    if (image) {
+        branch_info.logo_href = imagePath;
+        await branch_infoService.patch(branch_id, branch_info);
+    }
+
+    res.redirect('/manager/branch_info');
 });
 
 

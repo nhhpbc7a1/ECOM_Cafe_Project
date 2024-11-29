@@ -25,11 +25,10 @@ router.get('/add', async function (req, res) {
     res.render('vwManager/topping/add');
 });
 
-router.post('/del', async function (req, res) {
+router.post('/del', upload.single('image'), async function (req, res) {
     await toppingService.del(req.body.topping_id);
     res.redirect('/manager/topping');
 });
-
 
 router.get('/edit', async function (req, res) {
     const id = +req.query.id || 0;

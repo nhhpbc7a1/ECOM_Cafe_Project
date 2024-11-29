@@ -14,8 +14,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-app.use(express.urlencoded({ 
-    extended: true 
+app.use(express.urlencoded({
+    extended: true
 }));
 
 app.use(cookieParser());
@@ -47,19 +47,20 @@ app.set('view engine', 'hbs');
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: {}
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {}
 }))
 
-app.use(async function(req, res, next) {
-  if (!req.session.auth) {
-    req.session.auth = false;
-  }
-  res.locals.auth = req.session.auth;
-  res.locals.authAccount = req.session.authAccount;
-  next();
+app.use(async function (req, res, next) {
+    if (!req.session.auth) {
+        req.session.auth = false;
+    }
+    res.locals.auth = req.session.auth;
+    res.locals.authAccount = req.session.authAccount;
+    res.locals.branchInfo = req.session.branchInfo;  
+    next();
 });
 
 
@@ -72,7 +73,7 @@ app.use('/node_modules', express.static('node_modules'));
 // Khai báo thư mục chứa các file views
 app.set('views', './views');
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     res.render('home', { layout: false });
 });
 
@@ -94,8 +95,8 @@ app.use('/casher', casherRouter);
 app.use('/customer', customerRouter);
 
 
-app.listen(3000, function() {
-    console.log('app is running at http://localhost:3000');    
+app.listen(3000, function () {
+    console.log('app is running at http://localhost:3000');
 });
 
 

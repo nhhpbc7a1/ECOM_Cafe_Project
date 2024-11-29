@@ -26,9 +26,10 @@ router.get('/add', async function (req, res) {
     res.render('vwManager/category/add');
 });
 
-router.post('/del', async function (req, res) {
+router.post('/del', upload.single('image'), async function (req, res) {
     await categoryService.del(req.body.category_id);
     res.redirect('/manager/category');
+    
 });
 
 
@@ -66,13 +67,11 @@ router.post('/patch', upload.single('image'), async function (req, res) {
         await categoryService.patch(category_id, changes);
     }
     
-    console.log(changes);
     // Chuyển hướng về trang quản lý category
     res.redirect('/manager/category');
 });
 
 router.post('/add', upload.single('image'), async function (req, res) {
-    // console.log(req.body);
     const menu_id = 1;
     const newCategory = {
         category_name: req.body.category_name, // Tên category
