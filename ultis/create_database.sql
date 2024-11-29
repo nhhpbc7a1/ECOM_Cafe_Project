@@ -11,20 +11,19 @@ CREATE TABLE roles (
 
 CREATE TABLE accounts (
     account_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role_id INT,
-    FOREIGN KEY (role_id) REFERENCES roles(role_id)
+    FOREIGN KEY (role_id) REFERENCES roles(role_id) ON DELETE SET NULL
 );
 
 CREATE TABLE managers (
     manager_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
     phone VARCHAR(15),
-    email VARCHAR(100),
     address VARCHAR(255),
     account_id INT,
-    FOREIGN KEY (account_id) REFERENCES accounts(account_id)
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id) ON DELETE SET NULL
 );
 
 CREATE TABLE branches (
@@ -34,16 +33,16 @@ CREATE TABLE branches (
     contact_phone VARCHAR(15),
     address VARCHAR(255),
     coordinates VARCHAR(100),
-    logo_href VARCHAR(100),
+    logo_href TEXT DEFAULT NULL,
     fnb_date_counter INT,
-    FOREIGN KEY (manager_id) REFERENCES managers(manager_id)
+    FOREIGN KEY (manager_id) REFERENCES managers(manager_id) ON DELETE SET NULL
 );
 
 CREATE TABLE areas (
     area_id INT AUTO_INCREMENT PRIMARY KEY,
     branch_id INT,  -- Tham chiếu đến chi nhánh
     name VARCHAR(255) NOT NULL,  -- Tên khu vực hoặc tầng
-    FOREIGN KEY (branch_id) REFERENCES branches(branch_id)
+    FOREIGN KEY (branch_id) REFERENCES branches(branch_id) ON DELETE SET NULL
 );
 
 CREATE TABLE tables (
@@ -51,10 +50,10 @@ CREATE TABLE tables (
     branch_id INT,
     area_id INT,  -- Tham chiếu đến khu vực
     table_name VARCHAR(50),  -- Tên của bàn
-    qr_code VARCHAR(50) UNIQUE,
-    is_available BIT,
-    FOREIGN KEY (branch_id) REFERENCES branches(branch_id),
-    FOREIGN KEY (area_id) REFERENCES areas(area_id)
+    qr_code VARCHAR(500) UNIQUE,
+    is_available BIT DEFAULT 1,
+    FOREIGN KEY (branch_id) REFERENCES branches(branch_id) ON DELETE SET NULL,
+    FOREIGN KEY (area_id) REFERENCES areas(area_id) ON DELETE SET NULL
 );
 
 
@@ -62,8 +61,8 @@ CREATE TABLE menus (
     menu_id INT AUTO_INCREMENT PRIMARY KEY,
     branch_id INT,
     menu_color VARCHAR(50),
-    background_image_href VARCHAR(100),
-    FOREIGN KEY (branch_id) REFERENCES branches(branch_id)
+    background_image_href TEXT DEFAULT NULL,
+    FOREIGN KEY (branch_id) REFERENCES branches(branch_id) ON DELETE SET NULL
 );
 
 CREATE TABLE categories (
@@ -80,14 +79,12 @@ CREATE TABLE menu_items (
     category_id INT,
     name VARCHAR(100),
     description TEXT,
-    image_href VARCHAR(100),
+    image_href TEXT DEFAULT NULL,
     cost_price DECIMAL(10, 2),
     sale_price DECIMAL(10, 2),
-    is_available BIT,
-    is_spicy BIT,
-    has_vegetables BIT,
-    FOREIGN KEY (menu_id) REFERENCES menus(menu_id),
-    FOREIGN KEY (category_id) REFERENCES categories(category_id)
+    is_available BIT DEFAULT 1,
+    FOREIGN KEY (menu_id) REFERENCES menus(menu_id) ON DELETE SET NULL,
+    FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE SET NULL
 );
 
 CREATE TABLE toppings (
@@ -114,9 +111,9 @@ CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     table_id INT,
     order_date DATETIME,
-    status VARCHAR(50),
+    status VARCHAR(50) DEFAULT 'Pending',
     total_amount DECIMAL(10, 2),
-    FOREIGN KEY (table_id) REFERENCES tables(table_id)
+    FOREIGN KEY (table_id) REFERENCES tables(table_id) ON DELETE SET NULL
 );
 
 CREATE TABLE order_items (
@@ -125,8 +122,17 @@ CREATE TABLE order_items (
     menu_item_id INT,
     quantity INT,
     note VARCHAR(500),
-    FOREIGN KEY (order_id) REFERENCES orders(order_id),
-    FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id)
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE SET NULL,
+    FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id) ON DELETE SET NULL
+);
+
+CREATE TABLE order_item_toppings (
+    order_item_topping_id INT AUTO_INCREMENT PRIMARY KEY,
+    quantity INT,
+    order_item_id INT,
+    topping_id INT,
+    FOREIGN KEY (order_item_id) REFERENCES order_items(order_item_id) ON DELETE SET NULL,
+    FOREIGN KEY (topping_id) REFERENCES toppings(topping_id) ON DELETE SET NULL
 );
 
 CREATE TABLE order_payments (
@@ -136,7 +142,7 @@ CREATE TABLE order_payments (
     pay_date DATETIME,
     pay_content VARCHAR(500),
     send_amount DECIMAL(10, 2),
-    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE SET NULL
 );
 
 CREATE TABLE employees (
@@ -144,8 +150,26 @@ CREATE TABLE employees (
     employee_name VARCHAR(50),
     branch_id INT,
     account_id INT,
-    FOREIGN KEY (branch_id) REFERENCES branches(branch_id),
-    FOREIGN KEY (account_id) REFERENCES accounts(account_id)
+    FOREIGN KEY (branch_id) REFERENCES branches(branch_id) ON DELETE SET NULL,
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id) ON DELETE SET NULL
+);
+
+
+CREATE TABLE order_status_history (
+    history_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    status VARCHAR(50),
+    change_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+);
+
+
+CREATE TABLE employee_activities (
+    activity_id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT,
+    activity_description TEXT,
+    activity_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
 CREATE TABLE reviews (
@@ -155,7 +179,7 @@ CREATE TABLE reviews (
     rating INT,
     comment TEXT,
     review_date DATETIME,
-    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE SET NULL
 );
 
 CREATE TABLE service_packages (
@@ -169,33 +193,30 @@ CREATE TABLE service_package_payment (
     branch_id INT,
     service_package_id INT,
     date_bought DATETIME,
-    FOREIGN KEY (branch_id) REFERENCES branches(branch_id),
-    FOREIGN KEY (service_package_id) REFERENCES service_packages(service_package_id)
+    FOREIGN KEY (branch_id) REFERENCES branches(branch_id) ON DELETE SET NULL,
+    FOREIGN KEY (service_package_id) REFERENCES service_packages(service_package_id) ON DELETE SET NULL
 );
 
 CREATE TABLE faqs (
     faq_id INT AUTO_INCREMENT PRIMARY KEY,
-    question VARCHAR(500),
-    answer VARCHAR(500),
+    question TEXT NOT NULL,
+    answer TEXT NOT NULL,
     branch_id INT,
-    FOREIGN KEY (branch_id) REFERENCES branches(branch_id)
+    FOREIGN KEY (branch_id) REFERENCES branches(branch_id) ON DELETE SET NULL
 );
 
-CREATE TABLE menu_item_options (
-    menu_item_option_id INT AUTO_INCREMENT PRIMARY KEY,
-    option_name VARCHAR(50),
-    cost_price DECIMAL(10, 2),
-    sale_price DECIMAL(10, 2),
-    menu_item_id INT,
-    image_href VARCHAR(100),
-    FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id)
-);
+ALTER TABLE menu_items
+ADD CONSTRAINT chk_is_available CHECK (is_available IN (0, 1));
 
-CREATE TABLE order_item_options (
-    order_item_option_id INT AUTO_INCREMENT PRIMARY KEY,
-    quantity INT,
-    order_item_id INT,
-    menu_item_option_id INT,
-    FOREIGN KEY (order_item_id) REFERENCES order_items(order_item_id),
-    FOREIGN KEY (menu_item_option_id) REFERENCES menu_item_options(menu_item_option_id)
-);
+ALTER TABLE tables
+ADD CONSTRAINT chk_is_available CHECK (is_available IN (0, 1));
+
+ALTER TABLE toppings
+ADD CONSTRAINT chk_is_available CHECK (is_available IN (0, 1));
+
+ALTER TABLE orders
+ADD CONSTRAINT chk_status CHECK (status IN ('Pending', 'Verified', 'Completed', 'Cancelled'));
+
+ALTER TABLE order_status_history
+ADD CONSTRAINT chk_status CHECK (status IN ('Pending', 'Verified', 'Completed', 'Cancelled'));
+

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/public/casher/css/table-manage.css">
+</head>
+
+<body>
+    <div class="container-fluid mb-3 mt-3 d-flex justify-content-center" style="height: 100%;">
+
+        <div class="row manage_block">
+            <div class="manage_block_item col-6 col-sm-6 table-list card-format">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body my_flex_block">
+                        <nav class="mb-3 navbar navbar-expand-lg navbar-light bg-light" >
+                            <div class="container-fluid">
+                                <a class="navbar-brand" href="#">DELICACY</a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="#">
+                                                <i class="bi bi-table"></i>
+                                                Phòng bàn
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="#">
+                                                <i class="bi bi-menu-button"></i>
+                                                Thực đơn
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <form class="d-flex">
+                                        <input class="form-control me-2" type="search" placeholder="Search"
+                                            aria-label="Search">
+                                        <button class="btn btn-outline-success" type="submit">Search</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </nav>
+                        <div id="table-manage" class="row scrollable-content-table" style="flex:1">
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100 ">
+                                    <div class="table_image_block card-body table-choose">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class=" card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 1</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 3</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang thanh toán...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <div class="card h-100">
+                                    <div class="table_image_block card-body">
+                                        <img src="../images/bàn.png" class="bn" alt="">
+                                    </div>
+                                    <div
+                                        class="card-footer text-muted d-flex flex-column justify-content-center align-items-center">
+                                        <h6 class="mb-0">Bàn 2</h6>
+                                        <div class="table-status">Đang chọn món...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="manage_block_item col-6 col-sm-6 table-list">
+                <div class="card" style="width: 100%;">
+                    <div class="card-header d-flex flex-row justify-content-center align-items-center">
+                        <button type="button" class="btn-format btn btn-primary">
+                            <i class="bi bi-basket"></i>
+                            Mang về
+                        </button>
+                        <nav class="navbar navbar-light bg-light">
+                            <div class="container-fluid">
+                                <form class="d-flex">
+                                    <input class="form-control me-2 search-box" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                            </div>
+                        </nav>
+                        <i class="icon-format bi bi-cart4" role="button"></i>
+                    </div>
+
+                    <div class="card-body">
+                        <nav class="mb-3 navbar navbar-expand-lg navbar-light bg-light">
+                            <div class="container-fluid">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Bàn 1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Bàn 2</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">
+                                            <i class="bi bi-plus-circle-dotted"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div class="scrollable-content">
+                            <div class="order-list mb-3">
+                                <div class="header-order">
+                                    <h6>#Mã đơn: 006</h6>
+                                    <h6 class="time-order">
+                                        <i class="bi bi-clock-history"></i>&nbsp;&nbsp;3:00 pm, 20th Nov
+                                    </h6>
+                                    <div class="d-flex justify-content-end">
+                                        <input class="btn-checkbox" type="checkbox" id="active-order"
+                                            class="form-check-input">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="order-item">
+                                        <div class="d-flex flex-column">
+                                            <h5>1. Oolong milktea (best seller)</h5>
+                                            <div class="ml-10">Size L<br>Share Iced<br>Trân châu đen</div>
+                                        </div>
+                                        <div class="text-price">
+                                            90.000
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="order-item">
+                                        <div class="d-flex flex-column">
+                                            <h5>1. Oolong milktea (best seller)</h5>
+                                            <div class="ml-10">Size L<br>Share Iced<br>Trân châu đen</div>
+                                        </div>
+                                        <div class="text-price">
+                                            90.000
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="order-list mb-3">
+                                <div class="header-order">
+                                    <h6>#Mã đơn: 006</h6>
+                                    <h6 class="time-order">
+                                        <i class="bi bi-clock-history"></i>&nbsp;&nbsp;3:00 pm, 20th Nov
+                                    </h6>
+                                    <div class="d-flex justify-content-end">
+                                        <input class="btn-checkbox" type="checkbox" id="active-order"
+                                            class="form-check-input">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="order-item">
+                                        <div class="d-flex flex-column">
+                                            <h5>1. Oolong milktea (best seller)</h5>
+                                            <div class="ml-10">Size L<br>Share Iced<br>Trân châu đen</div>
+                                        </div>
+                                        <div class="text-price">
+                                            90.000
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="order-item">
+                                        <div class="d-flex flex-column">
+                                            <h5>1. Oolong milktea (best seller)</h5>
+                                            <div class="ml-10">Size L<br>Share Iced<br>Trân châu đen</div>
+                                        </div>
+                                        <div class="text-price">
+                                            90.000
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="total-price">
+                        <h6>Total: 500.000</h6>
+                    </div>
+                    <div id="card-content-btn">
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn-blue" active>Xác nhận đơn</button>
+                            <button type="button" class="btn-green">Thông báo</button>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn-green">Thanh toán và không xuất hóa đơn</button>
+                            <button type="button" class="btn-blue">Thanh toán và xuất hóa đơn</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</body>
+
+</html>

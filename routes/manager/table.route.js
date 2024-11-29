@@ -5,6 +5,11 @@ const router = express.Router();
 
 // route for /manager/table/...
 
+router.use((req, res, next) => {
+    res.locals.active = 'table'; // Đặt giá trị 'active' mặc định
+    next(); // Chuyển sang middleware/route handler tiếp theo
+});
+
 router.get('/',async function(req, res) {
     const branch_id = 1;
     const list = await tableService.findTable_ByBranchID(branch_id);
@@ -16,6 +21,7 @@ router.get('/',async function(req, res) {
 router.get('/add', async function (req, res) {
     const branch_id = 1;
     const areaList = await tableService.find_branch_areas(branch_id);
+
     res.render('vwManager/table/add', {
         areas: areaList
     });
@@ -28,21 +34,19 @@ router.post('/del', async function (req, res) {
 
 
 router.get('/edit', async function (req, res) {
+    const branch_id = 1;
     const id = +req.query.id || 0;
     const entity = await tableService.findByID(id);
-    const categoryList = await categoryService.findAll();
+    const areaList = await tableService.find_branch_areas(branch_id);
 
     if (!entity) {
         return res.redirect('/manager/table');
     }
 
     entity.is_available = entity.is_available && entity.is_available[0] === 1;
-    entity.is_spicy = entity.is_spicy && entity.is_spicy[0] === 1;
-    entity.has_vegetables = entity.has_vegetables && entity.has_vegetables[0] === 1;
-
-    // console.log(entity);
+    console.log(entity);
     res.render('vwManager/table/edit', {
-        categories: categoryList,
+        areas: areaList,
         table: entity
     });
 });
@@ -52,14 +56,11 @@ router.post('/patch', async function (req, res) {
     // console.log(req.body);
     const table_id = req.body.table_id;
     const changes = {
-        name: req.body.name,
-        description: req.body.description,
-        cost_price: req.body.cost_price,
-        sale_price: req.body.sale_price,
-        is_spicy: req.body.is_spicy === 'on',
-        has_vegetables: req.body.has_vegetables === 'on',
-        category_id: req.body.category_id,
-        menu_id: 1,
+        table_id: req.body.table_id,
+        branch_id: req.body.branch_id,
+        area_id: req.body.area_id,
+        table_name: req.body.table_name,
+        qr_code: req.body.qr_code,
         is_available: req.body.is_available === 'on',
     };
     // console.log(changes);
@@ -68,26 +69,25 @@ router.post('/patch', async function (req, res) {
 });
 
 router.post('/add', async function (req, res) {
-    // console.log(req.body);
-    const menu_id = 1;
-    const newMenuItem = {
-        name: req.body.name,
-        description: req.body.description,
-        cost_price: req.body.cost_price,
-        sale_price: req.body.sale_price,
-        is_spicy: req.body.is_spicy === 'on',
-        has_vegetables: req.body.has_vegetables === 'on',
-        category_id: req.body.category_id,
-        menu_id: menu_id,
+    const branch_id = 1;
+    const newTable = {
+        branch_id: branch_id,
+        area_id: req.body.area_id,
+        table_name: req.body.table_name,
+        qr_code: req.body.qr_code,
         is_available: req.body.is_available === 'on',
     }
-    await tableService.add(newMenuItem);
+    await tableService.add(newTable);
+    console.log(req.body);
     res.redirect('/manager/table');
 });
 
 router.get('/generate_qr_code',async function(req, res) {
+    const ipserver = '10.0.41.45:3000';
+    const url = 'http://' + ipserver + '/customer/menu?qr_code=';
+
     const qrcode = await tableService.generateQRCode();
-    res.json({qrcode: qrcode});
+    res.json({qrcode: url+qrcode});
 });
 
 
