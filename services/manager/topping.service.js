@@ -16,17 +16,26 @@ export default {
     },
     findByID(topping_id) {
         return db('toppings')
-           .where('topping_id', topping_id)
-           .first();
+            .where('topping_id', topping_id)
+            .first();
     },
     add(entity) {
         return db('toppings')
-           .insert(entity);
+            .insert(entity)
+            .then(() => {
+                return db('toppings')
+                    .max('topping_id as id')
+                    .first();
+            })
+            .then(result => {
+                return result.id;  // Trả về menu_item_id của bản ghi mới
+            });
+
     },
     patch(topping_id, entity) {
         return db('toppings')
-           .where('topping_id', topping_id)
-           .update(entity);
+            .where('topping_id', topping_id)
+            .update(entity);
     },
     del(topping_id) {
         return db('toppings').where('topping_id', topping_id).del();
