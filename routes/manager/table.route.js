@@ -11,7 +11,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/',async function(req, res) {
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const list = await tableService.findTable_ByBranchID(branch_id);
     res.render('vwManager/table/list', {
         tables: list,
@@ -19,7 +19,7 @@ router.get('/',async function(req, res) {
 });
 
 router.get('/add', async function (req, res) {
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const areaList = await tableService.find_branch_areas(branch_id);
 
     res.render('vwManager/table/add', {
@@ -34,7 +34,7 @@ router.post('/del', async function (req, res) {
 
 
 router.get('/edit', async function (req, res) {
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const id = +req.query.id || 0;
     const entity = await tableService.findByID(id);
     const areaList = await tableService.find_branch_areas(branch_id);
@@ -53,7 +53,6 @@ router.get('/edit', async function (req, res) {
 
 
 router.post('/patch', async function (req, res) {
-    // console.log(req.body);
     const table_id = req.body.table_id;
     const changes = {
         table_id: req.body.table_id,
@@ -63,13 +62,12 @@ router.post('/patch', async function (req, res) {
         qr_code: req.body.qr_code,
         is_available: req.body.is_available === 'on',
     };
-    // console.log(changes);
     await tableService.patch(table_id, changes);
     res.redirect('/manager/table');
 });
 
 router.post('/add', async function (req, res) {
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const newTable = {
         branch_id: branch_id,
         area_id: req.body.area_id,

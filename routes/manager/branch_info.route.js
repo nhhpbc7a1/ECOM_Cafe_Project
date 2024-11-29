@@ -11,7 +11,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/', async function(req, res) {
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const branch_info = await branch_infoService.findByID(branch_id);
     res.render('vwManager/branch_info/edit', {
         layout: 'manager',
@@ -20,7 +20,7 @@ router.get('/', async function(req, res) {
 });
 
 router.post('/patch', async function(req, res) {
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const branch_info = {
         name: req.body.name,
         contact_phone: req.body.contact_phone,

@@ -14,6 +14,13 @@ export default {
                 'toppings.is_available'
             );
     },
+    findByBranchId(branch_id) {
+        return db('toppings')
+        .join('menus', 'toppings.menu_id', 'menus.menu_id')
+        .join('branches', 'menus.branch_id', 'branches.branch_id')
+        .where('branches.branch_id', branch_id)
+        .select('toppings.*');
+    },
     findByID(topping_id) {
         return db('toppings')
             .where('topping_id', topping_id)

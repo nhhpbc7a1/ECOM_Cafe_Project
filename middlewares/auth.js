@@ -1,14 +1,34 @@
-import jwt from 'jsonwebtoken';
-
-export function authenticateToken(req, res, next) {
-    const token = req.cookies.authToken;
-    if (!token) {
-        return res.redirect('/manager/login');
+export default function (req, res, next) {
+    if (req.session.auth === false) {
+        req.session.retUrl = req.originalUrl;  // Save the requested URL for later use.
+        return res.redirect('/account/login');
     }
 
-    jwt.verify(token, 'secretKey', (err, user) => {
-        if (err) return res.redirect('/manager/login');
-        req.user = user;
-        next();
-    });
+    next();
+}
+
+export function authAdmin(req, res, next) {
+    if (req.session.auth === false) {
+        req.session.retUrl = req.originalUrl;  // Save the requested URL for later use.
+        return res.redirect('/account/login');
+    }
+
+    if (req.session.authAccount.role_id != 1) {
+        // nên redirect 1 trang thông báo lỗi k đủ quyền
+        return res.render('gridview');
+    }
+    next();
+}
+
+export function authManager(req, res, next) {
+    if (req.session.auth === false) {
+        req.session.retUrl = req.originalUrl;  // Save the requested URL for later use.
+        return res.redirect('/account/login');
+    }
+
+    if (req.session.authAccount.role_id != 2) {
+        // nên redirect 1 trang thông báo lỗi k đủ quyền
+        return res.render('gridview');
+    }
+    next();
 }
