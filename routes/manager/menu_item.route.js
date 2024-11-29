@@ -34,7 +34,7 @@ router.get('/add', async function (req, res) {
     });
 });
 
-router.post('/del', async function (req, res) {
+router.post('/del', upload.single('image'), async function (req, res) {
     await menu_itemService.del(req.body.menu_item_id);
     res.redirect('/manager/menu_item');
 });
@@ -98,7 +98,6 @@ router.post('/add', upload.single('image'), async function (req, res) {
     };
     const new_menu_item_id = await menu_itemService.add(newMenuItem);
 
-    console.log(new_menu_item_id);
     // Xử lý ảnh tải lên nếu có
     const imagePath = await handleFileUpload(req, 'menu_items', new_menu_item_id);
 

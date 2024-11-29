@@ -22,6 +22,7 @@ router.get('/table_manage', async function (req, res) {
     }
 
     console.log(orders);
+    
     // Truyền dữ liệu vào view
     res.render('vwCasher/table_manage', {
         layout: false,

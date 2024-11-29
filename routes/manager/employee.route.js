@@ -36,7 +36,6 @@ router.get('/edit', async function (req, res) {
     if (!entity) {
         return res.redirect('/manager/employee');
     }
-    //console.log(entity);
     res.render('vwManager/employee/edit', {
         employee: entity
     });
