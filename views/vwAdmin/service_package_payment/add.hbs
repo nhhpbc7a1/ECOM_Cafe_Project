@@ -1,71 +1,34 @@
 {{#section 'js'}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-
-        $('#frmAddEmployee').on('submit', function (e) {
-            e.preventDefault();
-            const email = $('#txtEmail').val();
-            const password = $('#txtPassword').val();
-            const passwordConfirm = $('#txtPasswordConfirm').val();
-
-            if (email.length === 0) {
-                alert('email is required');
-                return;
-            }
-
-            if (password !== passwordConfirm) {
-                alert('Mật khẩu và xác nhận mật khẩu không khớp.');
-                return;
-            }
-
-            $.getJSON('/manager/employee/is-available?email=' + email, function (data) {
-                if (data) {
-                    alert('This email have been used for another account. Please try another email.');
-                } else {
-                    $('#frmAddEmployee').off('submit').submit();  // Corrected selector syntax
-                }
-            });
-        });
-    });
-</script>
 {{/section}}
 
 
-<form id="frmAddEmployee" action="" method="post">
+<form id="frmAddservice_package_payment" action="" method="post">
     <div class="container-fluid" style="padding: 40px;">
         <div class="card">
             <div class="card-header">
-                <h4>Thêm nhân viên</h4>
+                <h4>Thêm thanh toán gói cước</h4>
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="txtName">Tên</label>
-                    <input type="text" name="employee_name" id="txtName" class="form-control" placeholder=""
-                        value="{{this.employee.employee_name}}">
+                    <label for="branch_id">Mã chi nhánh</label>
+                    <input type="text" name="branch_id" id="branch_id" class="form-control" placeholder=""
+                        value="{{this.service_package_payment.branch_id}}">
                 </div>
                 <div class="form-group">
-                    <label for="txtEmail">Email</label>
-                    <input type="text" name="email" id="txtEmail" class="form-control" placeholder=""
-                        value="{{this.employee.email}}">
+                    <label for="service_package_id">Mã gói cước</label>
+                    <input type="text" name="service_package_id" id="service_package_id" class="form-control" placeholder=""
+                        value="{{this.service_package_payment.service_package_id}}">
                 </div>
-
                 <div class="form-group">
-                    <label for="txtPassword">Mật khẩu</label>
-                    <input type="password" name="password" id="txtPassword" class="form-control" placeholder=""
-                        value="{{this.employee.password}}">
+                    <label for="date_bought">Ngày mua</label>
+                    <input type="text" name="date_bought" id="date_bought" class="form-control" placeholder=""
+                        value="{{this.service_package_payment.date_bought}}">
                 </div>
-
-                <div class="form-group">
-                    <label for="txtPasswordConfirm">Xác nhận mật khẩu</label>
-                    <input type="password" name="password_confirm" id="txtPasswordConfirm" class="form-control"
-                        placeholder="" value="{{this.employee.password}}">
-                </div>
-
 
             </div>
             <div class="card-footer text-muted">
-                <a name="" id="" class="btn btn-outline-success" href="/manager/employee" role="button">
+                <a name="" id="" class="btn btn-outline-success" href="/admin/service_package_payment" role="button">
                     <i class="bi bi-skip-backward-fill"></i>
                 </a>
                 <button type="submit" class="btn btn-primary">

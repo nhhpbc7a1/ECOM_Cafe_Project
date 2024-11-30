@@ -2,17 +2,12 @@ import express from 'express';
 import managerService from '../../services/admin/manager.service.js';
 import bcrypt from 'bcryptjs'
 
-import multer from 'multer';
-import handleFileUpload from '../../services/handleFileUpload.service.js';
-const upload = multer({ dest: 'public/images/uploads/' });
-
-
 const router = express.Router();
 
 // route for /admin/manager/...
 
 router.use((req, res, next) => {
-    res.locals.active = 'admin'; // Đặt giá trị 'active' mặc định
+    res.locals.active = 'manager'; // Đặt giá trị 'active' mặc định
     next(); // Chuyển sang middleware/route handler tiếp theo
 });
 
@@ -88,16 +83,6 @@ router.post('/add', async function (req, res) {
     }
     await managerService.add_manager(newManager);
     res.redirect('/admin/manager');
-});
-
-router.get('/is-available', async function (req, res) {
-    const email = req.query.email;
-    const account = await managerService.findByEmail(email);
-
-    if (account) {
-        return res.json(true);
-    }
-    res.json(false);
 });
 
 

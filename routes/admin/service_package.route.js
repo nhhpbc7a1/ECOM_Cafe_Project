@@ -1,46 +1,64 @@
 import express from 'express';
-import branch_infoService from '../../services/manager/branch_info.service.js';
-
-import multer from 'multer';
-import handleFileUpload from '../../services/handleFileUpload.service.js';
-const upload = multer({ dest: 'public/images/uploads/' });
-
+import service_packageService from '../../services/admin/service_package.service.js';
 
 const router = express.Router();
 
-// route for /manager/branch_info/...
+// route for /admin/service_package/...
 
 router.use((req, res, next) => {
-    res.locals.active = 'branch_info'; // Đặt giá trị 'active' mặc định
+    res.locals.active = 'service_package'; // Đặt giá trị 'active' mặc định
     next(); // Chuyển sang middleware/route handler tiếp theo
 });
 
-router.get('/', async function(req, res) {
-    const branch_id = req.session.branchInfo.branch_id;
-    const branch_info = await branch_infoService.findByID(branch_id);
-    res.render('vwManager/branch_info/edit', {
-        layout: 'manager',
-        branch_info: branch_info,
+router.get('/', async function (req, res) {
+    const list = await service_packageService.findAll();
+    console.log(list);
+    res.render('vwAdmin/service_package/list', {
+        service_packages: list,
     });
 });
 
-router.post('/patch', upload.single('image'), async function(req, res) {
-    const branch_id = req.session.branchInfo.branch_id;
-    const branch_info = {
-        name: req.body.name,
-        contact_phone: req.body.contact_phone,
-        address: req.body.address,
-    } 
-    await branch_infoService.patch(branch_id, branch_info);
+router.get('/add', async function (req, res) {
+    res.render('vwAdmin/service_package/add');
+});
 
-    const imagePath = await handleFileUpload(req, 'branches_logo', branch_id);
-    const image = req.file;
-    if (image) {
-        branch_info.logo_href = imagePath;
-        await branch_infoService.patch(branch_id, branch_info);
+router.post('/del', async function (req, res) {
+    await service_packageService.del(req.body.service_package_id);
+    res.redirect('/admin/service_package');
+});
+
+
+router.get('/edit', async function (req, res) {
+    const id = +req.query.id || 0;
+    const entity = await service_packageService.findByID(id);
+
+    if (!entity) {
+        return res.redirect('/admin/service_package');
     }
+    res.render('vwAdmin/service_package/edit', {
+        service_package: entity
+    });
+});
 
-    res.redirect('/manager/branch_info');
+
+router.post('/patch', async function (req, res) {
+    const entity = {
+        service_package_id: req.body.service_package_id,
+        day_amount: req.body.day_amount,
+        fee_amount: req.body.fee_amount,
+    }
+    await service_packageService.patch(entity.service_package_id, entity);
+    res.redirect('/admin/service_package');
+});
+
+router.post('/add', async function (req, res) {
+    const entity = {
+        day_amount: req.body.day_amount,
+        fee_amount: req.body.fee_amount,
+    }
+    await service_packageService.add(entity);
+    res.redirect('/admin/service_package');
+
 });
 
 
