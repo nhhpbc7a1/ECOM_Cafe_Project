@@ -97,8 +97,8 @@ app.use('/casher', casherRouter);
 
 app.use('/customer', customerRouter);
 
-// app.use('/admin', authAdmin, adminRouter);
-app.use('/admin', adminRouter);
+app.use('/admin', authAdmin, adminRouter);
+// app.use('/admin', adminRouter);
 
 app.listen(3000, function () {
     console.log('app is running at http://localhost:3000');
