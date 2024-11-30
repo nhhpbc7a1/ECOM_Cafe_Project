@@ -8,7 +8,11 @@ import cookieParser from 'cookie-parser';
 import hbs_sections from 'express-handlebars-sections';
 import casherRouter from './routes/casher.route.js'
 import customerRouter from './routes/customer.route.js'
+import managerRouter from './routes/manager.route.js'
+import adminRouter from './routes/admin.route.js'
 import { authManager } from './middlewares/auth.js';
+import { authAdmin } from './middlewares/auth.js';
+
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -87,13 +91,14 @@ app.use('/cart', cartRoutes);
 import accountRoutes from './routes/account.route.js';
 app.use('/account', accountRoutes);
 
-import managerRouter from './routes/manager.route.js'
 app.use('/manager', authManager, managerRouter);
 
 app.use('/casher', casherRouter);
 
 app.use('/customer', customerRouter);
 
+// app.use('/admin', authAdmin, adminRouter);
+app.use('/admin', adminRouter);
 
 app.listen(3000, function () {
     console.log('app is running at http://localhost:3000');

@@ -19,7 +19,7 @@
                 return;
             }
 
-            $.getJSON('/account/is-available?email=' + email, function (data) {
+            $.getJSON('/manager/employee/is-available?email=' + email, function (data) {
                 if (data) {
                     alert('This email have been used for another account. Please try another email.');
                 } else {
