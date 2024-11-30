@@ -6,8 +6,8 @@ VALUES ('Admin'), ('Manager'), ('Employee'), ('Chef'), ('Waiter');
 
 -- Bảng accounts
 INSERT INTO accounts (email, password, role_id) 
-VALUES ('admin@gmail.com', '$2a$12$a5Bg0mRPHXYNVusEILsd7ugXAm0UwBO2BE/49OfB/v3NE4B3FihB.', 1), 
-       ('a@example.com', '$2a$12$g2l/hcJo7izPEt4q7ujnbOrqp31ptW6s9xyz.gAj0tqLkuxaI4nTe', 2),
+VALUES ('admin@gmail.com', '$2a$08$oXQ/r/HUiE0b96WRzlqeAu5kDwZplNpYCp0O.HBCaFB.gU6b4i/Tm', 1), 
+       ('a@example.com', '$2a$08$oXQ/r/HUiE0b96WRzlqeAu5kDwZplNpYCp0O.HBCaFB.gU6b4i/Tm', 2),
        ('employee1@example.com', 'password_hash', 3),
        ('chef@example.com', 'password_hash', 4),
        ('waiter@example.com', 'password_hash', 5);
@@ -22,7 +22,7 @@ VALUES ('John Doe', '123456789', '123 Main St', 2),
        
 -- Bảng branches
 INSERT INTO branches (manager_id, name, contact_phone, address, coordinates, logo_href, fnb_date_counter)
-VALUES (1, 'Main Branch', '123456789', '123 Main St', '10.8231, 106.6297', 'logo1.png', 100),
+VALUES (2, 'The Coffee House', '123456789', '123 Main St', '10.8231, 106.6297', 'branches_logo/1/main.jpg', 100),
        (2, 'Second Branch', '987654321', '456 Oak St', '10.7321, 106.6807', 'logo2.png', 200),
        (3, 'Third Branch', '456123789', '789 Pine St', '10.7501, 106.6300', 'logo3.png', 300),
        (4, 'Fourth Branch', '321654987', '101 Elm St', '10.8001, 106.7000', 'logo4.png', 400),
@@ -64,7 +64,7 @@ VALUES
     ('Food', 2, 'categories/7/main.jpg'),
     ('Desserts', 2, 'categories/8/main.jpg'),
     ('Appetizers', 2, 'categories/9/main.jpg'),
-    ('Specials', 2, 'categories/10/main.jpg'),
+    ('Specials', 2, 'categories/10/main.jpg');
 
 -- Bảng menu_items
 INSERT INTO menu_items (menu_id, category_id, name, description, image_href, cost_price, sale_price, is_available)
@@ -106,21 +106,21 @@ VALUES
     (2, 3, 'Mango Sticky Rice', 'Thai mango sticky rice', 'menu_items/30/main.jpg', 10.00, 14.00, 1);
 
 -- Bảng toppings
-INSERT INTO toppings (topping_name, description, image_href, cost_price, sale_price, is_available)
+INSERT INTO toppings (topping_name, image_href, cost_price, sale_price, is_available, menu_id)
 VALUES 
     -- Toppings for drinks
-    ('Coconut Jelly', 'Crispy and chewy coconut jelly, lightly sweet.', 'toppings/1/main.jpg', 0.50, 1.00, 1),
-    ('Black Pearl', 'Traditional black pearls, soft and chewy.', 'toppings/2/main.jpg', 0.60, 1.20, 1),
-    ('White Pearl', 'Chewy and sweet white pearls.', 'toppings/3/main.jpg', 0.70, 1.40, 1),
-    ('Cheese Jelly', 'Soft jelly with a rich cheese filling.', 'toppings/4/main.jpg', 0.80, 1.60, 1),
-    ('Coffee Jelly', 'Coffee-flavored jelly.', 'toppings/5/main.jpg', 0.50, 1.00, 1),
+    ('Coconut Jelly', 'toppings/1/main.jpg', 0.50, 1.00, 1, 1),
+    ('Black Pearl', 'toppings/2/main.jpg', 0.60, 1.20, 1, 1),
+    ('White Pearl', 'toppings/3/main.jpg', 0.70, 1.40, 1, 1),
+    ('Cheese Jelly', 'toppings/4/main.jpg', 0.80, 1.60, 1, 1),
+    ('Coffee Jelly', 'toppings/5/main.jpg', 0.50, 1.00, 1, 1),
 
     -- Toppings for main dishes
-    ('Fried Egg', 'Fried chicken egg.', 'toppings/6/main.jpg', 1.00, 2.00, 1),
-    ('Extra Rice', 'A side dish of rice.', 'toppings/7/main.jpg', 1.50, 3.00, 1),
-    ('Kimchi', 'Korean kimchi with a mild spice.', 'toppings/8/main.jpg', 0.80, 1.50, 1),
-    ('Mashed Potatoes', 'Smooth and creamy mashed potatoes.', 'toppings/9/main.jpg', 1.20, 2.50, 1),
-    ('Stir-Fried Mushrooms', 'Stir-fried mushrooms with special seasoning.', 'toppings/10/main.jpg', 1.50, 3.00, 1);
+    ('Fried Egg', 'toppings/6/main.jpg', 1.00, 2.00, 1, 1),
+    ('Extra Rice', 'toppings/7/main.jpg', 1.50, 3.00, 1, 1),
+    ('Kimchi', 'toppings/8/main.jpg', 0.80, 1.50, 1, 1),
+    ('Mashed Potatoes', 'toppings/9/main.jpg', 1.20, 2.50, 1, 1),
+    ('Stir-Fried Mushrooms', 'toppings/10/main.jpg', 1.50, 3.00, 1, 1);
 
 -- Bảng orders
 INSERT INTO orders (table_id, order_date, status, total_amount)
