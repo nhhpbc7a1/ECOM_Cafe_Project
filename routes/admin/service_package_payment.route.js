@@ -1,46 +1,66 @@
 import express from 'express';
-import branch_infoService from '../../services/manager/branch_info.service.js';
-
-import multer from 'multer';
-import handleFileUpload from '../../services/handleFileUpload.service.js';
-const upload = multer({ dest: 'public/images/uploads/' });
-
+import service_package_paymentService from '../../services/admin/service_package_payment.service.js';
 
 const router = express.Router();
 
-// route for /manager/branch_info/...
+// route for /admin/service_package_payment/...
 
 router.use((req, res, next) => {
-    res.locals.active = 'branch_info'; // Đặt giá trị 'active' mặc định
+    res.locals.active = 'service_package_payment'; // Đặt giá trị 'active' mặc định
     next(); // Chuyển sang middleware/route handler tiếp theo
 });
 
-router.get('/', async function(req, res) {
-    const branch_id = req.session.branchInfo.branch_id;
-    const branch_info = await branch_infoService.findByID(branch_id);
-    res.render('vwManager/branch_info/edit', {
-        layout: 'manager',
-        branch_info: branch_info,
+router.get('/', async function (req, res) {
+    const list = await service_package_paymentService.findAll();
+    console.log(list);
+    res.render('vwAdmin/service_package_payment/list', {
+        service_package_payments: list,
     });
 });
 
-router.post('/patch', upload.single('image'), async function(req, res) {
-    const branch_id = req.session.branchInfo.branch_id;
-    const branch_info = {
-        name: req.body.name,
-        contact_phone: req.body.contact_phone,
-        address: req.body.address,
-    } 
-    await branch_infoService.patch(branch_id, branch_info);
+router.get('/add', async function (req, res) {
+    res.render('vwAdmin/service_package_payment/add');
+});
 
-    const imagePath = await handleFileUpload(req, 'branches_logo', branch_id);
-    const image = req.file;
-    if (image) {
-        branch_info.logo_href = imagePath;
-        await branch_infoService.patch(branch_id, branch_info);
+router.post('/del', async function (req, res) {
+    await service_package_paymentService.del(req.body.service_package_payment_id);
+    res.redirect('/admin/service_package_payment');
+});
+
+
+router.get('/edit', async function (req, res) {
+    const id = +req.query.id || 0;
+    const entity = await service_package_paymentService.findByID(id);
+
+    if (!entity) {
+        return res.redirect('/admin/service_package_payment');
     }
+    res.render('vwAdmin/service_package_payment/edit', {
+        service_package_payment: entity
+    });
+});
 
-    res.redirect('/manager/branch_info');
+
+router.post('/patch', async function (req, res) {
+    const entity = {
+        service_package_payment_id: req.body.service_package_payment_id,
+        branch_id: req.body.branch_id,
+        service_package_id: req.body.service_package_id,
+        date_bought: req.body.date_bought,
+    }
+    await service_package_paymentService.patch(entity.service_package_payment_id, entity);
+    res.redirect('/admin/service_package_payment');
+});
+
+router.post('/add', async function (req, res) {
+    const entity = {
+        branch_id: req.body.branch_id,
+        service_package_id: req.body.service_package_id,
+        date_bought: req.body.date_bought,
+    }
+    await service_package_paymentService.add(entity);
+    res.redirect('/admin/service_package_payment');
+
 });
 
 
