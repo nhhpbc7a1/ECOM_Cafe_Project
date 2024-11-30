@@ -1,0 +1,74 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/manager/css/branch_info.css">
+{{/section}}
+
+
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('preview_image');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
+</script>
+{{/section}}
+
+<div class="container-fluid my_block " style="padding: 40px;">
+    <div class="row">
+        <h4 class="">Thông tin cửa hàng</h4>
+    </div>
+    <div class="row">
+        Những thông tin ở đây sẽ cập nhật thông tin trên menu.
+    </div>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="row" style="padding: 40px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="">Name</label>
+                                    <input type="text" name="name" id="" class="form-control" placeholder=""
+                                        value="{{this.branch_info.name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Contact phone</label>
+                                    <input type="text" name="contact_phone" id="" class="form-control" placeholder=""
+                                        value="{{this.branch_info.contact_phone}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Address</label>
+                                    <input type="text" name="address" id="" class="form-control" placeholder=""
+                                        value="{{this.branch_info.address}}">
+                                </div>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button type="submit" class="btn btn-primary" formaction="/manager/branch_info/patch">
+                                    <i class="bi bi-check2"></i>
+                                    save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <img src="/images/{{this.branch_info.logo_href}}"
+                            class="img-thumbnail "
+                            alt="" style="width: 200px; height: 200px;" id="preview_image">
+                        <div class="form-group">
+                            <label for=""></label>
+                            <input type="file" class="form-control-file" name="image" onchange="previewImage(event)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

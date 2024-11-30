@@ -87,15 +87,4 @@ router.post('/add', async function (req, res) {
     res.redirect('/manager/employee');
 });
 
-router.get('/is-available', async function (req, res) {
-    const email = req.query.email;
-    const account = await employeeService.findByEmail(email);
-
-    if (account) {
-        return res.json(true);
-    }
-    res.json(false);
-});
-
-
 export default router;

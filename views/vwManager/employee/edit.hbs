@@ -3,37 +3,47 @@
 <script>
     $(document).ready(function () {
         var employeeEmail = "{{this.employee.email}}";
+
         $('#frmEditEmployee').on('submit', function (e) {
-            e.preventDefault();
+            e.preventDefault();  // Ngừng hành động submit mặc định để xử lý trong script
+
             const email = $('#txtEmail').val();
             const password = $('#txtPassword').val();
             const passwordConfirm = $('#txtPasswordConfirm').val();
+            const formAction = $('button[type="submit"]:focus').attr('formaction');  // Lấy formaction từ nút đang được nhấn
 
-            if (email.length === 0) {
-                alert('email is required');
-                return;
-            }
-
-            if (password !== passwordConfirm) {
-                alert('Mật khẩu và xác nhận mật khẩu không khớp.');
-                return;
-            }
-
-
-            $.getJSON('/manager/employee/is-available?email=' + email, function (data) {
-                if (data && email != employeeEmail) {
-                    alert('This email have been used for another account.Please try another email.');
-                } else {
-                    $('#frmEditEmployee').off('submit').submit();  // Corrected selector syntax
+            // Kiểm tra nếu người dùng nhấn Save (formaction chứa /patch)
+            if (formAction && formAction.includes('patch')) {
+                // Kiểm tra email
+                if (email.length === 0) {
+                    alert('Email is required');
+                    return;
                 }
-            });
+
+                if (password !== passwordConfirm) {
+                    alert('Mật khẩu và xác nhận mật khẩu không khớp.');
+                    return;
+                }
+
+                $.getJSON('/account/is-available?email=' + email, function (data) {
+                    if (data && email != employeeEmail) {
+                        alert('This email has been used for another account. Please try another email.');
+                    } else {
+                        $('#frmEditEmployee').attr('action', formAction);  // Cập nhật action của form với formaction của nút Save
+                        $('#frmEditEmployee')[0].submit();  // Thực hiện submit form khi không có lỗi
+                    }
+                });
+            } else if (formAction && formAction.includes('del')) {
+                // Nếu là nút Delete (formaction chứa /del), không kiểm tra email và thực hiện submit ngay
+                $('#frmEditEmployee').attr('action', formAction);  // Cập nhật action của form với formaction của nút Delete
+                $('#frmEditEmployee')[0].submit();  // Thực hiện submit form
+            }
         });
     });
 </script>
 {{/section}}
 
-
-<form id="frmEditEmployee" action="/manager/employee/patch" method="post">
+<form id="frmEditEmployee" action="" method="post">
     <div class="container-fluid" style="padding: 40px;">
         <div class="card">
             <div class="card-header">
@@ -77,7 +87,6 @@
                         placeholder="" value="{{this.employee.password}}">
                 </div>
 
-
             </div>
             <div class="card-footer text-muted">
                 <a name="" id="" class="btn btn-outline-success" href="/manager/employee" role="button">
@@ -85,11 +94,11 @@
                 </a>
                 <button type="submit" class="btn btn-danger" formaction="/manager/employee/del">
                     <i class="bi bi-trash"></i>
-                    delete
+                    Delete
                 </button>
                 <button type="submit" class="btn btn-primary" formaction="/manager/employee/patch">
                     <i class="bi bi-check2"></i>
-                    save
+                    Save
                 </button>
 
             </div>
