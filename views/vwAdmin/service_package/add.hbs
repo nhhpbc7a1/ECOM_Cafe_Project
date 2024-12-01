@@ -1,0 +1,37 @@
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{{/section}}
+
+
+<form id="frmAddservice_package" action="" method="post">
+    <div class="container-fluid" style="padding: 40px;">
+        <div class="card">
+            <div class="card-header">
+                <h4>Thêm gói cước</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="day_amount">Số ngày</label>
+                    <input type="text" name="day_amount" id="day_amount" class="form-control" placeholder=""
+                        value="{{this.service_package.day_amount}}">
+                </div>
+                <div class="form-group">
+                    <label for="fee_amount">Giá tiền</label>
+                    <input type="text" name="fee_amount" id="fee_amount" class="form-control" placeholder=""
+                        value="{{this.service_package.fee_amount}}">
+                </div>
+
+            </div>
+            <div class="card-footer text-muted">
+                <a name="" id="" class="btn btn-outline-success" href="/admin/service_package" role="button">
+                    <i class="bi bi-skip-backward-fill"></i>
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check2"></i>
+                    save
+                </button>
+
+            </div>
+        </div>
+    </div>
+</form>

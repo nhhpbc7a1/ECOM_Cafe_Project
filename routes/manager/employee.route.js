@@ -36,7 +36,6 @@ router.get('/edit', async function (req, res) {
     if (!entity) {
         return res.redirect('/manager/employee');
     }
-    //console.log(entity);
     res.render('vwManager/employee/edit', {
         employee: entity
     });
@@ -87,16 +86,5 @@ router.post('/add', async function (req, res) {
     await employeeService.add_employee(newEmployee);
     res.redirect('/manager/employee');
 });
-
-router.get('/is-available', async function (req, res) {
-    const email = req.query.email;
-    const account = await employeeService.findByEmail(email);
-
-    if (account) {
-        return res.json(true);
-    }
-    res.json(false);
-});
-
 
 export default router;

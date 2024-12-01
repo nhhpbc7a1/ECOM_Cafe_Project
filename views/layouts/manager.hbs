@@ -13,8 +13,6 @@
 
     <link rel="stylesheet" href="/manager/css/global.css">
     <link rel="stylesheet" href="/manager/css/nav_component.css" />
-    <link rel="stylesheet" href="/manager/css/quanlynhanvien.css">
-    <link rel="stylesheet" href="/manager/css/dashboard.css" />
     {{{_sections.css}}}
 </head>
 
@@ -23,8 +21,8 @@
         <div class="row d-flex">
             <div class="sidebar">
                 <div class="sidebar__top">
-                    <img src="/manager/images/nav_component/logo.jpg" alt="" id="manager-logo">
-                    <div class="" id="brand__name">Tobey Nguyen CF</div>
+                    <img src="/images/{{branchInfo.logo_href}}" alt="" id="manager-logo">
+                    <div class="" id="brand__name">{{branchInfo.name}}</div>
                 </div>
                 <div class="sidebar__middle">
                     <ul>
@@ -78,12 +76,6 @@
                                 <p>Nhân viên</p>
                             </a>
                         </li>
-                        {{!-- <li class="sidebar__middle-item">
-                            <a name="" id="" class="" href="#" role="button">
-                                <i class="bi bi-journal-arrow-down"></i>
-                                <p>Report</p>
-                            </a>
-                        </li> --}}
                         <li class="sidebar__middle-item">
                             <a name="" id="" class="{{#ifEquals active 'branch_info'}}is_active{{/ifEquals}}"
                                 href="/manager/branch_info" role="button">
@@ -91,29 +83,19 @@
                                 <p>Thông tin cửa hàng</p>
                             </a>
                         </li>
-                        {{!-- <li class="sidebar__middle-item">
-
-                            <input type="checkbox" name="" id="check_sidebar_branch_list" style="display: none;">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                                    aria-expanded="false"
-                                    onclick="document.getElementById('check_sidebar_branch_list').click()">
-                                    <i class="bi bi-geo-alt"></i>
-                                    <p>Chọn chi nhánh</p>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </li> --}}
                     </ul>
                 </div>
                 <div class="sidebar__bottom">
-                    <img src="/manager/images/nav_component/logo.jpg" alt="" id="imgManagerAvatar">
-                    <p id="txtManageName">TobeyNguyen</p>
-                    <i id="btnLogout" class="bi bi-box-arrow-right can-hover"></i>
+                    {{!-- <img src="/manager/images/nav_component/logo.jpg" alt="" id="imgManagerAvatar"> --}}
+                    <div class="row" id="txtManageName">
+                        <i class="bi bi-person"></i>
+                        <p class="ml-2">TobeyNguyen</p>
+                    </div>
+                    <form id="frmLogout" action="/account/logout" method="post"></form>
+                    <a class="can-hover" href="javascript: $('#frmLogout').submit()">
+                        <i id="btnLogout" class="bi bi-box-arrow-right"></i>
+                    </a>
+
                 </div>
             </div>
             <div class="content" style="flex:1; overflow: scroll;">
@@ -122,6 +104,14 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+
     {{{_sections.js}}}
 </body>
 

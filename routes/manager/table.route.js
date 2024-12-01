@@ -44,7 +44,6 @@ router.get('/edit', async function (req, res) {
     }
 
     entity.is_available = entity.is_available && entity.is_available[0] === 1;
-    console.log(entity);
     res.render('vwManager/table/edit', {
         areas: areaList,
         table: entity
@@ -76,7 +75,6 @@ router.post('/add', async function (req, res) {
         is_available: req.body.is_available === 'on',
     }
     await tableService.add(newTable);
-    console.log(req.body);
     res.redirect('/manager/table');
 });
 

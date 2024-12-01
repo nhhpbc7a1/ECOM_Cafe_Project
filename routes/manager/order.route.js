@@ -13,8 +13,6 @@ router.use((req, res, next) => {
 router.get('/', async function (req, res) {
     const branch_id = req.session.branchInfo.branch_id;
     const list = await orderService.findAll(branch_id);
-    console.log(list);
-    // return;
     res.render('vwManager/order/list', {
         orders: list
     });
@@ -29,9 +27,6 @@ router.get('/detail', async function (req, res) {
         return res.redirect('/manager/order');
     }
 
-    console.log(entity);
-
-    // return;
     res.render('vwManager/order/detail', {
         entity: entity
     });

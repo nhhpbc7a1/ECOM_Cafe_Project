@@ -1,0 +1,91 @@
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#frmAddManager').on('submit', function (e) {
+            e.preventDefault();
+            const email = $('#txtEmail').val();
+            const password = $('#txtPassword').val();
+            const passwordConfirm = $('#txtPasswordConfirm').val();
+
+            if (email.length === 0) {
+                alert('Email này đã được dùng cho tài khoản khác.');
+                return;
+            }
+
+            if (password !== passwordConfirm) {
+                alert('Mật khẩu và xác nhận mật khẩu không khớp.');
+                return;
+            }
+
+            $.getJSON('/account/is-available?email=' + email, function (data) {
+                if (data) {
+                    alert('This email have been used for another account. Please try another email.');
+                } else {
+                    $('#frmAddManager').off('submit').submit();  // Corrected selector syntax
+                }
+            });
+        });
+    });
+</script>
+{{/section}}
+
+
+<form id="frmAddManager" action="" method="post">
+    <div class="container-fluid" style="padding: 40px;">
+        <div class="card">
+            <div class="card-header">
+                <h4>Thêm nhân viên</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="txtName">Tên</label>
+                    <input type="text" name="name" id="txtName" class="form-control" placeholder=""
+                        value="{{this.manager.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="txtPhone">Số điện thoại</label>
+                    <input type="text" name="phone" id="txtPhone" class="form-control" placeholder=""
+                        value="{{this.manager.phone}}">
+                </div>
+                <div class="form-group">
+                    <label for="txtAdress">Địa chỉ</label>
+                    <input type="text" name="address" id="txtAdress" class="form-control" placeholder=""
+                        value="{{this.manager.address}}">
+                </div>
+                <hr>
+
+                <div class="form-group">
+                    <label for="txtEmail">Email</label>
+                    <input type="text" name="email" id="txtEmail" class="form-control" placeholder=""
+                        value="{{this.manager.email}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtPassword">Mật khẩu</label>
+                    <input type="password" name="password" id="txtPassword" class="form-control" placeholder=""
+                        value="{{this.manager.password}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtPasswordConfirm">Xác nhận mật khẩu</label>
+                    <input type="password" name="password_confirm" id="txtPasswordConfirm" class="form-control"
+                        placeholder="" value="{{this.manager.password}}">
+                </div>
+
+
+            </div>
+            <div class="card-footer text-muted">
+                <a name="" id="" class="btn btn-outline-success" href="/admin/manager" role="button">
+                    <i class="bi bi-skip-backward-fill"></i>
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check2"></i>
+                    save
+                </button>
+
+            </div>
+        </div>
+    </div>
+</form>
