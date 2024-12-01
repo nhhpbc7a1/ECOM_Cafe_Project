@@ -66,10 +66,10 @@
                         name="description"></textarea>
                 </div>
                 <hr>
-                <!-- Trong template handlebars -->
+
                 <div class="form-group">
                     <label for="">Topping</label>
-                    <select id="my-multiselect" multiple="multiple" style="width:100%;">
+                    <select id="my-multiselect" name="toppings[]" multiple="multiple" style="width:100%;">
                         {{#each this.toppings}}
                         <option value="{{topping_id}}">{{topping_name}}</option>
                         {{/each}}

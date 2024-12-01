@@ -28,6 +28,7 @@ router.get('/add', async function (req, res) {
     const branch_id = 1;
     const categoryList = await categoryService.findByBranchID(branch_id);
     const toppingList = await menu_itemService.findToppingByBranchId(branch_id);
+    // console.log(toppingList);
     res.render('vwManager/menu_item/add', {
         categories: categoryList,
         toppings: toppingList
@@ -45,16 +46,19 @@ router.get('/edit', async function (req, res) {
     const entity = await menu_itemService.findByID(id);
     const branch_id = 1;
     const categoryList = await categoryService.findByBranchID(branch_id);
+    const toppingList = await menu_itemService.findToppingByBranchId(branch_id);
+    const old_toppingList = await menu_itemService.findToppingsByMenuItemID(id);
 
     if (!entity) {
         return res.redirect('/manager/menu_item');
     }
-
     entity.is_available = entity.is_available && entity.is_available[0] === 1;
 
     res.render('vwManager/menu_item/edit', {
         categories: categoryList,
-        menu_item: entity
+        toppings: toppingList,
+        menu_item: entity,
+        old_toppingList: old_toppingList,
     });
 });
 
@@ -78,6 +82,12 @@ router.post('/patch', upload.single('image'), async function (req, res) {
     if (image) {
         changes.image_href = imagePath;
         await menu_itemService.patch(menu_item_id, changes);
+    }
+
+    const toppings = req.body.toppings || [];
+
+    if (toppings.length > 0) {
+        await menu_itemService.updateToppingsToMenuItem(menu_item_id, toppings);
     }
 
     res.redirect('/manager/menu_item');
@@ -104,6 +114,11 @@ router.post('/add', upload.single('image'), async function (req, res) {
     if (image) {
         newMenuItem.image_href = imagePath;
         await menu_itemService.patch(new_menu_item_id, newMenuItem);
+    }
+
+    const toppings = req.body.toppings || [];
+    if (toppings.length > 0) {
+        await menu_itemService.updateToppingsToMenuItem(new_menu_item_id, toppings);
     }
 
     res.redirect('/manager/menu_item');

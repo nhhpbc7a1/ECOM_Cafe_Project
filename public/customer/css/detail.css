@@ -2,14 +2,23 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
 }
+
 .food-header {
   position: relative;
 }
-.food-header img {
+
+.food-header .image {
   width: 100%;
-  height: auto;
+  height: 200px;
   border-radius: 0.5rem 0.5rem 0 0;
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the entire container */
 }
+
 .food-header .header-buttons {
   position: absolute;
   top: 1rem;
@@ -18,6 +27,12 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.food-header .header-buttons a {
+  text-decoration: none;
+  color: black;
+}
+
 .food-header .btn-circle {
   background-color: white;
   border: none;
@@ -29,38 +44,48 @@ body {
   align-items: center;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
 }
+
 .food-content {
   padding: 1rem;
 }
+
 .food-info {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
-.food-info .price-old {
-  text-decoration: line-through;
-  color: #aaa;
-}
+
+
 .food-info .price-new {
   color: #28a745;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.45rem;
 }
+
 .addons {
   margin-top: 1rem;
 }
+
 .addons h5 {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+
 .addons .form-check {
   margin-bottom: 0.625rem;
 }
+
 .footer {
   text-align: center;
   padding: 1rem;
   border-top: 0.0625rem solid #ddd;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
 }
+
 .footer .btn {
   width: 100%;
   font-weight: bold;
@@ -77,7 +102,7 @@ body {
   }
 
   .food-info .price-new {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   .addons h5 {
@@ -87,4 +112,60 @@ body {
   .footer .btn {
     font-size: 0.9rem;
   }
+}
+
+.price_name_block {
+  display: flex;
+}
+
+.price_name_block_name {
+  flex: 1;
+}
+
+.price_name_block span {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.food-info .price-old {
+  text-decoration: line-through;
+  color: #ccc;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#txtDescription {
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.addons .title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+hr {
+  height: 10px;
+}
+
+.quantity_block {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 30px 0;
+}
+
+.quantity_block button {
+  padding: 0px 6px;
+  font-size: 1.4rem;
+  color: #28a745;
+  border: #aaa 1px solid;
+  border-radius: 3px;
+  background-color: #fff;
+  /* box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.quantity_block input {
+  width: 40px;
+  border: none;
+  text-align: center;
 }

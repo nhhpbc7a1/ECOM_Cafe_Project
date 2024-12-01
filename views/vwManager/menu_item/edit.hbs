@@ -10,8 +10,15 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
-
 </script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#my-multiselect').select2();
+    });
+</script>
+
 {{/section}}
 
 
@@ -66,6 +73,19 @@
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"
                         style="height: 200px;">{{this.menu_item.description}}</textarea>
                 </div>
+                <hr>
+                <div class="form-group">
+                    <label for="">Topping</label>
+                    <select id="my-multiselect" name="toppings[]" multiple="multiple" style="width:100%;">
+                        {{#each toppings}}
+                        <option value="{{topping_id}}" {{#if (containTopping ../old_toppingList this.topping_id)}} selected
+                            {{/if}}>
+                            {{topping_name}}
+                        </option>
+                        {{/each}}
+                    </select>
+                </div>
+
             </div>
             <div class="card-footer text-muted">
                 <a name="" id="" class="btn btn-outline-success" href="/manager/menu_item" role="button">

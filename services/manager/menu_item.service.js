@@ -41,14 +41,32 @@ export default {
     del(menu_item_id) {
         return db('menu_items').where('menu_item_id', menu_item_id).del();
     },
-    findToppingByBranchId(branch_id) {
-        return db('toppings');
-        // cần phải thay đổi database
-        
-        db('toppings')
+    findToppingByBranchId(branch_id) {        
+        return db('toppings')
            .join('menus','toppings.menu_id','menus.menu_id')
            .join('branches','menus.branch_id','branches.branch_id')
            .where('branches.branch_id', branch_id)
            .select('toppings.*');
+    },
+    findToppingsByMenuItemID(menuItemId) {
+        return db('menu_item_toppings')
+           .join('toppings', 'menu_item_toppings.topping_id', 'toppings.topping_id')
+           .where('menu_item_toppings.menu_item_id', menuItemId)
+           .select('toppings.*');
+    },
+    async updateToppingsToMenuItem(menuItemId, topping_id_array) {
+        const old_list = await db('menu_item_toppings').where('menu_item_id', menuItemId);
+        for (let item of old_list)
+            await db('menu_item_toppings').where('menu_item_topping_id', item.menu_item_topping_id).del();
+
+        for (let id of topping_id_array) {
+            // Lưu vào bảng menu_item_toppings
+            const topping = await db('toppings').where('topping_id', id).first();
+            const entity = {
+                topping_id: topping.topping_id,
+                menu_item_id: menuItemId
+            }
+            await db('menu_item_toppings').insert(entity);
+        }
     }
 }
