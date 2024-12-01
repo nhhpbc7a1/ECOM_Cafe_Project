@@ -108,9 +108,19 @@
                                 <div class="card-body">
                                     <p class="card-text font-weight-bold">{{this.name}}</p>
                                     <p class="card-text text-primary">{{format_price this.cost_price}}</p>
-                                    <button class="btn-add" data-product-id="{{this.id}}" data-product-name="{{this.name}}" data-product-price="{{this.cost_price}}">
-                                        <i class="fa fa-plus">+</i>
-                                    </button>
+
+                                    <!-- Form thêm sản phẩm vào giỏ hàng -->
+                                    <form action="/menu/add" id="addToCartForm_{{this.id}}" method="post" style="display: none;">
+                                        <input type="hidden" name="product_id" value="{{this.id}}">
+                                        <input type="hidden" name="name" value="{{this.name}}">
+                                        <input type="hidden" name="cost_price" value="{{this.cost_price}}">
+                                        <input type="hidden" name="quantity" value="1">
+                                    </form>
+
+                                    <!-- Nút thêm sản phẩm vào giỏ hàng -->
+                                    <a class="btn-add" href="javascript: document.getElementById('addToCartForm_{{this.id}}').submit();">
+                                        <i class="fa fa-plus"></i>+
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -119,6 +129,8 @@
                         <p class="text-center text-muted">Không tìm thấy sản phẩm nào khớp với từ khoá.</p>
                     {{/if}}
                 </div>
+            </div>
+
             </div>
             </div>
         </div>

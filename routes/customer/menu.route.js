@@ -57,6 +57,51 @@ router.get('/search', async function(req, res) {
         res.status(500).send('Internal Server Error');
     }
 });
+router.post('/add', async (req, res) => {
+    const { product_id, name, cost_price, quantity } = req.body;
+   
+
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
+    const cart = req.session.cart;
+    const existingProduct = cart.find(item => item.product_id === product_id);
+
+    if (existingProduct) {
+        console.log('Found existing product:', existingProduct); 
+        existingProduct.quantity += parseInt(quantity); // Tăng số lượng sản phẩm
+        existingProduct.total_price = existingProduct.quantity * existingProduct.cost_price; 
+        console.log('Updated product quantity:', existingProduct.quantity); 
+        console.log('Updated product total price:', existingProduct.total_price); 
+    } else {
+        // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới sản phẩm
+        const newProduct = {
+            product_id,
+            name,
+            quantity: parseInt(quantity),
+            cost_price: parseFloat(cost_price),
+            total_price: parseFloat(cost_price) * parseInt(quantity) // Tính giá trị tổng tiền khi thêm mới
+        };
+        cart.push(newProduct);
+        console.log('Added new product to cart:', newProduct);
+    }
+
+    console.log('Cart after update:', cart);  // Kiểm tra giỏ hàng sau khi cập nhật
+
+    // Cập nhật lại tổng tiền của giỏ hàng
+    let cartTotal = 0;
+    cart.forEach(item => {
+        cartTotal += item.total_price; // Cộng dồn tổng tiền của tất cả các sản phẩm trong giỏ hàng
+    });
+
+    req.session.cartTotal = cartTotal; // Lưu tổng tiền vào session
+
+    // Redirect lại đến trang giỏ hàng hoặc trang cần thiết
+    res.redirect('/cart');
+});
+
+
+
 
 
 export default router;

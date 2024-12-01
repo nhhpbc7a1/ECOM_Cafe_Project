@@ -50,5 +50,5 @@ export default {
            .join('branches','menus.branch_id','branches.branch_id')
            .where('branches.branch_id', branch_id)
            .select('toppings.*');
-    }
+    },
 }

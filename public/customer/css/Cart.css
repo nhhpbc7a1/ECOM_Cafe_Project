@@ -13,7 +13,26 @@ body {
     border: solid 2px gray;
     border-radius: 20px;
 }
+.bi-dash-square.decrease {
+    font-size: 30px;
+    color: red;
+    cursor: pointer;
+}
 
+.bi-dash-square.decrease:hover {
+    color: darkred;
+}
+
+/* Nút tăng số lượng */
+.bi-plus-square.increase {
+    font-size: 30px;
+    color: green;
+    cursor: pointer;
+}
+
+.bi-plus-square.increase:hover {
+    color: darkgreen;
+}
 .cart-header {
     background: linear-gradient(0deg, #F8FCFF 0%, #3b89c5 100%);
     flex-shrink: 0;

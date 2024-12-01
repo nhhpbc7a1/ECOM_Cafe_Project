@@ -10,6 +10,7 @@ import casherRouter from './routes/casher.route.js'
 import customerRouter from './routes/customer.route.js'
 import { authManager } from './middlewares/auth.js';
 
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -53,6 +54,8 @@ app.use(session({
   cookie: {}
 }))
 
+
+
 app.use(async function(req, res, next) {
   if (!req.session.auth) {
     req.session.auth = false;
@@ -82,6 +85,7 @@ import menuRoutes from './routes/customer/menu.route.js';
 app.use('/menu', menuRoutes);
 import cartRoutes from './routes/customer/cart.route.js';
 app.use('/cart', cartRoutes);
+
 
 import accountRoutes from './routes/account.route.js';
 app.use('/account', accountRoutes);
