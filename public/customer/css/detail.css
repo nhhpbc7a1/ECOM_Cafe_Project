@@ -1,6 +1,11 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color: #eee;
+}
+
+.food-card {
+  min-height: 100vh;
+  padding-bottom: 50px;
 }
 
 .food-header {
@@ -47,6 +52,10 @@ body {
 
 .food-content {
   padding: 1rem;
+}
+
+.card{
+  margin-top: 10px;
 }
 
 .food-info {
@@ -145,7 +154,7 @@ body {
 }
 
 hr {
-  height: 10px;
+  height: 20px;
 }
 
 .quantity_block {
