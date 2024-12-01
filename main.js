@@ -44,6 +44,12 @@ app.engine('hbs', engine({
             return arg1 === arg2; // Trả về true nếu 2 giá trị bằng nhau
         },
         section: hbs_sections(),
+        containTopping(array, topping_id) {
+            if (Array.isArray(array)) {
+                return array.some(item => item.topping_id.toString() === topping_id.toString());
+            }
+            return false;
+        }
     }
 }));
 
@@ -63,7 +69,7 @@ app.use(async function (req, res, next) {
     }
     res.locals.auth = req.session.auth;
     res.locals.authAccount = req.session.authAccount;
-    res.locals.branchInfo = req.session.branchInfo;  
+    res.locals.branchInfo = req.session.branchInfo;
     next();
 });
 
