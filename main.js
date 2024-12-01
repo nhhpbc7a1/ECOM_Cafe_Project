@@ -14,6 +14,7 @@ import { authManager } from './middlewares/auth.js';
 import { authAdmin } from './middlewares/auth.js';
 
 
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -93,6 +94,7 @@ import menuRoutes from './routes/customer/menu.route.js';
 app.use('/menu', menuRoutes);
 import cartRoutes from './routes/customer/cart.route.js';
 app.use('/cart', cartRoutes);
+
 
 import accountRoutes from './routes/account.route.js';
 app.use('/account', accountRoutes);
