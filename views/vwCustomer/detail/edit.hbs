@@ -12,9 +12,9 @@
 
 <body>
     <form action="">
-        <div class="container my-3">
+        <div class="container" style=" min-height: 100vh;  padding-bottom: 50px;">
             <!-- Card -->
-            <div class="card" id="food-card">
+            <div class="card">
                 <!-- Header -->
                 <div class="food-header">
                     <div class="image" style='background-image: url("/images/{{this.menu_item.image_href}}");'>
@@ -37,8 +37,10 @@
                         </div>
                     </div>
                     <span id="txtDescription">{{this.menu_item.description}}</span>
-                    <hr>
-
+                </div>
+            </div>
+            <div class="card">
+                <div class="food-content">
                     <!-- Add-ons -->
                     <div class="addons">
                         <div class="d-flex align-items-center mb-3">
@@ -58,7 +60,11 @@
                         <hr>
                         {{/each}}
                     </div>
+                </div>
 
+            </div>
+            <div class="card" style="margin-bottom: 30px;">
+                <div class="food-content">
                     <div class="addons">
                         <div class="d-flex align-items-center mb-3">
                             <div class="title" style="margin-right: 10px;">Thêm lưu ý cho quán</div>
@@ -82,11 +88,12 @@
                     </button>
                 </div>
             </div>
-            <!-- Footer -->
-            <div class="footer">
-                {{!-- <p class="text-muted small">You'll save 3.025đ after the discount.</p> --}}
-                <button class="btn btn-success btn-lg" id="add-to-basket-btn">Add to Basket - 57.475</button>
-            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            {{!-- <p class="text-muted small">You'll save 3.025đ after the discount.</p> --}}
+            <button class="btn btn-success btn-lg" id="add-to-basket-btn">Add to Basket - 57.475</button>
+        </div>
         </div>
     </form>
 
