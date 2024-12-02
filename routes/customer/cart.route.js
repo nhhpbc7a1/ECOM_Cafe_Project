@@ -11,16 +11,14 @@ router.get('/', (req, res) => {
     // Tính tổng giá trị sản phẩm trong giỏ hàng (totalSubtotal)
     const totalSubtotal = cart.reduce((total, item) => total + (item.quantity * item.cost_price), 0);
 
-    // Tính các khoản phí (fees), ví dụ giả sử phí là 10% của subtotal
     const fees = totalSubtotal * 0.1; // Ví dụ phí là 10% của subtotal
 
-    // Tính tổng cộng (totalPrice) = subtotal + fees
     const totalPrice = totalSubtotal + fees;
 
-    console.log('Cart:', cart);
-    console.log('Total Subtotal:', totalSubtotal);
-    console.log('Fees:', fees);
-    console.log('Total Price:', totalPrice);
+    // console.log('Cart:', cart);
+    // console.log('Total Subtotal:', totalSubtotal);
+    // console.log('Fees:', fees);
+    // console.log('Total Price:', totalPrice);
 
     // Truyền tất cả các giá trị vào template
     res.render('vwCustomer/cart', { cart, totalSubtotal, fees, totalPrice });
@@ -43,10 +41,10 @@ router.post('/add', async (req, res) => {
     const { product_id, name, cost_price, quantity } = req.body;
 
     // Kiểm tra và hiển thị các giá trị nhận được
-    console.log('Received product_id:', product_id); // Kiểm tra product_id
-    console.log('Received quantity:', quantity);     // Kiểm tra quantity
-    console.log('Received cost_price:', cost_price);  // Kiểm tra cost_price
-    console.log('Received name:', name);              // Kiểm tra name
+    // console.log('Received product_id:', product_id); // Kiểm tra product_id
+    // console.log('Received quantity:', quantity);     // Kiểm tra quantity
+    // console.log('Received cost_price:', cost_price);  // Kiểm tra cost_price
+    // console.log('Received name:', name);              // Kiểm tra name
 
     // Kiểm tra và tạo giỏ hàng nếu chưa có
     if (!req.session.cart) {
@@ -71,13 +69,12 @@ router.post('/add', async (req, res) => {
         console.log('Updated product quantity:', existingProduct.quantity);
         console.log('Updated product total price:', existingProduct.total_price);
     } else {
-        // Nếu sản phẩm chưa có trong giỏ, thêm sản phẩm mới vào giỏ
         const newProduct = {
             product_id,
             name,
-            quantity: parseInt(quantity), // Chuyển quantity sang kiểu số nguyên
-            cost_price: validCostPrice, // Sử dụng giá trị cost_price hợp lệ
-            total_price: validCostPrice * parseInt(quantity) // Tính giá trị tổng của sản phẩm
+            quantity: parseInt(quantity), 
+            cost_price: validCostPrice, 
+            total_price: validCostPrice * parseInt(quantity) 
         };
         cart.push(newProduct); // Thêm sản phẩm mới vào giỏ
         console.log('Added new product to cart:', newProduct);
@@ -88,7 +85,6 @@ router.post('/add', async (req, res) => {
     // Lưu giỏ hàng vào session
     req.session.cart = cart;
 
-    // Chuyển hướng đến trang giỏ hàng (cart)
     res.redirect('/cart');
 });
 
@@ -145,8 +141,12 @@ router.post('/update', async (req, res) => {
 
     const cart = req.session.cart;
 
+    // Console log giỏ hàng hiện tại
+    console.log('Current cart:', cart); 
+
     // Tìm sản phẩm trong giỏ hàng
-    const product = cart.find(item => item.product_id === product_id);
+    const product = cart.find(item => parseInt(item.product_id) === parseInt(product_id));
+    console.log('Product found:', product);
 
     if (!product) {
         return res.redirect('/cart'); // Nếu không tìm thấy sản phẩm trong giỏ hàng, điều hướng lại trang giỏ hàng
@@ -157,19 +157,25 @@ router.post('/update', async (req, res) => {
 
     product.total_price = product.quantity * product.cost_price;
 
-
+    // Kiểm tra và xóa sản phẩm nếu số lượng bằng 0
     if (product.quantity === 0) {
         const index = cart.indexOf(product);
         cart.splice(index, 1); 
     }
 
- 
+    // Console log giỏ hàng sau khi thay đổi
+    console.log('Updated cart:', cart);
+
+    // Tính tổng giỏ hàng
     const cartTotal = cart.reduce((acc, item) => acc + item.total_price, 0);
 
- 
+    // Lưu tổng giỏ hàng vào session
     req.session.cartTotal = cartTotal;
 
+    // Console log tổng giỏ hàng
+    console.log('Cart total:', cartTotal);
 
+    // Redirect đến trang giỏ hàng
     res.redirect('/cart');
 });
 router.get('/totalSubtotal', (req, res) => {

@@ -183,3 +183,20 @@ body {
 .text-price{
     font-size: 15pt;
 }
+.sticky-footer {
+    position: sticky; 
+    bottom: 0; 
+    z-index: 100;
+    padding: 10px 0; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius:10px
+}
+
+
+
+.quantity span {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}

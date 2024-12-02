@@ -104,7 +104,12 @@
                         {{#each searchResults}}
                         <div class="col-md-3 col-sm-6 mb-2">
                             <div class="card text-center h-100 shadow-sm">
+                                <div class="image-container">
                                 <img src="/images/{{this.image_href}}" alt="{{this.name}}" class="card-img-top mx-auto">
+                                  <div class="overlay">
+                                             <a href="/customer/detail/add?id={{this.menu_item_id}}" class="btn btn-light btn-sm">Xem chi tiết</a>
+                                    </div>
+                                </div>
                                 <div class="card-body">
                                     <p class="card-text font-weight-bold">{{this.name}}</p>
                                     <p class="card-text text-primary">{{format_price this.cost_price}}</p>

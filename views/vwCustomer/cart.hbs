@@ -32,33 +32,56 @@
                     window.location.href = '/menu';  // Hoặc thay '/menu' bằng URL bạn muốn quay lại
                 });
             </script>
-            <!-- Lặp qua các sản phẩm trong giỏ hàng -->
+
            {{#each cart}}
-            <div class="order-item">
-                <div class="d-flex flex-column">
-                    <h4> {{this.name}}</h4> <!-- Hiển thị tên sản phẩm -->
-                    <div class="ml-10">Size: {{this.size}}<br>Additional Info: {{this.additional_info}}</div>
-                </div>
-                <div class="quantity">
-                     <form action="/cart/update" id="updateCartFormDecrease_{{this.product_id}}" method="post" style="display: none;">
+            <div class="container">
+                <div class="row align-items-center mb-3">
+                    <div class="col-4">
+                        <h6 class="mb-1">{{this.name}}</h6>
+                        <small class="text-muted">
+                        Topping: 
+                    {{#each this.topping}}
+                        <span>{{this.name}} - {{this.price}} VND</span><br>
+                    {{/each}}
+                        Note: {{this.note}}
+                    </small>
+                    </div>
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <form action="/cart/update" id="updateCartFormDecrease_{{this.product_id}}" method="post" style="display: none;">
                             <input type="hidden" name="product_id" value="{{this.product_id}}">
-                            <input type="hidden" name="change" value="-1"> 
+                            <input type="hidden" name="name" id="hiddenMenuItemName" value="{{this.menu_item.name}}">
+                            <input type="hidden" name="quantity" id="hiddenQuantity" value="1">
+                            <input type="hidden" name="cost_price" id="hiddenMenuItemPrice" value="{{this.cost_price}}">
+                            <input type="hidden" name="topping" id="hiddenNote" value="">
+                            <input type="hidden" name="note" id="hiddenNote" value="">
+                            <input type="hidden" name="image_href" id="hiddenNote" value="{{this.image_href}}">
+                            <input type="hidden" name="change" value="-1">
                         </form>
-                        <i class="bi bi-dash-square decrease" onclick="document.getElementById('updateCartFormDecrease_{{this.product_id}}').submit();"></i>
-                        <span>{{this.quantity}}</span>
+                        <i class="bi bi-dash-square decrease mx-2" onclick="document.getElementById('updateCartFormDecrease_{{this.product_id}}').submit();"></i>
+
+                        <span class="mx-2">{{this.quantity}}</span>
+
                         <form action="/cart/update" id="updateCartFormIncrease_{{this.product_id}}" method="post" style="display: none;">
                             <input type="hidden" name="product_id" value="{{this.product_id}}">
-                            <input type="hidden" name="change" value="1"> 
+                            <input type="hidden" name="change" value="1">
                         </form>
-                        <i class="bi bi-plus-square increase" onclick="document.getElementById('updateCartFormIncrease_{{this.product_id}}').submit();"></i>
-                </div>
-                <div class="price">
-                    <span>{{this.total_price}} VND</span> 
+                        <i class="bi bi-plus-square increase mx-2" onclick="document.getElementById('updateCartFormIncrease_{{this.product_id}}').submit();"></i>
+                    </div>
+
+                    <!-- Giá tiền -->
+                    <div class="col-2 text-end">
+                        <span>{{this.total_price}} VND</span>
+                    </div>
+
+                    <!-- Nút sửa -->
+                    <div class="col-2 text-end">
+                        <a href="/customer/detail/edit?id={{this.product_id}}" class="text-primary">Edit</a>
+                    </div>
                 </div>
             </div>
+        
             {{/each}}
 
-            <p class="edit">Edit</p>
             <h4>People also order</h4>
             <div id="recommendations-container" class="recommendations-container">
                
@@ -136,8 +159,8 @@
             <hr>
 
         </div>
-        <div class="card-footer text-muted">
-            <div id="total">
+        <div class="sticky-footer card-footer text-muted">
+            <div  id="total">
                 <div>Total</div>
                 <div id="total-price">{{totalPrice}} VND</div> 
             </div>
