@@ -31,36 +31,23 @@
                   {{error}}
                 </div>
               {{/if}}
-
-              <label for="txtEmail" class="label-input">Email</label>
-              <div class="error-container">
-                <span class="require" id="emailError">required</span>
+              <div class="form-group">
+                <label for="txtEmail" class="label-input">Email</label>
+                <div class="error-container">
+                  <span class="require" id="emailError">required</span>
+                </div>
+                <input type="email" class="user-input form-control" id="txtEmail" name="email" placeholder="Example@email.com" required
+                  oninput="validateInput('txtEmail', 'emailError')" />
               </div>
-              <input
-                type="email"
-                class="user-input"
-                id="txtEmail"
-                name="email"
-                placeholder="Example@email.com"
-                required
-                oninput="validateInput('txtEmail', 'emailError')"
-              />
-              <br />
-
+              
+            <div class="form-group">
               <label for="txtPassword" class="label-input">Password</label>
               <div class="error-container">
                 <span class="require" id="passwordError">required</span>
               </div>
-              <input
-                type="password"
-                class="user-input"
-                id="txtPassword"
-                name="password"
-                placeholder="At least 8 characters"
-                required
-                oninput="validateInput('txtPassword', 'passwordError')"
-              />
-              <br />
+              <input type="password" class="user-input form-control" id="txtPassword" name="password" placeholder="At least 8 characters" required
+                oninput="validateInput('txtPassword', 'passwordError')" />
+            </div>
               <div class="link-forgot-password">
                 <a href="/forgot-password" class="forgot-password"
                   >Forgot Password?</a

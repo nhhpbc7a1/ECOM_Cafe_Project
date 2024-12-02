@@ -92,11 +92,8 @@ margin-right: -33.00px;
 }
 .login-form-section .user-input
 {
-
     width: 100%;
     height: 50px;
-    top: 0;
-    left: 0;
     background-color: #f6faff;
     border-radius: 12px;
     border: 1px solid;
@@ -107,13 +104,11 @@ margin-right: -33.00px;
 {
     position: relative;
     width: 100%;
-    margin-top: -1.00px;
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
     color: var(--primary-text);
     font-size: 16px;
     letter-spacing: 0.16px;
-    line-height: 16px;
     white-space: nowrap;
 }
 .login-form-section .error-container {
