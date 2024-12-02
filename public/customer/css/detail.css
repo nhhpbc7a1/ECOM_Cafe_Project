@@ -154,7 +154,7 @@ body {
 }
 
 hr {
-  height: 20px;
+  height: 10px;
 }
 
 .quantity_block {
@@ -174,7 +174,8 @@ hr {
 }
 
 .quantity_block input {
-  width: 40px;
+  width: 50px;
   border: none;
   text-align: center;
+  font-size: 1.4rem;
 }

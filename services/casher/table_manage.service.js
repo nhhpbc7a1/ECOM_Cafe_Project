@@ -5,200 +5,206 @@ export default {
         return db('tables');
     },
     findByID(branchId, areaId) {
-        return [
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-            {
-                table_id: 1,
-                branch_id: 1,
-                area_id: 1,
-                table_name: 'Table 1',
-                qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
-                is_available: true
-            },
-        ]
+        if (areaId === 0) {
+
+            return db('tables')
+                .where('branch_id', branchId);
+            // .where('is_available', true);
+        }
+        // return [
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        //     {
+        //         table_id: 1,
+        //         branch_id: 1,
+        //         area_id: 1,
+        //         table_name: 'Table 1',
+        //         qr_code: 'http://10.0.41.45:3000/customer/menu?qr_code=XldrwQLOdm',
+        //         is_available: true
+        //     },
+        // ]
 
         return db('tables')
             .where('branch_id', branchId) // Lọc theo branchId
@@ -220,7 +226,7 @@ export default {
                 .orderBy('o.order_date', 'desc');
             */
             const rows = await db('orders');
-            
+
             // Lấy order items cho mỗi đơn hàng
             for (let order of rows) {
                 // Gọi hàm `findOrderItemsByOrderId` để lấy các order items
@@ -269,6 +275,9 @@ export default {
             console.error('Error executing query:', error);
             throw error; // Ném lỗi để xử lý ở nơi gọi
         }
+    },
+    findAreasByBranchID(branch_id) {
+        return db('areas').where('branch_id', branch_id);
     }
 
 

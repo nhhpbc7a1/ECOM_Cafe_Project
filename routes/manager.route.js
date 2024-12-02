@@ -12,7 +12,7 @@ router.use((req, res, next) => {
 router.get('/', function(req, res) {
     res.render('vwManager/dashboard', {
         // layout: false,
-        active: "dashboard",
+    active: "dashboard",
         user: req.user // Truyền thông tin user từ token vào view nếu cần
     });
 });
@@ -29,6 +29,9 @@ router.use('/category', categoryRouter);
 
 import toppingRouter from './manager/topping.route.js';
 router.use('/topping', toppingRouter);
+
+import areaRouter from './manager/area.route.js';
+router.use('/area', areaRouter);
 
 import tableRouter from './manager/table.route.js';
 router.use('/table', tableRouter);

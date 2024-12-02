@@ -8,41 +8,72 @@ VALUES ('Admin'), ('Manager'), ('Employee'), ('Chef'), ('Waiter');
 INSERT INTO accounts (email, password, role_id) 
 VALUES ('admin@gmail.com', '$2a$08$oXQ/r/HUiE0b96WRzlqeAu5kDwZplNpYCp0O.HBCaFB.gU6b4i/Tm', 1), 
        ('a@example.com', '$2a$08$oXQ/r/HUiE0b96WRzlqeAu5kDwZplNpYCp0O.HBCaFB.gU6b4i/Tm', 2),
-       ('employee1@example.com', 'password_hash', 3),
-       ('chef@example.com', 'password_hash', 4),
-       ('waiter@example.com', 'password_hash', 5);
+       ('b@example.com', '$2a$08$oXQ/r/HUiE0b96WRzlqeAu5kDwZplNpYCp0O.HBCaFB.gU6b4i/Tm', 2),
+       ('employee1@example.com', '$2a$08$oXQ/r/HUiE0b96WRzlqeAu5kDwZplNpYCp0O.HBCaFB.gU6b4i/Tm', 3),
+       ('employee2@example.com', '$2a$08$oXQ/r/HUiE0b96WRzlqeAu5kDwZplNpYCp0O.HBCaFB.gU6b4i/Tm', 3);
 
 -- Bảng managers
 INSERT INTO managers (name, phone, address, account_id)
-VALUES ('John Doe', '123456789', '123 Main St', 2),
-       ('Jane Smith', '987654321', '456 Oak St', 3),
-       ('Tom Johnson', '456123789', '789 Pine St', 4),
-       ('Linda Brown', '321654987', '101 Elm St', 5),
-       ('Jack Wilson', '654987321', '202 Maple St', 6);
+VALUES ('John Doe', '0123456789', '123 Main St', 2),
+       ('Jane Smith', '0987654321', '456 Oak St', 3);
        
 -- Bảng branches
 INSERT INTO branches (manager_id, name, contact_phone, address, coordinates, logo_href, fnb_date_counter)
-VALUES (2, 'The Coffee House', '123456789', '123 Main St', '10.8231, 106.6297', 'branches_logo/1/main.jpg', 100),
-       (2, 'Second Branch', '987654321', '456 Oak St', '10.7321, 106.6807', 'logo2.png', 200),
-       (3, 'Third Branch', '456123789', '789 Pine St', '10.7501, 106.6300', 'logo3.png', 300),
-       (4, 'Fourth Branch', '321654987', '101 Elm St', '10.8001, 106.7000', 'logo4.png', 400),
-       (5, 'Fifth Branch', '654987321', '202 Maple St', '10.8101, 106.7200', 'logo5.png', 500);
+VALUES (2, 'The Coffee House', '0123456789', '123 Main St', '10.8231, 106.6297', 'branches_logo/1/main.jpg', 100),
+       (3, 'Second Branch', '0987654321', '456 Oak St', '10.7321, 106.6807', 'logo2.png', 200),
+       (4, 'Third Branch', '0456123789', '789 Pine St', '10.7501, 106.6300', 'logo3.png', 300);
 
 -- Bảng areas
 INSERT INTO areas (branch_id, name) 
 VALUES (1, 'Tầng 1'), 
        (1, 'Tầng 2'), 
-       (2, 'Tầng 3'), 
-       (3, 'Khu vực A'), 
-       (4, 'Khu vực B');
+       (1, 'Tầng 3'), 
+       (2, 'Khu vực A'), 
+       (2, 'Khu vực B');
 
 -- Bảng tables
-INSERT INTO tables (branch_id, area_id, table_name, qr_code, is_available) 
-VALUES (1, 1, 'Table 1', 'QR_001', 1), 
-       (1, 2, 'Table 2', 'QR_002', 0), 
-       (2, 3, 'Table 3', 'QR_003', 1), 
-       (3, 4, 'Table 4', 'QR_004', 1), 
-       (4, 5, 'Table 5', 'QR_005', 0);
+INSERT INTO tables (branch_id, area_id, table_name, qr_code, is_available)
+VALUES 
+        (1, 1, 'Table 1', 'QR_001', 1),
+        (1, 1, 'Table 2', 'QR_002', 0),
+        (1, 1, 'Table 3', 'QR_003', 1),
+        (1, 1, 'Table 4', 'QR_004', 1),
+        (1, 1, 'Table 5', 'QR_005', 0),
+        (1, 1, 'Table 6', 'QR_006', 1),
+        (1, 1, 'Table 7', 'QR_007', 1),
+        (1, 1, 'Table 8', 'QR_008', 0),
+        (1, 1, 'Table 9', 'QR_009', 1),
+        (1, 2, 'Table 10', 'QR_010', 0),
+        (1, 2, 'Table 11', 'QR_011', 1),
+        (1, 2, 'Table 12', 'QR_012', 0),
+        (1, 2, 'Table 13', 'QR_013', 1),
+        (1, 2, 'Table 14', 'QR_014', 1),
+        (1, 2, 'Table 15', 'QR_015', 0),
+        (1, 2, 'Table 16', 'QR_016', 1),
+        (1, 2, 'Table 17', 'QR_017', 1),
+        (1, 2, 'Table 18', 'QR_018', 0),
+        (1, 2, 'Table 19', 'QR_019', 1),
+        (1, 2, 'Table 20', 'QR_020', 0),
+        (1, 3, 'Table 21', 'QR_021', 1),
+        (1, 3, 'Table 22', 'QR_022', 0),
+        (1, 3, 'Table 23', 'QR_023', 1),
+        (1, 3, 'Table 24', 'QR_024', 1),
+        (1, 3, 'Table 25', 'QR_025', 0),
+        (1, 3, 'Table 26', 'QR_026', 1),
+        (1, 3, 'Table 27', 'QR_027', 1),
+        (1, 3, 'Table 28', 'QR_028', 0),
+        (1, 3, 'Table 29', 'QR_029', 1),
+        (1, 3, 'Table 30', 'QR_030', 0),
+        (2, 1, 'Table 1', 'QR_031', 1),
+        (2, 1, 'Table 2', 'QR_032', 0),
+        (2, 1, 'Table 3', 'QR_033', 1),
+        (2, 1, 'Table 4', 'QR_034', 1),
+        (2, 1, 'Table 5', 'QR_035', 0),
+        (2, 2, 'Table 6', 'QR_036', 1),
+        (2, 2, 'Table 7', 'QR_037', 0),
+        (2, 2, 'Table 8', 'QR_038', 1),
+        (2, 2, 'Table 9', 'QR_039', 1),
+        (2, 2, 'Table 10', 'QR_040', 0);
 
 -- Bảng menus
 INSERT INTO menus (branch_id, menu_color, background_image_href)
@@ -148,11 +179,8 @@ VALUES (1, 'CARD123', NOW(), 'Paid with card', 45.00),
 
 -- Bảng employees
 INSERT INTO employees (employee_name, branch_id, account_id)
-VALUES ('Alice', 1, 3),
-       ('Bob', 2, 4),
-       ('Charlie', 3, 5),
-       ('David', 4, 6),
-       ('Eve', 5, 7);
+VALUES ('Alice', 1, 4),
+       ('Bob', 2, 5);
 
 -- Bảng reviews
 INSERT INTO reviews (order_id, branch_id, rating, comment, review_date)

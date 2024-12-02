@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
     padding: 0;
+    margin: 0;
     justify-content: center;
 }
 
@@ -195,3 +196,32 @@ body{
 .manage_block_item {
     /* height: 100%; */
 }
+
+.area_list_block a{
+    margin-right: 14px;
+    background-color: transparent;
+    color: black;
+    border: none;
+}
+
+.area_list_block a.is_active{
+    background-color: #004090;
+    color: white;
+}
+
+.nav_is_active a{
+    background-color: #004090;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.nav_is_active a:hover {
+    background-color: #004090;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.nav_is_active a:focus {
+    color: #fff;
+}
+

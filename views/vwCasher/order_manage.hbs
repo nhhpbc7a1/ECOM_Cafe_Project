@@ -1,0 +1,62 @@
+<div class="card-body">
+    <nav class="mb-3 navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Bàn 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Bàn 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <i class="bi bi-plus-circle-dotted"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="scrollable-content">
+        {{#each orders}} <!-- Lặp qua mỗi đơn hàng -->
+        <div class="order-list mb-3">
+            <div class="header-order">
+                <h6>#Mã đơn: {{order_id}}</h6>
+                <h6 class="time-order">
+                    <i class="bi bi-clock-history"></i>&nbsp;&nbsp;{{order_date}}
+                </h6>
+                <div class="d-flex justify-content-end">
+                    <input class="btn-checkbox" type="checkbox" id="active-order" class="form-check-input">
+                </div>
+            </div>
+            <div>
+                {{#each orderItems}} <!-- Lặp qua các orderItems trong từng đơn hàng -->
+                <div class="order-item">
+                    <div class="d-flex flex-column">
+                        <h5>{{menu_item_name}}</h5>
+                        <div class="ml-10">Size
+                            L<br>{{menu_item_description}}<br>{{order_item_note}}</div>
+                    </div>
+                    <h5>{{order_item_quantity}}</h5> <!-- Sửa lại cách hiển thị quantity -->
+                    <div class="text-price">
+                        {{menu_item_sale_price}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<div id="total-price">
+    <h6>Total: 500000</h6>
+</div>
+<div id="card-content-btn">
+    <div class="d-flex justify-content-between">
+        <button type="button" class="btn-blue" active>Xác nhận đơn</button>
+        <button type="button" class="btn-green">Thông báo</button>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button type="button" class="btn-green">Thanh toán và không xuất hóa đơn</button>
+        <button type="button" class="btn-blue">Thanh toán và xuất hóa đơn</button>
+    </div>
+</div>
