@@ -29,6 +29,8 @@ router.post('/', async (req, res) => { // Đổi từ /login thành /
                 res.redirect('/manager/');
             } else if (account.role_id === 3) {
                 res.redirect('/casher/');
+                req.session.branch_id = 1;
+                req.session.table_id = 1;
             }
             else {
                 // Thêm các điều kiện khác nếu có các loại role khác

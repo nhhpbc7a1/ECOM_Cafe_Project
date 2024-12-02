@@ -17,7 +17,7 @@ router.use((req, res, next) => {
 
 router.get('/', async function (req, res) {
     // const branch_id = req.query.accountid || 0;
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const list = await menu_itemService.findAll(branch_id);
     res.render('vwManager/menu_item/list', {
         menu_items: list
@@ -25,7 +25,7 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/add', async function (req, res) {
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const categoryList = await categoryService.findByBranchID(branch_id);
     const toppingList = await menu_itemService.findToppingByBranchId(branch_id);
     // console.log(toppingList);
@@ -44,7 +44,7 @@ router.post('/del', upload.single('image'), async function (req, res) {
 router.get('/edit', async function (req, res) {
     const id = +req.query.id || 0;
     const entity = await menu_itemService.findByID(id);
-    const branch_id = 1;
+    const branch_id = req.session.branchInfo.branch_id;
     const categoryList = await categoryService.findByBranchID(branch_id);
     const toppingList = await menu_itemService.findToppingByBranchId(branch_id);
     const old_toppingList = await menu_itemService.findToppingsByMenuItemID(id);
@@ -95,7 +95,8 @@ router.post('/patch', upload.single('image'), async function (req, res) {
 
 router.post('/add', upload.single('image'), async function (req, res) {
 
-    const menu_id = 1;
+    
+    const menu_id = req.session.branchInfo.menu_id;
     const image = req.file; // Ảnh tải lên
     const newMenuItem = {
         name: req.body.name,

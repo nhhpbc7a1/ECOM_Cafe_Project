@@ -1,0 +1,30 @@
+{{#section 'js'}}
+{{/section}}
+
+
+<form action="" method="post">
+    <div class="container-fluid" style="padding: 40px;">
+        <div class="card">
+            <div class="card-header">
+                <h4>Thêm khu vực</h4>
+            </div>
+            <div class="card-body">
+        
+                <div class="form-group">
+                    <label for="txtName">Tên</label>
+                    <input type="text" name="name" id="txtName" class="form-control" value="{{this.area.name}}">
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <a name="" id="" class="btn btn-outline-success" href="/manager/area" role="button">
+                    <i class="bi bi-skip-backward-fill"></i>
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check2"></i>
+                    save
+                </button>
+
+            </div>
+        </div>
+    </div>
+</form>
