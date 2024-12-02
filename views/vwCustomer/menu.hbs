@@ -159,7 +159,7 @@
                                     <div class="image-container">
                                        <img src="/images/menu_items/{{menu_item_id}}/main.jpg" alt="{{name}}" class="card-img-top mx-auto mt-3" style="width: 100%; height: 100%;">
                                         <div class="overlay">
-                                            <button class="btn btn-light btn-sm">Xem chi tiết</button>
+                                             <a href="/customer/detail/add?id={{this.menu_item_id}}" class="btn btn-light btn-sm">Xem chi tiết</a>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -170,6 +170,8 @@
                                             <input type="hidden" name="name" value="{{this.name}}">
                                             <input type="hidden" name="cost_price" value="{{this.cost_price}}">
                                             <input type="hidden" name="quantity" value="1">
+                                            <input type="hidden" name="topping" id="hiddenToppings" value="">
+                                            <input type="hidden" name="image_href" value="{{this.image_href}}">
                                         </form>
 
                                         <!-- Nút thêm sản phẩm vào giỏ hàng -->

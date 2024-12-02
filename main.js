@@ -94,7 +94,8 @@ import menuRoutes from './routes/customer/menu.route.js';
 app.use('/menu', menuRoutes);
 import cartRoutes from './routes/customer/cart.route.js';
 app.use('/cart', cartRoutes);
-
+import detailRoutes from './routes/customer/detail.route.js'
+app.use('/detail',detailRoutes)
 
 import accountRoutes from './routes/account.route.js';
 app.use('/account', accountRoutes);

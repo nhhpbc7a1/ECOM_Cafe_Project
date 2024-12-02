@@ -11,8 +11,16 @@
 </head>
 
 <body>
-    <form action="">
-        <div class="container" style=" min-height: 100vh;  padding-bottom: 50px;">
+    <form action="/customer/detail/add" method="POST">
+        <input type="hidden" name="product_id" value="{{this.menu_item.menu_item_id}}">
+        <input type="hidden" name="name" id="hiddenMenuItemName" value="{{this.menu_item.name}}">
+        <input type="hidden" name="quantity" id="hiddenQuantity" value="1">
+        <input type="hidden" name="cost_price" id="hiddenMenuItemPrice" value="{{this.menu_item.sale_price}}">
+        <input type="hidden" name="topping" id="hiddenToppings" value="">
+        <input type="hidden" name="note" id="hiddenNote" value="">
+        <input type="hidden" name="image_href" id="hiddenImageHref" value="{{this.menu_item.image_href}}">
+
+        <div class="container" style="min-height: 100vh; padding-bottom: 50px;">
             <!-- Card -->
             <div class="card">
                 <!-- Header -->
@@ -20,7 +28,7 @@
                     <div class="image" style='background-image: url("/images/{{this.menu_item.image_href}}");'>
                         <div class="header-buttons">
                             <a class="btn-circle" id="close-btn" href="/customer/menu">X</a>
-                            <button class="btn-circle" id="share-btn">🔗</button>
+                            <button class="btn-circle" id="share-btn" type="button">🔗</button>
                         </div>
                     </div>
                 </div>
@@ -31,26 +39,26 @@
                             <span>{{this.menu_item.name}}</span>
                         </div>
                         <div class="text-end price_name_block_price">
-                            <span class="price-old">{{this.menu_item.sale_price}}</span>
-                            {{!-- <br> --}}
-                            <span class="price-new">{{this.menu_item.sale_price}}</span>
+                            <span class="price-old">{{this.menu_item.cost_price}}</span>
+                            <span class="price-new" id="totalPrice">{{this.menu_item.sale_price}}</span>
                         </div>
                     </div>
                     <span id="txtDescription">{{this.menu_item.description}}</span>
                 </div>
             </div>
+
             <div class="card">
                 <div class="food-content">
                     <!-- Add-ons -->
                     <div class="addons">
                         <div class="d-flex align-items-center mb-3">
                             <div class="title" style="margin-right: 10px;">Thêm toppings</div>
-                            <div class="text-muted small"> Không bắt buộc</div>
+                            <div class="text-muted small">Không bắt buộc</div>
                         </div>
                         {{#each this.toppings}}
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="option1">
-                            <label class="form-check-label" for="option1" style="width: 100%;">
+                            <input class="form-check-input topping-checkbox" type="checkbox" data-price="{{this.sale_price}}" value="{{this.topping_name}}" id="topping-{{@index}}">
+                            <label class="form-check-label" for="topping-{{@index}}" style="width: 100%;">
                                 <div class="d-flex justify-content-between">
                                     <div>{{this.topping_name}}</div>
                                     <div>+{{this.sale_price}}</div>
@@ -61,19 +69,17 @@
                         {{/each}}
                     </div>
                 </div>
-
             </div>
+
             <div class="card" style="margin-bottom: 30px;">
                 <div class="food-content">
                     <div class="addons">
                         <div class="d-flex align-items-center mb-3">
                             <div class="title" style="margin-right: 10px;">Thêm lưu ý cho quán</div>
-                            <div class="text-muted small"> Không bắt buộc</div>
+                            <div class="text-muted small">Không bắt buộc</div>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control"
-                                placeholder="Việc thực hiện yêu cầu còn tùy thuộc vào khả năng của quán"
-                                id="floatingTextarea2" style="height: 100px"></textarea>
+                            <textarea class="form-control" name="note" placeholder="Việc thực hiện yêu cầu còn tùy thuộc vào khả năng của quán" id="floatingTextarea2" style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Yêu cầu</label>
                         </div>
                     </div>
@@ -82,62 +88,89 @@
                     <button type="button" id="btnMinus">
                         <i class="bi bi-dash"></i>
                     </button>
-                    <input type="number" value="1" id="txtCount" readonly>
+                    <input type="number" name="quantity_display" value="1" id="txtCount" readonly>
                     <button type="button" id="btnPlus">
                         <i class="bi bi-plus"></i>
                     </button>
                 </div>
             </div>
         </div>
+
         <!-- Footer -->
         <div class="footer">
-            {{!-- <p class="text-muted small">You'll save 3.025đ after the discount.</p> --}}
-            <button class="btn btn-success btn-lg" id="add-to-basket-btn">Add to Basket - 57.475</button>
-        </div>
+            <button class="btn btn-success btn-lg" type="submit" id="add-to-basket-btn">Add to Basket - <span id="final-price">{{this.menu_item.sale_price}}</span></button>
         </div>
     </form>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        // Hàm tính toán tổng giá sau khi chọn topping và số lượng
+        function calculateTotalPrice() {
+            let basePrice = parseFloat("{{this.menu_item.sale_price}}");
+            let totalPrice = basePrice;
+
+            // Cộng thêm giá trị topping nếu có
+            $('.topping-checkbox:checked').each(function () {
+                totalPrice += parseFloat($(this).data('price'));
+            });
+
+            // Lấy số lượng từ input
+            let quantity = parseInt($('#txtCount').val());
+
+            // Tính tổng giá theo số lượng
+            let finalPrice = totalPrice * quantity;
+
+            // Cập nhật giá hiển thị
+            $('#final-price').text(finalPrice.toFixed(2)); // Nút "Add to Basket"
+            $('#totalPrice').text(finalPrice.toFixed(2)); // Giá món ăn
+        }
+
+        // Hàm cập nhật topping đã chọn
+        function updateToppings() {
+            let selectedToppings = [];
+
+            $('.topping-checkbox:checked').each(function () {
+                selectedToppings.push({
+                    name: $(this).val(),
+                    price: $(this).data('price')
+                });
+            });
+
+            $('#hiddenToppings').val(JSON.stringify(selectedToppings));
+        }
+
+        // Cập nhật số lượng trong input ẩn
+        function updateHiddenQuantity() {
+            $('#hiddenQuantity').val($('#txtCount').val());
+        }
+
+        // Event listeners
         $(document).ready(function () {
+            calculateTotalPrice();
+
             $('#btnMinus').click(function () {
-                var count = parseInt($('#txtCount').val());
-                if (count > 1)
-                    $('#txtCount').val(--count);
-            })
+                let count = parseInt($('#txtCount').val());
+                if (count > 1) {
+                    count--;
+                    $('#txtCount').val(count);
+                    updateHiddenQuantity();
+                }
+                calculateTotalPrice();
+            });
 
             $('#btnPlus').click(function () {
-                var count = parseInt($('#txtCount').val());
-                $('#txtCount').val(++count);
-            })
-
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Close button functionality
-            /*
-            const closeButton = document.getElementById('close-btn');
-            closeButton.addEventListener('click', () => {
-                const card = document.getElementById('food-card');
-                card.style.display = 'none'; // Hides the card
-            });
-            */
-
-            // Share button functionality
-            const shareButton = document.getElementById('share-btn');
-            shareButton.addEventListener('click', () => {
-                navigator.clipboard.writeText(window.location.href) // Copy the current URL
-                    .then(() => alert('Link copied to clipboard!'))
-                    .catch(() => alert('Failed to copy the link.'));
+                let count = parseInt($('#txtCount').val());
+                count++;
+                $('#txtCount').val(count);
+                updateHiddenQuantity();
+                calculateTotalPrice();
             });
 
-            // Add-to-basket button functionality
-            const addToBasketButton = document.getElementById('add-to-basket-btn');
-            addToBasketButton.addEventListener('click', () => {
-                alert('Item added to the basket!');
+            $('.topping-checkbox').change(function () {
+                updateToppings();
+                calculateTotalPrice();
             });
         });
-
     </script>
 </body>
 
