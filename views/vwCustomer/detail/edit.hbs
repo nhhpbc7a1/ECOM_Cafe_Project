@@ -12,7 +12,7 @@
 
 <body>
     <form action="/customer/detail/edit" method="POST">
-        <input type="hidden" name="product_id" value="{{this.product.product_id}}">
+        <input type="hidden" name="product_id" value="{{this.product.menu_item_id}}">
         <input type="hidden" name="quantity" id="hiddenQuantity" value="1">
         <input type="hidden" name="topping" id="selectedToppings" value="">
         <input type="hidden" name="note" id="note" value="">
@@ -33,7 +33,7 @@
                 <div class="food-content">
                     <div class="price_name_block food-info">
                         <div class="price_name_block_name">
-                            <span>{{product.name}}</span>
+                            <span>{{product.name}} </span>
                         </div>
                         <div class="text-end price_name_block_price">
                             <span class="price-new">{{product.cost_price}} VNĐ</span>
@@ -51,15 +51,15 @@
                             <div class="title" style="margin-right: 10px;">Thêm toppings</div>
                             <div class="text-muted small">Không bắt buộc</div>
                         </div>
-                        {{#each product.topping}}
+                        {{#each toppings}}
                         <div class="form-check">
                             <input class="form-check-input topping-checkbox" type="checkbox" id="option{{@index}}" 
-                                data-name="{{this.name}}" data-price="{{this.price}}" 
+                                data-name="{{this.topping_name}}" data-price="{{this.cost_price}}" 
                                 {{#if this.selected}}checked{{/if}} >
                             <label class="form-check-label" for="option{{@index}}" style="width: 100%;">
                                 <div class="d-flex justify-content-between">
-                                    <div>{{this.name}}</div>
-                                    <div>+{{this.price}} VNĐ</div>
+                                    <div>{{this.topping_name}}</div>
+                                    <div>+{{this.cost_price}} VNĐ</div>
                                 </div>
                             </label>
                         </div>
@@ -87,7 +87,7 @@
                     <button type="button" id="btnMinus">
                         <i class="bi bi-dash"></i>
                     </button>
-                     <input type="number" name="quantity_display" value="1" id="txtCount" readonly>
+                    <input type="number" name="quantity_display" value="1" id="txtCount" readonly>
                     <button type="button" id="btnPlus">
                         <i class="bi bi-plus"></i>
                     </button>
@@ -139,7 +139,7 @@
                 selected.push(toppingInfo); // Thêm topping vào mảng
             });
             // Chuyển mảng thành chuỗi JSON và cập nhật vào trường ẩn
-            $('#selectedToppings').val(JSON.stringify(selected));
+            $('#selectedToppings').val(JSON.stringify(selected));  // Cập nhật vào form
         }
 
         // Cập nhật giá trị note khi gửi form

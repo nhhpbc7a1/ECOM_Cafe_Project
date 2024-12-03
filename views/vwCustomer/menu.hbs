@@ -99,16 +99,14 @@
     document.querySelectorAll('.category-btn').forEach(button => {
         button.addEventListener('click', function() {
             const categoryId = this.getAttribute('data-category-id');
-            // Cập nhật URL với category_id mà không làm reload trang
             window.history.pushState(null, '', `/menu?category_id=${categoryId}`);
             window.location.reload();
-            // Tải lại dữ liệu theo category mới
             fetch(`/menu?category_id=${categoryId}`)
     .then(response => {
         if (!response.ok) {
             throw new Error('Failed to load data');
         }
-        return response.json(); // Chắc chắn trả về dữ liệu dạng JSON
+        return response.json(); 
     })
     .then(data => {
         console.log('Received Data:', data); // Kiểm tra dữ liệu
