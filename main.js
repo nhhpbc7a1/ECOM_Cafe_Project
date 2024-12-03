@@ -1,6 +1,7 @@
 import express from 'express';
 import session from 'express-session';
 import numeral from 'numeral';
+import moment from 'moment';
 import { dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
@@ -51,6 +52,9 @@ app.engine('hbs', engine({
                 return array.some(item => item.topping_id.toString() === topping_id.toString());
             }
             return false;
+        },
+        formatDate(date, format) {
+            return moment(date).format(format);  // Định dạng ngày theo format
         }
     }
 }));
@@ -72,6 +76,7 @@ app.use(async function (req, res, next) {
     res.locals.auth = req.session.auth;
     res.locals.authAccount = req.session.authAccount;
     res.locals.branchInfo = req.session.branchInfo;
+    res.locals.table_id = req.session.table_id;
     next();
 });
 

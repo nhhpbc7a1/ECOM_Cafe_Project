@@ -46,7 +46,7 @@ router.post('/patch', async function (req, res) {
         service_package_payment_id: req.body.service_package_payment_id,
         branch_id: req.body.branch_id,
         service_package_id: req.body.service_package_id,
-        date_bought: req.body.date_bought,
+        date_bought: new Date(),
     }
     await service_package_paymentService.patch(entity.service_package_payment_id, entity);
     res.redirect('/admin/service_package_payment');
@@ -56,7 +56,7 @@ router.post('/add', async function (req, res) {
     const entity = {
         branch_id: req.body.branch_id,
         service_package_id: req.body.service_package_id,
-        date_bought: req.body.date_bought,
+        date_bought: new Date(),
     }
     await service_package_paymentService.add(entity);
     res.redirect('/admin/service_package_payment');

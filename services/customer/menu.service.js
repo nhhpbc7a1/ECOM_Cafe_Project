@@ -131,6 +131,17 @@ export default {
             console.error('Error fetching random products:', err);
             throw new Error('Unable to fetch random products');
         }
-    }
-    
+    },
+    async findBranchInfo_byQRCODE(qr_code) {
+        return db('branches')
+        .join('tables','tables.branch_id','branches.branch_id')
+        .where('qr_code', 'like', `%${qr_code}%`)
+        .first();
+    },
+    async findTable_byQRCODE(qr_code) {
+        return db('tables')
+        .where('qr_code', 'like', `%${qr_code}%`)
+        .first();
+    },
+
 }
