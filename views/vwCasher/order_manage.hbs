@@ -1,62 +1,148 @@
-<div class="card-body">
-    <nav class="mb-3 navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Bàn 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Bàn 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
-                        <i class="bi bi-plus-circle-dotted"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="scrollable-content">
-        {{#each orders}} <!-- Lặp qua mỗi đơn hàng -->
-        <div class="order-list mb-3">
-            <div class="header-order">
-                <h6>#Mã đơn: {{order_id}}</h6>
-                <h6 class="time-order">
-                    <i class="bi bi-clock-history"></i>&nbsp;&nbsp;{{order_date}}
-                </h6>
-                <div class="d-flex justify-content-end">
-                    <input class="btn-checkbox" type="checkbox" id="active-order" class="form-check-input">
-                </div>
-            </div>
-            <div>
-                {{#each orderItems}} <!-- Lặp qua các orderItems trong từng đơn hàng -->
-                <div class="order-item">
-                    <div class="d-flex flex-column">
-                        <h5>{{menu_item_name}}</h5>
-                        <div class="ml-10">Size
-                            L<br>{{menu_item_description}}<br>{{order_item_note}}</div>
-                    </div>
-                    <h5>{{order_item_quantity}}</h5> <!-- Sửa lại cách hiển thị quantity -->
-                    <div class="text-price">
-                        {{menu_item_sale_price}}
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-        {{/each}}
+{{#section 'css'}}
+<link rel="stylesheet" href="/casher/css/order_manage.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{/section}}
+
+{{#section 'js'}}
+<script>
+    // Hàm gửi yêu cầu POST chung
+    function sendOrderRequest(orderId, status, reason = '') {
+        return fetch('/casher/' + (status === 'confirmed' ? 'confirm_order' : 'cancel_order'), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                order_id: orderId,
+                status: status,
+                reason: reason,
+            }),
+        })
+            .then(response =>{
+                console.log('Response:', response); // Log toàn bộ phản hồi
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    const message = status === 'confirmed' ? 'Order confirmed!' : 'Order canceled';
+                    const icon = status === 'confirmed' ? 'success' : 'info';
+                    Swal.fire(message, `Your order has been ${status === 'confirmed' ? 'successfully confirmed' : 'canceled'}.`, icon)
+                        .then(() => {
+                            // Reload lại trang hiện tại
+                            window.location.href = window.location.href;
+                        });
+                } else {
+                    Swal.fire("Error", `There was an issue ${status === 'confirmed' ? 'confirming' : 'canceling'} your order.`, "error");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire("Error", "Something went wrong, please try again later.", "error");
+            });
+    }
+
+    // Lắng nghe sự kiện click trên nút Xác nhận đơn
+    document.querySelector('.btn-blue').addEventListener('click', function () {
+        Swal.fire({
+            title: "Do you want to confirm the order?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Confirm",
+            denyButtonText: `Don't Confirm`
+        }).then((result) => {
+            const orderId = {{ order.order_id }}; // Lấy order_id từ dữ liệu
+            if (isNaN(orderId)) {
+                throw new Error('Invalid order_id');
+            }
+
+            if (result.isConfirmed) {
+                // Gửi yêu cầu xác nhận đơn hàng
+                sendOrderRequest(orderId, 'confirmed');
+            } else if (result.isDenied) {
+                // Mở form để nhập lý do từ chối
+                Swal.fire({
+                    title: 'Please provide a reason for canceling the order',
+                    input: 'textarea',
+                    inputPlaceholder: 'Enter your reason here...',
+                    showCancelButton: true,
+                    confirmButtonText: 'Submit',
+                    cancelButtonText: 'Cancel',
+                    preConfirm: (reason) => {
+                        if (!reason) {
+                            Swal.showValidationMessage('You need to provide a reason!');
+                            return false;
+                        }
+                        // Gửi yêu cầu hủy đơn hàng với lý do
+                        return sendOrderRequest(orderId, 'canceled', reason);
+                    }
+                });
+            }
+        });
+    });
+</script>
+{{/section}}
+
+
+<nav class="mb-3 navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid block_nav_choose_table">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {{#each orders}}
+            <li class="nav-item me-3 btnChooseOrder {{#ifEquals order_id ../active_order}}order_is_active{{/ifEquals}}">
+                <a class="nav-link" aria-current="page"
+                    href="/casher/order_manage?order_id={{order_id}}">{{table_name}}</a>
+            </li>
+            {{/each}}
+        </ul>
     </div>
+</nav>
+<div class="scrollable-content">
+    <div class="order-list mb-3">
+        <div class="header-order">
+            <h6>#Mã đơn: {{order.order_id}}</h6>
+            <h6 class="time-order">
+                <i class="bi bi-clock-history"></i>&nbsp;&nbsp;{{order.order_date}}
+            </h6>
+            {{!-- <div class="d-flex justify-content-end">
+                <input class="btn-checkbox" type="checkbox" id="active-order" class="form-check-input">
+            </div> --}}
+        </div>
+        <div>
+            {{#each order_items}} <!-- Lặp qua các orderItems trong từng đơn hàng -->
+            <hr style="opacity: 0.1;">
+            <div class="order-item">
+                <div class="d-flex">
+                    <div class="order_item_quantity">{{quantity}}x</div>
+                    <div class="order_item_image">
+                        <img src="/images/{{image_href}}" class="img-thumbnail" alt="..."
+                            style="width: 60px; height: 60px; margin: 0 24px 0 12px">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <h5>{{name}}</h5>
+                        {{#each toppings}}
+                        <div class="order_item_topping_name">
+                            {{topping_name}}
+                        </div>
+                        {{/each}}
+                        <div class="order_item_note">{{note}}</div>
+                    </div>
+                </div>
+                <div class="text-price">
+                    {{format_price total_price}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
 </div>
+
+<hr>
 <div id="total-price">
-    <h6>Total: 500000</h6>
+    <h6>Total: {{format_price total_price}}</h6>
 </div>
 <div id="card-content-btn">
     <div class="d-flex justify-content-between">
-        <button type="button" class="btn-blue" active>Xác nhận đơn</button>
-        <button type="button" class="btn-green">Thông báo</button>
-    </div>
-    <div class="d-flex justify-content-between">
-        <button type="button" class="btn-green">Thanh toán và không xuất hóa đơn</button>
-        <button type="button" class="btn-blue">Thanh toán và xuất hóa đơn</button>
+        <button type="button" class="btn-blue">Xử lý đơn hàng</button>
     </div>
 </div>

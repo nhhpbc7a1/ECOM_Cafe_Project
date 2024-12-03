@@ -1,0 +1,44 @@
+.block_nav_choose_table {
+    background-color: #eee;
+}
+
+.btnChooseOrder {
+    font-size: 1rem;
+}
+
+.order_is_active a{
+    color: white;
+}
+
+.order_is_active:hover a {
+    color: white;
+}
+
+.order_is_active {
+    background-color: #004090;
+    border-radius: 5px;
+}
+
+.order-item {
+    font-size: 1rem;
+    align-items: start;
+}
+
+.order_item_topping_name {
+    font-size: 0.8rem;
+}
+
+.order_item_note {
+    color: #807e7e;
+    font-size: 0.8rem;
+}
+
+.order_item_quantity {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid rgba(204, 204, 204, 0.3);
+    margin-right: 12px;
+}
+

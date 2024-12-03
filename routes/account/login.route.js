@@ -21,16 +21,17 @@ router.post('/', async (req, res) => { // Đổi từ /login thành /
 
             req.session.auth = true;
             req.session.authAccount = account;
-            req.session.branchInfo = await managerLoginService.findBranchInfo(account.account_id);
+            req.session.branchInfo = await managerLoginService.findBranchInfo_forManager(account.account_id);
 
             if (account.role_id === 1) {
                 res.redirect('/admin/');
             } else if (account.role_id === 2) {
                 res.redirect('/manager/');
             } else if (account.role_id === 3) {
-                res.redirect('/casher/');
-                req.session.branch_id = 1;
+                req.session.branchInfo = await managerLoginService.findBranchInfo_forEmployee(account.account_id);
+                req.session.branch_id = req.session.branchInfo.branch_id;
                 req.session.table_id = 1;
+                res.redirect('/casher/');
             }
             else {
                 // Thêm các điều kiện khác nếu có các loại role khác

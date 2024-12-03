@@ -9,17 +9,19 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/casher/css/table-manage.css">
+    <link href="/node_modules/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+
     {{{_sections.css}}}
 </head>
 
 <body>
     {{!-- <div class="container mb-3 mt-3 d-flex justify-content-center" style="height: 100%;"> --}}
-        <div class="container mb-3 mt-3 d-flex justify-content-center" style="height: 100%;">
-            <div class="row col-9 manage_block">
+        <div class="container mb-2 mt-3 d-flex justify-content-center" style="height: 100%;">
+            <div class="row manage_block">
                 <div class="manage_block_item col-12 col-sm-12 table-list card-format">
-                    <div class="card" style="width: 100%;">
+                    <div class="card">
                         <div class="card-body my_flex_block">
-                            <nav class="mb-3 navbar navbar-expand-lg navbar-light bg-light">
+                            <nav class="mb-1 navbar navbar-expand-lg navbar-light bg-light">
                                 <div class="container-fluid">
                                     <a class="navbar-brand" href="#">DELICACY</a>
                                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -29,16 +31,25 @@
                                     </button>
                                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                            <li class="nav-item {{#ifEquals active 'table_manage'}}nav_is_active{{/ifEquals}}">
+                                            <li
+                                                class="nav-item {{#ifEquals active 'table_manage'}}nav_is_active{{/ifEquals}}">
                                                 <a class="nav-link " aria-current="page" href="/casher/table_manage">
                                                     <i class="bi bi-table"></i>
                                                     Phòng bàn
                                                 </a>
                                             </li>
-                                            <li class="nav-item {{#ifEquals active 'order_manage'}}nav_is_active{{/ifEquals}}">
+                                            <li
+                                                class="ms-3 nav-item {{#ifEquals active 'order_manage'}}nav_is_active{{/ifEquals}}">
                                                 <a class="nav-link " aria-current="page" href="/casher/order_manage">
                                                     <i class="bi bi-menu-button"></i>
-                                                    Thực đơn
+                                                    Đơn đang chờ
+                                                </a>
+                                            </li>
+                                            <li
+                                                class="ms-3 nav-item {{#ifEquals active 'order_list'}}nav_is_active{{/ifEquals}}">
+                                                <a class="nav-link " aria-current="page" href="/casher/order_list">
+                                                    <i class="bi bi-menu-button"></i>
+                                                    Đơn đã xác nhận
                                                 </a>
                                             </li>
                                         </ul>
@@ -66,7 +77,9 @@
                                     </div>
                                 </div>
                             </nav>
-                            {{{body}}}
+                            <div style="width: 900px; max-width: 900px;">
+                                {{{body}}}
+                            </div>
                         </div>
                     </div>
                 </div>

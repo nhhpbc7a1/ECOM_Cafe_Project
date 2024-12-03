@@ -10,12 +10,19 @@ export default {
         }
         return null; // Trả về null nếu thông tin không chính xác
     },
-    findBranchInfo(account_id) {
+    findBranchInfo_forManager(account_id) {
         return db('accounts')
         .join('branches', 'branches.manager_id', 'accounts.account_id')
         .join('menus', 'menus.branch_id', 'branches.branch_id')
         .where('account_id', account_id).first();
+    },
+    findBranchInfo_forEmployee(account_id) {
+        return db('employees')
+        .join('branches', 'branches.branch_id', 'employees.branch_id')
+        .join('accounts', 'accounts.account_id', 'employees.account_id')
+        .where('accounts.account_id', account_id).first();
     }
+
 
     // const authenticate = async (email, password) => {
     //     try {
