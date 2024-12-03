@@ -11,6 +11,7 @@ import customerRouter from './routes/customer.route.js'
 import managerRouter from './routes/manager.route.js'
 import adminRouter from './routes/admin.route.js'
 import { authManager } from './middlewares/auth.js';
+import { authCasher } from './middlewares/auth.js';
 import { authAdmin } from './middlewares/auth.js';
 
 
@@ -33,7 +34,7 @@ app.engine('hbs', engine({
     defaultLayout: false,
     helpers: {
         format_price(value) {
-            return numeral(value).format('0,0') + ' đ';
+            return numeral(value).format('0.000') + ' VNĐ';
         },
         json(context) {
             return JSON.stringify(context);
@@ -102,7 +103,7 @@ app.use('/account', accountRoutes);
 
 app.use('/manager', authManager, managerRouter);
 
-app.use('/casher', casherRouter);
+app.use('/casher', authCasher, casherRouter);
 
 app.use('/customer', customerRouter);
 

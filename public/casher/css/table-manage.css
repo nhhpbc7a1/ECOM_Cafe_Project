@@ -55,19 +55,36 @@ body{
     margin-right: 10px;
     bottom: 0;
 }
-.btn-blue, .btn-green{
+.btn-blue, .btn-green, .btn-red{
 
     margin: 5px;
     width: 100%;
     color: white;
     border: none;
-    height: 50px;
     border-radius: 10px;
+    padding: 10px 0;
 }
 
 .btn-blue{
-    background: #ACD1FF;
+    background: blue;
+    font-size: 1rem;
+    font-weight: 500;
 }
+
+.btn-blue:hover{
+    opacity: 0.7;
+}
+
+.btn-red{
+    background: rgba(255, 0, 0, 0.767);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.btn-red:hover{
+    opacity: 0.7;
+}
+
 
 .btn-green{
     background: #62C78F;
@@ -107,7 +124,7 @@ body{
 #total-price{
     display: flex;
     justify-content: end;
-    margin: 20px 20px;
+    margin: 0px 20px;
     
 }
 #total-price h6{

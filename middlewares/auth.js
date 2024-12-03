@@ -32,3 +32,16 @@ export function authManager(req, res, next) {
     }
     next();
 }
+
+export function authCasher(req, res, next) {
+    if (req.session.auth === false) {
+        req.session.retUrl = req.originalUrl;  // Save the requested URL for later use.
+        return res.redirect('/account/login');
+    }
+
+    if (req.session.authAccount.role_id != 3) {
+        // nên redirect 1 trang thông báo lỗi k đủ quyền
+        return res.render('gridview');
+    }
+    next();
+}

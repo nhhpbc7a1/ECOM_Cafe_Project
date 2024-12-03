@@ -2,7 +2,7 @@
 SET FOREIGN_KEY_CHECKS = 0; 
 -- Bảng roles
 INSERT INTO roles (role_name) 
-VALUES ('Admin'), ('Manager'), ('Employee'), ('Chef'), ('Waiter');
+VALUES ('Admin'), ('Manager'), ('Employee'), ('Customer');
 
 -- Bảng accounts
 INSERT INTO accounts (email, password, role_id) 
@@ -64,16 +64,16 @@ VALUES
         (1, 3, 'Table 28', 'QR_028', 0),
         (1, 3, 'Table 29', 'QR_029', 1),
         (1, 3, 'Table 30', 'QR_030', 0),
-        (2, 1, 'Table 1', 'QR_031', 1),
-        (2, 1, 'Table 2', 'QR_032', 0),
-        (2, 1, 'Table 3', 'QR_033', 1),
-        (2, 1, 'Table 4', 'QR_034', 1),
-        (2, 1, 'Table 5', 'QR_035', 0),
-        (2, 2, 'Table 6', 'QR_036', 1),
-        (2, 2, 'Table 7', 'QR_037', 0),
-        (2, 2, 'Table 8', 'QR_038', 1),
-        (2, 2, 'Table 9', 'QR_039', 1),
-        (2, 2, 'Table 10', 'QR_040', 0);
+        (2, 4, 'Table 1', 'QR_031', 1),
+        (2, 4, 'Table 2', 'QR_032', 0),
+        (2, 4, 'Table 3', 'QR_033', 1),
+        (2, 4, 'Table 4', 'QR_034', 1),
+        (2, 4, 'Table 5', 'QR_035', 0),
+        (2, 5, 'Table 6', 'QR_036', 1),
+        (2, 5, 'Table 7', 'QR_037', 0),
+        (2, 5, 'Table 8', 'QR_038', 1),
+        (2, 5, 'Table 9', 'QR_039', 1),
+        (2, 5, 'Table 10', 'QR_040', 0);
 
 -- Bảng menus
 INSERT INTO menus (branch_id, menu_color, background_image_href)
@@ -156,7 +156,7 @@ VALUES
 -- Bảng orders
 INSERT INTO orders (table_id, order_date, status, total_amount)
 VALUES (1, NOW(), 'Completed', 45.00),
-       (2, NOW(), 'Pending', 30.00),
+       (2, NOW(), 'Cancelled', 30.00),
        (3, NOW(), 'Pending', 60.00),
        (4, NOW(), 'Completed', 50.00),
        (5, NOW(), 'Cancelled', 0.00);
@@ -237,16 +237,16 @@ VALUES (1, 1, 1),
        (1, 4, 4),
        (2, 5, 5);
 
-INSERT INTO order_status_history (order_id, status, change_date)
+INSERT INTO order_status_history (order_id, status, change_date, reason)
 VALUES
-    (1, 'Pending', '2024-11-01 10:00:00'),
-    (1, 'Verified', '2024-11-01 11:00:00'),
-    (1, 'Completed', '2024-11-01 12:00:00'),
-    (2, 'Pending', '2024-11-02 09:00:00'),
-    (2, 'Cancelled', '2024-11-02 10:30:00'),
-    (3, 'Pending', '2024-11-03 14:00:00'),
-    (3, 'Pending', '2024-11-03 15:00:00'),
-    (3, 'Completed', '2024-11-03 16:00:00');
+    (1, 'Pending', '2024-11-01 10:00:00','nothing'),
+    (1, 'Verified', '2024-11-01 11:00:00','nothing'),
+    (1, 'Completed', '2024-11-01 12:00:00','nothing'),
+    (2, 'Pending', '2024-11-02 09:00:00','nothing'),
+    (2, 'Cancelled', '2024-11-02 10:30:00','Sản phẩm đã hết hàng. Mong quý khách chọn món khác.'),
+    (3, 'Pending', '2024-11-03 14:00:00','nothing'),
+    (4, 'Pending', '2024-11-03 15:00:00','nothing'),
+    (5, 'Pending', '2024-11-03 16:00:00',"nothing");
 
 INSERT INTO employee_activities (employee_id, activity_description, activity_time)
 VALUES
