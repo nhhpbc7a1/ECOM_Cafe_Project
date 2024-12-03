@@ -5,6 +5,17 @@ const router = express.Router();
 
 
 router.get('/', async function(req, res) {
+
+    const qr_code = req.query.qr_code;
+    if (qr_code == undefined && req.session.table_id == undefined) {
+        return res.status(404).send('Not found');
+    }
+
+    if (qr_code != undefined) {
+        req.session.branchInfo = await menuItemService.findBranchInfo_byQRCODE(qr_code);
+        const table = await menuItemService.findTable_byQRCODE(qr_code);
+        req.session.table_id = table.table_id;    
+    } 
     try {
         const { category_id } = req.query; // Lấy category_id từ query parameters
 
@@ -16,7 +27,7 @@ router.get('/', async function(req, res) {
         } else {
             groupedItems = await menuItemService.findall(); 
         }
-        console.log(groupedItems)
+        // console.log(groupedItems)
         const categories = await menuItemService.findAllCategories();
         const totalItems = await menuItemService.countTotalItems();
 
