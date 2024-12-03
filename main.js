@@ -97,6 +97,8 @@ import cartRoutes from './routes/customer/cart.route.js';
 app.use('/cart', cartRoutes);
 import detailRoutes from './routes/customer/detail.route.js'
 app.use('/detail',detailRoutes)
+import confirmPaymentRoutes from './routes/customer/confirm_payment.route.js'
+app.use('/confirm_payment',confirmPaymentRoutes)
 
 import accountRoutes from './routes/account.route.js';
 app.use('/account', accountRoutes);
