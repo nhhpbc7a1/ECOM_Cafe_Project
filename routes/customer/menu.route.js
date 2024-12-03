@@ -62,7 +62,7 @@ router.post('/add', async (req, res) => {
     const { product_id, name, cost_price, quantity, image_href, topping } = req.body;
 
     console.log("menu add: ", product_id);
-
+    const parsedProductId = parseInt(product_id);
     // Nếu không có giỏ hàng trong session, tạo giỏ hàng mới
     if (!req.session.cart) {
         req.session.cart = [];
@@ -90,7 +90,7 @@ router.post('/add', async (req, res) => {
     const totalPrice = productTotalPrice + totalToppingPrice;
 
     // Tìm sản phẩm trong giỏ hàng
-    const existingProduct = cart.find(item => item.product_id === parseInt(product_id));
+    const existingProduct = cart.find(item => parseInt(item.product_id) === parsedProductId); 
 
     if (existingProduct) {
         console.log('Found existing product:', existingProduct);
