@@ -10,12 +10,14 @@ router.use((req, res, next) => {
 });
 
 router.get('/', function(req, res) {
-    res.render('vwManager/dashboard', {
+    res.render('vwAdmin/dashboard', {
         // layout: false,
         active: "dashboard",
         user: req.user // Truyền thông tin user từ token vào view nếu cần
     });
 });
+import dashBoardRoutes from './admin/dashboard.route.js'
+router.use('/dashboard',dashBoardRoutes);
 
 import managerRouter from './admin/manager.route.js';
 router.use('/manager', managerRouter);

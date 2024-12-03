@@ -4,32 +4,29 @@ import productService from '../../services/customer/menu.service.js'; // Service
 import detailService from '../../services/customer/detail.service.js';
 const router = express.Router();
 
-// Render Cart Page
 router.get('/', async (req, res) => {
     console.log('Rendering Cart Page');
     const cart = req.session.cart || []; 
 
-    // Lặp qua giỏ hàng để lấy topping cho mỗi sản phẩm
     for (const item of cart) {
     
         const toppingList = await detailService.findToppingByMenuItemID(item.product_id);
 
-        // Gắn trạng thái "selected" cho topping dựa trên dữ liệu trong giỏ hàng
+
         toppingList.forEach(topping => {
             topping.selected = item.toppings?.some(t => t.id === topping.id) || false;
         });
 
-        // Gắn topping vào sản phẩm trong giỏ hàng
+
         item.toppingList = toppingList;
     }
 
-    // Tính tổng giá trị sản phẩm trong giỏ hàng (totalSubtotal)
+
     const totalSubtotal = cart.reduce((total, item) => total + (item.quantity * item.cost_price), 0);
 
-    // Tính phí (ví dụ phí 10%)
+
     const fees = totalSubtotal * 0.1; 
 
-    // Tổng giá (subtotal + phí)
     const totalPrice = totalSubtotal + fees;
 
     // Truyền dữ liệu vào template
