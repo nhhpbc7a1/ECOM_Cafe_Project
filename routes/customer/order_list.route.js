@@ -13,11 +13,16 @@ router.get('/', async function (req, res) {
         total_price += orders[i].total_price;
     }
 
+    let tax = total_price / 10;
+    let total_after_tax = total_price + tax;
+
     res.render('vwCustomer/order_list', {
         active: 'order_list',
         layout: false,
         orders: orders,
         total_price: total_price,
+        tax: tax,
+        total_after_tax: total_after_tax,
     });
 
 });
