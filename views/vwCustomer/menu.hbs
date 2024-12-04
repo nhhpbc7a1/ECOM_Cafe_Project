@@ -84,7 +84,7 @@
             {{#each categories}}
             <div class="text-center mx-2">
                 <button class="btn btn-circle p-0 category-btn" data-category-id="{{this.category_id}}">
-                    <img src="{{this.image_href}}" class="rounded-circle" alt="{{this.category_name}}" width="60" height="60">
+                    <img src="/images/{{this.image_href}}" class="rounded-circle" alt="{{this.category_name}}" width="60" height="60">
                 </button>
                 <p class="mt-2 font-weight-bold">
                     <a href="/menu?category_id={{this.category_id}}">{{this.category_name}}</a>

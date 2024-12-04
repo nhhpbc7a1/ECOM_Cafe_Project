@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="/manager/css/branch_info.css">
 {{/section}}
 
-
 {{#section 'js'}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
@@ -16,12 +15,32 @@
         reader.readAsDataURL(event.target.files[0]);
     }
 
+    function purchaseServicePackage(servicePackageId) {
+        console.log('Service Package ID:', servicePackageId);
+        $.ajax({
+            url: '/manager/branch_info/purchase',
+            method: 'POST',
+            contentType: 'application/json', // Đảm bảo gửi dưới dạng JSON
+            data: JSON.stringify({ service_package_id: servicePackageId }),
+            success: function(response) {
+                if (response.success) {
+                    alert(response.message);
+                    window.location.reload();
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function() {
+                alert('Có lỗi xảy ra trong quá trình mua gói cước.');
+            }
+        });
+    }
 </script>
 {{/section}}
 
-<div class="container-fluid my_block " style="padding: 40px;">
+<div class="container-fluid my_block" style="padding: 40px;">
     <div class="row">
-        <h4 class="">Thông tin cửa hàng</h4>
+        <h4>Thông tin cửa hàng</h4>
     </div>
     <div class="row">
         Những thông tin ở đây sẽ cập nhật thông tin trên menu.
@@ -31,6 +50,7 @@
         <div class="row" style="padding: 40px;">
             <div class="container">
                 <div class="row">
+                    <!-- Branch Information Section -->
                     <div class="col-9">
                         <div class="card">
                             <div class="card-body">
@@ -58,14 +78,42 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Logo Upload Section -->
                     <div class="col-3">
                         <img src="/images/{{this.branch_info.logo_href}}"
-                            class="img-thumbnail "
+                            class="img-thumbnail"
                             alt="" style="width: 200px; height: 200px;" id="preview_image">
                         <div class="form-group">
                             <label for=""></label>
                             <input type="file" class="form-control-file" name="image" onchange="previewImage(event)">
                         </div>
+                    </div>
+                </div>
+
+                <!-- Service Package Section -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h5>Thông tin gói cước</h5>
+                        {{#if this.service_package}}
+                        <div class="card">
+                            <div class="card-body">
+                                <p><strong>Gói cước hiện tại:</strong> {{this.service_package.service_package_id}}</p>
+                                <p><strong>Ngày mua:</strong> {{this.service_package.date_bought}}</p>
+                                <p><strong>Số ngày còn lại:</strong> {{this.service_package.remaining_days}} ngày</p>
+                                <p><strong>Phí:</strong> {{this.service_package.fee_amount}} VND</p>
+                                <p><strong>Số ngày sử dụng:</strong> {{this.service_package.day_amount}} ngày</p>
+                            </div>
+                            <div class="card-footer">
+                                <form action="/manager/branch_info/purchase" id="purchaseServiceForm_{{this.service_package.service_package_id}}" method="post" style="display: none;">
+                                    <input type="hidden" name="service_package_id" value="{{this.service_package.service_package_id}}">
+                                </form>
+                                <button type="button" class="btn btn-success" onclick="purchaseServicePackage({{this.service_package.service_package_id}})">Gia hạn</button>
+                            </div>
+                        </div>
+                        {{else}}
+                        <p>Hiện tại chưa có gói cước nào.</p>
+                        {{/if}}
                     </div>
                 </div>
             </div>
