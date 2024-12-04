@@ -37,13 +37,13 @@ router.post('/cart', async function (req, res) {
         }
         const newOrder_item_id = await createOrderService.add_order_item(order_item);
 
-        for (let topping of item.toppings) {
-            const order_item_topping = {
-                order_item_id: newOrder_item_id,
-                topping_id: topping.topping_id,
-            }
-            await createOrderService.add_order_item_topping(order_item_topping);
-        }
+        // for (let topping of item.toppings) {
+        //     const order_item_topping = {
+        //         order_item_id: newOrder_item_id,
+        //         topping_id: topping.topping_id,
+        //     }
+        //     await createOrderService.add_order_item_topping(order_item_topping);
+        // }
     }
     console.log("heellasdasdasdasdasd")
     console.log(cart);

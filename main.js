@@ -24,7 +24,7 @@ const app = express();
 app.use(express.urlencoded({
     extended: true
 }));
-
+app.use(express.json());
 app.use(cookieParser());
 
 // import managerRouter from './routes/manager.route.js';  // Import 1 lần duy nhất
