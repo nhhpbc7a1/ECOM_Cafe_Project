@@ -31,12 +31,14 @@ router.get('/', async function(req, res) {
         const categories = await menuItemService.findAllCategories();
         const totalItems = await menuItemService.countTotalItems();
 
+        console.log(groupedItems);
+
         // Render trang menu với groupedItems, categories, và totalItems
         res.render('vwCustomer/menu', {
             layout: false,
-            groupedItems,
-            categories,
-            totalItems
+            groupedItems: groupedItems,
+            categories: categories,
+            totalItems: totalItems
         });
     } catch (err) {
         console.error(err);
@@ -69,8 +71,9 @@ router.get('/search', async function(req, res) {
         res.status(500).send('Internal Server Error');
     }
 });
+
 router.post('/add', async (req, res) => {
-    const { product_id, name, cost_price, quantity, image_href, topping } = req.body;
+    const { product_id, name, sale_price, quantity, image_href, topping } = req.body;
 
     console.log("menu add: ", product_id);
     const parsedProductId = parseInt(product_id);
@@ -97,7 +100,7 @@ router.post('/add', async (req, res) => {
     const totalToppingPrice = parsedTopping.reduce((acc, top) => acc + parseFloat(top.price), 0);
 
     // Tính tổng giá trị sản phẩm + topping
-    const productTotalPrice = parseFloat(cost_price) * parseInt(quantity);
+    const productTotalPrice = parseFloat(sale_price) * parseInt(quantity);
     const totalPrice = productTotalPrice + totalToppingPrice;
 
     // Tìm sản phẩm trong giỏ hàng
@@ -106,7 +109,7 @@ router.post('/add', async (req, res) => {
     if (existingProduct) {
         console.log('Found existing product:', existingProduct);
         existingProduct.quantity += parseInt(quantity); // Tăng số lượng sản phẩm
-        existingProduct.total_price = (existingProduct.quantity * parseFloat(cost_price)) + totalToppingPrice; // Cập nhật tổng giá trị
+        existingProduct.total_price = (existingProduct.quantity * parseFloat(sale_price)) + totalToppingPrice; // Cập nhật tổng giá trị
         existingProduct.toppings = parsedTopping; // Cập nhật topping
         console.log('Updated product quantity:', existingProduct.quantity); 
         console.log('Updated product total price:', existingProduct.total_price); 
@@ -116,7 +119,7 @@ router.post('/add', async (req, res) => {
             product_id,
             name,
             quantity: parseInt(quantity),
-            cost_price: parseFloat(cost_price),
+            sale_price: parseFloat(sale_price),
             total_price: totalPrice, // Tổng giá trị bao gồm topping
             image_href,
             toppings: parsedTopping // Thêm topping vào sản phẩm mới
@@ -136,7 +139,7 @@ router.post('/add', async (req, res) => {
     req.session.cartTotal = cartTotal; // Lưu tổng tiền vào session
 
     // Redirect lại đến trang giỏ hàng hoặc trang cần thiết
-    res.redirect('/cart');
+    res.json({ success: true, message: 'Product added to cart successfully', totalItems: cart.length, cartTotal: cartTotal });
     
 });
 

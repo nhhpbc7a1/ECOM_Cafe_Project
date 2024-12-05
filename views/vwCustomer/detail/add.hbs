@@ -15,7 +15,7 @@
         <input type="hidden" name="product_id" value="{{this.menu_item.menu_item_id}}">
         <input type="hidden" name="name" id="hiddenMenuItemName" value="{{this.menu_item.name}}">
         <input type="hidden" name="quantity" id="hiddenQuantity" value="1">
-        <input type="hidden" name="cost_price" id="hiddenMenuItemPrice" value="{{this.menu_item.sale_price}}">
+        <input type="hidden" name="sale_price" id="hiddenMenuItemPrice" value="{{this.menu_item.sale_price}}">
         <input type="hidden" name="topping" id="hiddenToppings" value="">
         <input type="hidden" name="note" id="hiddenNote" value="">
         <input type="hidden" name="image_href" id="hiddenImageHref" value="{{this.menu_item.image_href}}">
@@ -39,8 +39,8 @@
                             <span>{{this.menu_item.name}}</span>
                         </div>
                         <div class="text-end price_name_block_price">
-                            <span class="price-old">{{this.menu_item.cost_price}}</span>
-                            <span class="price-new" id="totalPrice">{{this.menu_item.sale_price}}</span>
+                            {{!-- <span class="price-old">{{format_price this.menu_item.sale_price}}</span> --}}
+                            <span class="price-new" id="totalPrice">{{format_price this.menu_item.sale_price}}</span>
                         </div>
                     </div>
                     <span id="txtDescription">{{this.menu_item.description}}</span>
@@ -57,7 +57,8 @@
                         </div>
                         {{#each this.toppings}}
                         <div class="form-check">
-                            <input class="form-check-input topping-checkbox" type="checkbox" data-price="{{this.sale_price}}" value="{{this.topping_name}}" id="topping-{{@index}}">
+                            <input class="form-check-input topping-checkbox" type="checkbox"
+                                data-price="{{this.sale_price}}" value="{{this.topping_name}}" id="topping-{{@index}}">
                             <label class="form-check-label" for="topping-{{@index}}" style="width: 100%;">
                                 <div class="d-flex justify-content-between">
                                     <div>{{this.topping_name}}</div>
@@ -79,7 +80,9 @@
                             <div class="text-muted small">Không bắt buộc</div>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" name="note" placeholder="Việc thực hiện yêu cầu còn tùy thuộc vào khả năng của quán" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <textarea class="form-control" name="note"
+                                placeholder="Việc thực hiện yêu cầu còn tùy thuộc vào khả năng của quán"
+                                id="floatingTextarea2" style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Yêu cầu</label>
                         </div>
                     </div>
@@ -98,12 +101,18 @@
 
         <!-- Footer -->
         <div class="footer">
-            <button class="btn btn-success btn-lg" type="submit" id="add-to-basket-btn">Add to Basket - <span id="final-price">{{this.menu_item.sale_price}}</span></button>
+            <button class="btn btn-success btn-lg" type="submit" id="add-to-basket-btn">Add to Basket - <span
+                    id="final-price">{{this.menu_item.sale_price}}</span></button>
         </div>
     </form>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        function formatPrice(price) {
+            return numeral(price).format('0.000') + ' VNĐ';
+        }
+
         // Hàm tính toán tổng giá sau khi chọn topping và số lượng
         function calculateTotalPrice() {
             let basePrice = parseFloat("{{this.menu_item.sale_price}}");
@@ -121,8 +130,8 @@
             let finalPrice = totalPrice * quantity;
 
             // Cập nhật giá hiển thị
-            $('#final-price').text(finalPrice.toFixed(2)); // Nút "Add to Basket"
-            $('#totalPrice').text(finalPrice.toFixed(2)); // Giá món ăn
+            $('#final-price').text(formatPrice(finalPrice)); // Nút "Add to Basket"
+           // $('#totalPrice').text(formatPrice(finalPrice)); // Giá món ăn
         }
 
         // Hàm cập nhật topping đã chọn

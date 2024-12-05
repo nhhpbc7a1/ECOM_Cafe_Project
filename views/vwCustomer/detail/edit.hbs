@@ -16,7 +16,7 @@
         <input type="hidden" name="quantity" id="hiddenQuantity" value="1">
         <input type="hidden" name="topping" id="selectedToppings" value="">
         <input type="hidden" name="note" id="note" value="">
-        <input type="hidden" name="cost_price" id="cost_price" value="{{this.product.cost_price}}">
+        <input type="hidden" name="sale_price" id="sale_price" value="{{this.product.sale_price}}">
         <div class="container" style="min-height: 100vh; padding-bottom: 50px;">
             <!-- Card -->
             <div class="card">
@@ -24,7 +24,7 @@
                 <div class="food-header">
                     <div class="image" style="background-image: url('/images/{{product.image_href}}');">
                         <div class="header-buttons">
-                            <a class="btn-circle" id="close-btn" href="/customer/menu">X</a>
+                            <a class="btn-circle" id="close-btn" href="/cart">X</a>
                             <button class="btn-circle" id="share-btn">🔗</button>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                             <span>{{product.name}} </span>
                         </div>
                         <div class="text-end price_name_block_price">
-                            <span class="price-new">{{product.cost_price}} VNĐ</span>
+                            <span class="price-new">{{format_price product.sale_price}}</span>
                         </div>
                     </div>
                     <span id="txtDescription">{{product.description}}</span>
@@ -53,13 +53,13 @@
                         </div>
                         {{#each toppings}}
                         <div class="form-check">
-                            <input class="form-check-input topping-checkbox" type="checkbox" id="option{{@index}}" 
-                                data-name="{{this.topping_name}}" data-price="{{this.cost_price}}" 
-                                {{#if this.selected}}checked{{/if}} >
+                            <input class="form-check-input topping-checkbox" type="checkbox" id="option{{@index}}"
+                                data-name="{{this.topping_name}}" data-price="{{this.sale_price}}"
+                                data-id="{{this.topping_id}}" {{#if this.selected}}checked{{/if}}>
                             <label class="form-check-label" for="option{{@index}}" style="width: 100%;">
                                 <div class="d-flex justify-content-between">
                                     <div>{{this.topping_name}}</div>
-                                    <div>+{{this.cost_price}} VNĐ</div>
+                                    <div>+{{format_price this.sale_price}}</div>
                                 </div>
                             </label>
                         </div>
@@ -77,8 +77,9 @@
                             <div class="text-muted small">Không bắt buộc</div>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Việc thực hiện yêu cầu còn tùy thuộc vào khả năng của quán"
-                                id="floatingTextarea2" style="height: 100px">{{product.note}}</textarea>
+                            <textarea class="form-control"
+                                placeholder="Việc thực hiện yêu cầu còn tùy thuộc vào khả năng của quán"
+                                id="floatingTextarea2" style="height: 100px">{{old_note}}</textarea>
                             <label for="floatingTextarea2">Yêu cầu</label>
                         </div>
                     </div>
@@ -87,7 +88,7 @@
                     <button type="button" id="btnMinus">
                         <i class="bi bi-dash"></i>
                     </button>
-                    <input type="number" name="quantity_display" value="1" id="txtCount" readonly>
+                    <input type="number" name="quantity_display" value="{{quantity}}" id="txtCount" readonly>
                     <button type="button" id="btnPlus">
                         <i class="bi bi-plus"></i>
                     </button>
@@ -97,15 +98,26 @@
 
         <!-- Footer -->
         <div class="footer">
-            <button class="btn btn-success btn-lg" type="submit" id="add-to-basket-btn">Save change - {{product.cost_price}}</button>
+            <button class="btn btn-success btn-lg" type="submit" id="add-to-basket-btn">Save change - {{format_price product.sale_price}}</button>
         </div>
     </form>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        updateSelectedToppings();
+        calculateTotalPrice();
+        updateHiddenQuantity();
+        updateSelectedToppings();
+        updateNote();
+
+        function formatPrice(price) {
+            return numeral(price).format('0.000') + ' VNĐ';
+        }
+
         // Hàm tính toán tổng giá
         function calculateTotalPrice() {
-            let basePrice = parseFloat('{{product.cost_price}}'); // Giá cơ bản
+            let basePrice = parseFloat('{{product.sale_price}}'); // Giá cơ bản
             let totalPrice = basePrice;
 
             // Cộng giá topping
@@ -120,7 +132,7 @@
             let finalPrice = totalPrice * quantity;
 
             // Cập nhật hiển thị
-            $('#add-to-basket-btn').text(`Save change - ${finalPrice.toFixed(0)} VNĐ`);
+            $('#add-to-basket-btn').text(`Save change - ${formatPrice(finalPrice)}`);
         }
 
         function updateHiddenQuantity() {
@@ -133,6 +145,7 @@
             $('.topping-checkbox:checked').each(function () {
                 // Lấy thông tin topping từ data-attributes của checkbox
                 let toppingInfo = {
+                    topping_id: $(this).data('topping_id'),
                     name: $(this).data('name'), // Tên topping
                     price: $(this).data('price') // Giá topping
                 };

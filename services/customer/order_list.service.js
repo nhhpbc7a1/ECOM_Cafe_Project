@@ -143,6 +143,11 @@ export default {
     },
     async findAllOrderStatusHistory(order_id) {
         return db('order_status_history').where('order_id', order_id);
+    },
+    add_completed_orderStatusHistory(entity) {
+        return db('order_status_history').insert(entity);
+    },
+    update_status_by_order_id(order_id, entity) {
+        return db('orders').where('order_id', order_id).update(entity);
     }
-
 };
