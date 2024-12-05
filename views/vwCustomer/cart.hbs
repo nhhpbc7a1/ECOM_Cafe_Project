@@ -215,7 +215,10 @@
                         }
                         return response.json();
                     }).then(data => {
-                        Swal.fire('Thành công!', 'Thanh toán thành công', 'success');
+                        Swal.fire('Thành công!', 'Thanh toán thành công', 'success').then(() => {
+                            // Reload lại trang sau khi alert được đóng
+                            location.reload();
+                        });
                     }).catch(error => {
                         Swal.fire('Lỗi!', 'Đã có lỗi xảy ra', 'error');
                     });

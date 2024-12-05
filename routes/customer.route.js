@@ -52,6 +52,8 @@ router.post('/cart', async function (req, res) {
             change_date: new Date(),
         })
 
+        req.session.cart = [];  // Xóa gi�� hàng sau khi đã đặt hàng
+        req.session.cartTotal = 0;  // Xóa t��ng tiền gi�� hàng sau khi đặt hàng
         // Trả về JSON response cho AJAX
         res.status(200).json({
             message: 'Order placed successfully',
