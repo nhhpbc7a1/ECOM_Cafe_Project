@@ -12,22 +12,24 @@ router.get('/', async (req, res) => {
     
         const toppingList = await detailService.findToppingByMenuItemID(item.product_id);
 
-
+        let topping_price = 0;
         toppingList.forEach(topping => {
-            topping.selected = item.toppings?.some(t => t.id === topping.id) || false;
+            topping.selected = item.toppings?.some(t => t.topping_id === topping.topping_id) || false;
+            // if (topping.selected) 
+                topping_price += topping.sale_price;
         });
-
+        item.total_topping_price = parseFloat(item.quantity) * topping_price;
 
         item.toppingList = toppingList;
     }
 
 
-    const totalSubtotal = cart.reduce((total, item) => total + (item.quantity * item.cost_price), 0);
+    const totalSubtotal = parseFloat(cart.reduce((total, item) => total + (item.quantity * parseFloat(item.sale_price)) + parseFloat(item.total_topping_price), 0)) ;
 
 
     const fees = totalSubtotal * 0.1; 
 
-    const totalPrice = totalSubtotal + fees;
+    const totalPrice = parseFloat(totalSubtotal + fees);
 
     // Truyền dữ liệu vào template
     res.render('vwCustomer/cart', { cart, totalSubtotal, fees, totalPrice });
@@ -47,12 +49,12 @@ router.get('/random-products', async (req, res) => {
 
 // Add product to cart
 router.post('/add', async (req, res) => {
-    const { product_id, name, cost_price, quantity } = req.body;
+    const { product_id, name, sale_price, quantity } = req.body;
 
     // Kiểm tra và hiển thị các giá trị nhận được
     // console.log('Received product_id:', product_id); // Kiểm tra product_id
     // console.log('Received quantity:', quantity);     // Kiểm tra quantity
-    // console.log('Received cost_price:', cost_price);  // Kiểm tra cost_price
+    // console.log('Received sale_price:', sale_price);  // Kiểm tra sale_price
     // console.log('Received name:', name);              // Kiểm tra name
 
     // Kiểm tra và tạo giỏ hàng nếu chưa có
@@ -64,8 +66,8 @@ router.post('/add', async (req, res) => {
     // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
     const existingProduct = cart.find(item => item.product_id === product_id);
 
-    // Kiểm tra giá trị cost_price hợp lệ
-    let validCostPrice = parseFloat(cost_price);
+    // Kiểm tra giá trị sale_price hợp lệ
+    let validCostPrice = parseFloat(sale_price);
     if (isNaN(validCostPrice) || validCostPrice <= 0) {
         validCostPrice = 0;  
     }
@@ -82,7 +84,7 @@ router.post('/add', async (req, res) => {
             product_id,
             name,
             quantity: parseInt(quantity), 
-            cost_price: validCostPrice, 
+            sale_price: validCostPrice, 
             total_price: validCostPrice * parseInt(quantity) 
         };
         cart.push(newProduct); // Thêm sản phẩm mới vào giỏ
@@ -164,7 +166,7 @@ router.post('/update', async (req, res) => {
     product.quantity += parseInt(change); 
     if (product.quantity < 0) product.quantity = 0; 
 
-    product.total_price = product.quantity * product.cost_price;
+    product.total_price = product.quantity * product.sale_price;
 
     // Kiểm tra và xóa sản phẩm nếu số lượng bằng 0
     if (product.quantity === 0) {
@@ -196,9 +198,9 @@ router.get('/totalSubtotal', (req, res) => {
     }
 
     const cart = req.session.cart;
-    const totalSubtotal = cart.reduce((total, item) => {
-        return total + (item.quantity * item.cost_price); 
-    }, 0); 
+    const totalSubtotal = parseFloat(cart.reduce((total, item) => {
+        return total + (item.quantity * item.sale_price); 
+    }, 0)); 
 
     res.json({
         success: true,

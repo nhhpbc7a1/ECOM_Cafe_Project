@@ -6,50 +6,64 @@ import menuRouter from './customer/menu.route.js';
 import createOrderService from '../services/createOrder.service.js'
 router.use('/menu', menuRouter);
 
-router.get('/cart', async function (req, res) {
-
-    res.render('vwCustomer/cart.hbs', {
-        layout: false,
-    });
-});
 router.post('/cart', async function (req, res) {
-    
     if (req.session.cart == undefined) {
-        res.status(404);
+        return res.status(404).json({
+            message: 'No items in cart',
+        });
     }
+
     const cart = req.session.cart;
 
     let order = {
         table_id: req.session.table_id,
         order_date: new Date(),
         status: 'Pending',
-        total_amount: 50,
-    }
+        total_amount: cart.totalPrice,
+    };
 
-    const newOrder_id = await createOrderService.add_order(order);
+    try {
+        const newOrder_id = await createOrderService.add_order(order);
 
-    for(let item of cart) {
-        const order_item = {
-            order_id: newOrder_id,
-            menu_item_id: item.product_id,
-            quantity: item.quantity,
-            note: "",
+        for (let item of cart) {  // Giả sử cart chứa một mảng items
+            const order_item = {
+                order_id: newOrder_id,
+                menu_item_id: item.product_id,
+                quantity: item.quantity,
+                note: item.note,
+            };
+            const newOrder_item_id = await createOrderService.add_order_item(order_item);
+
+            if (item.toppingList != undefined) {
+                for (let topping of item.toppingList) {
+                    const order_item_topping = {
+                        order_item_id: newOrder_item_id,
+                        topping_id: topping.topping_id,
+                    };
+                    await createOrderService.add_order_item_topping(order_item_topping);
+                }
+            }
         }
-        const newOrder_item_id = await createOrderService.add_order_item(order_item);
 
-        // for (let topping of item.toppings) {
-        //     const order_item_topping = {
-        //         order_item_id: newOrder_item_id,
-        //         topping_id: topping.topping_id,
-        //     }
-        //     await createOrderService.add_order_item_topping(order_item_topping);
-        // }
+        await createOrderService.add_order_status_history({
+            order_id: newOrder_id,
+            status: 'Pending',
+            reason: '',
+            change_date: new Date(),
+        })
+
+        // Trả về JSON response cho AJAX
+        res.status(200).json({
+            message: 'Order placed successfully',
+            orderId: newOrder_id,
+        });
+
+    } catch (err) {
+        console.error('Error placing order:', err);
+        res.status(500).json({
+            message: 'An error occurred while processing the order.',
+        });
     }
-    console.log("heellasdasdasdasdasd")
-    console.log(cart);
-    res.render('vwCustomer/cart.hbs', {
-        layout: false,
-    });
 });
 
 

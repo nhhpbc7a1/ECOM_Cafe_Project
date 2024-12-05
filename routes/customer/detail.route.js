@@ -11,15 +11,15 @@ const router = express.Router();
 // }
 
 router.get('/add', async function (req, res) {
-    const productId = +req.query.id || 0; 
-    console.log("deatail id: ",productId);
+    const productId = +req.query.id || 0;
+    console.log("deatail id: ", productId);
     if (!productId) {
         return res.status(400).send('ID sản phẩm không hợp lệ');
     }
 
     try {
         const menu_item = await detailService.findByID(productId);
-        
+
         if (!menu_item) {
             return res.status(404).send('Sản phẩm không tồn tại');
         }
@@ -34,17 +34,17 @@ router.get('/add', async function (req, res) {
     }
 });
 router.post('/add', (req, res) => {
-    const { product_id, name, cost_price, quantity, topping, note , image_href } = req.body;
+    const { product_id, name, sale_price, quantity, topping, note, image_href } = req.body;
     console.log("product detail: ", req.body);
 
-    const parsedProductId = parseInt(product_id); 
-    const parsedQuantity = parseInt(quantity); 
-    const parsedCostPrice = parseFloat(cost_price); // Chuyển cost_price thành số
+    const parsedProductId = parseInt(product_id);
+    const parsedQuantity = parseInt(quantity);
+    const parsedCostPrice = parseFloat(sale_price); // Chuyển sale_price thành số
 
     let parsedTopping = [];
     if (topping) {
         try {
-            parsedTopping = JSON.parse(topping); 
+            parsedTopping = JSON.parse(topping);
         } catch (error) {
             console.log("Error parsing topping:", error);
         }
@@ -59,7 +59,7 @@ router.post('/add', (req, res) => {
 
     if (existingProduct) {
         existingProduct.quantity += parsedQuantity;
-        existingProduct.total_price = existingProduct.quantity * existingProduct.cost_price;
+        existingProduct.total_price = existingProduct.quantity * existingProduct.sale_price;
         // Cập nhật topping mới nếu có
         existingProduct.topping = parsedTopping;
         existingProduct.image_href = image_href;
@@ -68,10 +68,10 @@ router.post('/add', (req, res) => {
             product_id: parsedProductId,
             name,
             quantity: parsedQuantity,
-            cost_price: parsedCostPrice,
+            sale_price: parsedCostPrice,
             total_price: parsedCostPrice * parsedQuantity,
             topping: parsedTopping, // Lưu topping dưới dạng mảng
-            note,
+            note: note,
             image_href
         };
         cart.push(newProduct);
@@ -82,26 +82,50 @@ router.post('/add', (req, res) => {
     cart.forEach(item => {
         cartTotal += item.total_price;
     });
-    
+
     req.session.cartTotal = cartTotal;
     res.redirect('/cart');
 });
 router.get('/edit', async (req, res) => {
     const { id } = req.query;  // Lấy id từ query string
-    console.log(id);
+    // console.log(id);
 
     try {
-        const product = await detailService.findByID(id);  
-        console.log("editproduct",product)
+        const product = await detailService.findByID(id);
+        // console.log("editproduct", product)
         if (!product) {
-            return res.redirect('/cart');  
+            return res.redirect('/cart');
         }
-        
-
         const toppings = await detailService.findToppingByMenuItemID(id);
-        res.render('vwCustomer/detail/edit', { 
-            product, 
-            toppings // Danh sách topping có sẵn cho sản phẩm
+
+        const cart = req.session.cart || [];
+        let item;
+        for (let x of cart) {
+            if (x.product_id == id) {
+                item = x;
+                break;
+            }
+        }
+
+        // console.log("here--------------------------------------------------------");
+
+        let old_toppingList = [];
+        if (item.toppingList != undefined) {
+            old_toppingList = item.toppingList;
+            // console.log(old_toppingList);
+        }
+
+        for (let topping of toppings) {
+            topping.selected = old_toppingList?.some(t => t.topping_id === topping.topping_id) || false; // Kiểm tra topping đã được chọn hay chưa
+        }
+        console.log("asdasdasd");
+        console.log(toppings);
+
+        res.render('vwCustomer/detail/edit', {
+            old_note: item.note,
+            product: product,
+            toppings: toppings, // Danh sách topping có sẵn cho sản phẩm
+            quantity: item.quantity //
         });
 
     } catch (err) {
@@ -112,7 +136,7 @@ router.get('/edit', async (req, res) => {
 router.post('/edit', (req, res) => {
     const { product_id, quantity, note, topping } = req.body;
     console.log("product detail: ", req.body);
-    
+
     const parsedProductId = parseInt(product_id);
     const parsedQuantity = parseInt(quantity);
     if (isNaN(parsedQuantity) || parsedQuantity <= 0) {
@@ -124,7 +148,7 @@ router.post('/edit', (req, res) => {
     if (topping) {
         try {
             // Nếu topping có giá trị, thử parse nó từ chuỗi JSON
-            parsedTopping = JSON.parse(topping);  
+            parsedTopping = JSON.parse(topping);
         } catch (e) {
             // Nếu không thể parse, trả về lỗi
             return res.status(400).send('Invalid topping data');
@@ -146,10 +170,10 @@ router.post('/edit', (req, res) => {
         existingProduct.topping = parsedTopping; // Cập nhật topping mới
 
         const toppingPrice = parsedTopping.reduce((total, toppingItem) => {
-            return total + parseFloat(toppingItem.price); 
+            return total + parseFloat(toppingItem.price);
         }, 0);
 
-        const updatedPrice = (existingProduct.cost_price + toppingPrice) * parsedQuantity;
+        const updatedPrice = (existingProduct.sale_price + toppingPrice) * parsedQuantity;
         existingProduct.total_price = updatedPrice;
 
     } else {

@@ -1,22 +1,30 @@
 import db from '../ultis/db.js';
 
 export default {
-    add_order(entity) {
-        return db('orders')
-            .insert(entity)
-            .returning('order_id') 
-            .then(([id]) => id);   
+    async add_order(entity) {
+        await db('orders').insert(entity);
+        const result = await db('orders')
+            .max('order_id as id')
+            .first();
+        return result.id;  // Trả về order_id của đơn hàng mới
     },
-    add_order_item(entity) {
-        return db('order_items')
-            .insert(entity)
-            .returning('order_item_id') // Trả về giá trị của cột tự đ��ng tăng
-            .then(([id]) => id);   // Lấy giá trị đầu tiên từ kết quả trả về
+
+    async add_order_item(entity) {
+        await db('order_items').insert(entity);
+        const result = await db('order_items')
+            .max('order_item_id as id')
+            .first();
+        return result.id;  // Trả về order_item_id của mục đơn hàng mới
     },
-    add_order_item_topping(entity) {
-        return db('order_item_toppings')
-            .insert(entity)
-            .returning('order_item_topping_id') // Trả về giá trị của cột tự đ��ng tăng
-            .then(([id]) => id);   // Lấy giá trị đầu tiên từ kết quả trả về
+
+    async add_order_item_topping(entity) {
+        await db('order_item_toppings').insert(entity);
+        const result = await db('order_item_toppings')
+            .max('order_item_topping_id as id')
+            .first();
+        return result.id;  // Trả về order_item_topping_id của topping mới
+    },
+    add_order_status_history(entity) {
+        return db('order_status_history').insert(entity);
     }
 }
