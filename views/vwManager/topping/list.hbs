@@ -17,7 +17,13 @@
     <div id="table-wrapper"></div>
 
     <script src="/node_modules/gridjs/dist/gridjs.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
     <script>
+        function formatPrice(price) {
+            return numeral(price).format('0.000') + ' VNĐ';  // Định dạng theo kiểu số VNĐ
+        }
+
         // Lấy dữ liệu từ this.toppings đã chuyển sang JSON
         const toppingData = {{{ json this.toppings }}};
 
@@ -38,7 +44,10 @@
                 },
                 {
                     name: "Giá bán",
-                    formatter: (cell) => `${cell.toLocaleString()} VNĐ`, // Định dạng giá
+                    formatter: (cell) => {
+                        const price = formatPrice(parseFloat(cell.toLocaleString()));
+                        return `${price}`
+                    },
                     sort: {
                         compare: (a, b) => {
                             if (parseFloat(a) > parseFloat(b)) {

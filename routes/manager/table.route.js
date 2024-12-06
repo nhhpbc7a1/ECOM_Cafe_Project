@@ -80,9 +80,7 @@ router.post('/add', async function (req, res) {
 
 router.get('/generate_qr_code',async function(req, res) {
 
-    const ipserver = '192.168.31.138:3000';
-
-
+    const ipserver = '10.0.41.66:3000';
 
     const url = 'http://' + ipserver + '/customer/menu?qr_code=';
 
