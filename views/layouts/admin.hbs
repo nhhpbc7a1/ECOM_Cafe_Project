@@ -68,7 +68,7 @@
                     {{!-- <img src="/manager/images/nav_component/logo.jpg" alt="" id="imgManagerAvatar"> --}}
                     <div class="row" id="txtManageName">
                         <i class="bi bi-person"></i>
-                        <p class="ml-2">TobeyNguyen</p>
+                        <p class="ml-2"  style="font-size: 16px;">{{authAccount.email}}</p>
                     </div>
                     <form id="frmLogout" action="/account/logout" method="post"></form>
                     <a class="can-hover" href="javascript: $('#frmLogout').submit()">

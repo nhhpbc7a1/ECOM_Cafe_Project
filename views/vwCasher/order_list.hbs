@@ -9,7 +9,16 @@
 
     // Khởi tạo bảng Grid.js
     new gridjs.Grid({
-        columns: ["Mã đơn", "Tên bàn", "Ngày đặt", "Trạng thái",
+        columns: ["Mã đơn", "Tên bàn",
+            "Ngày đặt",
+            /*{
+                name: "Ngày đặt",
+                formatter: (cell, row) => {
+                    const date = formatDate(row.cell[2].data,"DD/MM/YYYY HH:mm");
+                    return `${date}`;
+                }
+            },*/
+            "Trạng thái",
             {
                 name: "Hành động",
                 formatter: (cell, row) => {
